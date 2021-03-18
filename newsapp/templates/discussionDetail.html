@@ -1,0 +1,101 @@
+{% extends "baseLogged.html" %}
+{% block content %}
+    <link rel="stylesheet" href="{{ url_for('static',filename='scripts/disDetail.css') }}">
+    <script src="{{ url_for('static',filename='scripts/disDetail.js') }}"></script>
+    <span id="discussion_id" hidden>{{ discussion.id }}</span>
+    <span id="user_id" hidden>{{ user_id }}</span>
+    <div class="all">
+        <div class="detailBody">
+            <div class="author">
+                <img class="portrait" src="{{ url_for('static',filename=portrait) }}" alt="">
+                <span class="authorName">{{ discussion.author.username }}</span>
+            </div>
+            <div class="box" id="top">
+                <h1>{{ discussion.headline }}</h1>
+                <p>
+                    {{ discussion.body }}
+                </p><br>
+                <button id="join" class="myButton">
+                    <span id="joinImg" class="buttonImg"></span>
+                    <span id="joinText" class="buttonText">Join Discussion</span>
+                </button>
+                <button id="like" class="myButton">
+                    <span id="likeImg" class="buttonImg"></span>
+                    <span id="likeText" class="buttonText">Like(<span id="like_number">{{ all_likes }}</span>)</span>
+                </button>
+                <button id="dislike" class="myButton">
+                    <span id="dislikeImg" class="buttonImg"></span>
+                    <span id="dislikeText" class="buttonText">Dislike(<span id="dislike_number">{{ all_dislikes }}</span>)</span>
+                </button>
+                <br>
+                <form method="post" novalidate id="postDiv">
+                    {{ postForm.hidden_tag() }}
+                    {{ postForm.body(rows="10", cols="50", id="writePost", placeholder="Write what you want here") }}
+                    <br>
+                    {{ postForm.postSubmit(id='post') }}
+                </form>
+            </div>
+        </div>
+
+        <hr>
+        {% for p in all%}
+            <div class="nextBody">
+                <span id="post_id" hidden>{{ p.id }}</span>
+                <div class="author">
+                    <img class="portrait" src="{{ url_for('static',filename=p.portrait) }}" alt="">
+                    <span class="authorName">{{ p.username }}</span>
+                </div>
+                <div class="box">
+                    <p>
+                        {{ p.content }}
+                    </p>
+
+                    <div class="comments">
+                        <h3>Post Comments: </h3>
+                        <ul>
+                        {% for m in comments %}
+                            {% if m.post_id == p.id %}
+                                <div class="singleComment">
+                                    <li>{{ m.username }} <b>said:</b> {{ m.body }}</li>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                        </ul>
+                    </div>
+                    <button class="view">
+                        View Comments
+                        {% for m in number %}
+                            {% if m.post_id==p.id %}
+                                ({{ m.number }})
+                            {% endif %}
+                        {% endfor %}
+                    </button>
+                    <br>
+                    <span id="nothing"></span>
+                    <br>
+                    <button class="likePost">
+                        <span id="likeImg" class="buttonImg"></span>
+                        <span id="likeText" class="buttonText">Like</span>
+                    </button>
+                    <button class="dislikePost">
+                        <span id="dislikeImg" class="buttonImg"></span>
+                        <span id="dislikeText" class="buttonText">Dislike</span>
+                    </button>
+                    <button class="commentButton">
+                        <span id="commentImg" class="buttonImg"></span>
+                        <span id="commentText" class="buttonText">Comment</span>
+                    </button>
+                    <form method="post" novalidate class="commentDiv">
+                        {{ commentForm.hidden_tag() }}
+                        <span hidden>{{ commentForm.post_id(value=p.id) }}</span>
+                        {{ commentForm.body(rows="3", cols="50", class="writeComment", placeholder="Write what you want here") }}
+                        <br>
+                        {{ commentForm.commentSubmit(class='comment') }}
+                    </form>
+                </div>
+            </div>
+            <hr>
+        {% endfor %}
+
+    </div>
+{% endblock %}

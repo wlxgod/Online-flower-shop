@@ -1,0 +1,105 @@
+{% extends "baseLogged.html" %}
+
+{% block content %}
+    <link rel="stylesheet" href="{{ url_for('static',filename='scripts/invitation.css') }}">
+    <div class="invitation">
+        <h1>Invitation Form</h1>
+        <h3>* denotes mandatory field</h3>
+        <form action="" method="post" novalidate>
+            {{ form.hidden_tag() }}
+            <p>
+                {{ form.headline.label }}
+                {% for error in form.headline.errors %}
+                    <span style="color: red;">{{ error }}</span>
+                {% endfor %}
+                <br>
+                {{ form.headline(size=100) }}
+
+
+            </p>
+            <p>
+                {{ form.phone.label }}
+                {% for error in form.phone.errors %}
+                    <span style="color: red;">{{ error }}</span>
+                {% endfor %}
+                <br>
+                {{ form.phone(size=100) }}
+
+            </p>
+            <p>
+                {{ form.date.label }}
+                {% for error in form.date.errors %}
+                    <span style="color: red;">{{ error }}</span>
+                {% endfor %}
+                <br>
+                {{ form.date(size=100) }}
+
+            </p>
+
+            <p>
+                {{ form.startTime.label }}
+                {% for error in form.startTime.errors %}
+                    <span style="color: red;">{{ error }}</span>
+                {% endfor %}
+                <br>
+                {{ form.startTime(size=100) }}
+
+            </p>
+            <p>
+                {{ form.endTime.label }}
+                {% for error in form.endTime.errors %}
+                    <span style="color: red;">{{ error }}</span>
+                {% endfor %}
+                <br>
+                {{ form.endTime(size=100) }}
+
+            </p>
+            <p>
+                {{ form.covers.label }}
+                {% for error in form.covers.errors %}
+                    <span style="color: red;">{{ error }}</span>
+                {% endfor %}
+                <br>
+                {{ form.covers(size=100) }}
+
+            </p>
+            <p>
+                {{ form.venue.label }}
+                {% for error in form.venue.errors %}
+                    <span style="color: red;">{{ error }}</span>
+                {% endfor %}
+                <br>
+                {{ form.venue(size=100) }}
+
+            </p>
+            <p class="choice">
+                {{ form.category.label(id ="category") }}
+                {% for error in form.category.errors %}
+                <span style="color: red;">{{ error }}</span>
+                {% endfor %}
+                <br>
+                {% for choice in form.category %}
+                    <tr>
+                        <td>{{ choice }}</td>
+                        <td>{{ choice.label }}</td>
+                    </tr>
+                {% endfor %}
+
+
+            </p>
+
+            <p>
+                {{ form.body.label }}
+                {% for error in form.body.errors %}
+                    <span style="color: red;">{{ error }}</span>
+                {% endfor %}
+                <br>
+                {{ form.body(size=100) }}
+
+
+            </p>
+
+            <p>{{ form.submit() }}</p>
+        </form>
+    </div>
+{% endblock %}
