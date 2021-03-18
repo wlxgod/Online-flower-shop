@@ -1,0 +1,57 @@
+<html>
+    <head>
+      {% if title %}
+            <title>{{ title }}</title>
+        {% else %}
+            <title>Lazy boy</title>
+        {% endif %}
+        <link rel="stylesheet" href="{{ url_for('static',filename='scripts/topBar.css') }}">
+        <script src="{{ url_for('static',filename='scripts/jquery.js') }}"></script>
+    </head>
+    <body>
+    <div class="topBar">
+            <div class="container">
+                <div class="topBar_blocks">
+                    <a href="{{ url_for('basketball') }}">Basketball</a>
+                    <span>|</span>
+                    <a href="{{ url_for('soccer') }}">Soccer</a>
+                    <span>|</span>
+                    <a href="{{ url_for('badminton') }}">Badminton</a>
+                    <span>|</span>
+                    <a href="{{ url_for('table') }}">Table Tennis</a>
+                    <span>|</span>
+                    <a href="{{ url_for('tennis') }}">Tennis</a>
+                    <span>|</span>
+                    <a href="{{ url_for('running') }}">Running</a>
+                    <span>|</span>
+                </div>
+
+                <div class="topBar_mine">
+                    <a id='profile' href="{{ url_for('info') }}">Profile</a>
+                </div>
+
+                <div class="topBar_user">
+                    <a href="{{ url_for('choice') }}">Home</a>
+                    <span>|</span>
+                    <a href="{{ url_for('postInvitation') }}">Post Invitation</a>
+                    <span>|</span>
+                    <a href="{{ url_for('postDiscussion') }}">Post Discussion</a>
+                    <span>|</span>
+                    <a href="{{ url_for('logout') }}">Logout</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="background">
+            <div class="container">
+                {% block content %}{% endblock %}
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="footerContact">Contact Me Using Wechat: h2240073347</div>
+            <div class="footerSign">Produced by EZRA</div>
+        </div>
+    </body>
+</html>
+

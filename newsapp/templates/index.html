@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <script src="{{ url_for('static',filename='scripts/index.js') }}"></script>
+    <script src="{{ url_for('static',filename='scripts/base.js') }}"></script>
+    <link rel="stylesheet" href="{{ url_for('static',filename='scripts/index.css') }}">
+
+    <div class="imagesPlay">
+        <div class="images">
+            <img src="{{ url_for("static",filename="images/index1.jfif") }}" alt="">
+            <img src="{{ url_for("static",filename="images/index2.jfif") }}" alt="">
+            <img src="{{ url_for("static",filename="images/index3.jfif") }}" alt="">
+            <img src="{{ url_for("static",filename="images/index4.jfif") }}" alt="">
+            <img src="{{ url_for("static",filename="images/index5.jfif") }}" alt="">
+            <img src="{{ url_for("static",filename="images/index6.jfif") }}" alt="">
+        </div>
+        <div class="lists">
+            <ul>
+                <li class="active"></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+        <div class="arrows">
+            <img class="left" src="{{ url_for("static",filename="images/arrow-left.png") }}" alt="">
+            <img class="right" src="{{ url_for("static",filename="images/arrow-right.png") }}" alt="">
+        </div>
+    </div>
+
+    <h1>Join us! Enjoy sports!</h1>
+    <h2>What can we do?</h2>
+    <div class="what">
+        <div class="whatDiv">
+            <img src="{{ url_for("static",filename="images/what1.jfif") }}" alt="">
+            <div class="explain">Watch Offline Games Together!</div>
+        </div>
+        <div class="whatDiv">
+            <img src="{{ url_for("static",filename="images/what2.jfif") }}" alt="">
+            <div class="explain">Do Sports Together!</div>
+        </div>
+        <div class="whatDiv">
+            <img src="{{ url_for("static",filename="images/what3.jpg") }}" alt="">
+            <div class="explain">Online Sports Discussion!</div>
+        </div>
+
+    </div>
+    <h2>How to start?</h2>
+    <div class="how">
+        <div class="howDiv">
+            <img src="{{ url_for("static",filename="images/how1.png") }}" alt="">
+        </div>
+
+        <img src="{{ url_for("static",filename="images/arrowNext.jfif") }}" alt="">
+
+        <div class="howDiv">
+            <img src="{{ url_for("static",filename="images/how2.png") }}" alt="">
+        </div>
+
+        <img src="{{ url_for("static",filename="images/arrowNext.jfif") }}" alt="">
+
+        <div class="howDiv">
+            <img src="{{ url_for("static",filename="images/step3.png") }}" alt="">
+        </div>
+
+        <img src="{{ url_for("static",filename="images/arrowNext.jfif") }}" alt="">
+
+        <div class="howDiv">
+            <img src="{{ url_for("static",filename="images/step4.png") }}" alt="">
+        </div>
+        <img src="{{ url_for("static",filename="images/arrowNext.jfif") }}" alt="">
+
+        <div class="howDiv">
+            <img src="{{ url_for("static",filename="images/step5.png") }}" alt="">
+        </div>
+
+    </div>
+    <br>
+    <div class="final"><a  id="anim" href="{{ url_for('signup') }}">Join Us Now!</a></div>
+{% endblock %}

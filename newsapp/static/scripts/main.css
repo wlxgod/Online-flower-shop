@@ -1,0 +1,54 @@
+.background{
+    height: 100%;
+    background-image: url("../images/basketballBack.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-attachment: fixed;
+}
+.container{
+    height: 100%;
+}
+h1{
+    text-align: center;
+}
+.main{
+    background: rgba(255,255,255,0.8);
+    width: 70%;
+    height: auto;
+    margin: 0 auto;
+    padding: 40px;
+}
+#selector{
+    text-align: center;
+    width: 60%;
+    margin: 0 auto;
+    font-size: 25px;
+    height: 40px;
+}
+#selector span{
+    background: #ff267e;
+    display: inline-block;
+    line-height: 40px;
+    width: 40%;
+}
+#selector span:hover{
+    background: #ff267e;
+    color: white;
+    transition: 2s;
+}
+table{
+    width: 100%;
+}
+th{
+    font-size: 20px;
+    height: 40px;
+}
+td{
+    height: 30px;
+}
+.need{
+    text-align: center;
+}
+.float{
+    float: right;
+}
