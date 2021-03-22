@@ -24,8 +24,17 @@
                 <br>
 				{{ form.password(size=32,placeholder="Enter your username here") }}
 
-
-                <br>
+            </p>
+            <p id="space">
+				{% for choice in form.type %}
+                    <span>{{ choice.label }}</span>
+                    <span style="margin-right: 10%">{{ choice }}</span>
+                {% endfor %}
+                {% for error in form.type.errors %}
+				    <span style="color: red;">{{ error }}</span>
+				{% endfor %}
+            </p>
+            <p>
                 <span class="flush">
                     {% with messages = get_flashed_messages() %}
                         {% if messages %}
@@ -35,6 +44,7 @@
                         {% endif %}
                     {% endwith %}
                 </span>
+            </p>
 			<p>{{ form.submit() }}</p>
 		</form>
     </div>
