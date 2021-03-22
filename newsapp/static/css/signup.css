@@ -120,3 +120,12 @@ h5:hover{
     background: rgba(255,255,255,0.8);
     border: 2px solid white;
 }
+@media screen and (max-width: 1000px){
+    .hasAcount{
+        display: none;
+    }
+    .signupForm{
+        width: 80%;
+        left: 50%;
+    }
+}

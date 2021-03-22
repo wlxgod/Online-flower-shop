@@ -80,3 +80,10 @@ span{
     color: red;
     font-size: 15px;
 }
+
+
+@media screen and (max-width: 1000px) {
+    .loginForm{
+        width: 80%;
+    }
+}

@@ -41,7 +41,7 @@ def login():
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/index', methods=['GET', 'POST'])
 def index():
-    return render_template('index2.html')
+    return render_template('index.html')
 
 
 @app.route('/contact_us', methods=['GET', 'POST'])

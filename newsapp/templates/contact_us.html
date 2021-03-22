@@ -1,76 +1,23 @@
-<!doctype html>
-<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
-<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
-<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!-->
-<html lang="en">
-<!--<![endif]-->
-<head>
-<meta charset="utf-8">
-<title>XXX花店-留言板</title>
-
-<!--js-->
-    <script src="{{ url_for('static',filename='scripts/jquery-1.8.2.min.js') }}"></script>
-    <script src="{{ url_for('static',filename='scripts/common.js') }}"></script>
-    <script src="{{ url_for('static',filename='scripts/jquery.easing.1.3.js') }}"></script>
-    <script src="{{ url_for('static',filename='scripts/ddsmoothmenu.js') }}"></script>
-    <script src="{{ url_for('static',filename='scripts/jquery.flexslider.js') }}"></script>
-    <script src="{{ url_for('static',filename='scripts/jquery.elastislide.js') }}"></script>
-    <script src="{{ url_for('static',filename='scripts/jquery.jcarousel.min.js') }}"></script>
-    <script src="{{ url_for('static',filename='scripts/jquery.accordion.js') }}"></script>
-    <script src="{{ url_for('static',filename='scripts/light_box.js') }}"></script>
-    <script type="text/javascript">$(document).ready(function(){$(".inline").colorbox({inline:true, width:"50%"});});</script>
-<!--end js-->
-
-<!-- Mobile Specific Metas ================================================== -->
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-<!-- CSS ================================================== -->
-
-    <link rel="stylesheet" href="{{ url_for('static',filename='scripts/style.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static',filename='scripts/orange.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static',filename='scripts/skeleton.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static',filename='scripts/layout.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static',filename='scripts/ddsmoothmenu.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static',filename='scripts/elastislide.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static',filename='scripts/home_flexslider.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static',filename='scripts/light_box.css') }}">
-    <script src="{{ url_for('static',filename='scripts/html5.js') }}"></script>
-
-<!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-<![endif]-->
-
-<!--[if lt IE 9]>
-			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-		<![endif]-->
-
-</head>
-<body>
+{% extends "baseLogged.html" %}
+{% block content %}
 	<div class="mainContainer sixteen container">
             <!--Header Block-->
             <div class="header-wrapper">
               <header class="container">
                 <div class="head-right">
-                      <ul class="top-nav">
-                            <li class=""><a href="#" title="我的账户">我的账户</a></li>
-                            <li class="my-wishlist"><a href="#" title="购物清单">购物清单</a></li>
-        
-                            <li class="checkout"><a href="#" title="结算">结算</a></li>
-                            <li class="log-in"><a href="account_login.html" title="登录">登录</a></li>
-                      </ul>
                     
                   <section class="header-bottom">
                     <div class="cart-block">
 					<ul>
 						<li>(2)</li>
-						<li><a href="cart.html" title="Cart"><img title="Item" alt="Item" src="images/item_icon.png" /></a></li>
+						<li><a href="cart.html" title="Cart"><img title="Item" alt="Item" src="{{ url_for("static",filename="images/item_icon.png") }}" /></a></li>
 						<li>购物车</li>
 					</ul>
 					<div id="minicart" class="remain_cart" style="display: none;">
 						 <p class="empty">您的购物车中有2件商品</p>
 						 <ol>
 						 	<li>
-								<div class="img-block"><img src="images/small_img.png" title="" alt="" /></div>
+								<div class="img-block"><img src="{{ url_for("static",filename="images/small_img.png") }}" title="" alt="" /></div>
 								<div class="detail-block">
 									<h4><a href="#" title="玫瑰">玫瑰</a></h4>
 									<p>
@@ -79,12 +26,12 @@
 									<a href="#">细节展示</a>
 								</div>
 								<div class="edit-delete-block">
-									<a href="#" title="Edit"><img src="images/edit_icon.png" alt="Edit" title="Edit" /></a>
-									<a href="#" title="Remove"><img src="images/delete_item_btn.png" alt="Remove" title="Remove" /></a>
+									<a href="#" title="Edit"><img src="{{ url_for("static",filename="images/edit_icon.png") }}" alt="Edit" title="Edit" /></a>
+									<a href="#" title="Remove"><img src="{{ url_for("static",filename="images/delete_item_btn.png") }}" alt="Remove" title="Remove" /></a>
 								</div>
 							</li>
 							<li>
-								<div class="img-block"><img src="images/small_img.png" title="" alt="" /></div>
+								<div class="img-block"><img src="{{ url_for("static",filename="images/small_img.png") }}" title="" alt="" /></div>
 								<div class="detail-block">
 									<h4><a href="#" title="玫瑰">玫瑰</a></h4>
 									<p>
@@ -93,8 +40,8 @@
 									<a href="#">细节展示</a>
 								</div>
 								<div class="edit-delete-block">
-									<a href="#" title="Edit"><img src="images/edit_icon.png" alt="Edit" title="Edit" /></a>
-									<a href="#" title="Remove"><img src="images/delete_item_btn.png" alt="Remove" title="Remove" /></a>
+									<a href="#" title="Edit"><img src="{{ url_for("static",filename="images/edit_icon.png") }}" alt="Edit" title="Edit" /></a>
+									<a href="#" title="Remove"><img src="{{ url_for("static",filename="images/delete_item_btn.png") }}" alt="Remove" title="Remove" /></a>
 								</div>
 							</li>
 							<li>
@@ -112,7 +59,7 @@
                   </section>
                 </div>
                 <h1 class="logo"><a href="index.html" title="Logo">
-                  <img title="Logo" alt="Logo" src="images/logo.png" />
+                  <img title="Logo" alt="Logo" src="{{ url_for("static",filename="images/logo.png") }}" />
                   </a></h1>
                 <nav id="smoothmenu1" class="ddsmoothmenu mainMenu">
                   <ul id="nav">
@@ -200,45 +147,4 @@
 	</div>
 </section>
 </div>
-<!--页尾模块-->
-<section class="footer-wrapper">
-              <footer class="container">
-                <div class="link-block">
-                  <ul>
-                    <li class="link-title"><a href="about_us.html">关于我们 </a></li>
-                    <li><a href="#">售后政策 </a></li>
-                    <li><a href="#">客户服务</a></li>
-                    <li><a href="#">隐私权政策</a></li>
-                  </ul>
-                  <ul>
-                    <li class="link-title"><a href="#">客户服务</a></li>
-                    <li><a href="#">退换货</a></li>
-                    <li><a href="#">购物保障</a></li>
-                    <li><a href="contact_us.html">留言板</a></li>
-                  </ul>
-                  <ul>
-                    <li class="link-title"><a href="#">服务条款</a></li>
-                    <li><a href="#">新闻中心</a></li>
-                    <li><a href="#">帮助</a></li>
-                    <li><a href="#">服务条款</a></li>
-                  </ul>
-                  <ul>
-                    <li class="link-title"><a href="#">我们的实力</a></li>
-                    <li class="aboutus-block">本店商品已向全国2603个区县提供自营配送服务，支持货到付款、POS机刷卡和售后上门服务，让您购物无忧！<a href="#">更多</a> </li>
-                  </ul>
-                 
-                         
-                    </li>
-                  </ul>
-                </div>
-                <div class="footer-bottom-block">
-                  <ul class="bottom-links">
-                    <li><a href="index.html">首页</a></li>
-                    <li><a href="contact_us.html">留言板</a></li>
-                  </ul>
-                  <p class="copyright-block">Copyright &copy; 2020.XXX花店 All rights reserved.</p>
-                </div>
-              </footer>
-            </section>
-</body>
-</html>
+{% endblock %}
