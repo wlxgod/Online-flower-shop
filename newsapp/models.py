@@ -13,6 +13,15 @@ class User(db.Model):
     def __repr__(self):
         return '<User {}>'.format(self.username)
 
+class Staff(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    staffname = db.Column(db.String(64), index=True, unique=True)
+    email = db.Column(db.String(120), index=True, unique=True)
+    identity = db.Column(db.String(8))
+    password_hash = db.Column(db.String(128))
+    def __repr__(self):
+        return '<Staff {}>'.format(self.staffname)
+
 class Flower(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(64), index=True)
