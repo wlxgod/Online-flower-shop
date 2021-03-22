@@ -12,6 +12,14 @@ class LoginForm(FlaskForm):
 		label='Password',
 		validators=[DataRequired("Please enter your password")]
 	)
+	type = RadioField(
+		label = "Type",
+		validators = [DataRequired('Please specify type')],
+		choices = [
+			('0', 'Customer'),
+			('1', 'Staff')
+		]
+	)
 	submit = SubmitField('Login')
 
 
