@@ -7,8 +7,6 @@ from newsapp.forms import LoginForm, SignupForm
 from newsapp.models import User
 
 @app.route('/signup', methods=['GET', 'POST'])
-@app.route('/', methods=['GET', 'POST'])
-@app.route('/index', methods=['GET', 'POST'])
 def signup():
     form = SignupForm()
     if form.validate_on_submit():
@@ -38,6 +36,25 @@ def login():
         session['USERNAME'] = user.username
         return redirect('choice')
     return render_template('login.html', title='Log in', form=form)
+
+
+@app.route('/', methods=['GET', 'POST'])
+@app.route('/index', methods=['GET', 'POST'])
+def index():
+    return render_template('index.html')
+
+
+@app.route('/contact_us', methods=['GET', 'POST'])
+def contact_us():
+    return render_template('contact_us.html')
+
+
+
+@app.route('/category', methods=['GET', 'POST'])
+def category():
+    return render_template('category.html')
+
+
 
 '''@app.route('/logout')
 def logout():
