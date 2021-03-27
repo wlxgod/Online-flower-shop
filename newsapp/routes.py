@@ -5,7 +5,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from newsapp import app, db, Config
 from newsapp.forms import LoginForm, SignupForm
 from newsapp.models import User
-
+#laozishixuge
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
     form = SignupForm()
