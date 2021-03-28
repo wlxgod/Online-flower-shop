@@ -1,3 +1,4 @@
+import sqlalchemy
 from flask import Flask
 from newsapp.config import Config
  
