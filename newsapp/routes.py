@@ -1,4 +1,5 @@
 import os
+import time,datetime
 
 from flask import render_template, flash, redirect, url_for, session, request, jsonify, Config
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -125,6 +126,11 @@ def check_email():
 def OrderDisplay():
     orders = Order.query.all()
     order = Order.query.filter(Order.id == 1)
+    print(orders[1].timestamp.strftime("%Y/%m/%d"))
+    #just output the date
+    for order in orders:
+        order.timestamp = order.timestamp.strftime("%Y/%m/%d")
+
     return render_template('OrderDisplay.html', title='Order Display', orders=orders, order=order)
 
 
@@ -139,3 +145,9 @@ def OrderDetail(order_id):
     for basket in baskets:
         total = total+basket.total
     return render_template('OrderDetail.html', title='Order Display', order=order, flowers=flowers, orders=orders, total=total, baskets=baskets)
+
+
+@app.route('/OrderDetailT', methods=['GET', 'POST'])
+def OrderDetailT():
+
+    return render_template('OrderDetailT.html')

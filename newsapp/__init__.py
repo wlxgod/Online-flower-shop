@@ -9,4 +9,4 @@ app.config.from_object(Config)
 db = SQLAlchemy(app)
 
 
-from newsapp import routes, models
+from newsapp import routes, models,test
