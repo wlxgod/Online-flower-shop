@@ -1,0 +1,109 @@
+{% extends "baseLogged.html" %}
+{% block content %}
+    <style>
+        #back{
+            height: 80%;
+            width: 100%;
+            position: relative;
+        }
+        #about{
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #FFF5F5;
+            font-size: 4em;
+        }
+        .portraits{
+            display: block;
+            width: 25%;
+            height: 250px;
+            float: left;
+        }
+        .introductions{
+            box-sizing: border-box;
+            margin-left: 30%;
+            height: 250px;
+            background: rgba(255,255,255,.7);
+            padding: 1em;
+            font-size: 2em;
+        }
+        .intros{
+            margin-bottom: 3em;
+        }
+        .container{
+            padding-bottom: 20px;
+        }
+        li{
+            list-style: initial;
+        }
+        .introUl{
+            margin-left: 3em;
+        }
+        #processExplain{
+            margin-left: 52%;
+            height: 300px;
+            width: 48%;
+            background: rgba(255,255,255,.7);
+        }
+        #gant{
+            width: 50%;
+            height: 300px;
+            float: left;
+        }
+        #final{
+            margin-top: 4em;
+            width: 100%;
+            height: 300px;
+            background: rgba(255,255,255,.7);
+        }
+        @media screen and (max-width: 600px){
+            #gant{
+                float: none;
+                width: 100%;
+            }
+            .portraits{
+                float: none;
+                width: 100%;
+            }
+            .introductions{
+                margin: 0;
+            }
+            #processExplain{
+                width: 100%;
+                margin-left: 0;
+            }
+        }
+    </style>
+    <div id="back">
+        <div id="about">Group 15 Blizzard</div>
+        <img src="{{ url_for("static",filename="images/about_us.jfif") }}" alt="">
+    </div>
+    <div id="team">
+        <div class="intros">
+            <img class="portraits" src="{{ url_for("static",filename="images/loginP.jpg") }}" alt="">
+            <div class="introductions">
+                Ezra:
+                <ul class="introUl">
+                    <li>In charge of front end</li>
+                </ul>
+            </div>
+        </div>
+        <div class="intros">
+            <img class="portraits" src="{{ url_for("static",filename="images/loginP.jpg") }}" alt="">
+            <div class="introductions">
+                Ezra:
+                <ul class="introUl">
+                    <li>In charge of front end</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="process">
+        <img id="gant" src="{{ url_for("static",filename="images/gant.webp") }}" alt="">
+        <div id="processExplain"></div>
+    </div>
+    <div id="final">
+
+    </div>
+{% endblock %}

@@ -8,6 +8,11 @@ from newsapp.forms import LoginForm, SignupForm, FlowerForm
 from newsapp.models import Flower, Order, Basket
 from newsapp.models import User
 
+@app.route('/')
+@app.route('/welcome')
+def welcome():
+    return render_template('welcome.html')
+
 
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
@@ -21,8 +26,24 @@ def signup():
         db.session.add(user)
         db.session.commit()
         session["USERNAME"] = user.username
-        return redirect('addflower')
+        return redirect('login')
     return render_template('signup.html', title='Register a new user', form=form)
+
+
+@app.route('/signupch', methods=['GET', 'POST'])
+def signupch():
+    form = SignupForm()
+    if form.validate_on_submit():
+        if form.password.data != form.password2.data:
+            flash('Passwords do not match!')
+            return redirect(url_for('signup'))
+        passw_hash = generate_password_hash(form.password.data)
+        user = User(username=form.username.data, email=form.email.data, password_hash=passw_hash)
+        db.session.add(user)
+        db.session.commit()
+        session["USERNAME"] = user.username
+        return redirect('login')
+    return render_template('signupCh.html', title='新用户注册', form=form)
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -38,11 +59,27 @@ def login():
             return redirect(url_for('login'))
         flash('Login Successfully')
         session['USERNAME'] = user.username
-        return redirect('choice')
+        return redirect('index')
     return render_template('login.html', title='Log in', form=form)
 
+@app.route('/loginch', methods=['GET', 'POST'])
+def loginch():
+    form = LoginForm()
+    if form.validate_on_submit():
+        user = User.query.filter(User.username == form.username.data).first()
+        if user is None:
+            flash("Please Register or Retry With a Valid Username")
+            return redirect(url_for('login'))
+        if not check_password_hash(user.password_hash, form.password.data):
+            flash('Wrong Password')
+            return redirect(url_for('login'))
+        flash('Login Successfully')
+        session['USERNAME'] = user.username
+        return redirect('index')
+    return render_template('loginCh.html', title='登录', form=form)
 
-@app.route('/', methods=['GET', 'POST'])
+
+
 @app.route('/index', methods=['GET', 'POST'])
 def index():
     """flower = Flower(name="rose", intro="DO the test", price=100,
@@ -50,7 +87,7 @@ def index():
     db.session.add(flower)
     db.session.commit()"""
     posts_query=Flower.query
-    posts=posts_query.filter().first()
+    posts=posts_query.filter().all()
     print(posts)
     return render_template('index.html', posts=posts)
 
@@ -60,17 +97,24 @@ def contact_us():
     return render_template('contact_us.html')
 
 
+@app.route('/about_us')
+def about_us():
+    return render_template('about_us.html')
+
+
 @app.route('/category', methods=['GET', 'POST'])
 def category():
-    return render_template('category.html')
+    posts_query = Flower.query
+    posts = posts_query.filter().all()
+    return render_template('category.html', posts=posts)
 
 
-'''@app.route('/logout')
+@app.route('/logout')
 def logout():
     if session['USERNAME'] is None:
         return redirect(url_for('signup'))
     session.pop("USERNAME", None)
-    return redirect(url_for('signup'))'''
+    return redirect(url_for('signup'))
 
 
 @app.route('/addflower', methods=['GET', 'POST'])
@@ -139,3 +183,8 @@ def OrderDetail(order_id):
     for basket in baskets:
         total = total+basket.total
     return render_template('OrderDetail.html', title='Order Display', order=order, flowers=flowers, orders=orders, total=total, baskets=baskets)
+
+
+@app.route('/profile')
+def profile():
+    return render_template('profile.html')

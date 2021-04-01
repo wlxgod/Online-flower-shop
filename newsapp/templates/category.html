@@ -13,9 +13,9 @@
                   <section class="header-bottom">
                     <div class="cart-block">
 					<ul>
-						<li>(2)</li>
-						<li><a href="cart.html" title="Cart"><img title="Item" alt="Item" src="{{ url_for("static",filename="images/item_icon.png") }}" /></a></li>
+						<li><a href="cart.html" title="Cart"><img title="Item" alt="Item" style="height: 23px" src="{{ url_for("static",filename="images/cartIcon.png") }}" /></a></li>
 						<li>购物车</li>
+                        <li>(2)</li>
 					</ul>
 					<div id="minicart" class="remain_cart" style="display: none;">
 						 <p class="empty">您的购物车有2件商品</p>
@@ -63,7 +63,7 @@
                   </section>
                 </div>
                 <h1 class="logo"><a href="index.html">
-                  <img title="Logo" alt="Logo" src="{{ url_for("static",filename="images/logo.png") }}" />
+                  <img title="Logo" alt="Logo" src="{{ url_for("static",filename="images/logo.webp") }}" style="border-radius: 50%"/>
                   </a></h1>
                 <nav id="smoothmenu1" class="ddsmoothmenu mainMenu">
                   <ul id="nav">
@@ -126,12 +126,6 @@
 					<li><a href="#">手工艺制品</a></li>
 				</ul>
 			</div>
-			<div class="block compare-block">
-				<div class="block-title">产品比较</div>
-				<ul>
-					<li>您没有相似的鲜花要对比</li>
-				</ul>
-			</div>
 			<div class="block community-block">
 				<div class="block-title">喜好调查</div>
 				<ul>
@@ -179,127 +173,21 @@
 			</div>
 			<div class="new-product-block">
 				<ul class="product-grid">
-					<li>
-						<div class="pro-img"><img title="鲜花图" alt="鲜花图" src="{{ url_for("static",filename="images/default_img.png") }}" /></div>
-						<div class="pro-content"><p>郁金香</p></div>
-						<div class="pro-price">$69.00</div>
-						<div class="pro-btn-block">
-							<a class="add-cart left" href="#">加入购物车</a>
-							<a class="add-cart right quickCart inline" href="#quick-view-container" title="快速预览">快速预览</a>					</div>
-						<div class="pro-link-block">
-							<a class="add-wishlist left" href="#" title="收藏">收藏</a>
-							<a class="add-compare right" href="#" title="找相似">找相似</a>
-							<div class="clearfix"></div>
-						</div>
-					</li>
-					<li>
-						<div class="pro-img"><img title="鲜花图" alt="鲜花图" src="{{ url_for("static",filename="images/default_img.png") }}" /></div>
-						<div class="pro-content"><p>郁金香</p></div>
-						<div class="pro-price">￥69.00</div>
-						<div class="pro-btn-block">
-							<a class="add-cart left" href="#" title="加入购物车">加入购物车</a>
-							<a class="add-cart right quickCart inline" href="#quick-view-container" title="快速预览">快速预览</a>					</div>
-						<div class="pro-link-block">
-							<a class="add-wishlist left" href="#" title="收藏">收藏</a>
-							<a class="add-compare right" href="#" title="找相似">找相似</a>
-							<div class="clearfix"></div>
-						</div>
-					</li>
-					<li>
-						<div class="pro-img"><img title="鲜花图" alt="鲜花图" src="{{ url_for("static",filename="images/default_img.png") }}" /></div>
-						<div class="pro-content"><p>郁金香</p></div>
-						<div class="pro-price">￥69.00</div>
-						<div class="pro-btn-block">
-							<a class="add-cart left" href="#" title="加入购物车">加入购物车</a>
-							<a class="add-cart right quickCart inline" href="#quick-view-container" title="快速预览">快速预览</a>					</div>
-						<div class="pro-link-block">
-							<a class="add-wishlist left" href="#" title="收藏">收藏</a>
-							<a class="add-compare right" href="#" title="找相似">找相似</a>
-							<div class="clearfix"></div>
-						</div>
-					</li>
-				</ul>
-				<ul class="product-grid">
-					<li>
-						<div class="pro-img"><img title="鲜花图" alt="鲜花图" src="{{ url_for("static",filename="images/default_img.png") }}" /></div>
-						<div class="pro-content"><p>郁金香</p></div>
-						<div class="pro-price">￥69.00</div>
-						<div class="pro-btn-block">
-							<a class="add-cart left" href="#">加入购物车</a>
-							<a class="add-cart right quickCart inline" href="#quick-view-container" title="快速预览">快速预览</a>					</div>
-						<div class="pro-link-block">
-							<a class="add-wishlist left" href="#" title="收藏">收藏</a>
-							<a class="add-compare right" href="#" title="找相似">找相似</a>
-							<div class="clearfix"></div>
-						</div>
-					</li>
-					<li>
-						<div class="pro-img"><img title="鲜花图" alt="鲜花图" src="{{ url_for("static",filename="images/default_img.png") }}" /></div>
-						<div class="pro-content"><p>郁金香</p></div>
-						<div class="pro-price">￥69.00</div>
-						<div class="pro-btn-block">
-							<a class="add-cart left" href="#" title="加入购物车">加入购物车</a>
-							<a class="add-cart right quickCart inline" href="#quick-view-container" title="快速预览">快速预览</a>					</div>
-						<div class="pro-link-block">
-							<a class="add-wishlist left" href="#" title="收藏">收藏</a>
-							<a class="add-compare right" href="#" title="找相似">找相似</a>
-							<div class="clearfix"></div>
-						</div>
-					</li>
-					<li>
-						<div class="pro-img"><img title="鲜花图" alt="鲜花图" src="{{ url_for("static",filename="images/default_img.png") }}" /></div>
-						<div class="pro-content"><p>郁金香</p></div>
-						<div class="pro-price">￥69.00</div>
-						<div class="pro-btn-block">
-							<a class="add-cart left" href="#" title="加入购物车">加入购物车</a>
-							<a class="add-cart right quickCart inline" href="#quick-view-container" title="快速预览">快速预览</a>					</div>
-						<div class="pro-link-block">
-							<a class="add-wishlist left" href="#" title="收藏">收藏</a>
-							<a class="add-compare right" href="#" title="找相似">找相似</a>
-							<div class="clearfix"></div>
-						</div>
-					</li>
-				</ul>
-				<ul class="product-grid">
-					<li>
-						<div class="pro-img"><img title="鲜花图" alt="鲜花图" src="{{ url_for("static",filename="images/default_img.png") }}" /></div>
-						<div class="pro-content"><p>郁金香</p></div>
-						<div class="pro-price">￥69.00</div>
-						<div class="pro-btn-block">
-							<a class="add-cart left" href="#" title="加入购物车">加入购物车</a>
-							<a class="add-cart right quickCart inline" href="#quick-view-container" title="快速预览">快速预览</a>					</div>
-						<div class="pro-link-block">
-							<a class="add-wishlist left" href="#" title="收藏">收藏</a>
-							<a class="add-compare right" href="#" title="找相似">找相似</a>
-							<div class="clearfix"></div>
-						</div>
-					</li>
-					<li>
-						<div class="pro-img"><img title="鲜花图" alt="鲜花图" src="{{ url_for("static",filename="images/default_img.png") }}" /></div>
-						<div class="pro-content"><p>郁金香</p></div>
-						<div class="pro-price">￥69.00</div>
-						<div class="pro-btn-block">
-							<a class="add-cart left" href="#" title="加入购物车">加入购物车</a>
-							<a class="add-cart right quickCart inline" href="#quick-view-container" title="快速预览">快速预览</a>					</div>
-						<div class="pro-link-block">
-							<a class="add-wishlist left" href="#" title="收藏">收藏</a>
-							<a class="add-compare right" href="#" title="找相似">找相似</a>
-							<div class="clearfix"></div>
-						</div>
-					</li>
-					<li>
-						<div class="pro-img"><img title="鲜花图" alt="鲜花图" src="{{ url_for("static",filename="images/default_img.png") }}" /></div>
-						<div class="pro-content"><p>郁金香</p></div>
-						<div class="pro-price">￥69.00</div>
-						<div class="pro-btn-block">
-							<a class="add-cart left" href="#" title="加入购物车">加入购物车</a>
-							<a class="add-cart right quickCart inline" href="#quick-view-container" title="快速预览">快速预览</a>					</div>
-						<div class="pro-link-block">
-							<a class="add-wishlist left" href="#" title="收藏">收藏</a>
-							<a class="add-compare right" href="#" title="找相似">找相似</a>
-							<div class="clearfix"></div>
-						</div>
-					</li>
+                    {% for item in posts %}
+                        <li>
+                            <div class="pro-img"><img title="鲜花图" alt="鲜花图" src="static/images/{{item.img}}" /></div>
+                            <div class="pro-content"><p>{{item.name}}</p></div>
+                            <div class="pro-price">${{ item.price }}</div>
+                            <div class="pro-btn-block">
+                                <a class="add-cart left" href="#">加入购物车</a>
+                                <a class="add-cart right quickCart inline" href="#quick-view-container" title="快速预览">快速预览</a>					</div>
+                            <div class="pro-link-block">
+                                <a class="add-wishlist left" href="#" title="收藏">收藏</a>
+                                <a class="add-compare right" href="#" title="找相似">找相似</a>
+                                <div class="clearfix"></div>
+                            </div>
+                        </li>
+                    {% endfor %}
 				</ul>
 			</div>
 			<div class="pager-container">
@@ -330,17 +218,6 @@
 			</div>
 		</div>
 		<div class="clearfix"></div>
-		<div class="news-letter-container">
-			<div class="free-shipping-block">
-				<h1>享受免费送货服务</h1>
-				<p>我们把所有的订单当做节日礼物送给你！</p>
-			</div>
-			<div class="news-letter-block">
-				<h2>免费送货电话</h2>
-				<input type="text" value="手机号" />
-				<input type="submit" value="提交"/>
-			</div>
-		</div>	
 	</div>
 </section>
 </div>

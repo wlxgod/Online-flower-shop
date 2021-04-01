@@ -1,5 +1,5 @@
 ﻿
-	html, body, div, span, applet, object, iframe,  h1, h2, h3, h4, h5, h6, p, blockquote, pre,  a, abbr, acronym, address, big, cite, code,  del, dfn, em, img, ins, kbd, q, s, samp,  small, strike, strong, sub, sup, tt, var,  b, u, i, center,  dl, dt, dd, ol, ul, li,  fieldset, form, label, legend,  table, caption, tbody, tfoot, thead, tr, th, td,  article, aside, canvas, details, embed,  figure, figcaption, footer, header, hgroup,  menu, nav, output, ruby, section, summary,  time, mark, audio, video {
+html, body, div, span, applet, object, iframe,  h1, h2, h3, h4, h5, h6, p, blockquote, pre,  a, abbr, acronym, address, big, cite, code,  del, dfn, em, img, ins, kbd, q, s, samp,  small, strike, strong, sub, sup, tt, var,  b, u, i, center,  dl, dt, dd, ol, ul, li,  fieldset, form, label, legend,  table, caption, tbody, tfoot, thead, tr, th, td,  article, aside, canvas, details, embed,  figure, figcaption, footer, header, hgroup,  menu, nav, output, ruby, section, summary,  time, mark, audio, video {
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -61,7 +61,10 @@ table {
 	font-family: Arial, "Definitely Not Helvetica", sans-serif !important;
 }
 body {
-	background: #fff;
+	background-image: url("../images/test2.webp");
+	background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-attachment: fixed;
 	font-family: "Droid Sans", "HelveticaNeue", Helvetica, Arial, "Lucida Grande", sans-serif;
 	font-size: 16px;
 	font-size:12px;
@@ -140,11 +143,15 @@ h6 {
 
   	
 
-  	p {
-	font-size: 16px;
-	font-size:12px;
+p {
+	color: springgreen;
+	font-size:18px;
 	line-height: 1.6;
 	margin: 0 0 18px;
+}
+.detail-block p{
+	font-size: 14px;
+	color: black;
 }
 p img {
 	margin: 0;
@@ -758,11 +765,11 @@ header {
 	width:304px;
 	padding:0px 17px;
 	font-size:11px;
-	color:#5F5F5F;
+	color:#f0f0f0;
 }
 .header-wrapper header .search-block input[type='submit'] {
 	border:0px;
-	background: url("../images/search_icon.png") no-repeat center center;
+	background: url("../images/searchIcon.png") no-repeat center center;
 	float: left;
 	overflow:visible;
 	padding:0;
@@ -788,7 +795,7 @@ header {
 	float:left;
 	padding:0px 3px;
 	font-size:11px;
-	color:#7F7F7F;
+	color:#f0f0f0;
 }
 .header-wrapper header .header-bottom .cart-block ul li img {
 	display:block;
@@ -929,7 +936,7 @@ header {
 	font-weight:normal;
 	line-height:16px;
 	padding:6px 0px 0px;
-	color:#242632;
+	color: snow;
 	float:left;
 }
 .content-wrapper .content-container .heading-block .pagination {
@@ -1020,8 +1027,8 @@ header {
 .content-wrapper .content-container .col-main .new-product-block .product-grid li {
 	width:243px;
 }
-.content-wrapper .content-container .new-product-block .product-grid li + li {
-	margin-left:14px;
+.content-wrapper .content-container .new-product-block .product-grid li {
+	margin: 5px;
 }
 .content-wrapper .content-container .feature-block .product-grid li {
 	margin-right:10px;
@@ -1151,7 +1158,7 @@ header {
 .content-wrapper .content-container .new-product-block .product-grid li .pro-link-block a {
 	font-size:11px;
 	padding-left:22px;
-	color:#444;
+	color: #aaeeff;
 	-moz-transition: all 400ms ease-in-out 0s;
 	-ms-transition: all 400ms ease-in-out 0s;
 	-o-transition: all 400ms ease-in-out ;
@@ -1484,10 +1491,9 @@ ul.form-list li label em {
 }
 .col-left .block .block-title {
 	padding:10px 11px;
-	background:#F5F5F5;
 	border-bottom:1px solid #ddd;
 	font-size:13px;
-	color:#444;
+	color:#f0f0f0;
 	line-height:14px;
 }
 .col-left .man-block .block-title {
@@ -1545,7 +1551,7 @@ ul.form-list li label em {
 }
 .col-left .man-block ul li a {
 	font-size:12px;
-	color:#404040;
+	color: yellow;
 	display:inline-block;
 	background:url(../images/left_nav_arrow.png) no-repeat 0px 10px;
 	padding-left:12px;
@@ -1588,6 +1594,7 @@ ul.form-list li label em {
 	padding-right:7px;
 }
 .col-main .pager-container .pager .show-per-page label, .col-main .pager-container .view-by-block .short-by label {
+	color: #f0f0f0;
 	float:left;
 	padding-right:10px;
 }
@@ -2168,8 +2175,7 @@ h1.page-title {
 	vertical-align:top;
 	font-size:13px;
 	line-height:15px;
-	background:#F1F1F1;
-	color:#333;
+	color:yellow;
 	padding:12px 11px;
 }
 .contact-form-container .form-fields {
@@ -2189,6 +2195,7 @@ h1.page-title {
 	display:inline-block;
 	width:100%;
 	vertical-align:top;
+	color: yellow;
 }
 .contact-form-container .form-fields li label em {
 	color:#f00;

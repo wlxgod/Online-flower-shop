@@ -1,0 +1,80 @@
+{% extends "baseCh.html" %}
+
+{% block content %}
+    <script src="{{ url_for('static',filename='scripts/signup.js') }}"></script>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/signup.css') }}">
+
+    <div class="hasAcount">
+        <img src="../static/images/signup2.jfif" alt="">
+        <div class="hasAcountTitle">
+            <h2>已有账户?</h2>
+            <h5>那么直接点击下方按钮完成登录！ </h5>
+        </div>
+        <a id='logina'class="hasAcountA" href="{{ url_for('login') }}">在这里登录</a>
+    </div>
+    <div class="signupForm">
+
+        <h1>欢迎来到暴雪花店!</h1>
+        <p>输入以下信息完成登录</p>
+        <form action="" method="post" novalidate>
+            {{ form.hidden_tag() }}
+            <p>
+                输入您想要的用户名
+                <span id="checkuser"></span>
+                {% for error in form.username.errors %}
+                    <span style="font-size: 15px;color: red;">{{ error }}</span>
+                {% endfor %}
+                <br>
+                {{ form.username(size=32,id="username") }}
+
+
+
+
+
+            </p>
+            <p>
+                输入您的邮箱
+                <span id="checkemail"></span>
+                {% for error in form.email.errors %}
+                    <span style="font-size: 15px;color: red;">{{ error }}</span>
+                {% endfor %}
+                <br>
+                {{ form.email(size=32, id="email") }}
+
+
+
+            </p>
+            <p>
+                输入您的密码
+                {% for error in form.password.errors %}
+                    <span style="font-size: 15px;color: red;">{{ error }}</span>
+                {% endfor %}
+                <br>
+                {{ form.password(size=35,id="password") }}
+
+
+
+            </p>
+            <p>
+                确认密码
+                {% for error in form.password2.errors %}
+                    <span style="font-size: 15px;color: red;">{{ error }}</span>
+                {% endfor %}
+                <br>
+                {{ form.password2(size=35) }}
+            <br>
+                <span class="flush">
+                    {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                            {% for message in messages %}
+                                <span style="color: red">{{ message }}</span>
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+                </span>
+                <br>
+            </p>
+            <p id="submitP">{{ form.submit(value="完成注册") }}</p>
+        </form>
+    </div>
+{% endblock %}

@@ -14,9 +14,9 @@
                   <!--section新标签，与div类似，语义化-->
                     <div class="cart-block"><!--购物车-->
 					<ul>
-						<li>(2)</li>
-						<li><a href="#" title="购物车"><img title="购物车" alt="购物车" src="{{ url_for("static",filename="images/item_icon.png") }}" /></a></li>
+						<li><a href="cart.html" title="Cart"><img title="Item" alt="Item" style="height: 23px" src="{{ url_for("static",filename="images/cartIcon.png") }}" /></a></li>
 						<li>购物车</li>
+                        <li>(2)</li>
 					</ul>
 					<div id="minicart" class="remain_cart" style="display: none;">
 						 <p class="empty">您的购物车共有2件商品</p>
@@ -76,7 +76,7 @@
                          <!--LOGO-->
                 
                 <h1 class="logo">
-                  <img title="Logo" alt="Logo" src="{{ url_for("static",filename="images/logo.png") }}" /></h1>
+                  <img title="Logo" alt="Logo" src="{{ url_for("static",filename="images/logo.webp") }}" style="border-radius: 50%"/></h1>
                   
                 <nav id="smoothmenu1" class="ddsmoothmenu mainMenu">
                 <!--nav标签定义导航链接的部分，是H5的新标签，优点是语义化-->
@@ -123,10 +123,11 @@
               <div class="banner-block container">
                 <div class="flexslider"><!--调用框架接口-->
                   <ul class="slides">
-                    <li><img title="Banner" alt="Banner" src="{{ url_for("static",filename="images/banner1.png") }}" /></li>
-                    <li><img title="Banner" alt="Banner" src="{{ url_for("static",filename="images/banner2.png") }}" /></li>
-                    <li><img title="Banner" alt="Banner" src="{{ url_for("static",filename="images/banner3.png") }}" /></li>
-                    <li><img title="Banner" alt="Banner" src="{{ url_for("static",filename="images/banner4.png") }}" /></li>
+                      <li><img title="Banner" alt="Banner" src="{{ url_for("static",filename="images/banner1.jfif") }}" /></li>
+                      <li><img title="Banner" alt="Banner" src="{{ url_for("static",filename="images/banner2.jfif") }}" /></li>
+                      <li><img title="Banner" alt="Banner" src="{{ url_for("static",filename="images/banner3.webp") }}" /></li>
+                      <li><img title="Banner" alt="Banner" src="{{ url_for("static",filename="images/banner4.webp") }}" /></li>
+                      <li><img title="Banner" alt="Banner" src="{{ url_for("static",filename="images/banner5.png") }}" /></li>
                   </ul>
                 </div>
                 <ul class="banner-add">
@@ -153,108 +154,18 @@
                 <!--feature：特色，特价-->
                 <div class="feature-block">
                   <ul id="mix" class="product-grid">
-                    <li><!--第一个-->
-                      <div class="pro-img"><img title="Freature Product" alt="Freature Product" src="{{ url_for("static",filename="images/default_img1.png") }}" /></div>
-                      <div class="pro-hover-block">
-                      <!--“热卖商品”和“新品上架”区别：鼠标经过-->
-                        <h4 class="pro-name">玫瑰</h4>
-                        <div class="link-block"> 
-                        <a href="#quick-view-container" class="quickllook inline" title="快速浏览">快速浏览</a> 
-                        <a href="index.html" class="quickproLink" title="Link">产品链接</a></div>
-                        <div class="pro-price">￥69.00</div>
-                      </div>
-                    </li>
-                    
-                    <li><!--第二个-->
-                      <div class="pro-img"><img title="Freature Product" alt="Freature Product" src="{{ url_for("static",filename="images/default_img2.png") }}" /></div>
-                      <div class="pro-hover-block">
-                        <h4 class="pro-name">康乃馨</h4>
-                        <div class="link-block"> 
-                        <a href="#quick-view-container" class="quickllook inline" title="快速浏览">快速浏览</a> 
-                        <a href="index.html" class="quickproLink" title="Link">产品链接</a></div>
-                        <div class="pro-price">￥69.00</div>
-                      </div>
-                    </li>
-                    <li><!--第三个-->
-                      <div class="pro-img"><img title="Freature Product" alt="Freature Product" src="{{ url_for("static",filename="images/default_img3.png") }}" /></div>
-                      <div class="pro-hover-block">
-                        <h4 class="pro-name">玫瑰</h4>
-                        <div class="link-block"> 
-                        <a href="#quick-view-container" class="quickllook inline" title="快速浏览">快速浏览</a> 
-                        <a href="index.html" class="quickproLink" title="Link">产品链接</a></div>
-                        <div class="pro-price">￥69.00</div>
-                      </div>
-                    </li>
-                    <li><!--第四个-->
-                      <div class="pro-img"><img title="Freature Product" alt="Freature Product" src="{{ url_for("static",filename="images/default_img1.png") }}" /></div>
-                      <div class="pro-hover-block">
-                        <h4 class="pro-name">玫瑰</h4>
-                        <div class="link-block"> 
-                        <a href="#quick-view-container" class="quickllook inline" title="快速浏览">快速浏览</a> 
-                        <a href="index.html" class="quickproLink" title="Link">产品链接</a></div>
-                        <div class="pro-price">￥69.00</div>
-                      </div>
-                    </li>
-                    <li><!--第五个-->
-                      <div class="pro-img"><img title="Freature Product" alt="Freature Product" src="{{ url_for("static",filename="images/default_img4.png") }}" /></div>
-                      <div class="pro-hover-block">
-                        <h4 class="pro-name">玫瑰</h4>
-                        <div class="link-block">
-                        <a href="#quick-view-container" class="quickllook inline" title="快速浏览">快速浏览</a>
-                        <a href="index.html" class="quickproLink" title="Link">产品链接</a></div>
-                        <div class="pro-price">￥69.00</div>
-                      </div>
-                    </li>
-                    <li><!--第六个-->
-                      <div class="pro-img"><img title="Freature Product" alt="Freature Product" src="{{ url_for("static",filename="images/default_img5.png") }}" /></div>
-                      <div class="pro-hover-block">
-                        <h4 class="pro-name">玫瑰</h4>
-                        <div class="link-block">
-                        <a href="#quick-view-container" class="quickllook inline" title="快速浏览">快速浏览</a>
-                        <a href="index.html" class="quickproLink" title="Link">产品链接</a></div>
-                        <div class="pro-price">￥69.00</div>
-                      </div>
-                    </li>
-                    <li><!--第八个-->
-                      <div class="pro-img"><img title="Freature Product" alt="Freature Product" src="{{ url_for("static",filename="images/default_img.png") }}" /></div>
-                      <div class="pro-hover-block">
-                        <h4 class="pro-name">玫瑰</h4>
-                        <div class="link-block">
-                        <a href="#quick-view-container" class="quickllook inline" title="快速浏览">快速浏览</a>
-                        <a href="index.html" class="quickproLink" title="Link">产品链接</a></div>
-                        <div class="pro-price">￥69.00</div>
-                      </div>
-                    </li>
-                    <li><!--第九个-->
-                      <div class="pro-img"><img title="Freature Product" alt="Freature Product" src="{{ url_for("static",filename="images/default_img6.png") }}" /></div>
-                      <div class="pro-hover-block">
-                        <h4 class="pro-name">玫瑰</h4>
-                        <div class="link-block">
-                        <a href="#quick-view-container" class="quickllook inline" title="快速浏览">快速浏览</a>
-                        <a href="index.html" class="quickproLink" title="Link">产品链接</a></div>
-                        <div class="pro-price">￥69.00</div>
-                      </div>
-                    </li>
-      				<li><!--第十个-->
-                      <div class="pro-img"><img title="Freature Product" alt="Freature Product" src="{{ url_for("static",filename="images/default_img7.png") }}" /></div>
-                      <div class="pro-hover-block">
-                        <h4 class="pro-name">玫瑰</h4>
-                        <div class="link-block">
-                        <a href="#quick-view-container" class="quickllook inline" title="快速浏览">快速浏览</a>
-                        <a href="index.html" class="quickproLink" title="Link">产品链接</a></div>
-                        <div class="pro-price">￥69.00</div>
-                      </div>
-                    </li>
-                      <li><!--第十一个-->
-                      <div class="pro-img"><img title="Freature Product" alt="Freature Product" src="static/images/{{posts.img}}" /></div>
-                      <div class="pro-hover-block">
-                        <h4 class="pro-name">{{posts.name}}</h4>
-                        <div class="link-block">
-                        <a href="#quick-view-container" class="quickllook inline" title="快速浏览">快速浏览</a>
-                        <a href="index.html" class="quickproLink" title="Link">产品链接</a></div>
-                        <div class="pro-price">￥{{posts.price}}</div>
-                      </div>
-                    </li>
+                      {% for item in posts%}
+                          <li><!--第十一个-->
+                              <div class="pro-img"><img title="Freature Product" alt="Freature Product" src="static/images/{{item.img}}" /></div>
+                              <div class="pro-hover-block">
+                                <h4 class="pro-name">{{item.name}}</h4>
+                                <div class="link-block">
+                                <a href="#quick-view-container" class="quickllook inline" title="快速浏览">快速浏览</a>
+                                <a href="index.html" class="quickproLink" title="Link">产品链接</a></div>
+                                <div class="pro-price">￥{{item.price}}</div>
+                              </div>
+                          </li>
+                      {% endfor %}
                   </ul>
                 </div>
                 
@@ -267,14 +178,15 @@
                 </div>
                 <div class="new-product-block">
                   <ul class="product-grid">
+                    {% for item in posts %}
                     <li>
                       <div class="pro-img">
-                        <img title="Freature Product" alt="Freature Product" src="{{ url_for("static",filename="images/default_img8.png") }}" />
+                        <img title="Freature Product" alt="Freature Product" src="static/images/{{item.img}}" />
                       </div>
                       <div class="pro-content">
-                        <p>百合花</p>
+                        <p>{{ item.name }}</p>
                       </div>
-                      <div class="pro-price">￥69.00</div>
+                      <div class="pro-price">￥{{item.price}}</div>
                       <div class="pro-btn-block"> 
                       <a class="add-cart left" href="#">加入购物车</a> 
                       <a class="add-cart right quickCart inline" href="#quick-view-container" title="快速浏览">快速浏览</a> </div>
@@ -282,99 +194,7 @@
                         <div class="clearfix"></div>
                       </div>
                     </li>
-                    <li>
-                      <div class="pro-img">
-                        <img title="Freature Product" alt="Freature Product" src="{{ url_for("static",filename="images/default_img9.png") }}" />
-                      </div>
-                      <div class="pro-content">
-                        <p>玫瑰花</p>
-                      </div>
-                      <div class="pro-price">￥69.00</div>
-                      <div class="pro-btn-block"> <a class="add-cart left" href="#" title="加入购物车">加入购物车</a> <a class="add-cart right quickCart inline" href="#quick-view-container" title="快速浏览">快速浏览</a> </div>
-                      <div class="pro-link-block"> <a class="add-wishlist left" href="#" title="收藏">收藏</a> <a class="add-compare right" href="#" title="找相似">找相似</a>
-                        <div class="clearfix"></div>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="pro-img">
-                        <img title="Freature Product" alt="Freature Product" src="{{ url_for("static",filename="images/default_img10.png") }}" />
-                      </div>
-                      <div class="pro-content">
-                        <p>玫瑰花</p>
-                      </div>
-                      <div class="pro-price">￥69.00</div>
-                      <div class="pro-btn-block"> <a class="add-cart left" href="#" title="加入购物车">加入购物车</a> <a class="add-cart right quickCart inline" href="#quick-view-container" title="快速浏览">快速浏览</a> </div>
-                      <div class="pro-link-block"> <a class="add-wishlist left" href="#" title="收藏">收藏</a> <a class="add-compare right" href="#">找相似</a>
-                        <div class="clearfix"></div>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="pro-img">
-                        <img title="Freature Product" alt="Freature Product" src="{{ url_for("static",filename="images/default_img11.png") }}" />
-                      </div>
-                      <div class="pro-content">
-                        <p>玫瑰花</p>
-                      </div>
-                      <div class="pro-price">￥69.00</div>
-                      <div class="pro-btn-block"> <a class="add-cart left" href="#" title="加入购物车">加入购物车</a> <a class="add-cart right quickCart inline" href="#quick-view-container" title="快速浏览">快速浏览</a> </div>
-                      <div class="pro-link-block"> <a class="add-wishlist left" href="#" title="收藏">收藏</a> <a class="add-compare right" href="#" title="找相似">找相似</a>
-                        <div class="clearfix"></div>
-                      </div>
-                    </li>
-                  </ul>
-                  <ul class="product-grid">
-                    <li>
-                      <div class="pro-img">
-                        <img title="Freature Product" alt="Freature Product" src="{{ url_for("static",filename="images/default_img12.png") }}" />
-                      </div>
-                      <div class="pro-content">
-                        <p>玫瑰花</p>
-                      </div>
-                      <div class="pro-price">$69.00</div>
-                      <div class="pro-btn-block"> <a class="add-cart left" href="#">加入购物车</a> <a class="add-cart right quickCart inline" href="#quick-view-container" title="快速浏览">快速浏览</a> </div>
-                      <div class="pro-link-block"> <a class="add-wishlist left" href="#">收藏</a> <a class="add-compare right" href="#">找相似</a>
-                        <div class="clearfix"></div>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="pro-img">
-                        <img title="Freature Product" alt="Freature Product" src="{{ url_for("static",filename="images/default_img13.png") }}" />
-                      </div>
-                      <div class="pro-content">
-                        <p>玫瑰花</p>
-                      </div>
-                      <div class="pro-price">￥69.00</div>
-                      <div class="pro-btn-block"> <a class="add-cart left" href="#">加入购物车</a> <a class="add-cart right quickCart inline" href="#quick-view-container">快速浏览</a> </div>
-                      <div class="pro-link-block"> <a class="add-wishlist left" href="#" title="收藏">收藏</a> <a class="add-compare right" href="#">找相似</a>
-                        <div class="clearfix"></div>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="pro-img">
-                        <img title="Freature Product" alt="Freature Product" src="{{ url_for("static",filename="images/default_img14.png") }}" />
-                      </div>
-                      <div class="pro-content">
-                        <p>玫瑰花</p>
-                      </div>
-                      <div class="pro-price">￥69.00</div>
-                      <div class="pro-btn-block"> <a class="add-cart left" href="#">加入购物车</a> <a class="add-cart right quickCart inline" href="#quick-view-container" title="快速浏览">快速浏览</a> </div>
-                      <div class="pro-link-block"> <a class="add-wishlist left" href="#" title="收藏">收藏</a> <a class="add-compare right" href="#">找相似</a>
-                        <div class="clearfix"></div>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="pro-img">
-                        <img title="Freature Product" alt="Freature Product" src="{{ url_for("static",filename="images/default_img.png") }}" />
-                      </div>
-                      <div class="pro-content">
-                        <p>玫瑰花</p>
-                      </div>
-                      <div class="pro-price">￥69.00</div>
-                      <div class="pro-btn-block"> <a class="add-cart left" href="#">加入购物车</a> <a class="add-cart right quickCart inline" href="#quick-view-container">快速浏览</a> </div>
-                      <div class="pro-link-block"> <a class="add-wishlist left" href="#" title="收藏">收藏</a> <a class="add-compare right" href="#">找相似</a>
-                        <div class="clearfix"></div>
-                      </div>
-                    </li>
+                    {% endfor %}
                   </ul>
                 </div>
                 
@@ -382,18 +202,7 @@
                 
                 
                 
-                <div class="news-letter-container">
-                  <div class="free-shipping-block">
-                    <h1>享受免费送货服务</h1>
-                    <p>我们把所有的订单当做节日礼物送给你！</p>
-                  </div>
-                  <div class="news-letter-block">
-                    <h2>免费送货电话</h2>
-                    <input type="text" value="手机号"  />
-                    <input type="submit" value="提交"  />
-                    <!--submit：定义提交按钮-->
-                  </div>
-                </div>
+
               </div>
             </section>
     </div> 
