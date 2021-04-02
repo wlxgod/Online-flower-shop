@@ -24,7 +24,7 @@ a:hover {
 }
 
 #header h1 {
-    background: url("/static/images/logo.png") no-repeat scroll 0 0 transparent;
+    background: url("/static/images/logo.jfif") no-repeat scroll 0 0 transparent;
     height: 31px;
     left: 15px;
     line-height: 600px;
@@ -32,6 +32,7 @@ a:hover {
     position: relative;
     top: 24px;
     width: 191px;
+	background-size: cover;
 }
 
 #header h1 a {
@@ -1339,6 +1340,70 @@ form {
 .help-block, .help-inline {
     color: #999999;
 }
+.backgroundB{
+	z-index: 2;
+
+	/*opacity: 0.5;*/
+	/*height: auto;*/
+	/*width: auto;*/
+	background-image: url("/static/images/b.png");
+	/*background-color: rgba(0,0,0,0.4);*/
+
+	background-size: contain;
+	/*background-position: center;*/
+}
+.backgroundB::before{
+	content: "";
+	position: absolute;
+	/*background-image: url("/static/images/b.png");*/
+	background-size: 500px 300px;
+	/*width: 500px;*/
+	/*height: 300px;*/
+	/*opacity: 0.5;*/
+	z-index: 3;
+
+
+}
+
+.backgroundA{
+	position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 500px;
+    height: 300px;
+    line-height: 50px;
+    text-align: center;
+
+}
+
+.picA{
+	z-index: -1;
+	position: absolute;
+	height: min-content;
+}
+.formA{
+	opacity: 0.9;
+
+}
+.formA label{
+	opacity: 1;
+	font-weight: bold;
+	font-family: "Comic Sans MS";
+	font-size: large;
+	/*color: #BD6B09;*/
+	color: rgba(189,107,9,2);
+
+}
+.formA input{
+	background-color: rgb(251,249,154);
+}
+.formA textarea{
+	background-color: rgb(251,249,154);
+}
+
+
 /* Responsive design */
 @media (max-width: 480px) {
 	#header h1 {

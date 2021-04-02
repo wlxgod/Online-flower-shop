@@ -18,11 +18,13 @@ $(document).ready(function(){
 			},
 			price:{
 				required:true,
-				number:true
+				number:true,
+				min: 0
 			},
 			avail:{
 				required:true,
-				min:1
+				min:1,
+				digits:true
 			},
 			photos:{
 				required:true
