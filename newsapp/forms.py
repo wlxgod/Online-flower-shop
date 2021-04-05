@@ -57,4 +57,7 @@ class FlowerForm(FlaskForm):
     address = StringField('Shop address', validators=[DataRequired()]) # 店铺地址
     submit = SubmitField('Comfirm')
 
+class SearchForm(FlaskForm):
+	content = StringField('Content', validators=[DataRequired()])
+
 

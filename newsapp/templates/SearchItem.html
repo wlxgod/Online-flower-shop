@@ -1,4 +1,4 @@
-﻿{% extends "baseLogged.html" %}
+{% extends "baseLogged.html" %}
 {% block content %}
     <div class="mainContainer big container"><!--主要内容区-->
         <!--Header Block-->
@@ -147,7 +147,6 @@
         <!--Content Block--><!--内容区-->
         <section class="content-wrapper">
             <div class="content-container container">
-            {% if posts==posts2 %}
                 <div class="heading-block">
                     <h1>热卖商品</h1>
                     <ul class="pagination">
@@ -174,22 +173,14 @@
                         {% endfor %}
                     </ul>
                 </div>
-            {% endif %}
 
 
                 <div class="heading-block">
-                    {% if posts!=posts2 %}
                     <h1>搜索所得</h1>
-                    {% else %}
-                    <h1>新品上架</h1>
-                    {% endif %}
                 </div>
                 <div class="new-product-block">
-                {% if posts2 == [] %}
-                    搜索为空
-                {% endif %}
                     <ul class="product-grid">
-                        {% for item in posts2 %}
+                        {% for item in posts %}
                             <li>
                                 <div class="pro-img">
                                     <img title="Freature Product" alt="Freature Product"
