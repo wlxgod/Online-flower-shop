@@ -1,63 +1,19 @@
 .background{
     min-height: 100%;
-    height: auto;
-    background-image: url("../images/profile.jfif");
+    height: 100%;
+}
+body{
+    background-image: url("../images/profile.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
+    height: 100%;
 }
 .container{
-    height: auto;
+    height: 100%;
 }
-.personal{
-    position: absolute;
-    top: 65%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    width: 40%;
-    min-height: 50%;
-    height: auto;
+#profileDiv{
+    width: 100%;
+    height: 100%;
     background: rgba(255,255,255,0.7);
-    padding: 50px 40px;
-}
-img{
-    width: 250px;
-    height: 250px;
-    border-radius: 50%;
-    position: absolute;
-    top: -100px;
-    left: calc(50% - 125px);
-}
-h1{
-    text-align: center;
-    margin-top: 100px;
-}
-table{
-    font-size: 20px;
-    margin-left: 20%;
-    height: auto;
-}
-td{
-    height: 40px;
-}
-.center{
-    text-align: center;
-}
-.side{
-    background: rgba(0,255,255,0.7);
-    position: absolute;
-    top: 0;
-    width: 40%;
-    right: -40%;
-}
-.index{
-    font-weight: bold;
-    margin-left: 10px;
-    font-size: 20px;
-}
-.detail{
-    margin-left: 30px;
-}
-#left{
-    text-align: left;
 }

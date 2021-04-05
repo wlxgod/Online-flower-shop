@@ -54,20 +54,20 @@
     <div class="topBar">
             <div class="container">
                  <div class="topBar_blocks">
-                    <a href="#">Basketball</a>
+                    <a href="#">Rose</a>
                     <span>|</span>
-                    <a href="#">Soccer</a>
+                    <a href="#">Carnation</a>
                     <span>|</span>
                 </div>
 
                 <div class="topBar_mine">
-                    <a id='profile' href="#">My Account</a>
+                    <a id='profile' href="{{ url_for('profile') }}">My Account</a>
                 </div>
 
                 <div class="topBar_user">
-                    <a href="#">Home</a>
+                    <a href="{{ url_for('index') }}">Home</a>
                     <span>|</span>
-                    <a href="#">Logout</a>
+                    <a href="{{ url_for('logout') }}">Logout</a>
                 </div>
             </div>
         </div>

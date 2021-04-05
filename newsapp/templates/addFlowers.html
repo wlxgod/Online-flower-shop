@@ -5,14 +5,14 @@
     <meta charset="UTF-8" />
     <meta name="author" content="order by dede58.com"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="static/scripts/bootstrap.min.css" />
-    <link rel="stylesheet" href="static/scripts/bootstrap-responsive.min.css" />
-    <link rel="stylesheet" href="static/scripts/colorpicker.css" />
-    <link rel="stylesheet" href="static/scripts/datepicker.css" />
-    <link rel="stylesheet" href="static/scripts/uniform.css" />
-    <link rel="stylesheet" href="static/scripts/select2.css" />
-    <link rel="stylesheet" href="static/scripts/unicorn.main.css" />
-    <link rel="stylesheet" href="static/scripts/unicorn.grey.css" class="skin-color" />
+    <link rel="stylesheet" href="static/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="static/css/bootstrap-responsive.min.css" />
+    <link rel="stylesheet" href="static/css/colorpicker.css" />
+    <link rel="stylesheet" href="static/css/datepicker.css" />
+    <link rel="stylesheet" href="static/css/uniform.css" />
+    <link rel="stylesheet" href="static/css/select2.css" />
+    <link rel="stylesheet" href="static/css/unicorn.main.css" />
+    <link rel="stylesheet" href="static/css/unicorn.grey.css" class="skin-color" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
 <body>
 
@@ -114,25 +114,26 @@
 <!--                              modify hereeeeeeeee<mo></mo>-->
 
                     <div class="widget-content nopadding">
-                        <form action="#" method="post" class="form-horizontal" name="just_validate" id="just_validate" novalidate="novalidate" enctype="multipart/form-data"/>
+                        <form action="" method="post" enctype="multipart/form-data" class="form-horizontal" id="just_validate" novalidate>
+                        {{ form.hidden_tag() }}
                         <div class="control-group">
                             <label class="control-label">Flowers name</label>
                             <div class="controls">
-                                <input type="text" id="req" name="req" placeholder="entered the flowers name here"/>
+                                {{ form.name(id='req', placeholder="entered the flowers name here") }}
                             </div>
                         </div>
 
                         
                         <div class="control-group">
-                            <label class="control-label">Flower meaning</label>
+                            <label class="control-label">Shop address</label>
                             <div class="controls">
-                                <input type="text" name="mean" placeholder="describe the metaphor of the flower here (like honest loyal diligent)"/>
+                                {{ form.address(placeholder="show your shop's location") }}
                             </div>
                         </div>
                         <div class="control-group">
                             <label class="control-label">Flower detail</label>
                             <div class="controls">
-                                <textarea type="text" name="detail" placeholder="Maybe it is a bunch of flower"></textarea>
+                                {{ form.detail(placeholder="Maybe it is a bunch of flower") }}
                                 <span class="help-block">such as the color flavour or ingredient</span>
                             </div>
                         </div>
@@ -140,29 +141,29 @@
                         <div class="control-group">
                             <label class="control-label">Upload photo</label>
                             <div class="controls">
-                                <input type="file" name="photos" multiple="multiple"/>
+                                {{ form.image() }}
                             </div>
                         </div>
 
                         <div class="control-group">
                             <label class="control-label">Flower Price</label>
                             <div class="controls">
-                                <input type="text" name="price" placeholder="enter the price here"/>
+                                {{ form.price(placeholder="enter the price here") }}
                             </div>
                         </div>
 
                         <div class="control-group">
                             <label class="control-label">Inventory number</label>
                             <div class="controls">
-                                <input type="text" name="avail" placeholder="the number of available flowers in the warehouse"/>
-                                <span class="help-block">0~99</span>
+                                {{ form.number(placeholder="the number of available flowers in the warehouse") }}
+                                <span class="help-block">0~999</span>
                             </div>
                         </div>
 
 
 
                         <div class="form-actions">
-                            <button type="submit" value="Validate" class="btn btn-primary">Save</button>
+                            {{ form.submit(class="btn btn-primary") }}
                         </div>
                         </form>
                     </div>
