@@ -289,6 +289,11 @@ a:hover {
 	opacity: .8;
 }
 
+.perFlower{
+
+
+}
+
 /* Style Switcher */
 #style-switcher {
 	position: absolute;
@@ -1254,6 +1259,28 @@ div.dataTables_wrapper .ui-widget-header {
 .thumbnails li:hover .actions {
 	opacity: 1;
 }
+
+.conflower{
+	margin-left: 23%;
+
+}
+
+.deflower{
+	margin-left: 10%;
+
+
+}
+.flowername{
+	color: #5bb75b;
+
+}
+.salesvolume{
+	color: #942a25;
+	position: absolute;
+	right: 2px;
+
+}
+
 .line {
     background: url("/static/images/line.png") repeat-x scroll 0 0 transparent;
     display: block;
@@ -1342,39 +1369,23 @@ form {
 }
 .backgroundB{
 	z-index: 2;
-
-	/*opacity: 0.5;*/
-	/*height: auto;*/
-	/*width: auto;*/
 	background-image: url("/static/images/b.png");
-	/*background-color: rgba(0,0,0,0.4);*/
+	/*background-size: contain;*/
+	background-size: cover;
+	background: no-repeat;
+}
 
+.backgroundC{
+	z-index: 2;
+	background-image: url("/static/images/b.png");
 	background-size: contain;
-	/*background-position: center;*/
 }
-.backgroundB::before{
-	content: "";
-	position: absolute;
-	/*background-image: url("/static/images/b.png");*/
-	background-size: 500px 300px;
-	/*width: 500px;*/
-	/*height: 300px;*/
-	/*opacity: 0.5;*/
-	z-index: 3;
 
-
-}
 
 .backgroundA{
-	position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    width: 500px;
-    height: 300px;
-    line-height: 50px;
-    text-align: center;
+	z-index: 2;
+	background-image: url("/static/images/mod.png");
+	background-size: contain;
 
 }
 
@@ -1384,7 +1395,7 @@ form {
 	height: min-content;
 }
 .formA{
-	opacity: 0.9;
+	opacity: 0.99;
 
 }
 .formA label{
@@ -1392,7 +1403,6 @@ form {
 	font-weight: bold;
 	font-family: "Comic Sans MS";
 	font-size: large;
-	/*color: #BD6B09;*/
 	color: rgba(189,107,9,2);
 
 }
@@ -1401,6 +1411,25 @@ form {
 }
 .formA textarea{
 	background-color: rgb(251,249,154);
+}
+
+.formB{
+	opacity: 0.99;
+
+}
+.formB label{
+	opacity: 1;
+	font-weight: bold;
+	font-family: "Comic Sans MS";
+	font-size: large;
+	color: rgba(189,107,9,2);
+
+}
+.formB input{
+	background-color: rgb(151,150,90);
+}
+.formB textarea{
+	background-color: rgb(151,150,90);
 }
 
 

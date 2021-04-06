@@ -9,23 +9,23 @@ $(document).ready(function(){
 	$('.chat-message button').click(function(){
 		var input = $(this).siblings('span').children('input[type=text]');		
 		if(input.val() != ''){
-			add_message('You','img/demo/av1.jpg',input.val(),true);
+			add_message('You','/static/images/av1.jpg',input.val(),true);
 		}		
 	});
 	
 	$('.chat-message input').keypress(function(e){
 		if(e.which == 13) {	
 			if($(this).val() != ''){
-				add_message('You','img/demo/av1.jpg',$(this).val(),true);
+				add_message('You','/static/images/av1.jpg',$(this).val(),true);
 			}		
 		}
 	});
 	
 	setTimeout(function(){
-			add_message('Neytiri','img/demo/av2.jpg','I have a problem. My computer not work!')
+			add_message('Neytiri','/static/images/av2.jpg','I have a problem. My computer not work!')
 		},'6000');
 	setTimeout(function(){
-			add_message('Cartoon Man','img/demo/av3.jpg','Turn off and turn on your computer then see result.')
+			add_message('Cartoon Man','/static/images/av3.jpg','Turn off and turn on your computer then see result.')
 		},'11000');
 	setTimeout(function(){
             remove_user('neytiri','Neytiri')

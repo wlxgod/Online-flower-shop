@@ -96,7 +96,7 @@ def addflower():
             flash("'Add flower successfully!")
             return redirect(url_for('index'))
         else:
-            return render_template('addFlowers.html', title='add flowers', form=form)
+            return render_template('AddFlowers.html', title='add flowers', form=form)
 
 
 @app.route('/checkusername', methods=['POST'])
@@ -147,7 +147,22 @@ def OrderDetail(order_id):
     return render_template('OrderDetail.html', title='Order Display', order=order, flowers=flowers, orders=orders, total=total, baskets=baskets)
 
 
-@app.route('/OrderDetailT', methods=['GET', 'POST'])
-def OrderDetailT():
+@app.route('/ModifyFlower', methods=['GET', 'POST'])
+def ModFlower():
 
-    return render_template('OrderDetailT.html')
+    return render_template('ModifyFlower.html', title='FlowersChange')
+
+
+
+@app.route('/FlowerGallery', methods=['GET', 'POST'])
+def Flowers():
+
+    return render_template('FlowerGallery.html', title='Flowers')
+
+
+
+@app.route('/ChatRoom', methods=['GET', 'POST'])
+def ChatRoom():
+
+    return render_template('ChatRoom.html', title='ChatRoom')
+

@@ -4749,7 +4749,7 @@ button.btn.btn-mini, input[type="submit"].btn.btn-mini {
     border-radius: 4px;
     -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.055);
     -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.055);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.055);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
     -webkit-transition: all .2s ease-in-out;
     -moz-transition: all .2s ease-in-out;
     -o-transition: all .2s ease-in-out;
@@ -4757,10 +4757,10 @@ button.btn.btn-mini, input[type="submit"].btn.btn-mini {
 }
 
 a.thumbnail:hover {
-    border-color: #08c;
+    border-color: #f00;
     -webkit-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
     -moz-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
-    box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25)
+    box-shadow: 0 8px 8px rgba(255, 255, 255, 0.75)
 }
 
 .thumbnail > img {
