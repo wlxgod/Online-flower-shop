@@ -5,6 +5,50 @@
     <div id="profileDiv">
 {#        <img src="{{ url_for('static',filename=profile.portrait) }}" alt="">#}
         <h1>Profile</h1>
-
+        <table>
+            <tr>
+                <th>First Name</th>
+                <td>Yiqun</td>
+            </tr>
+            <tr>
+                <th>Last Name</th>
+                <td>Hao</td>
+            </tr>
+            <tr>
+                <th>Phone Number</th>
+                <td>18686130283</td>
+            </tr>
+            <tr>
+                <th>Date of Birth</th>
+                <td>2000-5-31</td>
+            </tr>
+            <tr>
+                <th>Address</th>
+                <td>BJUT</td>
+            </tr>
+        </table>
+    </div>
+    <div id="historyDiv">
+        <h1>Orders</h1>
+        <table>
+            <tr>
+                <th>Order ID</th>
+                <th>Items</th>
+                <th>Order Status</th>
+                <th>Destination</th>
+            </tr>
+            <tr>
+                <td><a href="#">01865</a></td>
+                <td>
+                    <ul>
+                        <li>玫瑰花*1</li>
+                        <li>苏葵花*10</li>
+                        <li>扣篮*5</li>
+                    </ul>
+                </td>
+                <td>Pending</td>
+                <td>BJUT</td>
+            </tr>
+        </table>
     </div>
 {% endblock %}
