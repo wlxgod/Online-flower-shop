@@ -13,7 +13,7 @@
                     <section class="header-bottom"><!--搜索和购物车-->
                         <!--section新标签，与div类似，语义化-->
                         <div class="cart-block"><!--购物车-->
-                            <ul>
+                            <ul style="cursor: pointer">
                                 <li><a href="cart.html" title="Cart"><img title="Item" alt="Item" style="height: 23px"
                                                                           src="{{ url_for("static",filename="images/cartIcon.png") }}"/></a>
                                 </li>
@@ -60,7 +60,7 @@
                         <!--搜索框-->
                         <form method="post" action="">
                             <div class="search-block">
-                                <input type="text" value="搜索" id="content" name="content"/>
+                                <input type="text" PLACEHOLDER="搜索" id="content" name="content"/>
                                 <!--定义单行的输入字段，用户可在其中输入文本。默认宽度为 20 个字符。
                                 并不是所有的主流浏览器都支持新的input类型。-->
                                 <input type="submit" value="submit"/>
