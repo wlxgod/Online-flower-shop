@@ -156,6 +156,11 @@ p {
 p img {
 	margin: 0;
 }
+#target-image{
+	display: block;
+	height: 300px;
+	width: 300px;
+}
 p.lead {
 	font-size: 18px;
 	font-size: 1.8rem;
@@ -2145,7 +2150,12 @@ ul.form-list li label em {
 	float:left;
 	width:100%;
 	padding:5px 0px;
+	font-size: 1.26em;
 	color:#73B334;
+}
+#target-number{
+	color: red;
+	font-weight: bold;
 }
 .quick-view-right .color-size-block .select-row select {
 	width:265px;

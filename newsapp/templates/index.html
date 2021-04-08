@@ -160,14 +160,19 @@
                 <div class="feature-block">
                     <ul id="mix" class="product-grid">
                         {% for item in posts %}
-                            <li><!--第十一个-->
-                                <div class="pro-img"><img title="Freature Product" alt="Freature Product"
-                                                          src="static/images/{{ item.img }}"/></div>
+                            <li>
+                                <div class="pro-img">
+                                    <img title="Freature Product" alt="Freature Product"
+                                         src="static/images/{{ item.img }}"/>
+                                </div>
                                 <div class="pro-hover-block">
+                                    <span class="flower-intro" hidden>{{ item.intro }}</span>
+                                    <span class="flower-number" hidden>{{ item.number }}</span>
                                     <h4 class="pro-name">{{ item.name }}</h4>
                                     <div class="link-block">
                                         <a href="#quick-view-container" class="quickllook inline" title="快速浏览">快速浏览</a>
-                                        <a href="index.html" class="quickproLink" title="Link">产品链接</a></div>
+                                        <a href="index.html" class="quickproLink" title="Link">产品链接</a>
+                                    </div>
                                     <div class="pro-price">￥{{ item.price }}</div>
                                 </div>
                             </li>
@@ -197,11 +202,13 @@
                                 </div>
                                 <div class="pro-content">
                                     <p>{{ item.name }}</p>
+                                    <span class="flower-intro" hidden>{{ item.intro }}</span>
+                                    <span class="flower-number" hidden>{{ item.number }}</span>
                                 </div>
                                 <div class="pro-price">￥{{ item.price }}</div>
                                 <div class="pro-btn-block">
                                     <a class="add-cart left" href="/addToCart?productId={{ item.id }}">加入购物车</a>
-                                    <a class="add-cart right quickCart inline" href="#quick-view-container"
+                                    <a class="quickllook2 add-cart right quickCart inline" href="#quick-view-container"
                                        title="快速浏览">快速浏览</a></div>
                                 <div class="pro-link-block"><a class="add-wishlist left" href="#" title="收藏">收藏</a> <a
                                         class="add-compare right" href="#">找相似</a>
@@ -247,19 +254,23 @@
             <div class="quick-view-container">
                 <div class="quick-view-left">
                     <!--快速浏览左边内容-->
-                    <h2>百合花束 鲜花花束</h2>
+                    <h2 id="target-name">百合花束 鲜花花束</h2>
                     <div class="product-img-box">
                         <p class="product-image">
                             <img src="{{ url_for("static",filename="images/sale_icon_img.png") }}" title="Sale"
                                  alt="Sale" class="sale-img"/>
-                            <a href="index.html"><img
+                            <a href="index.html"><img  id="target-image"
                                     src="{{ url_for("static",filename="images/quick_view_img1.png") }}" title="Image"
-                                    alt="Image"/></a></p>
+                                    alt="Image"/>
+                            </a>
+                        </p>
                         <ul class="thum-img">
-                            <li><img src="{{ url_for("static",filename="images/quick_thum_img1.png") }}" title="小图"
-                                     alt="image"/></li>
-                            <li><img src="{{ url_for("static",filename="images/quick_thum_img2.png") }}" title="小图"
-                                     alt="image"/></li>
+                            <li><img id="target-small-image1" src="{{ url_for("static",filename="images/quick_thum_img1.jfif") }}" title="小图"
+                                     alt="image"/>
+                            </li>
+                            <li><img id="target-small-image2" src="{{ url_for("static",filename="images/quick_thum_img2.jfif") }}" title="小图"
+                                     alt="image"/>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -275,8 +286,8 @@
                     <div id="tabDetail" class="tabDetail">
                         <div class="first-review">此商品为鲜活易腐类，不支持7天无理由退货</div>
                         <div class="price-box">
-                            <span class="price">￥69.00</span></div>
-                        <div class="availability">有库存</div>
+                            <span class="price"  id="target-price">￥69.00</span></div>
+                        <div class="availability">库存仅剩 <span  id="target-number"></span> 件</div>
 
 
                         <div class="color-size-block">
@@ -302,8 +313,8 @@
                             <div class="select-row">
                                 <select>
                                     <option>快捷支付</option>
-                                    <option>余额宝支付</option>
-                                    <option>集分宝</option>
+                                    <option>微信支付</option>
+                                    <option>支付宝支付</option>
                                 </select>
                             </div>
                         </div>
@@ -311,12 +322,15 @@
                         <div class="add-to-cart-box">
                             <!--快速浏览的加入购物车-->
                             <span class="qty-box">
-					<label for="qty">数量:</label>
-					<a class="prev" href="#"><img alt="" title=""
-                                                  src="{{ url_for("static",filename="images/qty_prev.png") }}"></a>
-					<input type="text" name="qty" class="input-text qty" id="qty" maxlength="12" value="1">
-					<a class="next" href="#"><img alt="" title=""
-                                                  src="{{ url_for("static",filename="images/qty_next.png") }}"></a>				</span>
+                                <label for="qty">数量:</label>
+                                <a class="prev" href="#">
+                                    <img alt="" title="" src="{{ url_for("static",filename="images/qty_prev.png") }}">
+                                </a>
+                                <input type="text" name="qty" class="input-text qty" id="qty" maxlength="12" value="1">
+                                <a class="next" href="#">
+                                    <img alt="" title="" src="{{ url_for("static",filename="images/qty_next.png") }}">
+                                </a>
+                            </span>
                             <button title="加入购物车" class="form-button"><span>加入购物车</span></button>
                             <!--<button> 标签定义一个按钮。
                             在 <button> 元素内部可以放置内容，比如文本或图像。
@@ -326,10 +340,11 @@
 
 
                     <div id="tabDes" class="tabDes">
-                        <div> XXX花店适用场景: 爱意表达 生日 祝福 婚礼 探望 其他 求婚 友情 周年纪念</div>
-                        <div>鲜花主花材: 百合适用对象: 爱人 老师 客户 领导/长辈 朋友/同事 病人鲜花朵数: 11朵</div>
-                        <div>适用节日: 情人节 圣诞节 春节 3.8妇女节 母亲节 感恩节 教师节 中秋节 七夕 白色情人节</div>
-                        <div>鲜花绿植工艺: 鲜花(鲜切花)鲜花规格(直径X高): 35*55花束辅材: 黄莺/满天星/勿忘我</div>
+
+{#                        <div> XXX花店适用场景: 爱意表达 生日 祝福 婚礼 探望 其他 求婚 友情 周年纪念</div>#}
+{#                        <div>鲜花主花材: 百合适用对象: 爱人 老师 客户 领导/长辈 朋友/同事 病人鲜花朵数: 11朵</div>#}
+{#                        <div>适用节日: 情人节 圣诞节 春节 3.8妇女节 母亲节 感恩节 教师节 中秋节 七夕 白色情人节</div>#}
+{#                        <div>鲜花绿植工艺: 鲜花(鲜切花)鲜花规格(直径X高): 35*55花束辅材: 黄莺/满天星/勿忘我</div>#}
                     </div>
                 </div>
                 <div class="clearfix"></div>
