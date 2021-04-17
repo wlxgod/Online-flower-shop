@@ -41,39 +41,28 @@
 </div>
 
 <div id="sidebar">
-    <a href="#" class="visible-phone"><i class="icon icon-home"></i> 首页</a>
     <ul>
-        <li ><a href="index.html"><i class="icon icon-home"></i> <span>首页</span></a></li>
-        <li class="submenu">
-            <a href="#"><i class="icon icon-th-list"></i> <span>表单组件</span> <span class="label">3</span></a>
-            <ul>
-                <li><a href="form-common.html">通用组件</a></li>
-                <li><a href="form-validation.html">表单验证</a></li>
-                <li><a href="form-wizard.html">表单提示</a></li>
-            </ul>
+         <li >
+            <a href="{{ url_for('addflower') }}"><i class="icon icon-plus-sign"></i> <span>添加花束</span></a>
         </li>
-        <li><a href="buttons.html"><i class="icon icon-tint"></i> <span>按钮 &amp; 图标</span></a></li>
-        <li><a href="interface.html"><i class="icon icon-pencil"></i> <span>UI元素</span></a></li>
-        <li><a href="tables.html"><i class="icon icon-th"></i> <span>表格</span></a></li>
-        <li><a href="grid.html"><i class="icon icon-th-list"></i> <span>网格布局</span></a></li>
-        <li class="submenu">
-            <a href="#"><i class="icon icon-file"></i> <span>其他页面</span> <span class="label">4</span></a>
-            <ul>
-                <li><a href="invoice.html">清单</a></li>
-                <li><a href="chat.html">聊天</a></li>
-                <li><a href="calendar.html">日历</a></li>
-                <li><a href="gallery.html">相册</a></li>
-            </ul>
-        </li>
+
         <li>
-            <a href="charts.html"><i class="icon icon-signal"></i> <span>图表统计</span></a>
+            <a href="{{ url_for('OrderDisplay') }}"><i class="icon icon-th"></i> <span>订单列表</span></a>
         </li>
-        <li>
-            <a href="widgets.html"><i class="icon icon-inbox"></i> <span>插件</span></a>
+        <li >
+            <a href="{{ url_for('OrderDetail', order_id=1) }}"><i class="icon icon-file"></i> <span>订单详情</span></a>
         </li>
         <li class="active">
-            <a href="addFlowers.html"><i class="icon icon-plus-sign"></i> <span>添加花束</span></a>
+            <a href="{{ url_for('ChatRoom') }}"><i class="icon icon-comment"></i> <span>聊天页面</span></a>
         </li>
+
+         <li>
+            <a href="{{ url_for('Flowers') }}"><i class="icon icon-folder-open"></i> <span>商品管理</span></a>
+        </li>
+        <li>
+            <a href="{{ url_for('ModFlower',flower_id=1) }}"><i class="icon icon-refresh"></i> <span>修改订单</span></a>
+        </li>
+
     </ul>
 
 </div>
@@ -88,7 +77,7 @@
 
 <div id="content">
     <div id="content-header">
-        <h1>Common Form Elements</h1>
+        <h1>Add Flower Form</h1>
         <div class="btn-group">
             <a class="btn btn-large tip-bottom" title="Manage Files"><i class="icon-file"></i></a>
             <a class="btn btn-large tip-bottom" title="Manage Users"><i class="icon-user"></i></a>
@@ -113,8 +102,12 @@
 
 <!--                              modify hereeeeeeeee<mo></mo>-->
 
-                    <div class="widget-content nopadding">
-                        <form action="" method="post" enctype="multipart/form-data" class="form-horizontal" id="just_validate" novalidate>
+                    <div class="widget-content nopadding backgroundC">
+
+<!--                        <div class="backgroundA">-->
+
+<!--                        </div>-->
+                        <form action="" method="post" enctype="multipart/form-data" class="form-horizontal formA" id="just_validate" novalidate>
                         {{ form.hidden_tag() }}
                         <div class="control-group">
                             <label class="control-label">Flowers name</label>
@@ -123,7 +116,7 @@
                             </div>
                         </div>
 
-                        
+
                         <div class="control-group">
                             <label class="control-label">Shop address</label>
                             <div class="controls">
@@ -163,7 +156,7 @@
 
 
                         <div class="form-actions">
-                            {{ form.submit(class="btn btn-primary") }}
+                            {{ form.submit(class="btn btn-primary",value="Confirm") }}
                         </div>
                         </form>
                     </div>
@@ -180,16 +173,16 @@
 
 
 
-<script src="static/scripts/jquery.min.js"></script>
-<script src="static/scripts/jquery.ui.custom.js"></script>
-<script src="static/scripts/bootstrap.min.js"></script>
-<script src="static/scripts/bootstrap-colorpicker.js"></script>
-<script src="static/scripts/bootstrap-datepicker.js"></script>
-<script src="static/scripts/jquery.uniform.js"></script>
-<script src="static/scripts/select2.min.js"></script>
-<script src="static/scripts/unicorn.js"></script>
-<script src="static/scripts/unicorn.form_common.js"></script>
-<script src="static/scripts/jquery.validate.js"></script>
-<script src="static/scripts/addflower.js"></script>
+<script src="/static/scripts/jquery.min.js"></script>
+<script src="/static/scripts/jquery.ui.custom.js"></script>
+<script src="/static/scripts/bootstrap.min.js"></script>
+<script src="/static/scripts/bootstrap-colorpicker.js"></script>
+<script src="/static/scripts/bootstrap-datepicker.js"></script>
+<script src="/static/scripts/jquery.uniform.js"></script>
+<script src="/static/scripts/select2.min.js"></script>
+<script src="/static/scripts/unicorn.js"></script>
+<script src="/static/scripts/unicorn.form_common.js"></script>
+<script src="/static/scripts/jquery.validate.js"></script>
+<script src="/static/scripts/addflower.js"></script>
 </body>
 </html>

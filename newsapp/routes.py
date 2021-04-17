@@ -1,8 +1,8 @@
 import os
-
 from flask import render_template, flash, redirect, url_for, session, request, jsonify
 from sqlalchemy import and_
 from werkzeug.security import generate_password_hash, check_password_hash
+from werkzeug.utils import secure_filename
 
 from newsapp import app, db, config
 from newsapp.forms import LoginForm, SignupForm, FlowerForm
@@ -48,6 +48,7 @@ def signupch():
     return render_template('signupCh.html', title='新用户注册', form=form)
 
 
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
@@ -82,6 +83,10 @@ def loginch():
     return render_template('loginCh.html', title='登录', form=form)
 
 
+
+
+# new index page!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 @app.route('/index', methods=['GET', 'POST'])
 def index():
     """flower = Flower(name="rose", intro="DO the test", price=100,
@@ -116,8 +121,126 @@ def index():
         content = ""
     print(posts2)
     print(posts)
-    return render_template('index.html', posts=posts, baskets=basket_in_db_list, length=basket_length, total=total,
+    return render_template('newindex.html', posts=posts, baskets=basket_in_db_list, length=basket_length, total=total,
                            order=order_in_db, posts2=posts2)
+
+
+# new index page!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+@app.route('/indexch', methods=['GET', 'POST'])
+def indexch():
+    """flower = Flower(name="rose", intro="DO the test", price=100,
+                    number=50, img="signup.jfif" ,address="CHINESE FOREVER ROAD")
+    db.session.add(flower)
+    db.session.commit()"""
+    """form=SearchForm()"""
+    posts_query = Flower.query
+    posts = posts_query.filter().all()
+    posts2 = posts
+    username = session.get("USERNAME")
+    user = User.query.filter(User.username == username).first()
+    user_id = user.id
+    order_in_db = Order.query.filter(and_(Order.state == "unpayment", Order.user_id == user_id)).first()
+    if order_in_db is None:
+        order = Order(price=0, name=user.username, destination="Beijing university of technology",
+                      state="unpayment", number=100, way="deliver", user_id=user.id)
+        db.session.add(order)
+        db.session.commit()
+    order_in_db = Order.query.filter(and_(Order.state == "unpayment", Order.user_id == user_id)).first()
+    basket_in_db_list = Basket.query.filter(and_(Basket.order_id == order_in_db.id, Basket.user_id == user_id)).all()
+    basket_length = len(basket_in_db_list)
+    '''print(posts)'''
+    total = 0
+    for basket in basket_in_db_list:
+        total = total + basket.total
+    content = None
+    content = request.form.get('content')
+    print(content)
+    if content is not None and content != "搜索" and content!="":
+        posts2 = Flower.query.filter(Flower.name == content).all()
+        content = ""
+    print(posts2)
+    print(posts)
+    return render_template('newindexCh.html', posts=posts, baskets=basket_in_db_list, length=basket_length, total=total,
+                           order=order_in_db, posts2=posts2)
+
+
+# 原来的category页面
+@app.route('/shop', methods=['GET', 'POST'])
+def shop():
+    """flower = Flower(name="rose", intro="DO the test", price=100,
+                    number=50, img="signup.jfif" ,address="CHINESE FOREVER ROAD")
+    db.session.add(flower)
+    db.session.commit()"""
+    posts_query = Flower.query
+    posts = posts_query.filter().all()
+    username = session.get("USERNAME")
+    user = User.query.filter(User.username == username).first()
+    user_id = user.id
+    order_in_db = Order.query.filter(and_(Order.state == "unpayment", Order.user_id == user_id)).first()
+    if order_in_db is None:
+        order = Order(price=0, name=user.username, destination="Beijing university of technology",
+                      state="unpayment", number=100, way="deliver", user_id=user.id)
+        db.session.add(order)
+        db.session.commit()
+    order_in_db = Order.query.filter(and_(Order.state == "unpayment", Order.user_id == user_id)).first()
+    basket_in_db_list = Basket.query.filter(and_(Basket.order_id == order_in_db.id, Basket.user_id == user_id)).all()
+    basket_length = len(basket_in_db_list)
+    '''print(posts)'''
+    total = 0
+    for basket in basket_in_db_list:
+        total = total + basket.total
+    return render_template('newshop.html', posts=posts, baskets=basket_in_db_list, length=basket_length, total=total,
+                           order=order_in_db)
+
+
+@app.route('/shopch', methods=['GET', 'POST'])
+def shopch():
+    """flower = Flower(name="rose", intro="DO the test", price=100,
+                    number=50, img="signup.jfif" ,address="CHINESE FOREVER ROAD")
+    db.session.add(flower)
+    db.session.commit()"""
+    posts_query = Flower.query
+    posts = posts_query.filter().all()
+    username = session.get("USERNAME")
+    user = User.query.filter(User.username == username).first()
+    user_id = user.id
+    order_in_db = Order.query.filter(and_(Order.state == "unpayment", Order.user_id == user_id)).first()
+    if order_in_db is None:
+        order = Order(price=0, name=user.username, destination="Beijing university of technology",
+                      state="unpayment", number=100, way="deliver", user_id=user.id)
+        db.session.add(order)
+        db.session.commit()
+    order_in_db = Order.query.filter(and_(Order.state == "unpayment", Order.user_id == user_id)).first()
+    basket_in_db_list = Basket.query.filter(and_(Basket.order_id == order_in_db.id, Basket.user_id == user_id)).all()
+    basket_length = len(basket_in_db_list)
+    '''print(posts)'''
+    total = 0
+    for basket in basket_in_db_list:
+        total = total + basket.total
+    return render_template('newshopCh.html', posts=posts, baskets=basket_in_db_list, length=basket_length, total=total,
+                           order=order_in_db)
+
+
+
+
+
+@app.route('/detail', methods=['GET', 'POST'])
+def detail():
+    return render_template('newproduct-details.html')
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 @app.route("/RemoveBasket")
@@ -190,42 +313,20 @@ def addToCart():
         return redirect(url_for('index'))
 
 
-@app.route('/contact_us', methods=['GET', 'POST'])
-def contact_us():
-    return render_template('contact_us.html')
+
+@app.route('/checkout')
+def checkout():
+    return render_template('checkout.html')
+
+
+@app.route('/complete')
+def complete():
+    return render_template('complete.html')
 
 
 @app.route('/about_us')
 def about_us():
-    return render_template('about_us.html')
-
-
-@app.route('/category', methods=['GET', 'POST'])
-def category():
-    """flower = Flower(name="rose", intro="DO the test", price=100,
-                    number=50, img="signup.jfif" ,address="CHINESE FOREVER ROAD")
-    db.session.add(flower)
-    db.session.commit()"""
-    posts_query = Flower.query
-    posts = posts_query.filter().all()
-    username = session.get("USERNAME")
-    user = User.query.filter(User.username == username).first()
-    user_id = user.id
-    order_in_db = Order.query.filter(and_(Order.state == "unpayment", Order.user_id == user_id)).first()
-    if order_in_db is None:
-        order = Order(price=0, name=user.username, destination="Beijing university of technology",
-                      state="unpayment", number=100, way="deliver", user_id=user.id)
-        db.session.add(order)
-        db.session.commit()
-    order_in_db = Order.query.filter(and_(Order.state == "unpayment", Order.user_id == user_id)).first()
-    basket_in_db_list = Basket.query.filter(and_(Basket.order_id == order_in_db.id, Basket.user_id == user_id)).all()
-    basket_length = len(basket_in_db_list)
-    '''print(posts)'''
-    total = 0
-    for basket in basket_in_db_list:
-        total = total + basket.total
-    return render_template('category.html', posts=posts, baskets=basket_in_db_list, length=basket_length, total=total,
-                           order=order_in_db)
+    return render_template('newabout_us.html')
 
 
 @app.route('/logout')
@@ -305,6 +406,67 @@ def OrderDetail(order_id):
         total = total + basket.total
     return render_template('OrderDetail.html', title='Order Display', order=order, flowers=flowers, orders=orders,
                            total=total, baskets=baskets)
+
+@app.route('/Modify/<flower_id>', methods=['GET', 'POST'])
+def Modify(flower_id):
+    flower = Flower.query.filter(Flower.id == flower_id).first()
+    flowers = Flower.query.all()
+    if request.method == 'POST':
+        if request.values.get('t'):
+            print(request.values.get('t'))
+            print(request.values.get('price'))
+            # file_obj = request.files.get('photos')
+            # print(file_obj)
+            img_dir = config.Config.PC_UPLOAD_DIR
+            # print(img_dir)
+            # img_filename = '1'
+            # print(os.path.join(img_dir, img_filename))
+
+            # print(secure_filename(file_obj.filename))
+            flower.name = request.values.get('name')
+            flower.intro = request.values.get('detail')
+            flower.price = request.values.get('price')
+            if request.files.get("photos") != 'null':
+                file_obj = request.files.get('photos')
+                file_name = secure_filename(file_obj.filename)
+                file_obj.save(os.path.join(img_dir, file_name))
+                flower.img = file_name
+            flower.number = request.values.get('avail')
+            db.session.commit()
+            return redirect(url_for('Flowers'))
+    if request.method == 'GET':
+        print(request.method)
+        return redirect(url_for('Flowers'))
+
+@app.route('/ModifyFlower/<flower_id>', methods=['GET', 'POST'])
+def ModFlower(flower_id):
+    flower = Flower.query.filter(Flower.id == flower_id).first()
+    return render_template('ModifyFlower.html', title='FlowersChange', flower=flower)
+
+
+@app.route('/FlowerGallery', methods=['GET', 'POST'])
+def Flowers():
+    flowers = Flower.query.all()
+    return render_template('FlowerGallery.html', title='Flowers', flowers=flowers)
+
+
+
+@app.route('/ChatRoom', methods=['GET', 'POST'])
+def ChatRoom():
+
+    return render_template('ChatRoom.html', title='ChatRoom')
+
+@app.route('/Delete/<flower_id>', methods=['GET', 'POST'])
+def Delete(flower_id):
+    flower = Flower.query.filter(Flower.id == flower_id).first()
+    flowers = Flower.query.all()
+    if request.method == 'POST':
+        if request.values.get('d'):
+            print(request.values.get('d'))
+            db.session.delete(flower)
+            db.session.commit()
+            return render_template('FlowerGallery.html', title='Flowers', flowers=flowers)
+    return render_template('FlowerGallery.html', title='Flowers', flowers=flowers)
 
 
 @app.route('/profile')

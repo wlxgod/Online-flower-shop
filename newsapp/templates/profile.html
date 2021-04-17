@@ -1,54 +1,454 @@
-{% extends "baseLogged.html" %}
-{% block content %}
-    <link rel="stylesheet" href="{{ url_for('static',filename='css/profile.css') }}">
-    <script src="{{ url_for('static',filename='scripts/profile.js') }}"></script>
-    <div id="profileDiv">
-{#        <img src="{{ url_for('static',filename=profile.portrait) }}" alt="">#}
-        <h1>Profile</h1>
-        <table>
-            <tr>
-                <th>First Name</th>
-                <td>Yiqun</td>
-            </tr>
-            <tr>
-                <th>Last Name</th>
-                <td>Hao</td>
-            </tr>
-            <tr>
-                <th>Phone Number</th>
-                <td>18686130283</td>
-            </tr>
-            <tr>
-                <th>Date of Birth</th>
-                <td>2000-5-31</td>
-            </tr>
-            <tr>
-                <th>Address</th>
-                <td>BJUT</td>
-            </tr>
-        </table>
+<!DOCTYPE html>
+<html class="no-js" lang="zxx">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="meta description">
+    <title>Account</title>
+
+    <!--=== Favicon ===-->
+    <link rel="shortcut icon" href="{{ url_for('static',filename='images/img/favicon.ico') }}" type="image/x-icon"/>
+
+    <!-- Google fonts include -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,900%7CYesteryear"
+          rel="stylesheet">
+
+    <!-- All Vendor & plugins CSS include -->
+    <link href="{{ url_for('static',filename='css/vendor.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static',filename='css/profile.css') }}" rel="stylesheet">
+    <!-- Main Style CSS -->
+    <link href="{{ url_for('static',filename='css/style.css') }}" rel="stylesheet">
+
+    <!--[if lt IE 9]>
+    <script src="/oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="/oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+<!-- Start Header Area -->
+<header class="header-area">
+    <!-- main header start -->
+    <div class="main-header d-none d-lg-block">
+        <!-- header top start -->
+        <div class="header-top bdr-bottom">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <div class="welcome-message">
+                            <p>Welcome to Blizzard Online Flower Store</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 text-right">
+                        <div class="header-top-settings">
+                            <ul class="nav align-items-center justify-content-end">
+                                <li class="language">
+                                    <span>Language:</span>
+                                    <img src="{{ url_for('static',filename='images/img/icon/en.png') }}" alt="flag">
+                                    English
+                                    <i class="fa fa-angle-down"></i>
+                                    <ul class="dropdown-list">
+                                        <li><a href="#"><img
+                                                src="{{ url_for('static',filename='images/img/icon/en.png') }}"
+                                                alt="flag"> english</a></li>
+                                        <li><a href="#"><img
+                                                src="{{ url_for('static',filename='images/img/icon/ch.png') }}"
+                                                alt="flag"> Chinese</a></li>
+                                    </ul>
+                                </li>
+                                <li class="curreny-wrap">
+                                    <span>Currency:</span>
+                                    ¥ CNY
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- header top end -->
+
+        <!-- header middle area start -->
+        <div class="header-main-area sticky">
+            <div class="container">
+                <div class="row align-items-center position-relative">
+
+                    <!-- start logo area -->
+                    <div class="col-lg-3">
+                        <div class="logo">
+                            <a href="{{ url_for('index') }}">
+                                <img src="{{ url_for('static',filename='images/img/icon/logo.png') }}" alt="">
+                            </a>
+                        </div>
+                    </div>
+                    <!-- start logo area -->
+
+                    <!-- main menu area start -->
+                    <div class="col-lg-6 position-static">
+                        <div class="main-menu-area">
+                            <div class="main-menu">
+                                <!-- main menu navbar start -->
+                                <nav class="desktop-menu">
+                                    <ul>
+                                        <li><a href="{{ url_for('index') }}">Home</a></li>
+                                        <li><a href="{{ url_for('shop') }}">Shop</a></li>
+                                        <li><a href="{{ url_for('detail') }}">Product Details</a></li>
+                                    </ul>
+                                </nav>
+                                <!-- main menu navbar end -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- main menu area end -->
+
+                    <!-- mini cart area start -->
+                    <div class="col-lg-3">
+                        <div class="header-configure-wrapper">
+                            <div class="header-configure-area">
+                                <ul class="nav justify-content-end">
+                                    <li>
+                                        <a href="#" class="offcanvas-btn">
+                                            <i class="lnr lnr-magnifier"></i>
+                                        </a>
+                                    </li>
+                                    <li class="user-hover">
+                                        <a href="#">
+                                            <i class="lnr lnr-user"></i>
+                                        </a>
+                                        <ul class="dropdown-list">
+                                            <li><a href="{{ url_for('login') }}">login</a></li>
+                                            <li><a href="{{ url_for('signup') }}">register</a></li>
+                                            <li><a href="{{ url_for('profile') }}">my account</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="lnr lnr-heart"></i>
+                                            <div class="notification">0</div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="minicart-btn">
+                                            <i class="lnr lnr-cart"></i>
+                                            <div class="notification">{{ length }}</div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- mini cart area end -->
+
+                </div>
+            </div>
+        </div>
+        <!-- header middle area end -->
     </div>
-    <div id="historyDiv">
-        <h1>Orders</h1>
-        <table>
-            <tr>
-                <th>Order ID</th>
-                <th>Items</th>
-                <th>Order Status</th>
-                <th>Destination</th>
-            </tr>
-            <tr>
-                <td><a href="#">01865</a></td>
-                <td>
-                    <ul>
-                        <li>玫瑰花*1</li>
-                        <li>苏葵花*10</li>
-                        <li>扣篮*5</li>
+    <!-- main header start -->
+
+    <!-- mobile header start -->
+    <div class="mobile-header d-lg-none d-md-block sticky">
+        <!--mobile header top start -->
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-12">
+                    <div class="mobile-main-header">
+                        <div class="mobile-logo">
+                            <a href="{{ url_for('index') }}">
+                                <img src="{{ url_for('static',filename='images/img/icon/logo.png') }}" alt="Brand Logo">
+                            </a>
+                        </div>
+                        <div class="mobile-menu-toggler">
+                            <div class="mini-cart-wrap">
+                                <a href="#">
+                                    <i class="lnr lnr-cart"></i>
+                                </a>
+                            </div>
+                            <div class="mobile-menu-btn">
+                                <div class="off-canvas-btn">
+                                    <i class="lnr lnr-menu"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- mobile header top start -->
+    </div>
+    <!-- mobile header end -->
+</header>
+<!-- end Header Area -->
+
+<!-- off-canvas menu start -->
+<aside class="off-canvas-wrapper">
+    <div class="off-canvas-overlay"></div>
+    <div class="off-canvas-inner-content">
+        <div class="btn-close-off-canvas">
+            <i class="lnr lnr-cross"></i>
+        </div>
+
+        <div class="off-canvas-inner">
+            <!-- search box start -->
+            <div class="search-box-offcanvas">
+                <form>
+                    <input type="text" placeholder="Search Here...">
+                    <button class="search-btn"><i class="lnr lnr-magnifier"></i></button>
+                </form>
+            </div>
+            <!-- search box end -->
+
+            <!-- mobile menu start -->
+            <div class="mobile-navigation">
+
+                <!-- mobile menu navigation start -->
+                <nav>
+                    <ul class="mobile-menu">
+                        <li><a href="{{ url_for('index') }}">Home</a></li>
+                        <li><a href="{{ url_for('shop') }}">Shop</a></li>
+                        <li><a href="{{ url_for('detail') }}">Product Details</a></li>
                     </ul>
-                </td>
-                <td>Pending</td>
-                <td>BJUT</td>
-            </tr>
-        </table>
+                </nav>
+                <!-- mobile menu navigation end -->
+            </div>
+            <!-- mobile menu end -->
+
+            <div class="mobile-settings">
+                <ul class="nav">
+                    <li>
+                        <div class="dropdown mobile-top-dropdown">
+                            <a href="#" class="dropdown-toggle" id="currency" data-toggle="dropdown"
+                               aria-haspopup="true" aria-expanded="false">
+                                Currency
+                                <i class="fa fa-angle-down"></i>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="currency">
+                                <a class="dropdown-item" href="#">$ USD</a>
+                                <a class="dropdown-item" href="#">$ EURO</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="dropdown mobile-top-dropdown">
+                            <a href="#" class="dropdown-toggle" id="myaccount" data-toggle="dropdown"
+                               aria-haspopup="true" aria-expanded="false">
+                                My Account
+                                <i class="fa fa-angle-down"></i>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="myaccount">
+                                <a class="dropdown-item" href="#">my account</a>
+                                <a class="dropdown-item" href="#"> login</a>
+                                <a class="dropdown-item" href="#">register</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- offcanvas widget area start -->
+            <div class="offcanvas-widget-area">
+                <div class="off-canvas-contact-widget">
+                    <ul>
+                        <li><i class="fa fa-mobile"></i>
+                            <a href="#">0123456789</a>
+                        </li>
+                        <li><i class="fa fa-envelope-o"></i>
+                            <a href="#">info@yourdomain.com</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="off-canvas-social-widget">
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                    <a href="#"><i class="fa fa-pinterest-p"></i></a>
+                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                    <a href="#"><i class="fa fa-youtube-play"></i></a>
+                </div>
+            </div>
+            <!-- offcanvas widget area end -->
+        </div>
     </div>
-{% endblock %}
+</aside>
+<!-- off-canvas menu end -->
+
+<!--!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
+
+<div id="mainDiv1">
+    <h1>My Account</h1>
+</div>
+<div id="wrapper">
+    <ul>
+        <li id="dashboardLi"><img src="{{ url_for('static',filename='images/dashboard.png') }}" alt="">Dashboard</li>
+        <li id="orderLi"><img src="../static/images/order.png" alt="">Order</li>
+        <li id="changePLi"><img src="{{ url_for('static',filename='images/changePassword.png') }}" alt="">Change Password</li>
+        <li id="logoutLi"><a href="{{ url_for('logout')}}"><img src="{{ url_for('static',filename='images/logout.png') }}" alt="">Logout</a></li>
+    </ul>
+    <div id="right">
+        <div id="dashboard">
+            <h2>Dashboard</h2>
+            <p>Hello, <span>Alex Tuntuni</span> (If this is not you! <a href="{{ url_for('logout')}}">Logout Here</a> )<br>
+                From your account dashboard. you can easily check & view your recent orders, manage your shipping and billing
+                <br>
+                addresses and edit your password and account details.</p>
+        </div>
+        <div id="order">
+            <h2>Order</h2>
+            <table>
+                <tr>
+                    <th>No</th>
+                    <th>Order Detail</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                    <th>Total</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td><ul><li>hhh</li></ul></td>
+                    <td>Aug 22, 2020</td>
+                    <td>Pending</td>
+                    <td>3009.7</td>
+                </tr>
+            </table>
+        </div>
+        <div id="changeP">
+            <h2>Change Password</h2>
+        </div>
+    </div>
+</div>
+<!--end!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
+
+<!-- Start Footer Area Wrapper -->
+<footer class="footer-wrapper">
+
+    <!-- footer widget area start -->
+    <div class="footer-widget-area">
+        <div class="container">
+            <div class="footer-widget-inner section-space">
+                <div class="row mbn-30">
+                    <!-- footer widget item start -->
+                    <div class="col-lg-5 col-md-6 col-sm-8">
+                        <div class="footer-widget-item mb-30">
+                            <div class="footer-widget-title">
+                                <h5>Our account</h5>
+                            </div>
+                            <ul class="footer-widget-body accout-widget">
+                                <li class="address">
+                                    <em><i class="lnr lnr-map-marker"></i></em>
+                                    Beijing University of Technology
+                                </li>
+                                <li class="email">
+                                    <em><i class="lnr lnr-envelope"></i>Mail us: </em>
+                                    <a href="mailto:test@yourdomain.com">2240073347@qq.com</a>
+                                </li>
+                                <li class="phone">
+                                    <em><i class="lnr lnr-phone-handset"></i> Phones: </em>
+                                    <a href="tel:(012)800456789-987">0472-2134483</a>
+                                </li>
+                            </ul>
+                            <div class="payment-method">
+                                <img src="{{ url_for('static',filename='images/img/payment-pic.png') }}"
+                                     alt="payment method">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- footer widget item end -->
+
+                    <!-- footer widget item start -->
+                    <div class="col-lg-2 col-md-6 col-sm-4">
+                        <div class="footer-widget-item mb-30">
+                            <div class="footer-widget-title">
+                                <h5>categories</h5>
+                            </div>
+                            <ul class="footer-widget-body">
+                                <li><a href="#">Ecommerce</a></li>
+                                <li><a href="#">shopify</a></li>
+                                <li><a href="#">Prestashop</a></li>
+                                <li><a href="#">Opencart</a></li>
+                                <li><a href="#">Magento</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- footer widget item end -->
+
+
+                    <!-- footer widget item start -->
+                    <div class="col-lg-2 offset-lg-1 col-md-6 col-sm-6">
+                        <div class="footer-widget-item mb-30">
+                            <div class="footer-widget-title">
+                                <h5>Quick Links</h5>
+                            </div>
+                            <ul class="footer-widget-body">
+                                <li><a href="{{ url_for('index') }}">Home</a></li>
+                                <li><a href="{{ url_for('about_us') }}">About Us</a></li>
+                                <li><a href="{{ url_for('login') }}">Login</a></li>
+                                <li><a href="{{ url_for('signup') }}">Register</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- footer widget item end -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer widget area end -->
+
+    <!-- footer bottom area start -->
+    <div class="footer-bottom-area">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 order-2 order-md-1">
+                    <div class="copyright-text">
+                        <p>Copyright &copy; 2021.Group 15 Blizzard All rights reserved.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 order-1 order-md-2">
+                    <div class="footer-social-link">
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-linkedin"></i></a>
+                        <a href="#"><i class="fa fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer bottom area end -->
+
+</footer>
+<!-- End Footer Area Wrapper -->
+
+
+
+
+
+<!-- Scroll to top start -->
+<div class="scroll-top not-visible">
+    <i class="fa fa-angle-up"></i>
+</div>
+<!-- Scroll to Top End -->
+
+<!-- All vendor & plugins & active js include here -->
+<!--All Vendor Js -->
+<script src="{{ url_for('static',filename='scripts/vendor.js') }}"></script>
+<!-- Active Js -->
+<script src="{{ url_for('static',filename='scripts/active.js') }}"></script>
+<script src="{{ url_for('static',filename='scripts/profile.js') }}"></script>
+<style>
+    .copyrights {
+        text-indent: -9999px;
+        height: 0;
+        line-height: 0;
+        font-size: 0;
+        overflow: hidden;
+    }
+</style>
+<div class="copyrights" id="links20210126">
+    Collect from <a href="http://www.cssmoban.com/" title="网站模板">模板之家</a>
+    <a href="https://www.chazidian.com/" title="查字典">查字典</a>
+</div>
+</body>
+
+</html>

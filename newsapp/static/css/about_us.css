@@ -1,0 +1,126 @@
+#mainDiv1{
+    height: 600px;
+    background: #f7f7f8;
+    position: relative;
+}
+#mainDiv1>img{
+    height: 80%;
+    position: absolute;
+    right: 5%;
+    top: 10%;
+}
+#mainDiv1>div{
+    position: absolute;
+    left: 10%;
+    top: 30%;
+}
+#mainDiv1>div>h1, #mainDiv1>div>h5{
+    margin: 10px;
+}
+#mainDiv1>div>a{
+    display: block;
+    width: 30%;
+    height: 25%;
+    text-align: center;
+    font-size: 1.5em;
+    background-color: #3f44c9;
+    cursor: pointer;
+    color: white;
+    border: 1px solid #3f44c9;
+    border-radius: 10px;
+    margin: 20px 10%;
+}
+
+
+#mainDiv2>h1{
+    text-align: center;
+    margin-top: 10%;
+}
+#mainDiv2>h4{
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 40px;
+}
+#mainDiv2>div{
+    display: flex;
+    margin-top: 5%;
+    justify-content: space-around;
+
+}
+#mainDiv2>div>div>img{
+    height: 300px;
+    width: 300px;
+}
+#mainDiv2 h3,#mainDiv2 h5{
+    text-align: center;
+    margin-bottom: 10px;
+}
+.division{
+    text-align: center;
+    font-weight: bold;
+}
+
+
+
+#mainDiv3{
+    height: 600px;
+    background: #f7f7f8;
+    position: relative;
+    padding: 4%;
+    margin-top: 30px;
+}
+#mainDiv3>h1{
+    text-align: center;
+    margin-bottom: 15%;
+}
+#mainDiv3>div>img{
+    position: absolute;
+    left: 10%;
+    width: 40%;
+    top: 20%;
+}
+#mainDiv3>div>p{
+    position: absolute;
+    padding: 5%;
+    right: 10%;
+    width: 40%;
+    height: 60%;
+    top: 20%;
+    font-size: 1.2em;
+}
+#mainDiv3 h2{
+    position: absolute;
+    text-align: center;
+    width: 40%;
+    right: 10%;
+    top: 25%;
+}
+
+
+
+
+#mainDiv4{
+    background-color: #3f44c9;
+    padding: 5% 5% 2% 5%;
+    height: 400px;
+    margin-top: 20px;
+}
+
+#mainDiv4>h1,#mainDiv4>h3{
+    text-align: center;
+    color: white;
+    margin-bottom: 20px;
+}
+#mainDiv4>a{
+    display: block;
+    margin: 20px auto;
+    width: 20%;
+    cursor: pointer;
+    background-color: white;
+    color: #1a1a1a;
+    border: 1px solid white;
+    text-align: center;
+    padding: 10px 30px;
+    font-size: 1.5em;
+    border-radius: 40px;
+}

@@ -1,64 +1,41 @@
-<!doctype html>
-<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
-<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
-<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!-->
-<!--条件注释语句,当满足if语句时则执行-->
+<!DOCTYPE html>
+<html class="no-js" lang="zxx">
+<head>
+    {% if title %}
+        <title>{{ title }}</title>
+    % else %}
+        <title>Lazy boy</title>
+    {% endif %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="meta description">
+    <title>Home</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/topBar.css') }}">
+    <script src="{{ url_for('static',filename='scripts/jquery.js') }}"></script>
+    <script src="{{ url_for('static',filename='scripts/detail.js') }}"></script>
+    <!--=== Favicon ===-->
+    <link rel="shortcut icon" href="{{ url_for('static',filename='images/img/favicon.ico') }}" type="image/x-icon" />
 
+    <!-- Google fonts include -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,900%7CYesteryear" rel="stylesheet">
 
-<html lang="en">
-<!--<![endif]-->
-    <head>
-        <meta charset="utf-8"><!--编码格式-->
-      {% if title %}
-            <title>{{ title }}</title>
-        {% else %}
-            <title>Lazy boy</title>
-        {% endif %}
-        <link rel="stylesheet" href="{{ url_for('static',filename='css/topBar.css') }}">
-        <script src="{{ url_for('static',filename='scripts/jquery.js') }}"></script>
-
-    <!--引用js文件-->
-        <script src="{{ url_for('static',filename='scripts/detail.js') }}"></script>
-        <script src="{{ url_for('static',filename='scripts/jquery-1.8.2.min.js') }}"></script>
-        <script src="{{ url_for('static',filename='scripts/common.js') }}"></script>
-        <script src="{{ url_for('static',filename='scripts/jquery.easing.1.3.js') }}"></script>
-        <script src="{{ url_for('static',filename='scripts/ddsmoothmenu.js') }}"></script>
-        <script src="{{ url_for('static',filename='scripts/jquery.flexslider.js') }}"></script>
-        <script src="{{ url_for('static',filename='scripts/jquery.elastislide.js') }}"></script>
-        <script src="{{ url_for('static',filename='scripts/jquery.jcarousel.min.js') }}"></script>
-        <script src="{{ url_for('static',filename='scripts/jquery.accordion.js') }}"></script>
-        <script src="{{ url_for('static',filename='scripts/light_box.js') }}"></script>
-        <script src="{{ url_for('static',filename='scripts/html5.js') }}"></script>
-        <script type="text/javascript">$(document).ready(function(){$(".inline").colorbox({inline:true, width:"50%"});});</script>
-    <!--end js-->
-
-
-
-    <!-- CSS ================导入外部样式表================================== -->
-        <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
-        <link rel="stylesheet" href="{{ url_for('static',filename='css/orange.css') }}">
-        <link rel="stylesheet" href="{{ url_for('static',filename='css/skeleton.css') }}">
-        <link rel="stylesheet" href="{{ url_for('static',filename='css/layout.css') }}">
-        <link rel="stylesheet" href="{{ url_for('static',filename='css/ddsmoothmenu.css') }}">
-        <link rel="stylesheet" href="{{ url_for('static',filename='css/elastislide.css') }}">
-        <link rel="stylesheet" href="{{ url_for('static',filename='css/home_flexslider.css') }}">
-        <link rel="stylesheet" href="{{ url_for('static',filename='css/light_box.css') }}">
-    <!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <!-- All Vendor & plugins CSS include -->
+    <link href="{{ url_for('static',filename='css/vendor.css') }}" rel="stylesheet">
+    <!-- Main Style CSS -->
+    <link href="{{ url_for('static',filename='css/style.css') }}" rel="stylesheet">
 
     <!--[if lt IE 9]>
-                <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-            <![endif]-->
-    </head>
+<script src="/oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="/oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+</head>
     <body>
     <div class="topBar">
             <div class="container">
                  <div class="topBar_blocks">
-                    <a href="#">Rose</a>
-                    <span>|</span>
-                    <a href="#">Carnation</a>
-                    <span>|</span>
+                     <a href="">Welcome to Blizzard Online Flower Store</a>
                 </div>
 
                 <div class="topBar_mine">

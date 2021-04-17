@@ -1,45 +1,87 @@
 $(document).ready(function (){
-    $("#inv-detail,#disc-detail,#liked-dis-detail,#liked-post-detail,#join-detail").hide()
+    mouse = "dash";
+    $("#dashboardLi").css({"background":"#ca7101", "color": "white"});
+    $("#dashboardLi img").attr('src',"../static/images/dashboardW.png");
+    $("#dashboard").show();
+    $("#order").hide();
+    $("#changeP").hide();
 
-    $("#inv").hover(function (){
-        $("#inv-detail").show()
-        $("#inv").css("background","rgba(255,255,255,0.8)")
-    },function () {
-        $("#inv-detail").hide()
-        $("#inv").css("background","")
+    $("#dashboardLi").on("click",function (){
+        $("#dashboard").show();
+        $("#order").hide();
+        $("#changeP").hide();
+
+        mouse = "dash";
+
+        $("#dashboardLi").css({"background":"#ca7101", "color": "white"});
+        $("#orderLi").css({"background":"", "color": ""});
+        $("#changePLi").css({"background":"", "color": ""});
+
+        $("#dashboardLi img").attr('src',"../static/images/dashboardW.png");
+        $("#orderLi img").attr('src',"../static/images/order.png");
+        $("#changePLi img").attr('src',"../static/images/changePassword.png");
+    });
+    $("#orderLi").click(function (){
+        $("#dashboard").hide();
+        $("#order").show();
+        $("#changeP").hide();
+
+        mouse = "order";
+
+        $("#dashboardLi").css({"background":"", "color": ""});
+        $("#orderLi").css({"background":"#ca7101", "color": "white"});
+        $("#changePLi").css({"background":"", "color": ""});
+
+        $("#dashboardLi img").attr('src',"../static/images/dashboard.png");
+        $("#orderLi img").attr('src',"../static/images/orderW.png");
+        $("#changePLi img").attr('src',"../static/images/changePassword.png");
+    });
+    $("#changePLi").click(function (){
+        $("#dashboard").hide();
+        $("#order").hide();
+        $("#changeP").show();
+
+        mouse = "change";
+
+
+        $("#dashboardLi").css({"background":"", "color": ""});
+        $("#orderLi").css({"background":"", "color": ""});
+        $("#changePLi").css({"background":"#ca7101", "color": "white"});
+
+        $("#dashboardLi img").attr('src',"../static/images/dashboard.png");
+        $("#orderLi img").attr('src',"../static/images/order.png");
+        $("#changePLi img").attr('src',"../static/images/changePW.png");
     });
 
-    $("#disc").hover(function (){
-        $("#disc-detail").show()
-        $("#disc").css("background","rgba(255,255,255,0.8)")
+    $("#dashboardLi").hover(function (){
+        if(mouse !== "dash"){
+            $("#dashboardLi img").attr('src',"../static/images/dashboardW.png");
+        }
+
     },function () {
-        $("#disc-detail").hide()
-        $("#disc").css("background","")
+        if(mouse !== "dash"){
+            $("#dashboardLi img").attr('src',"../static/images/dashboard.png");
+        }
     });
 
-    $("#like_discussion").hover(function (){
-        $("#liked-dis-detail").show()
-        $("#like_discussion").css("background","rgba(255,255,255,0.8)")
+    $("#orderLi").hover(function (){
+        if(mouse !== "order"){
+            $("#orderLi img").attr('src',"../static/images/orderW.png");
+        }
+
     },function () {
-        $("#liked-dis-detail").hide()
-        $("#like_discussion").css("background","")
+        if(mouse !== "order"){
+            $("#orderLi img").attr('src',"../static/images/order.png");
+        }
     });
+    $("#changePLi").hover(function (){
+        if(mouse !== "change"){
+            $("#changePLi img").attr('src',"../static/images/changePW.png");
+        }
 
-    $("#like_post").hover(function (){
-        $("#liked-post-detail").show()
-        $("#like_post").css("background","rgba(255,255,255,0.8)")
     },function () {
-        $("#liked-post-detail").hide()
-        $("#like_post").css("background","")
+        if(mouse !== "change"){
+            $("#changePLi img").attr('src',"../static/images/changePassword.png");
+        }
     });
-
-    $("#join").hover(function (){
-        $("#join-detail").show()
-        $("#join").css("background","rgba(255,255,255,0.8)")
-    },function () {
-        $("#join-detail").hide()
-        $("#join").css("background","")
-    });
-
-
 });

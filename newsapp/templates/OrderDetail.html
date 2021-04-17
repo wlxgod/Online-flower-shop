@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
 <head>
     <title>Order Table</title>
@@ -38,18 +38,25 @@
 
 <div id="sidebar">
     <ul>
-        <li>
-            <a href="AddFlowers.html"><i class="icon icon-plus-sign"></i> <span>添加花束</span></a>
+        <li >
+            <a href="{{ url_for('addflower') }}"><i class="icon icon-plus-sign"></i> <span>添加花束</span></a>
         </li>
 
         <li>
-            <a href="newsapp/templates/OrderDisplay.html"><i class="icon icon-th"></i> <span>订单列表</span></a>
+            <a href="{{ url_for('OrderDisplay') }}"><i class="icon icon-th"></i> <span>订单列表</span></a>
         </li>
         <li class="active">
-            <a href="OrderDetail.html"><i class="icon icon-file"></i> <span>订单详情</span></a>
+            <a href="{{ url_for('OrderDetail', order_id=order.id) }}"><i class="icon icon-file"></i> <span>订单详情</span></a>
         </li>
         <li>
-            <a href="ChatRoom.html"><i class="icon icon-comment"></i> <span>聊天页面</span></a>
+            <a href="{{ url_for('ChatRoom') }}"><i class="icon icon-comment"></i> <span>聊天页面</span></a>
+        </li>
+
+         <li>
+            <a href="{{ url_for('Flowers') }}"><i class="icon icon-folder-open"></i> <span>商品管理</span></a>
+        </li>
+        <li>
+            <a href="{{ url_for('ModFlower', flower_id=1) }}"><i class="icon icon-refresh"></i> <span>修改订单</span></a>
         </li>
 
     </ul>
@@ -90,8 +97,8 @@
 								</span>
                         <h5>Order Detail</h5>
                         <div class="buttons">
-                            <a title="Icon Title" class="btn btn-mini" href="newsapp/templates/OrderDisplay.html"><i class="icon-tasks"></i> All Orders</a>
-                            <a title="Icon Title" class="btn btn-mini" href="ChatRoom.html"><i class="icon-comment"></i> Chat</a>
+                            <a title="Icon Title" class="btn btn-mini" href="{{ url_for('OrderDisplay') }}"><i class="icon-tasks"></i> All Orders</a>
+                            <a title="Icon Title" class="btn btn-mini" href="{{ url_for('ChatRoom') }}"><i class="icon-comment"></i> Chat</a>
                         </div>
                     </div>
                     <div class="widget-content">
@@ -201,9 +208,9 @@
 
 
 
-<script src="js/jquery.min.js"></script>
-<script src="js/jquery.ui.custom.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/unicorn.js"></script>
+<script src="/static/scripts/jquery.min.js"></script>
+<script src="/static/scripts/jquery.ui.custom.js"></script>
+<script src="/static/scripts/bootstrap.min.js"></script>
+<script src="/static/scripts/unicorn.js"></script>
 </body>
 </html>
