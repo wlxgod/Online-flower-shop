@@ -1,0 +1,39 @@
+html,body{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+#enDiv{
+    position: relative;
+    width: 50%;
+    height: 100%;
+    background-image: url("../images/welcomeEn.webp");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    float: left;
+}
+#chDiv{
+    position: relative;
+    margin-left: 50%;
+    height: 100%;
+    width: 50%;
+    background-image: url("../images/welcomeCh.webp");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+#enBlock{
+    width: 100%;
+    position: absolute;
+    top: 40%;
+    border: 1px black solid;
+    text-align: center;
+    font-size: 3em;
+}
+#chBlock{
+    width: 100%;
+    position: absolute;
+    top: 40%;
+    border: 1px black solid;
+    text-align: center;
+    font-size: 3em;
+}

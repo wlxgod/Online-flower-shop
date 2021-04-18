@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Welcome!</title>
+  <link rel="stylesheet" href="{{ url_for('static',filename='css/welcome.css') }}">
+
+  <script src="{{ url_for('static',filename='scripts/jquery.js') }}"></script>
+  <script src="{{ url_for('static',filename='scripts/welcome.js') }}"></script>
+</head>
+<body>
+    <div id="enDiv">
+        <div id="enBlock"><a href="{{ url_for('login') }}">In English</a></div>
+    </div>
+    <div id="chDiv">
+        <div id="chBlock"><a href="{{ url_for('loginch') }}">使用中文</a></div>
+    </div>
+</body>
+</html>

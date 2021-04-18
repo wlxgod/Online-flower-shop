@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Order Table</title>
+    <meta charset="UTF-8" />
+    <meta name="author" content="order by dede58.com"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/bootstrap-responsive.min.css" />
+    <link rel="stylesheet" href="css/unicorn.main.css" />
+    <link rel="stylesheet" href="css/unicorn.grey.css" class="skin-color" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
+<body>
+
+
+<div id="header">
+    <h1><a href="./dashboard.html">UniAdmin</a></h1>
+</div>
+
+<div id="search">
+    <input type="text" placeholder="请输入搜索内容..." /><button type="submit" class="tip-right" title="Search"><i class="icon-search icon-white"></i></button>
+</div>
+<div id="user-nav" class="navbar navbar-inverse">
+    <ul class="nav btn-group">
+        <li class="btn btn-inverse"><a title="" href="#"><i class="icon icon-user"></i> <span class="text">个人资料</span></a></li>
+        <li class="btn btn-inverse dropdown" id="menu-messages"><a href="#" data-toggle="dropdown" data-target="#menu-messages" class="dropdown-toggle"><i class="icon icon-envelope"></i> <span class="text">消息</span> <span class="label label-important">5</span> <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+                <li><a class="sAdd" title="" href="#">新消息</a></li>
+                <li><a class="sInbox" title="" href="#">收件箱</a></li>
+                <li><a class="sOutbox" title="" href="#">发件箱</a></li>
+                <li><a class="sTrash" title="" href="#">发送</a></li>
+            </ul>
+        </li>
+        <li class="btn btn-inverse"><a title="" href="#"><i class="icon icon-cog"></i> <span class="text">设置</span></a></li>
+        <li class="btn btn-inverse"><a title="" href="login.html"><i class="icon icon-share-alt"></i> <span class="text">退出</span></a></li>
+    </ul>
+</div>
+
+<div id="sidebar">
+    <ul>
+        <li>
+            <a href="AddFlowers.html"><i class="icon icon-plus-sign"></i> <span>添加花束</span></a>
+        </li>
+
+        <li>
+            <a href="OrderDisplay.html"><i class="icon icon-th"></i> <span>订单列表</span></a>
+        </li>
+        <li class="active">
+            <a href="OrderDetail.html"><i class="icon icon-file"></i> <span>订单详情</span></a>
+        </li>
+        <li>
+            <a href="ChatRoom.html"><i class="icon icon-comment"></i> <span>聊天页面</span></a>
+        </li>
+
+    </ul>
+
+</div>
+
+<div id="style-switcher">
+    <i class="icon-arrow-left icon-white"></i>
+    <span>Style:</span>
+    <a href="#grey" style="background-color: #555555;border-color: #aaaaaa;"></a>
+    <a href="#blue" style="background-color: #2D2F57;"></a>
+    <a href="#red" style="background-color: #673232;"></a>
+</div>
+
+<div id="content">
+    <div id="content-header">
+        <h1>Order Detail Display</h1>
+        <div class="btn-group">
+            <a class="btn btn-large tip-bottom" title="Manage Files"><i class="icon-file"></i></a>
+            <a class="btn btn-large tip-bottom" title="Manage Users"><i class="icon-user"></i></a>
+            <a class="btn btn-large tip-bottom" title="Manage Comments"><i class="icon-comment"></i><span class="label label-important">5</span></a>
+            <a class="btn btn-large tip-bottom" title="Manage Orders"><i class="icon-shopping-cart"></i></a>
+        </div>
+    </div>
+    <div id="breadcrumb">
+        <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a>
+        <a href="#">Sample Pages</a>
+        <a href="#" class="current">Invoice</a>
+    </div>
+    <div class="container-fluid">
+
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="widget-box">
+                    <div class="widget-title">
+								<span class="icon">
+									<i class="icon-th-list"></i>
+								</span>
+                        <h5>Order Detail</h5>
+                        <div class="buttons">
+                            <a title="Icon Title" class="btn btn-mini" href="OrderDisplay.html"><i class="icon-tasks"></i> All Orders</a>
+                            <a title="Icon Title" class="btn btn-mini" href="ChatRoom.html"><i class="icon-comment"></i> Chat</a>
+                        </div>
+                    </div>
+                    <div class="widget-content">
+                        <div class="invoice-content">
+                            <div class="invoice-head">
+                                <div class="invoice-meta">
+                                    Order ID <span class="invoice-number"> #96558 </span><span class="invoice-date">Date: 2020-09-20</span>
+                                </div>
+                                <h5 class="text-info">User:Abraham</h5>
+                                <div class="invoice-to text-info">
+                                    <ul>
+                                        <li>
+                                            <span><strong>From</strong></span>
+                                            <span>Blizzard flower shop</span>
+                                            <span>244, Soranda Street,</span>
+                                            <span>New Morleno.</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="invoice-from">
+                                    <ul>
+                                        <li>
+                                            <span><strong>To</strong></span>
+                                            <span>Abraham</span>
+                                            <span>233/44, Autumn Lane</span>
+                                            <span>Treyan.</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div>
+                                <table class="table table-bordered tMiddle">
+                                    <thead>
+                                    <tr>
+                                        <th>
+                                            Flower ID
+                                        </th>
+                                        <th>
+                                            Flower Name
+                                        </th>
+                                        <th>
+                                            Number
+                                        </th>
+                                        <th>
+                                            Amount
+                                        </th>
+                                    </tr>
+                                    </thead>
+                                    <tfoot>
+                                    <tr>
+                                        <th class="total-label" colspan="3">
+                                            Total:
+                                        </th>
+                                        <th class="total-amount">
+                                            $31.00
+                                        </th>
+                                    </tr>
+                                    </tfoot>
+                                    <tbody>
+                                    <tr>
+                                        <td>
+                                            #43
+                                        </td>
+                                        <td>
+                                            Rose
+                                        </td>
+                                        <td>
+                                            2
+                                        </td>
+
+                                        <td>
+                                        $10.00
+                                        </td>
+
+
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            #44
+                                        </td>
+                                        <td>
+                                            Carnation
+                                        </td>
+                                        <td>
+                                            1
+                                        </td>
+                                        <td>
+                                            $5.00
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            #45
+                                        </td>
+                                        <td>
+                                            LiliumL
+                                        </td>
+                                        <td>
+                                            4
+                                        </td>
+                                        <td>
+                                            $16.00
+                                        </td>
+                                    </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                            <p class="status-word">
+                                Current Status: <span class="text-success">Completed</span>
+                            </p>
+
+                            <p class="help-block">
+                                <strong>Note:</strong> The flower is fresh. Please send it as soon as possible!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row-fluid">
+            <div id="footer" class="span12">
+                2020 &copy; UniAdmin.</div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.ui.custom.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/unicorn.js"></script>
+</body>
+</html>

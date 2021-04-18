@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="loginForm">
+        <link rel="stylesheet" href="{{ url_for('static',filename='css/login.css') }}">
+        <img src="../static/images/loginP.jpg" alt="">
+		<h1>Login Here!</h1>
+		<form action="" method="post" novalidate>
+			{{ form.hidden_tag() }}
+			<p>
+				{{ form.username.label }}
+                {% for error in form.username.errors %}
+				    <span style="color: red;">{{ error }}</span>
+				{% endfor %}
+                <br>
+				{{ form.username(size=32,placeholder="Enter your username here") }}
+				
+
+			</p>
+			<p>
+				{{ form.password.label }}
+                {% for error in form.password.errors %}
+				    <span style="color: red;">{{ error }}</span>
+				{% endfor %}
+                <br>
+				{{ form.password(size=32,placeholder="Enter your username here") }}
+
+            </p>
+            <p id="space">
+				{% for choice in form.type %}
+                    <span>{{ choice.label }}</span>
+                    <span style="margin-right: 10%">{{ choice }}</span>
+                {% endfor %}
+                {% for error in form.type.errors %}
+				    <span style="color: red;">{{ error }}</span>
+				{% endfor %}
+            </p>
+            <p>
+                <span class="flush">
+                    {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                            {% for message in messages %}
+                                {{ message }}
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+                </span>
+            </p>
+			<p>{{ form.submit() }}</p>
+		</form>
+    </div>
+{% endblock %}

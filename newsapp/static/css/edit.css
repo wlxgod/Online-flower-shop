@@ -1,0 +1,67 @@
+.background{
+    height: auto;
+    min-height: 100%;
+    background-image: url("../images/discussion.jfif");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-attachment: fixed;
+}
+.container{
+    height: auto;
+}
+.edit{
+    background: rgba(255,255,255,0.8);
+    width: 70%;
+    height: auto;
+    margin: 0 auto;
+    padding: 30px;
+}
+h1{
+    text-align: center;
+    font-size: 40px;
+}
+form{
+    height: auto;
+}
+form p{
+    font-weight: bold;
+    font-size: 15px;
+    margin: 30px 0;
+}
+form input[type="text"]
+{
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #000;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    font-size: 18px;
+}
+textarea{
+    margin-top: 10px;
+    padding: 5px;
+    font-size: 20px;
+}
+input{
+    margin-top: 20px;
+}
+.choice label{
+    margin-right: 20px;
+}
+#category{
+    margin-bottom: 10px;
+}
+form input[type="submit"]{
+    width: 100%;
+    border: none;
+    outline: none;
+    height: 40px;
+    font-size: 20px;
+    background: #ff267e;
+    cursor: pointer;
+    color: white;
+}
+form input[type="submit"]:hover{
+    color: #262626;
+}

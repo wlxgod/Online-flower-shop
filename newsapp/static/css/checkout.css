@@ -1,0 +1,73 @@
+#mainDiv1{
+    height: 300px;
+    width: 100%;
+    background-color: mintcream;
+}
+
+#mainDiv1>h1{
+    font-size: 45px;
+    text-transform: uppercase;
+    line-height: 300px;
+    text-align: center;
+    font-family: 'Josefin Sans', sans-serif;
+    color: #252525;
+}
+#bill{
+    position: absolute;
+    left: 5%;
+    top: 5%;
+    width: 60%;
+    height: 400px;
+    margin: 0;
+}
+#cart{
+    padding: 20px;
+    position: absolute;
+    right: 5%;
+    top: 5%;
+    width: 30%;
+    background-color: #e2e6ea;
+    height: 90%;
+}
+#cart>h2{
+    font-size: 30px;
+    text-transform: uppercase;
+    font-family: 'Josefin Sans', sans-serif;
+    margin-bottom: 20px;
+}
+#cart>table{
+    min-height: 50%;
+    width: 90%;
+}
+#cart>table td,#cart>table th{
+    text-align: center;
+}
+#cart>h5{
+    color: red;
+}
+#cart>button{
+    width: 90%;
+    height: 10%;
+    font-size: 1.5em;
+    background-color: #ff6000;
+    color: white;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 5%;
+}
+#two{
+    position: relative;
+    height: 700px;
+}
+#bill>h2{
+    font-size: 30px;
+    text-transform: uppercase;
+    font-family: 'Josefin Sans', sans-serif;
+    color: #252525;
+}
+#name{
+    display: flex;
+}
+#name>div{
+    width: 40%;
+}
