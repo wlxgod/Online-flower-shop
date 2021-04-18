@@ -495,7 +495,7 @@
                                         data-placement="left"
                                         title="Quick View"><i
                                         class="lnr lnr-magnifier"></i></span></a>
-                                <a href="#" onclick="addTrolley({{post.id}})" data-toggle="tooltip" data-placement="left"
+                                <a href="#" onclick='addTrolley({{ post.id }}, 1 ,"{{ post.name }}" )' data-toggle="tooltip" data-placement="left"
                                    title="Add to Cart"><i class="lnr lnr-cart"></i></a>
                             </div>
                         </figure>
@@ -601,7 +601,7 @@
                                     <a href="#" data-toggle="modal" data-target="#quick_view"><span
                                             data-toggle="tooltip" data-placement="left" title="Quick View"><i
                                             class="lnr lnr-magnifier"></i></span></a>
-                                    <a onclick="addTrolley({{ post.id }})" href="#" data-toggle="tooltip"
+                                    <a onclick='addTrolley({{ post.id }}, 1 ,"{{ post.name|string }}")' href="#" data-toggle="tooltip"
                                        data-placement="left" title="Add to Cart"><i class="lnr lnr-cart"></i></a>
                                 </div>
                             </figure>
@@ -816,10 +816,10 @@
                                 <div class="quantity-cart-box d-flex align-items-center">
                                     <h5>qty:</h5>
                                     <div class="quantity">
-                                        <div class="pro-qty"><input type="text" value="1"></div>
+                                        <div class="pro-qty"><input type="text" value="1" id="number_input"></div>
                                     </div>
                                     <div class="action_link">
-                                        <a class="btn btn-cart2" href=#>Add to
+                                        <a class="btn btn-cart2" onclick="addTrolley1(100)" href="#">Add to
                                             cart</a>
                                     </div>
                                 </div>
@@ -886,7 +886,7 @@
                             </div>
                             <div class="minicart-content">
                                 <h3 class="product-name">
-                                    <a href="{{ url_for('detail') }}">Flowers bouquet pink for all flower lovers</a>
+                                    <a href="{{ url_for('detail') }}">{{item.name}}</a>
                                 </h3>
                                 <p>
                                     <span class="cart-quantity">{{ basket.quantity }}<strong>&times;</strong></span>
@@ -936,6 +936,7 @@
 <script src="{{ url_for('static',filename='scripts/index1.js') }}"></script>
 <script src="{{ url_for('static',filename='scripts/index2.js') }}"></script>
 <script src="{{ url_for('static',filename='scripts/jquery.js') }}"></script>
+<script src="{{ url_for('static',filename='scripts/indexadd.js') }}"></script>
 <style>
     .copyrights {
         text-indent: -9999px;

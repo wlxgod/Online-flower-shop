@@ -60,3 +60,41 @@ class Basket(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     flower_id = db.Column(db.Integer, db.ForeignKey('flower.id'))  # 鲜花id
     order_id = db.Column(db.Integer, db.ForeignKey('order.id'))
+
+# 资料
+class Profile(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(20))
+    dob = db.Column(db.String(30))
+    gender = db.Column(db.Integer)
+    description = db.Column(db.String(250))
+    portrait = db.Column(db.String(50))
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    news_id = db.relationship('News', backref='profile', lazy='dynamic')
+
+
+# 留言消息
+class Message(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    text = db.Column(db.String(500))  # 消息
+    timestamp = db.Column(db.DateTime, default=datetime.datetime.now())  # 时间
+    state = db.Column(db.String(10))  # 状态，未读或已读
+    sender_id = db.Column(db.Integer, db.ForeignKey('user.id'))  # 发送
+    receiver_id = db.Column(db.Integer)  # 接收
+
+    # 用于将queryset转化为字典，用json传输到前台
+    def to_json(self):
+        dict = self.__dict__
+        if "_sa_instance_state" in dict:
+            del dict["_sa_instance_state"]
+        return dict
+
+# 新消息数量
+# 顾客每发一条消息，数量加一，客服阅读后归0
+class News(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    number = db.Column(db.Integer, default=0)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    profile_id = db.Column(db.Integer, db.ForeignKey('profile.id'))
+    staff_id = db.Column(db.Integer)
+

@@ -1,12 +1,14 @@
 import os
+import string
+
 from flask import render_template, flash, redirect, url_for, session, request, jsonify
-from sqlalchemy import and_
+from sqlalchemy import and_,or_
 from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.utils import secure_filename
 
 from newsapp import app, db, config
 from newsapp.forms import LoginForm, SignupForm, FlowerForm
-from newsapp.models import Flower, Order, Basket
+from newsapp.models import Flower, Order, Basket,Message,Profile,News
 from newsapp.models import User
 
 
@@ -112,7 +114,7 @@ def index():
     '''print(posts)'''
     total = 0
     for basket in basket_in_db_list:
-        total = total + basket.total
+        total = total + basket.total*basket.quantity
     content = None
     content = request.form.get('content')
     print(content)
@@ -308,17 +310,26 @@ def addToCart():
             db.session.add(order)
             db.session.commit()
         productId = request.form['id']
-        flower_in_db = Flower.query.filter(Flower.id == productId).first()
+        quantity=request.form['quantity']
+        flowername=request.form['name']
+        print(productId)
+        print(flowername)
+        if productId!='100':
+            flower_in_db = Flower.query.filter(Flower.id == productId).first()
+        else:
+            flower_in_db = Flower.query.filter(Flower.name == flowername).first()
         order_id = Order.query.filter(and_(Order.state == "unpayment", Order.user_id == user_id)).first().id
-        basket = Basket(name=flower_in_db.name, quantity=1, total=flower_in_db.price, user_id=user_id,
+        basket = Basket(name=flower_in_db.name, quantity=quantity, total=flower_in_db.price, user_id=user_id,
                         flower_id=flower_in_db.id, order_id=order_id)
         basketImg = flower_in_db.img
         basketQuantity=basket.quantity
-        basketTotal=basket.total
+        basketTotal=int(basket.total)*int(quantity)
         db.session.add(basket)
         db.session.commit()
         order_in_db = Order.query.filter(and_(Order.state == "unpayment", Order.user_id == user_id)).first()
-        order_in_db.price = order_in_db.price + basket.total
+        order_in_db.price = order_in_db.price + basket.total*basket.quantity
+        print("order_in_db.price_after:")
+        print(order_in_db.price)
         db.session.commit()
         order_in_db = Order.query.filter(and_(Order.state == "unpayment", Order.user_id == user_id)).first()
         basket_in_db_list = Basket.query.filter(
@@ -471,9 +482,57 @@ def Flowers():
 
 @app.route('/ChatRoom', methods=['GET', 'POST'])
 def ChatRoom():
+    staff = User.query.filter(User.username == session['USERNAME']).first().id  # 自己的id
+    img = Profile.query.filter(Profile.user_id == staff).first().portrait     # 头像
+    # 获取历史聊天用户和新消息数量
+    new = News.query.filter(News.staff_id == staff).order_by(News.number.desc())
+    return render_template('ChatRoom.html', title='ChatRoom', news=new, img=img)
 
-    return render_template('ChatRoom.html', title='ChatRoom')
 
+@app.route('/shownews', methods=['GET', 'POST'])
+def shownews():
+    id1 = User.query.filter(User.username == session['USERNAME']).first().id  # 自己的id
+    id2 = request.form['user_id']  # 顾客的id
+    print(id1)
+    print(id2)
+    user_news = News.query.filter(and_(News.user_id == id2, News.staff_id == id1)).first()
+    user_news.number = 0  # 未读消息归0
+    db.session.commit()
+    message = Message.query.filter(or_((and_(Message.sender_id == id1, Message.receiver_id == id2)),
+                                       (and_(Message.sender_id == id2, Message.receiver_id == id1)))).order_by(
+        Message.timestamp)  # 聊天记录和新消息
+    print(message.count())
+    news = []
+    # 转化为字典list
+    for new in message:
+        news.append(new.to_json())
+    print(len(news))
+    return jsonify(news)
+
+
+@app.route('/sendnew', methods=['POST'])
+def sendnew():
+    receiver_id = request.form['receiver_id'] # 接受者
+    text = request.form['text']     # 消息
+    user_id = User.query.filter(User.username == session['USERNAME']).first().id # 发送者
+    message = Message(text=text, sender_id=user_id, receiver_id=receiver_id, state='read') # 写入新消息
+    news = News.query.filter(and_(News.user_id == user_id, News.staff_id == receiver_id)).first()    # 查找新消息数量的记录
+    print(user_id)
+    profile_id = Profile.query.filter(Profile.user_id == user_id).first().id      # 发送者资料的id
+    if not news:
+        news = News(number=1, user_id=user_id, staff_id=receiver_id, profile_id=profile_id)
+        db.session.add(news)
+    else:
+        news.number = news.number+1               # 新消息加一
+    db.session.add(message)
+    db.session.commit()
+    return jsonify({'state': 'yes'})
+
+
+@app.route('/current_user', methods=['GET', 'POST'])
+def current_user():
+    user_id = User.query.filter(User.username == session['USERNAME']).first().id
+    return jsonify({'id': user_id})
 @app.route('/Delete/<flower_id>', methods=['GET', 'POST'])
 def Delete(flower_id):
     flower = Flower.query.filter(Flower.id == flower_id).first()
