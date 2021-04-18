@@ -1,5 +1,6 @@
 ﻿{% extends "baseLogged.html" %}
 {% block content %}
+<script src="{{ url_for('static',filename='scripts/index.js') }}"></script>
     <div class="mainContainer big container"><!--主要内容区-->
         <!--Header Block-->
         <div class="header-wrapper">
@@ -207,7 +208,7 @@
                                 </div>
                                 <div class="pro-price">￥{{ item.price }}</div>
                                 <div class="pro-btn-block">
-                                    <a class="add-cart left" href="/addToCart?productId={{ item.id }}">加入购物车</a>
+                                    <a class="add-cart left" onclick="addTrolley({{ item.id }})">加入购物车</a>
                                     <a class="quickllook2 add-cart right quickCart inline" href="#quick-view-container"
                                        title="快速浏览">快速浏览</a></div>
                                 <div class="pro-link-block"><a class="add-wishlist left" href="#" title="收藏">收藏</a> <a

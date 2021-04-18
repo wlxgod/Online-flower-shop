@@ -133,7 +133,7 @@
                                     <li>
                                         <a href="#" class="minicart-btn">
                                             <i class="lnr lnr-cart"></i>
-                                            <div class="notification">{{ length }}</div>
+                                            <div class="notification" id="length">{{ length }}</div>
                                         </a>
                                     </li>
                                 </ul>
@@ -464,17 +464,17 @@
             </div>
             <div class="row mtn-40">
                 {% if posts2 == [] %}
-                    搜索为空
+                搜索为空
                 {% endif %}
                 <!-- product single item start -->
-                {% for item in posts2 %}
+                {% for post in posts2 %}
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="product-item mt-40">
                         <figure class="product-thumb">
                             <a href="{{ url_for('detail') }}">
                                 <!--                                    这里注意一下要放两张图片-->
-                                <img class="pri-img" src="static/images/{{ item.img }}" alt="product">
-                                <img class="sec-img" src="static/images/{{ item.img }}" alt="product">
+                                <img class="pri-img" src="static/images/{{ post.img }}" alt="product">
+                                <img class="sec-img" src="static/images/{{ post.img }}" alt="product">
 
 
                             </a>
@@ -490,22 +490,23 @@
                             <div class="button-group">
                                 <a href="#" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i
                                         class="lnr lnr-heart"></i></a>
-                                <a href="#" data-toggle="modal" data-target="#quick_view"><span class="quick_view_button" data-toggle="tooltip"
-                                                                                                data-placement="left"
-                                                                                                title="Quick View"><i
+                                <a href="#" data-toggle="modal" data-target="#quick_view"><span
+                                        class="quick_view_button" data-toggle="tooltip"
+                                        data-placement="left"
+                                        title="Quick View"><i
                                         class="lnr lnr-magnifier"></i></span></a>
-                                <a href="/addToCart?productId={{ item.id }}" data-toggle="tooltip" data-placement="left"
+                                <a href="#" onclick="addTrolley({{post.id}})" data-toggle="tooltip" data-placement="left"
                                    title="Add to Cart"><i class="lnr lnr-cart"></i></a>
                             </div>
                         </figure>
                         <div class="product-caption">
                             <p class="product-name">
-                                <a href="{{ url_for('detail') }}">{{ item.name }}</a>
-                                <span hidden>{{ item.intro}}</span><span hidden>{{ item.number}}</span>
+                                <a href="{{ url_for('detail') }}">{{ post.name }}</a>
+                                <span hidden>{{ post.intro}}</span><span hidden>{{ post.number}}</span>
                             </p>
                             <div class="price-box">
-                                <span class="price-regular">¥ {{ item.price }}</span>
-                                <span class="price-old"><del>¥ {{ item.price+10 }}</del></span>
+                                <span class="price-regular">¥ {{ post.price }}</span>
+                                <span class="price-old"><del>¥ {{ post.price+10 }}</del></span>
                             </div>
                         </div>
                     </div>
@@ -582,12 +583,12 @@
 
                     <div class="product-carousel--4 slick-row-15 slick-sm-row-10 slick-arrow-style">
                         <!-- product single item start -->
-                        {% for item in posts %}
+                        {% for post in posts %}
                         <div class="product-item">
                             <figure class="product-thumb">
                                 <a href="{{ url_for('detail') }}">
-                                    <img class="pri-img" src="static/images/{{ item.img }}" alt="product">
-                                    <img class="sec-img" src="static/images/{{ item.img }}" alt="product">
+                                    <img class="pri-img" src="static/images/{{ post.img }}" alt="product">
+                                    <img class="sec-img" src="static/images/{{ post.img }}" alt="product">
                                 </a>
                                 <div class="product-badge">
                                     <div class="product-label new">
@@ -600,17 +601,17 @@
                                     <a href="#" data-toggle="modal" data-target="#quick_view"><span
                                             data-toggle="tooltip" data-placement="left" title="Quick View"><i
                                             class="lnr lnr-magnifier"></i></span></a>
-                                    <a href="/addToCart?productId={{ item.id }}" data-toggle="tooltip"
+                                    <a onclick="addTrolley({{ post.id }})" href="#" data-toggle="tooltip"
                                        data-placement="left" title="Add to Cart"><i class="lnr lnr-cart"></i></a>
                                 </div>
                             </figure>
                             <div class="product-caption">
                                 <p class="product-name">
-                                    <a href="{{ url_for('detail') }}">{{ item.name }}</a>
+                                    <a href="{{ url_for('detail') }}">{{ post.name }}</a>
                                 </p>
                                 <div class="price-box">
-                                    <span class="price-regular">¥ {{ item.price }}</span>
-                                    <span class="price-old"><del>¥ {{ item.price+10 }}</del></span>
+                                    <span class="price-regular">¥ {{ post.price }}</span>
+                                    <span class="price-old"><del>¥ {{ post.price+10 }}</del></span>
                                 </div>
                             </div>
                         </div>
@@ -800,7 +801,7 @@
                                 </div>
                                 <div class="price-box">
                                     <span class="price-regular" id="currentPrice">$70.00</span>
-                                    <span class="price-old"id="originalPrice"><del>$90.00</del></span>
+                                    <span class="price-old" id="originalPrice"><del>$90.00</del></span>
                                 </div>
                                 <h5 class="offer-text"><strong>Hurry up</strong>! offer ends in:</h5>
                                 <div class="product-countdown" data-countdown="2021/06/30"></div>
@@ -808,7 +809,8 @@
                                     <i class="fa fa-check-circle"></i>
                                     <span id="flowerNum">200 in stock</span>
                                 </div>
-                                <p class="pro-desc" id="flowerIntro">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+                                <p class="pro-desc" id="flowerIntro">Lorem ipsum dolor sit amet, consetetur sadipscing
+                                    elitr, sed diam
                                     nonumy
                                     eirmod tempor invidunt ut labore et dolore magna aliquyam erat.</p>
                                 <div class="quantity-cart-box d-flex align-items-center">
@@ -874,7 +876,7 @@
                     {% for basket in baskets %}
                     {% for item in posts %}
                     {% if item.id==basket.flower_id %}
-                    <ul>
+                    <ul id="{{'fuck'+basket.id|string}}">
                         <li class="minicart-item">
                             <div class="minicart-thumb">
                                 <a href="{{ url_for('detail') }}">
@@ -891,7 +893,7 @@
                                     <span class="cart-price">{{ basket.total }}</span>
                                 </p>
                             </div>
-                            <a class="minicart-remove" href="/RemoveBasket?basketId={{ basket.id }}"><i
+                            <a class="minicart-remove" onclick="RemoveBasket({{ basket.id }})" href="#"><i
                                     class="lnr lnr-cross"></i></a>
                         </li>
                     </ul>
@@ -904,7 +906,7 @@
                     <ul>
                         <li class="total">
                             <span>total</span>
-                            <span><strong>${{ total }}</strong></span>
+                            <span id="total"><strong>${{ total }}</strong></span>
                         </li>
                     </ul>
                 </div>
@@ -931,6 +933,9 @@
 <!-- Active Js -->
 <script src="{{ url_for('static',filename='scripts/active.js') }}"></script>
 <script src="{{ url_for('static',filename='scripts/index.js') }}"></script>
+<script src="{{ url_for('static',filename='scripts/index1.js') }}"></script>
+<script src="{{ url_for('static',filename='scripts/index2.js') }}"></script>
+<script src="{{ url_for('static',filename='scripts/jquery.js') }}"></script>
 <style>
     .copyrights {
         text-indent: -9999px;
@@ -944,6 +949,7 @@
     Collect from <a href="http://www.cssmoban.com/" title="网站模板">模板之家</a>
     <a href="https://www.chazidian.com/" title="查字典">查字典</a>
 </div>
+
 </body>
 
 </html>

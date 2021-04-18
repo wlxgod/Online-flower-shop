@@ -243,16 +243,27 @@ def detail():
 
 
 
-@app.route("/RemoveBasket")
+@app.route("/RemoveBasket",methods=['GET', 'POST'])
 def RemoveBasket():
     if session.get("USERNAME") is None:
         return redirect("login")
     else:
-        basketId = int(request.args.get('basketId'))
+        username = session.get("USERNAME")
+        user = User.query.filter(User.username == username).first()
+        user_id = user.id
+        basketId = request.form['id']
+        print(basketId)
         basket_in_db = Basket.query.filter(Basket.id == basketId).first()
         db.session.delete(basket_in_db)
         db.session.commit()
-        return redirect(url_for('index'))
+        order_in_db = Order.query.filter(and_(Order.state == "unpayment", Order.user_id == user_id)).first()
+        basket_in_db_list = Basket.query.filter(
+            and_(Basket.order_id == order_in_db.id, Basket.user_id == user_id)).all()
+        basket_length = len(basket_in_db_list)
+        total = 0
+        for basket in basket_in_db_list:
+            total = total + basket.total
+        return jsonify({'message': 'remove to Trolley successfully!','id': basketId,'length':basket_length,'total':total})
 
 
 @app.route("/PaymentOrder")
@@ -275,7 +286,7 @@ def PaymentOrder():
         return redirect(url_for('index'))
 
 
-@app.route("/addToCart")
+@app.route("/addToCart",methods=['GET', 'POST'])
 def addToCart():
     if session.get("USERNAME") is None:
         return redirect("login")
@@ -296,21 +307,28 @@ def addToCart():
                           state="unpayment", number=100, way="deliver", user_id=user.id)
             db.session.add(order)
             db.session.commit()
-        productId = int(request.args.get('productId'))
-        print(productId)
+        productId = request.form['id']
         flower_in_db = Flower.query.filter(Flower.id == productId).first()
         order_id = Order.query.filter(and_(Order.state == "unpayment", Order.user_id == user_id)).first().id
-        print(flower_in_db.name + " " + flower_in_db.address)
         basket = Basket(name=flower_in_db.name, quantity=1, total=flower_in_db.price, user_id=user_id,
                         flower_id=flower_in_db.id, order_id=order_id)
+        basketImg = flower_in_db.img
+        basketQuantity=basket.quantity
+        basketTotal=basket.total
         db.session.add(basket)
         db.session.commit()
         order_in_db = Order.query.filter(and_(Order.state == "unpayment", Order.user_id == user_id)).first()
         order_in_db.price = order_in_db.price + basket.total
         db.session.commit()
+        order_in_db = Order.query.filter(and_(Order.state == "unpayment", Order.user_id == user_id)).first()
+        basket_in_db_list = Basket.query.filter(
+            and_(Basket.order_id == order_in_db.id, Basket.user_id == user_id)).all()
+        basket_length = len(basket_in_db_list)
+        basketId=basket_length
+        print(basketId)
         """order_in_db = Order.query.filter(and_(Order.state == "unpayment", Order.user_id == user_id)).first()
         print(order_in_db.price)"""
-        return redirect(url_for('index'))
+        return jsonify({'message': 'Add to Trolley successfully!','length':basket_length,'id': basketId,'img':basketImg,'quantity':basketQuantity,'total':basketTotal})
 
 
 
