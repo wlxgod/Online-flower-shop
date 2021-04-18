@@ -191,7 +191,7 @@ def shop():
     '''print(posts)'''
     total = 0
     for basket in basket_in_db_list:
-        total = total + basket.total
+        total = total + basket.total*basket.quantity
     return render_template('newshop.html', posts=posts, baskets=basket_in_db_list, length=basket_length, total=total,
                            order=order_in_db)
 
