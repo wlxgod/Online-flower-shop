@@ -549,3 +549,61 @@ def Delete(flower_id):
 @app.route('/profile')
 def profile():
     return render_template('profile.html')
+
+@app.route('/ModifyOrder/<order_id>', methods=['GET', 'POST'])
+def ModifyOrder(order_id):
+    order = Order.query.filter(Order.id == order_id).first()
+    return render_template('ModifyOrder.html', title='ModifyOrder', order=order)
+
+
+@app.route('/Order_state_C/<order_id>', methods=['GET', 'POST'])
+def Order_state_C(order_id):
+    order = Order.query.filter(Order.id == order_id).first()
+    order.state = 'Completed'
+    db.session.commit()
+    return redirect(url_for('ModifyOrder', order_id=order.id))
+
+
+@app.route('/Order_state_T/<order_id>', methods=['GET', 'POST'])
+def Order_state_T(order_id):
+    order = Order.query.filter(Order.id == order_id).first()
+    order.state = 'Transporting'
+    db.session.commit()
+    return redirect(url_for('ModifyOrder', order_id=order.id))
+
+
+@app.route('/Order_state_L/<order_id>', methods=['GET', 'POST'])
+def Order_state_L(order_id):
+    order = Order.query.filter(Order.id == order_id).first()
+    order.state = 'Lated'
+    db.session.commit()
+    return redirect(url_for('ModifyOrder', order_id=order.id))
+
+
+@app.route('/Order_Delete/<order_id>', methods=['GET', 'POST'])
+def Order_Delete(order_id):
+    order = Order.query.filter(Order.id == order_id).first()
+    orders = Order.query.all()
+    if request.method == "POST":
+        if request.values.get('d'):
+            db.session.delete(order)
+            db.session.commit()
+            return redirect(url_for('OrderDisplay'))
+        return redirect(url_for('OrderDisplay'))
+    return redirect(url_for('OrderDisplay'))
+
+
+@app.route('/Change_Address/<order_id>', methods=['GET', 'POST'])
+def Change_Address(order_id):
+    order = Order.query.filter(Order.id == order_id).first()
+    print(request.values.get('text'))
+    print(request.values.get('c'))
+    if request.method == 'POST':
+        if request.values.get('c'):
+            order.destination = request.values.get('text')
+            db.session.commit()
+            return redirect(url_for('ModifyOrder', order_id=order.id))
+    if request.method == 'GET':
+        print(request.method)
+        return redirect(url_for('ModifyOrder', order_id=order.id))
+

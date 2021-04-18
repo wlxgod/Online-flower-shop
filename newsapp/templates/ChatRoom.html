@@ -49,6 +49,9 @@
 				<li >
 					<a href="{{ url_for('OrderDetail', order_id=1) }}"><i class="icon icon-file"></i> <span>订单详情</span></a>
 				</li>
+				<li>
+                    <a href="{{ url_for('OrderDisplay') }}" onclick="{if(confirm('Please choose one order from the table first, then go to modify it')){}}"></i> <span>修改订单</span></a>
+                </li>
 				<li class="active">
 					<a href="{{ url_for('ChatRoom') }}"><i class="icon icon-comment"></i> <span>聊天页面</span></a>
 				</li>
