@@ -8,7 +8,7 @@ from werkzeug.utils import secure_filename
 
 from newsapp import app, db, config
 from newsapp.forms import LoginForm, SignupForm, FlowerForm
-from newsapp.models import Flower, Order, Basket,Message,Profile,News
+from newsapp.models import Flower, Order, Basket, Message, Profile, News, Want, Basketlike
 from newsapp.models import User
 
 
@@ -103,14 +103,22 @@ def index():
     user = User.query.filter(User.username == username).first()
     user_id = user.id
     order_in_db = Order.query.filter(and_(Order.state == "unpayment", Order.user_id == user_id)).first()
+    want_in_db = Want.query.filter(Want.user_id == user_id).first()
+    if want_in_db is None:
+        want = Want(user_id=user.id)
+        db.session.add(want)
+        db.session.commit()
     if order_in_db is None:
         order = Order(price=0, name=user.username, destination="Beijing university of technology",
                       state="unpayment", number=100, way="deliver", user_id=user.id)
         db.session.add(order)
         db.session.commit()
     order_in_db = Order.query.filter(and_(Order.state == "unpayment", Order.user_id == user_id)).first()
+    want_in_db = Want.query.filter(Want.user_id == user_id).first()
     basket_in_db_list = Basket.query.filter(and_(Basket.order_id == order_in_db.id, Basket.user_id == user_id)).all()
+    basketlike_in_db_list = Basketlike.query.filter(Basketlike.want_id == want_in_db.id, Basketlike.user_id == user_id).all()
     basket_length = len(basket_in_db_list)
+    basketlike_length = len(basketlike_in_db_list)
     '''print(posts)'''
     total = 0
     for basket in basket_in_db_list:
@@ -121,10 +129,8 @@ def index():
     if content is not None and content != "搜索" and content!="":
         posts2 = Flower.query.filter(Flower.name == content).all()
         content = ""
-    print(posts2)
-    print(posts)
     return render_template('newindex.html', posts=posts, baskets=basket_in_db_list, length=basket_length, total=total,
-                           order=order_in_db, posts2=posts2)
+                           order=order_in_db, posts2=posts2,basketslike=basketlike_in_db_list, lengthlike=basketlike_length)
 
 
 # new index page!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -219,7 +225,7 @@ def shopch():
     '''print(posts)'''
     total = 0
     for basket in basket_in_db_list:
-        total = total + basket.total
+        total = total + basket.total*basket.quantity
     return render_template('newshopCh.html', posts=posts, baskets=basket_in_db_list, length=basket_length, total=total,
                            order=order_in_db)
 
@@ -240,7 +246,24 @@ def detail():
 
 
 
-
+@app.route("/RemoveBasketlike",methods=['GET', 'POST'])
+def RemoveBasketlike():
+    if session.get("USERNAME") is None:
+        return redirect("login")
+    else:
+        username = session.get("USERNAME")
+        user = User.query.filter(User.username == username).first()
+        user_id = user.id
+        basketlikeId = request.form['id']
+        print(basketlikeId)
+        basketlike_in_db = Basketlike.query.filter(Basketlike.id == basketlikeId).first()
+        db.session.delete(basketlike_in_db)
+        db.session.commit()
+        want_in_db = Want.query.filter(Want.user_id == user_id).first()
+        basketlike_in_db_list = Basketlike.query.filter(
+            and_(Basketlike.want_id == want_in_db.id, Basketlike.user_id == user_id)).all()
+        basketlike_length = len(basketlike_in_db_list)
+        return jsonify({'message': 'remove to Trolley successfully!','id': basketlikeId,'length':basketlike_length})
 
 
 
@@ -264,7 +287,7 @@ def RemoveBasket():
         basket_length = len(basket_in_db_list)
         total = 0
         for basket in basket_in_db_list:
-            total = total + basket.total
+            total = total + basket.total*basket.quantity
         return jsonify({'message': 'remove to Trolley successfully!','id': basketId,'length':basket_length,'total':total})
 
 
@@ -341,6 +364,48 @@ def addToCart():
         print(order_in_db.price)"""
         return jsonify({'message': 'Add to Trolley successfully!','length':basket_length,'id': basketId,'img':basketImg,'quantity':basketQuantity,'total':basketTotal})
 
+@app.route("/addToLike",methods=['GET', 'POST'])
+def addToLike():
+    if session.get("USERNAME") is None:
+        return redirect("login")
+    else:
+        username = session.get("USERNAME")
+        user = User.query.filter(User.username == username).first()
+        user_id = user.id
+        wants_in_db = Want.query.filter(Order.user_id == user_id).all()
+        flag = 1
+        if wants_in_db is not None:
+            flag=0
+        if flag == 1:
+            want = Want(user_id=user.id)
+            db.session.add(want)
+            db.session.commit()
+        productId = request.form['id']
+        quantity=request.form['quantity']
+        flowername=request.form['name']
+        print(productId)
+        print(flowername)
+        if productId!='100':
+            flower_in_db = Flower.query.filter(Flower.id == productId).first()
+        else:
+            flower_in_db = Flower.query.filter(Flower.name == flowername).first()
+        want_id = Want.query.filter(Want.user_id == user_id).first().id
+        basketlike = Basketlike(name=flower_in_db.name, user_id=user_id,
+                        flower_id=flower_in_db.id, want_id=want_id)
+        basketlikeImg = flower_in_db.img
+        db.session.add(basketlike)
+        db.session.commit()
+        want_in_db = Want.query.filter( Want.user_id == user_id).first()
+        db.session.commit()
+        want_in_db = Want.query.filter( Want.user_id == user_id).first()
+        basketlike_in_db_list = Basketlike.query.filter(
+            and_(Basketlike.want_id == want_in_db.id, Basketlike.user_id == user_id)).all()
+        basketlike_length = len(basketlike_in_db_list)
+        basketId=basketlike_length
+        print(basketId)
+        """order_in_db = Order.query.filter(and_(Order.state == "unpayment", Order.user_id == user_id)).first()
+        print(order_in_db.price)"""
+        return jsonify({'message': 'Add to Wishlist successfully!','length':basketlike_length,'id': basketId,'img':basketlikeImg})
 
 
 @app.route('/checkout')
@@ -376,12 +441,19 @@ def addflower():
             name = form.name.data
             img_dir = config.Config.PC_UPLOAD_DIR
             print(img_dir)
-            img_obj = form.image.data
-            img_filename = session.get("USERNAME") + name + '_img.jpg'
-            print(os.path.join(img_dir, img_filename))
-            img_obj.save(os.path.join(img_dir, img_filename))
+            imgs_obj = form.image.data
+            i=0
+            img1=""
+            for img_obj in imgs_obj:
+                if i==0:
+                    img_filename = session.get("USERNAME") + name + str(i)+'_img.jpg'
+                    img_obj.save(os.path.join(img_dir, img_filename))
+                else:
+                    img1=session.get("USERNAME") + name + str(i)+'_img.jpg'
+                    img_obj.save(os.path.join(img_dir, img1))
+                i=i+1
             flower = Flower(name=form.name.data, intro=form.detail.data, price=form.price.data, number=form.number.data,
-                            img=img_filename, address=form.address.data)
+                            img=img_filename, img1=img1,address=form.address.data)
             print("caocaocao3")
             db.session.add(flower)
             db.session.commit()

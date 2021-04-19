@@ -4,7 +4,8 @@ $.post('/RemoveBasket',
             var message = response['message']
             $("#fuck"+response['id']).remove()
             $("#length").text(response['length'])
-            $("#total").text(response['total'])
+            $("#total").text("$"+response['total'])
+            $("#total").css({"color": "red"})
 
     }).fail(function (){
         alert('Wrong!!!')

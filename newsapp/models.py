@@ -11,6 +11,8 @@ class User(db.Model):
     password_hash = db.Column(db.String(128))
     order = db.relationship('Order', backref='owner', lazy='dynamic')
     basket = db.relationship('Basket', backref='user_basket', lazy='dynamic')
+    basketlike = db.relationship('Basketlike', backref='user_basketlike1', lazy='dynamic')
+    want = db.relationship('Want', backref='user_want', lazy='dynamic')
 
     def __repr__(self):
         return '<User {}>'.format(self.username)
@@ -34,9 +36,16 @@ class Flower(db.Model):
     price = db.Column(db.Float)
     number = db.Column(db.Integer)
     img = db.Column(db.String(256))
+    img1 = db.Column(db.String(256))
     address = db.Column(db.String(256))
     basket = db.relationship('Basket', backref='flower_basket', lazy='dynamic')  # 货物
+    basketlike = db.relationship('Basketlike', backref='flower_basketlike', lazy='dynamic')  # 货物"""
 
+# 我想要
+class Want(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    basketlike = db.relationship('Basketlike', backref='flower_basketlike2', lazy='dynamic')  # 货物
 
 class Order(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -60,6 +69,14 @@ class Basket(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     flower_id = db.Column(db.Integer, db.ForeignKey('flower.id'))  # 鲜花id
     order_id = db.Column(db.Integer, db.ForeignKey('order.id'))
+
+# 喜欢单品
+class Basketlike(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(120), index=True)  # 鲜花名字
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    flower_id = db.Column(db.Integer, db.ForeignKey('flower.id'))  # 鲜花id
+    want_id = db.Column(db.Integer, db.ForeignKey('want.id'))
 
 # 资料
 class Profile(db.Model):

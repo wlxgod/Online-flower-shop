@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, RadioField, DateField, SubmitField, TimeField, IntegerField, \
-	TextAreaField, SelectMultipleField, FileField, FloatField
+	TextAreaField, SelectMultipleField, FileField, FloatField, MultipleFileField
 from wtforms.validators import DataRequired, Length, Regexp,Email
 from flask_wtf.file import FileAllowed,FileRequired
 
@@ -53,7 +53,7 @@ class FlowerForm(FlaskForm):
     detail = TextAreaField('Introduction', validators=[DataRequired()]) # 简介
     price = FloatField('Price', validators=[DataRequired()]) # 单价
     number = IntegerField('Inventory', validators=[DataRequired()]) # 库存
-    image = FileField('The preview of the flower', validators=[FileAllowed(['jpg','png','gif','jpeg','jfif'])]) # 预览图
+    image = MultipleFileField('The preview of the flower', validators=[FileAllowed(['jpg','png','gif','jpeg','jfif'])]) # 预览图
     address = StringField('Shop address', validators=[DataRequired()]) # 店铺地址
     submit = SubmitField('Comfirm')
 

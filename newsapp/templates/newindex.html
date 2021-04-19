@@ -125,9 +125,9 @@
                                         </ul>
                                     </li>
                                     <li>
-                                        <a href="#">
+                                        <a href="#" class="minicart-btn1">
                                             <i class="lnr lnr-heart"></i>
-                                            <div class="notification">0</div>
+                                            <div class="notification" id="length1">{{ lengthlike }}</div>
                                         </a>
                                     </li>
                                     <li>
@@ -488,7 +488,7 @@
                                 </div>
                             </div>
                             <div class="button-group">
-                                <a href="#" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i
+                                <a href="#" onclick='addLike({{ post.id }}, 1 ,"{{ post.name }}" )' data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i
                                         class="lnr lnr-heart"></i></a>
                                 <a href="#" data-toggle="modal" data-target="#quick_view"><span
                                         class="quick_view_button" data-toggle="tooltip"
@@ -596,7 +596,7 @@
                                     </div>
                                 </div>
                                 <div class="button-group">
-                                    <a href="#" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i
+                                    <a onclick='addLike({{ post.id }}, 1 ,"{{ post.name|string }}")' href="#" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i
                                             class="lnr lnr-heart"></i></a>
                                     <a href="#" data-toggle="modal" data-target="#quick_view"><span
                                             data-toggle="tooltip" data-placement="left" title="Quick View"><i
@@ -863,6 +863,49 @@
 </div>
 <!-- offcanvas search form end -->
 
+<!-- offcanvas mini like start -->
+<div class="offcanvas-minicart-wrapper">
+    <div class="minicart-inner" id="like">
+        <div class="offcanvas-overlay"></div>
+        <div class="minicart-inner-content">
+            <div class="minicart-close">
+                <i class="lnr lnr-cross"></i>
+            </div>
+            <div class="minicart-content-box">
+                <div class="minicart-item-wrapper">
+                    {% for basket in basketslike %}
+                    {% for item in posts %}
+                    {% if item.id==basket.flower_id %}
+                    <ul id="{{'fuck1'+basket.id|string}}">
+                        <li class="minicart-item">
+                            <div class="minicart-thumb">
+                                <a href="{{ url_for('detail') }}">
+                                    <img src="static/images/{{ item.img }}"
+                                         alt="product">
+                                </a>
+                            </div>
+                            <div class="minicart-content">
+                                <h3 class="product-name">
+                                    <a href="{{ url_for('detail') }}">{{item.name}}</a>
+                                </h3>
+                            </div>
+                            <a class="minicart-remove" onclick="RemoveBasketlike({{ basket.id }})" href="#"><i
+                                    class="lnr lnr-cross"></i></a>
+                        </li>
+                    </ul>
+                    {% endif %}
+                    {% endfor %}
+                    {% endfor %}
+                </div>
+
+                <div class="minicart-pricing-box">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- offcanvas mini like start -->
+
 <!-- offcanvas mini cart start -->
 <div class="offcanvas-minicart-wrapper">
     <div class="minicart-inner">
@@ -937,6 +980,8 @@
 <script src="{{ url_for('static',filename='scripts/index2.js') }}"></script>
 <script src="{{ url_for('static',filename='scripts/jquery.js') }}"></script>
 <script src="{{ url_for('static',filename='scripts/indexadd.js') }}"></script>
+<script src="{{ url_for('static',filename='scripts/indexlike.js') }}"></script>
+<script src="{{ url_for('static',filename='scripts/indexremovelike.js') }}"></script>
 <style>
     .copyrights {
         text-indent: -9999px;
