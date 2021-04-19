@@ -598,20 +598,24 @@
                                 <div class="button-group">
                                     <a onclick='addLike({{ post.id }}, 1 ,"{{ post.name|string }}")' href="#" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i
                                             class="lnr lnr-heart"></i></a>
-                                    <a href="#" data-toggle="modal" data-target="#quick_view"><span
-                                            data-toggle="tooltip" data-placement="left" title="Quick View"><i
-                                            class="lnr lnr-magnifier"></i></span></a>
+                                    <a href="#" data-toggle="modal" data-target="#quick_view">
+                                        <span data-toggle="tooltip" data-placement="left" title="Quick View">
+                                            <i class="lnr lnr-magnifier quick_view_button2"></i>
+                                        </span>
+                                    </a>
                                     <a onclick='addTrolley({{ post.id }}, 1 ,"{{ post.name|string }}")' href="#" data-toggle="tooltip"
                                        data-placement="left" title="Add to Cart"><i class="lnr lnr-cart"></i></a>
                                 </div>
                             </figure>
                             <div class="product-caption">
                                 <p class="product-name">
-                                    <a href="{{ url_for('detail') }}">{{ post.name }}</a>
+                                    <a  href="{{ url_for('detail') }}">{{ post.name }}</a>
                                 </p>
                                 <div class="price-box">
                                     <span class="price-regular">¥ {{ post.price }}</span>
                                     <span class="price-old"><del>¥ {{ post.price+10 }}</del></span>
+                                    <span hidden>{{post.number}}</span>
+                                    <span hidden>{{post.intro}}</span>
                                 </div>
                             </div>
                         </div>
@@ -751,37 +755,37 @@
                         <div class="col-lg-5 col-md-5">
                             <div class="product-large-slider">
                                 <div class="pro-large-img">
-                                    <img src="{{ url_for('static',filename='images/img/product/product-details-img1.jpg') }}"
+                                    <img id="target_image1" src="{{ url_for('static',filename='images/img/product/product-details-img1.jpg') }}"
                                          alt="product-details"/>
                                 </div>
                                 <div class="pro-large-img">
-                                    <img src="{{ url_for('static',filename='images/img/product/product-details-img2.jpg') }}"
+                                    <img  id="target_image2"  src="{{ url_for('static',filename='images/img/product/product-details-img2.jpg') }}"
                                          alt="product-details"/>
                                 </div>
                                 <div class="pro-large-img">
-                                    <img src="{{ url_for('static',filename='images/img/product/product-details-img3.jpg') }}"
+                                    <img  id="target_image3"  src="{{ url_for('static',filename='images/fill1.jfif') }}"
                                          alt="product-details"/>
                                 </div>
                                 <div class="pro-large-img">
-                                    <img src="{{ url_for('static',filename='images/img/product/product-details-img4.jpg') }}"
+                                    <img id="target_image4"  src="{{ url_for('static',filename='images/fill2.jfif') }}"
                                          alt="product-details"/>
                                 </div>
                             </div>
                             <div class="pro-nav slick-row-10 slick-arrow-style">
                                 <div class="pro-nav-thumb">
-                                    <img src="{{ url_for('static',filename='images/img/product/product-details-img1.jpg') }}"
+                                    <img  id="target_image_bottom1" src="{{ url_for('static',filename='images/img/product/product-details-img1.jpg') }}"
                                          alt="product-details"/>
                                 </div>
                                 <div class="pro-nav-thumb">
-                                    <img src="{{ url_for('static',filename='images/img/product/product-details-img2.jpg') }}"
+                                    <img  id="target_image_bottom2" src="{{ url_for('static',filename='images/img/product/product-details-img2.jpg') }}"
                                          alt="product-details"/>
                                 </div>
                                 <div class="pro-nav-thumb">
-                                    <img src="{{ url_for('static',filename='images/img/product/product-details-img3.jpg') }}"
+                                    <img  id="target_image_bottom3" src="{{ url_for('static',filename='images/fill1.jfif') }}"
                                          alt="product-details"/>
                                 </div>
                                 <div class="pro-nav-thumb">
-                                    <img src="{{ url_for('static',filename='images/img/product/product-details-img4.jpg') }}"
+                                    <img id="target_image_bottom4" src="{{ url_for('static',filename='images/fill2.jfif') }}"
                                          alt="product-details"/>
                                 </div>
                             </div>
