@@ -372,7 +372,6 @@ def addflower():
     if session.get("USERNAME") is None:
         return redirect("login")
     else:
-        print("caocaocao1")
         if form.validate_on_submit():
             name = form.name.data
             img_dir = config.Config.PC_UPLOAD_DIR
@@ -548,7 +547,27 @@ def Delete(flower_id):
 
 @app.route('/profile')
 def profile():
-    return render_template('profile.html')
+    if session.get("USERNAME") is None:
+        return redirect("login")
+    else:
+        username = session.get("USERNAME")
+        user = User.query.filter(User.username == username).first()
+        user_id = user.id
+        orders_in_db = Order.query.filter(Order.user_id == user_id).all()
+        flag = 1
+        if orders_in_db is not None:
+            for order in orders_in_db:
+                if order.state == 'unpayment':
+                    flag = 0
+        else:
+            flag = 1
+        if flag == 1:
+            order = Order(price=0, name=user.username, destination="Beijing university of technology",
+                          state="unpayment", number=100, way="deliver", user_id=user.id)
+            db.session.add(order)
+            db.session.commit()
+            orders_in_db = Order.query.filter(Order.user_id == user_id).all()
+    return render_template('profile.html',username=username,orders=orders_in_db)
 
 @app.route('/ModifyOrder/<order_id>', methods=['GET', 'POST'])
 def ModifyOrder(order_id):

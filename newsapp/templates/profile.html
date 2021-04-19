@@ -289,7 +289,7 @@
     <div id="right">
         <div id="dashboard">
             <h2>Dashboard</h2>
-            <p>Hello, <span>Alex Tuntuni</span> (If this is not you! <a href="{{ url_for('logout')}}">Logout Here</a> )<br>
+            <p>Hello, <span>{{username}}</span> (If this is not you! <a href="{{ url_for('logout')}}">Logout Here</a> )<br>
                 From your account dashboard. you can easily check & view your recent orders, manage your shipping and billing
                 <br>
                 addresses and edit your password and account details.</p>
@@ -299,18 +299,20 @@
             <table>
                 <tr>
                     <th>No</th>
-                    <th>Order Detail</th>
+                    <th>Order Destination</th>
                     <th>Date</th>
                     <th>Status</th>
                     <th>Total</th>
                 </tr>
+                {% for order in orders %}
                 <tr>
-                    <td>1</td>
-                    <td><ul><li>hhh</li></ul></td>
-                    <td>Aug 22, 2020</td>
-                    <td>Pending</td>
-                    <td>3009.7</td>
+                    <td>{{order.id}}</td>
+                    <td><ul><li>{{order.destination}}</li></ul></td>
+                    <td>{{order.timestemp}}</td>
+                    <td>{{order.state}}</td>
+                    <td>{{order.price}}</td>
                 </tr>
+                {% endfor %}
             </table>
         </div>
         <div id="changeP">
