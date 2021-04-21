@@ -283,14 +283,19 @@
     <ul>
         <li id="dashboardLi"><img src="{{ url_for('static',filename='images/dashboard.png') }}" alt="">Dashboard</li>
         <li id="orderLi"><img src="../static/images/order.png" alt="">Order</li>
-        <li id="changePLi"><img src="{{ url_for('static',filename='images/changePassword.png') }}" alt="">Change Password</li>
-        <li id="logoutLi"><a href="{{ url_for('logout')}}"><img src="{{ url_for('static',filename='images/logout.png') }}" alt="">Logout</a></li>
+        <li id="changePLi"><img src="{{ url_for('static',filename='images/changePassword.png') }}" alt="">Change
+            Password
+        </li>
+        <li id="logoutLi"><a href="{{ url_for('logout')}}"><img
+                src="{{ url_for('static',filename='images/logout.png') }}" alt="">Logout</a></li>
     </ul>
     <div id="right">
         <div id="dashboard">
             <h2>Dashboard</h2>
-            <p>Hello, <span>{{username}}</span> (If this is not you! <a href="{{ url_for('logout')}}">Logout Here</a> )<br>
-                From your account dashboard. you can easily check & view your recent orders, manage your shipping and billing
+            <p>Hello, <span>{{username}}</span> (If this is not you! <a href="{{ url_for('logout')}}">Logout Here</a>
+                )<br>
+                From your account dashboard. you can easily check & view your recent orders, manage your shipping and
+                billing
                 <br>
                 addresses and edit your password and account details.</p>
         </div>
@@ -307,7 +312,11 @@
                 {% for order in orders %}
                 <tr>
                     <td>{{order.id}}</td>
-                    <td><ul><li>{{order.destination}}</li></ul></td>
+                    <td>
+                        <ul>
+                            <li>{{order.destination}}</li>
+                        </ul>
+                    </td>
                     <td>{{order.timestemp}}</td>
                     <td>{{order.state}}</td>
                     <td>{{order.price}}</td>
@@ -316,19 +325,48 @@
             </table>
         </div>
         <div id="changeP">
-            <h2>Change Password</h2>
-            <div>
-                <label for="">Old Password</label>
-                <input type="text"><br>
+            <form action="" method="post" novalidate>
+                {{ form.hidden_tag() }}
+                <h2>Change Password</h2>
+                <div>
+                    <p>
+                        {{ form.passwordold.label }}
+                        {% for error in form.password.errors %}
+                        <span style="font-size: 15px;color: red;">{{ error }}</span>
+                        {% endfor %}
+                        <br>
+                        {{ form.passwordold(size=35,id="password") }}
+                    </p>
+                    <p>
+                        {{ form.password.label }}
+                        {% for error in form.password.errors %}
+                        <span style="font-size: 15px;color: red;">{{ error }}</span>
+                        {% endfor %}
+                        <br>
+                        {{ form.password(size=35,id="password") }}
+                    </p>
 
-                <label for="">New Password</label>
-                <input type="password"><br>
-
-                <label for="">Repeat New Password</label>
-                <input type="password"><br>
-
-                <input type="submit" value="Submit">
-            </div>
+                    <p>
+                        {{ form.password2.label }}
+                        {% for error in form.password2.errors %}
+                        <span style="font-size: 15px;color: #ff0000;">{{ error }}</span>
+                        {% endfor %}
+                        <br>
+                        {{ form.password2(size=35) }}
+                        <br>
+                        <span class="flush">
+                    {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                            {% for message in messages %}
+                                <span style="color: red">{{ message }}</span>
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+                        </span>
+                        <br>
+                    </p>
+                </div>
+                <p>{{ form.submit() }}</p>
         </div>
     </div>
 </div>
@@ -433,9 +471,6 @@
 
 </footer>
 <!-- End Footer Area Wrapper -->
-
-
-
 
 
 <!-- Scroll to top start -->

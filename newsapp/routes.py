@@ -7,7 +7,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.utils import secure_filename
 
 from newsapp import app, db, config
-from newsapp.forms import LoginForm, SignupForm, FlowerForm
+from newsapp.forms import LoginForm, SignupForm, FlowerForm, ChangePasswordForm
 from newsapp.models import Flower, Order, Basket, Message, Profile, News, Want, Basketlike
 from newsapp.models import User
 
@@ -617,7 +617,7 @@ def Delete(flower_id):
     return render_template('FlowerGallery.html', title='Flowers', flowers=flowers)
 
 
-@app.route('/profile')
+@app.route('/profile', methods=['GET', 'POST'])
 def profile():
     if session.get("USERNAME") is None:
         return redirect("login")
@@ -639,7 +639,23 @@ def profile():
             db.session.add(order)
             db.session.commit()
             orders_in_db = Order.query.filter(Order.user_id == user_id).all()
-    return render_template('profile.html',username=username,orders=orders_in_db)
+        form = ChangePasswordForm()
+        if form.validate_on_submit():
+            user = User.query.filter(User.username == username).first()
+            if not check_password_hash(user.password_hash, form.passwordold.data):
+                flash('Wrong Password')
+                return redirect(url_for('profile'))
+            if form.password.data != form.password2.data:
+                flash('Passwords do not match!')
+                return redirect(url_for('profile'))
+            passw_hash = generate_password_hash(form.password.data)
+            user = User.query.filter(User.username == username).first()
+            user.password_hash=passw_hash
+            db.session.commit()
+            print("change password successfully")
+            return redirect('index')
+
+    return render_template('profile.html',username=username,orders=orders_in_db,form=form)
 
 @app.route('/ModifyOrder/<order_id>', methods=['GET', 'POST'])
 def ModifyOrder(order_id):

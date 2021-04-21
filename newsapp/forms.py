@@ -60,4 +60,23 @@ class FlowerForm(FlaskForm):
 class SearchForm(FlaskForm):
 	content = StringField('Content', validators=[DataRequired()])
 
+class ChangePasswordForm(FlaskForm):
+	passwordold = PasswordField(
+		label='Passwordold',
+		validators=[DataRequired("Please enter your oldpassword")]
+	)
+
+	password = PasswordField(
+		label='Password',
+		validators=[DataRequired("Enter a password!"),
+					Length(min=6, max=20,message="Length should be 6-20"),
+					# 查下这个啥意思？
+					Regexp("^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,20}$",message="Should have a digit and a letter")]
+	)
+	password2 = PasswordField(
+		label='Repeat Password',
+		validators=[DataRequired("Double check your password")]
+	)
+	submit = SubmitField('submit')
+
 
