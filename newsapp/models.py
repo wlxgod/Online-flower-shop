@@ -49,7 +49,7 @@ class Want(db.Model):
 
 class Order(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    timestemp = db.Column(db.DateTime, default=datetime.datetime.utcnow())
+    timestamp = db.Column(db.DateTime, default=datetime.datetime.utcnow())
     price = db.Column(db.Float)  # 总价
     name = db.Column(db.String(64))  # 买家姓名
     destination = db.Column(db.String(256))  # 买家地址

@@ -24,14 +24,15 @@ a:hover {
 }
 
 #header h1 {
-    background: url("../images/logo.png") no-repeat scroll 0 0 transparent;
-    height: 51px;
+    background: url("/static/images/logo.jfif") no-repeat scroll 0 0 transparent;
+    height: 31px;
     left: 15px;
     line-height: 600px;
     overflow: hidden;
     position: relative;
-    top: 5px;
+    top: 24px;
     width: 191px;
+	background-size: cover;
 }
 
 #header h1 a {
@@ -99,7 +100,7 @@ a:hover {
 }
 #user-nav > ul > li > a > i, #sidebar li a i {
 	vertical-align: top;
-	background-image: url('../images/glyphicons-halflings-white.png');
+	background-image: url('/static/images/glyphicons-halflings-white.png');
 	opacity: .5;
 	margin-top: 2px;
 }
@@ -160,7 +161,7 @@ a:hover {
 }
 
 #sidebar > ul > li.active > a {
-	background: url("../images/menu-active.png") no-repeat scroll right center transparent !important;
+	background: url("/static/images/menu-active.png") no-repeat scroll right center transparent !important;
 }
 
 #sidebar > ul > li > a > .label {
@@ -263,7 +264,7 @@ a:hover {
 #breadcrumb a {
 	padding: 8px 20px 8px 10px;
 	display: inline-block;
-	background-image: url('../images/breadcrumb.png');
+	background-image: url('/static/images/breadcrumb.png');
 	background-position: center right;
 	background-repeat: no-repeat;
 	font-size: 11px;
@@ -286,6 +287,11 @@ a:hover {
 #breadcrumb a:hover i {
 	margin-right: 5px;
 	opacity: .8;
+}
+
+.perFlower{
+
+
 }
 
 /* Style Switcher */
@@ -376,6 +382,36 @@ a:hover {
 	font-size: 14px;
 	color: #555555;
 }
+.toBlock{
+	display: inline;
+	float: right;
+
+
+}
+.strong{
+	font-weight: bold;
+	padding-left: 20px;
+
+}
+.brown{
+	color: #7D3434;
+}
+.CS{
+	margin-right: 5px;
+}
+
+
+.relative{
+	position: relative;
+
+}
+.relative .abs{
+	position: absolute;
+	right: 5px;
+	bottom: 4px;
+
+}
+
 .quick-actions-horizontal li a span {
 	padding: 10px 12px 10px 10px;
 	display: inline-block;
@@ -412,125 +448,125 @@ a:hover {
 }
 
 .quick-actions i.icon-book {
-	background-image: url('../images/icons/32/book.png');
+	background-image: url('/static/images/icons/32/book.png');
 }
 .quick-actions i.icon-cabinet {
-	background-image: url('../images/icons/32/cabinet.png');
+	background-image: url('/static/images/icons/32/cabinet.png');
 }
 .quick-actions i.icon-calendar {
-	background-image: url('../images/icons/32/calendar.png');
+	background-image: url('/static/images/icons/32/calendar.png');
 }
 .quick-actions i.icon-client {
-	background-image: url('../images/icons/32/client.png');
+	background-image: url('/static/images/icons/32/client.png');
 }
 .quick-actions i.icon-database {
-	background-image: url('../images/icons/32/database.png');
+	background-image: url('/static/images/icons/32/database.png');
 }
 .quick-actions i.icon-download {
-	background-image: url('../images/icons/32/download.png');
+	background-image: url('/static/images/icons/32/download.png');
 }
 .quick-actions i.icon-graph {
-	background-image: url('../images/icons/32/graph.png');
+	background-image: url('/static/images/icons/32/graph.png');
 }
 .quick-actions i.icon-home {
-	background-image: url('../images/icons/32/home.png');
+	background-image: url('/static/images/icons/32/home.png');
 }
 .quick-actions i.icon-lock {
-	background-image: url('../images/icons/32/lock.png');
+	background-image: url('/static/images/icons/32/lock.png');
 }
 .quick-actions i.icon-mail {
-	background-image: url('../images/icons/32/mail.png');
+	background-image: url('/static/images/icons/32/mail.png');
 }
 .quick-actions i.icon-pdf {
-	background-image: url('../images/icons/32/pdf.png');
+	background-image: url('/static/images/icons/32/pdf.png');
 }
 .quick-actions i.icon-people {
-	background-image: url('../images/icons/32/people.png');
+	background-image: url('/static/images/icons/32/people.png');
 }
 .quick-actions i.icon-piechart {
-	background-image: url('../images/icons/32/piechart.png');
+	background-image: url('/static/images/icons/32/piechart.png');
 }
 .quick-actions i.icon-search {
-	background-image: url('../images/icons/32/search.png');
+	background-image: url('/static/images/icons/32/search.png');
 }
 .quick-actions i.icon-shopping-bag {
-	background-image: url('../images/icons/32/shopping-bag.png');
+	background-image: url('/static/images/icons/32/shopping-bag.png');
 }
 .quick-actions i.icon-survey {
-	background-image: url('../images/icons/32/survey.png');
+	background-image: url('/static/images/icons/32/survey.png');
 }
 .quick-actions i.icon-tag {
-	background-image: url('../images/icons/32/tag.png');
+	background-image: url('/static/images/icons/32/tag.png');
 }
 .quick-actions i.icon-user {
-	background-image: url('../images/icons/32/user.png');
+	background-image: url('/static/images/icons/32/user.png');
 }
 .quick-actions i.icon-wallet {
-	background-image: url('../images/icons/32/wallet.png');
+	background-image: url('/static/images/icons/32/wallet.png');
 }
 .quick-actions i.icon-web {
-	background-image: url('../images/icons/32/web.png');
+	background-image: url('/static/images/icons/32/web.png');
 }
 
 .quick-actions-horizontal i.icon-book {
-	background-image: url('../images/icons/16/book.png');
+	background-image: url('/static/images/icons/16/book.png');
 }
 .quick-actions-horizontal i.icon-cabinet {
-	background-image: url('../images/icons/16/cabinet.png');
+	background-image: url('/static/images/icons/16/cabinet.png');
 }
 .quick-actions-horizontal i.icon-calendar {
-	background-image: url('../images/icons/16/calendar.png');
+	background-image: url('/static/images/icons/16/calendar.png');
 }
 .quick-actions-horizontal i.icon-client {
-	background-image: url('../images/icons/16/client.png');
+	background-image: url('/static/images/icons/16/client.png');
 }
 .quick-actions-horizontal i.icon-database {
-	background-image: url('../images/icons/16/database.png');
+	background-image: url('/static/images/icons/16/database.png');
 }
 .quick-actions-horizontal i.icon-download {
-	background-image: url('../images/icons/16/download.png');
+	background-image: url('/static/images/icons/16/download.png');
 }
 .quick-actions-horizontal i.icon-graph {
-	background-image: url('../images/icons/16/graph.png');
+	background-image: url('/static/images/icons/16/graph.png');
 }
 .quick-actions-horizontal i.icon-home {
-	background-image: url('../images/icons/16/home.png');
+	background-image: url('/static/images/icons/16/home.png');
 }
 .quick-actions-horizontal i.icon-lock {
-	background-image: url('../images/icons/16/lock.png');
+	background-image: url('/static/images/icons/16/lock.png');
 }
 .quick-actions-horizontal i.icon-mail {
-	background-image: url('../images/icons/16/mail.png');
+	background-image: url('/static/images/icons/16/mail.png');
 }
 .quick-actions-horizontal i.icon-pdf {
-	background-image: url('../images/icons/16/pdf.png');
+	background-image: url('/static/images/icons/16/pdf.png');
 }
 .quick-actions-horizontal i.icon-people {
-	background-image: url('../images/icons/16/people.png');
+	background-image: url('/static/images/icons/16/people.png');
 }
 .quick-actions-horizontal i.icon-piechart {
-	background-image: url('../images/icons/16/piechart.png');
+	background-image: url('/static/images/icons/16/piechart.png');
 }
 .quick-actions-horizontal i.icon-search {
-	background-image: url('../images/icons/16/search.png');
+	background-image: url('/static/images/icons/16/search.png');
 }
 .quick-actions-horizontal i.icon-shopping-bag {
-	background-image: url('../images/icons/16/shopping-bag.png');
+	background-image: url('/static/images/icons/16/shopping-bag.png');
 }
 .quick-actions-horizontal i.icon-survey {
-	background-image: url('../images/icons/16/survey.png');
+	background-image: url('/static/images/icons/16/survey.png');
 }
 .quick-actions-horizontal i.icon-tag {
-	background-image: url('../images/icons/16/tag.png');
+	background-image: url('/static/images/icons/16/tag.png');
 }
 .quick-actions-horizontal i.icon-user {
-	background-image: url('../images/icons/16/user.png');
+	background-image: url('/static/images/icons/16/user.png');
 }
 .quick-actions-horizontal i.icon-wallet {
-	background-image: url('../images/icons/16/wallet.png');
+	background-image: url('/static/images/icons/16/wallet.png');
 }
 .quick-actions-horizontal i.icon-web {
-	background-image: url('../images/icons/16/web.png');
+	background-image: url('/static/images/icons/16/web.png');
 }
 
 .stat-boxes li:hover, .quick-actions li:hover, .quick-actions-horizontal li:hover  {
@@ -915,7 +951,7 @@ a:hover {
     padding: 10px;
     margin: 10px 0;
 }
-#chat-messages-inner p images {
+#chat-messages-inner p img {
     display: inline-block;
     float: left;
     vertical-align: middle;
@@ -998,7 +1034,7 @@ a:hover {
 .chat-users .contact-list li.offline {
 	background-color: #EDE0E0;
 }
-.chat-users .contact-list li a images {
+.chat-users .contact-list li a img {
     display: inline-block;
     margin-right: 10px;
     vertical-align: middle;
@@ -1253,8 +1289,30 @@ div.dataTables_wrapper .ui-widget-header {
 .thumbnails li:hover .actions {
 	opacity: 1;
 }
+
+.conflower{
+	margin-left: 23%;
+
+}
+
+.deflower{
+	margin-left: 10%;
+
+
+}
+.flowername{
+	color: #5bb75b;
+
+}
+.salesvolume{
+	color: #942a25;
+	position: absolute;
+	right: 2px;
+
+}
+
 .line {
-    background: url("../images/line.png") repeat-x scroll 0 0 transparent;
+    background: url("/static/images/line.png") repeat-x scroll 0 0 transparent;
     display: block;
     height: 8px;
 }
@@ -1271,6 +1329,25 @@ div.dataTables_wrapper .ui-widget-header {
 .modal-header h3 {
 	font-size: 12px;
 	text-shadow: 0 1px 0 #ffffff;
+}
+
+
+.tAMiddle td:nth-child(5){
+	text-align: left;
+	font-weight: bold;
+}
+
+.tAMiddle td:nth-child(4){
+	font-weight: bold;
+}
+
+.tAMiddle td:nth-child(2){
+	font-style: italic;
+	font-size: medium;
+}
+
+.tAMiddle td{
+	text-align: center;
 }
 
 .notify-ui ul {
@@ -1320,6 +1397,97 @@ form {
 .help-block, .help-inline {
     color: #999999;
 }
+.backgroundB{
+	z-index: 2;
+	background-image: url("/static/images/b.png");
+	/*background-size: contain;*/
+	background-size: cover;
+	background: no-repeat;
+}
+
+.Odelete{
+	display: inline-block;
+	position: absolute;
+	right: 20px;
+	bottom: 16px;
+
+}
+div .superBorder{
+	border-radius: 20px;
+
+}
+
+div > div > div .CurrLoca{
+    position: absolute;
+    bottom: 5px;
+    right: 9px;
+
+
+
+}
+
+.abs{
+	position: relative;
+}
+
+.backgroundC{
+	z-index: 2;
+	background-image: url("/static/images/b.png");
+	background-size: contain;
+}
+
+
+.backgroundA{
+	z-index: 2;
+	background-image: url("/static/images/mod.png");
+	background-size: contain;
+
+}
+
+.picA{
+	z-index: -1;
+	position: absolute;
+	height: min-content;
+}
+.formA{
+	opacity: 0.99;
+
+}
+.formA label{
+	opacity: 1;
+	font-weight: bold;
+	font-family: "Comic Sans MS";
+	font-size: large;
+	color: rgba(189,107,9,2);
+
+}
+.formA input{
+	background-color: rgb(251,249,154);
+}
+.formA textarea{
+	background-color: rgb(251,249,154);
+}
+
+.formB{
+	opacity: 0.99;
+
+}
+.formB label{
+	opacity: 1;
+	font-weight: bold;
+	font-family: "Comic Sans MS";
+	font-size: large;
+	color: rgba(189,107,9,2);
+
+}
+.formB input{
+	background-color: rgb(151,150,90);
+}
+.formB textarea{
+	background-color: rgb(151,150,90);
+}
+
+
 /* Responsive design */
 @media (max-width: 480px) {
 	#header h1 {
@@ -1383,7 +1551,7 @@ form {
 	}
 	#sidebar > a > i {
 		margin-right: 10px;
-		background-image: url('../images/glyphicons-halflings-white.png');
+		background-image: url('/static/images/glyphicons-halflings-white.png');
 	}
 	#sidebar > ul {
 		display: none;

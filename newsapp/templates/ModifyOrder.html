@@ -177,7 +177,8 @@
                                     </li>
                                 </ul>
                             </div>
-                            <div class="invoice-from">
+                            <div class="invoice-from text-warning">
+                                <br><br><br><br><br>
                                 <ul>
                                     <li>
                                         <span><strong>To</strong></span>
@@ -245,10 +246,11 @@
 
 
                         {% if order.state == "Completed" %}
-                        <p class="status-word">
-                            Current Status: <span class="text-info">Completed</span>
+                        <div class="alert alert-success CSMod superBorder" role="alert">
+
+                            Current Status: <span class="text-success strong">Completed</span>
                         <div class="btn-group abs">
-                            <button type="button" class="btn btn-primary dropdown-toggle CS" data-toggle="dropdown"
+                            <button type="button" class="btn btn-success dropdown-toggle CS superBorder CurrLoca" data-toggle="dropdown"
                                     aria-haspopup="true" aria-expanded="false">
                                 Modify Status <span class="caret"></span>
                             </button>
@@ -258,13 +260,14 @@
                             </ul>
                         </div>
 
+
                         {% elif order.state == "Transporting"%}
-                        <div class="alert alert-info CSMod" role="alert">
+                        <div class="alert alert-info CSMod superBorder" role="alert">
                             Current Status:
                             <span class="text-info strong">        Transporting</span>
 
                             <div class="btn-group btn-CS">
-                                <button type="button" class="btn btn-primary dropdown-toggle CS" data-toggle="dropdown"
+                                <button type="button" class="btn btn-primary dropdown-toggle CS superBorder" data-toggle="dropdown"
                                         aria-haspopup="true" aria-expanded="false">
                                     Modify Status <span class="caret"></span>
                                 </button>
@@ -275,10 +278,10 @@
                             </div>
 
                             {% elif order.state == "Lated" %}
-                            <p class="status-word">
-                                Current Status: <span class="text-error">Lated</span>
+                        <div class="alert alert-error CSMod superBorder" role="alert">
+                                Current Status: <span class="text-error strong">Lated</span>
                             <div class="btn-group abs">
-                                <button type="button" class="btn btn-primary dropdown-toggle CS" data-toggle="dropdown"
+                                <button type="button" class="btn btn-danger CurrLoca dropdown-toggle CS superBorder" data-toggle="dropdown"
                                         aria-haspopup="true" aria-expanded="false">
                                     Modify Status <span class="caret"></span>
                                 </button>
