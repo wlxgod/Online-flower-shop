@@ -554,7 +554,8 @@ def Flowers():
 @app.route('/ChatRoom', methods=['GET', 'POST'])
 def ChatRoom():
     staff = User.query.filter(User.username == session['USERNAME']).first().id  # 自己的id
-    img = Profile.query.filter(Profile.user_id == staff).first().portrait     # 头像
+    profile=Profile.query.filter(Profile.user_id == staff).first()
+    img = profile.portrait     # 头像
     # 获取历史聊天用户和新消息数量
     new = News.query.filter(News.staff_id == staff).order_by(News.number.desc())
     return render_template('ChatRoom.html', title='ChatRoom', news=new, img=img)

@@ -42,7 +42,7 @@
 
 <div id="sidebar">
     <ul>
-         <li >
+         <li class="active">
             <a href="{{ url_for('addflower') }}"><i class="icon icon-plus-sign"></i> <span>添加花束</span></a>
         </li>
 
@@ -53,9 +53,9 @@
             <a href="{{ url_for('OrderDisplay') }}" onclick="{if(confirm('Please choose one order from the table to see the details')){}}"><i class="icon icon-file"></i> <span>订单详情</span></a>
         </li>
         <li>
-            <a href="{{ url_for('OrderDisplay') }}" onclick="{if(confirm('Please choose one order from the table first, then go to modify it')){}}"></i> <span>修改订单</span></a>
+            <a href="{{ url_for('OrderDisplay') }}" onclick="{if(confirm('Please choose one order from the table first, then go to modify it')){}}"><i class="icon icon-refresh"></i> <span>修改订单</span></a>
         </li>
-        <li class="active">
+        <li>
             <a href="{{ url_for('ChatRoom') }}"><i class="icon icon-comment"></i> <span>聊天页面</span></a>
         </li>
 

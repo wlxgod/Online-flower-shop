@@ -488,14 +488,14 @@
                                 </div>
                             </div>
                             <div class="button-group">
-                                <a href="#" onclick='addLike({{ post.id }}, 1 ,"{{ post.name }}" )' data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i
+                                <a href="{{ url_for('index') }}" onclick='addLike({{ post.id }}, 1 ,"{{ post.name }}" )' data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i
                                         class="lnr lnr-heart"></i></a>
                                 <a href="#" data-toggle="modal" data-target="#quick_view"><span
                                         class="quick_view_button" data-toggle="tooltip"
                                         data-placement="left"
                                         title="Quick View"><i
                                         class="lnr lnr-magnifier"></i></span></a>
-                                <a href="#" onclick='addTrolley({{ post.id }}, 1 ,"{{ post.name }}" )' data-toggle="tooltip" data-placement="left"
+                                <a href="{{ url_for('index') }}" onclick='addTrolley({{ post.id }}, 1 ,"{{ post.name }}" )' data-toggle="tooltip" data-placement="left"
                                    title="Add to Cart"><i class="lnr lnr-cart"></i></a>
                             </div>
                         </figure>
@@ -596,14 +596,14 @@
                                     </div>
                                 </div>
                                 <div class="button-group">
-                                    <a onclick='addLike({{ post.id }}, 1 ,"{{ post.name|string }}")' href="#" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i
+                                    <a onclick='addLike({{ post.id }}, 1 ,"{{ post.name|string }}")' href="{{ url_for('index') }}" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i
                                             class="lnr lnr-heart"></i></a>
                                     <a href="#" data-toggle="modal" data-target="#quick_view">
                                         <span data-toggle="tooltip" data-placement="left" title="Quick View">
                                             <i class="lnr lnr-magnifier quick_view_button2"></i>
                                         </span>
                                     </a>
-                                    <a onclick='addTrolley({{ post.id }}, 1 ,"{{ post.name|string }}")' href="#" data-toggle="tooltip"
+                                    <a onclick='addTrolley({{ post.id }}, 1 ,"{{ post.name|string }}")' href="{{ url_for('index') }}" data-toggle="tooltip"
                                        data-placement="left" title="Add to Cart"><i class="lnr lnr-cart"></i></a>
                                 </div>
                             </figure>
@@ -823,7 +823,7 @@
                                         <div class="pro-qty"><input type="text" value="1" id="number_input"></div>
                                     </div>
                                     <div class="action_link">
-                                        <a class="btn btn-cart2" onclick="addTrolley1(100)" href="#">Add to
+                                        <a class="btn btn-cart2" onclick="addTrolley1(100)" href="{{ url_for('index') }}">Add to
                                             cart</a>
                                     </div>
                                 </div>
