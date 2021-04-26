@@ -1,31 +1,24 @@
 <!DOCTYPE html>
-<html class="no-js" lang="zxx">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="meta description">
-    <title>About Us</title>
-
-    <!--=== Favicon ===-->
-    <link rel="shortcut icon" href="{{ url_for('static',filename='images/img/favicon.ico') }}" type="image/x-icon"/>
-
-    <!-- Google fonts include -->
+<html lang="en">
+	<head>
+		<title>聊天界面_很简洁漂亮的Bootstrap响应式后台管理系统模板UniAdmin</title>
+		<meta charset="UTF-8" />
+        <meta name="author" content="18206122 Yan Geng"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="/static/css/changedbootstrap.min.css" />
+		<link rel="stylesheet" href="/static/css/changedbootstrap-responsive.min.css" />
+		<link rel="stylesheet" href="/static/css/unicorn.main.css" />
+		<link rel="stylesheet" href="/static/css/unicorn.grey.css" class="skin-color" />
+        <link rel="shortcut icon" href="{{ url_for('static',filename='images/img/favicon.ico') }}" type="image/x-icon"/>
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,900%7CYesteryear"
           rel="stylesheet">
 
     <!-- All Vendor & plugins CSS include -->
     <link href="{{ url_for('static',filename='css/vendor.css') }}" rel="stylesheet">
-    <link href="{{ url_for('static',filename='css/checkout.css') }}" rel="stylesheet">
     <!-- Main Style CSS -->
     <link href="{{ url_for('static',filename='css/style.css') }}" rel="stylesheet">
 
-    <!--[if lt IE 9]>
-    <script src="/oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="/oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-</head>
-
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
 <body>
 
 <!-- Start Header Area -->
@@ -275,119 +268,54 @@
 </aside>
 <!-- off-canvas menu end -->
 
-<!--!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
+			<div class="container-fluid">
+				<div class="row-fluid">
+					<div class="span12">
+						<div class="alert alert-success">This is an example of support chat. Feel free to write something.<a href="#" class="close" data-dismiss="alert">×</a></div>
+						<div class="widget-box widget-chat">
+							<div class="widget-title">
+								<span class="icon">
+									<i class="icon-comment"></i>
+								</span>
+								<h5>Support chat</h5>
+							</div>
+							<div class="widget-content nopadding">
+								<div class="chat-content panel-left">
+								   <div class="chat-messages" id="chat-messages">
+										<div id="chat-messages-inner"></div>
+								   </div>
+								   <div class="chat-message well">
+										<button class="btn btn-success">Send</button>
+										<span class="input-box">
+											<input type="text" name="msg-box" id="msg-box" />
+										</span>
+								   </div>
+								</div>
+								<div class="chat-users panel-right">
+									<div class="panel-title"><h5>Customer</h5></div>
+									<div class="panel-content nopadding">
+										<ul class="contact-list">
+											{% for new in news  %}
+											{% if new.number == 0 %}
+											<li id="{{ new.user_id }}" class="online"><a href="#"><img class="/static/images/{{ img }}" alt="/static/images/{{ new.profile.portrait }}" src="/static/images/{{ new.profile.portrait }}" /> <span>{{ new.profile.name }}</span></a></li>
+											{% else %}
+											<li id="{{ new.user_id }}" class="online"><a href="#"><img class="/static/images/{{ img }}" alt="/static/images/{{ new.profile.portrait }}" src="/static/images/{{ new.profile.portrait }}" /> <span>{{ new.profile.name }}</span></a><span class="msg-count badge badge-info">{{ new.number }}</span></li>
+											{% endif %}
+											{% endfor %}
+											<li id="myicon" class="/static/images/{{ img }}" style="display: none"></li> <!-- 隐藏元素用于存自己的头像 -->
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 
-<div id="mainDiv1">
-    <h1>shopping checkout</h1>
-</div>
-<div id="two">
-    <div id="bill">
-        <h2>Billing Information</h2>
-        <div id="name">
-            <div>
-                <h5>First Name *</h5>
-                <input type="text">
-            </div>
-            <div>
-                <h5>Last Name *</h5>
-                <input type="text">
-            </div>
-        </div>
-        <div>
-            <h5>Street Address</h5>
-            <input type="text">
-        </div>
-        <div>
-            <h5>Contact Phone *</h5>
-            <input type="text">
-        </div>
-        <div>
-            <h5>Notes (Optional)</h5>
-            <input type="text">
-        </div>
-    </div>
-
-    <div id="cart">
-        <h2>Cart totals</h2>
-        <table>
-            <tr>
-                <th>Flower Name</th>
-                <th>Number</th>
-                <th>Sum in RMB</th>
-            </tr>
-            <tr>
-                <td>Rose</td>
-                <td>3</td>
-                <td>199.9</td>
-            </tr>
-        </table>
-        <h5>Only Support Wechat Payment</h5>
-        <button>
-            Proceed to checkout
-        </button>
-    </div>
-</div>
-<!--end!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
-<!-- service policy start -->
-    <section class="service-policy-area section-space p-0">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <!-- start policy single item -->
-                    <div class="service-policy-item">
-                        <div class="icons">
-                            <img src="{{ url_for('static',filename='images/img/icon/free_shipping.png') }}" alt="">
-                        </div>
-                        <div class="policy-terms">
-                            <h5>free shipping</h5>
-                            <p>Free shipping all order</p>
-                        </div>
-                    </div>
-                    <!-- end policy single item -->
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <!-- start policy single item -->
-                    <div class="service-policy-item">
-                        <div class="icons">
-                            <img src="{{ url_for('static',filename='images/img/icon/support247.png') }}" alt="">
-                        </div>
-                        <div class="policy-terms">
-                            <h5>SUPPORT 24/7</h5>
-                            <p>Support 24 hours a day</p>
-                        </div>
-                    </div>
-                    <!-- end policy single item -->
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <!-- start policy single item -->
-                    <div class="service-policy-item">
-                        <div class="icons">
-                            <img src="{{ url_for('static',filename='images/img/icon/money_back.png') }}" alt="">
-                        </div>
-                        <div class="policy-terms">
-                            <h5>Money Return</h5>
-                            <p>30 days for free return</p>
-                        </div>
-                    </div>
-                    <!-- end policy single item -->
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <!-- start policy single item -->
-                    <div class="service-policy-item">
-                        <div class="icons">
-                            <img src="{{ url_for('static',filename='images/img/icon/promotions.png') }}" alt="">
-                        </div>
-                        <div class="policy-terms">
-                            <h5>ORDER DISCOUNT</h5>
-                            <p>On every order over $15</p>
-                        </div>
-                    </div>
-                    <!-- end policy single item -->
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- service policy end -->
+				<div class="row-fluid">
+					<div id="footer" class="span12">
+						2021 &copy; Blizzard.</div>
+				</div>
+			</div>
 <!-- Start Footer Area Wrapper -->
 <footer class="footer-wrapper">
 
@@ -516,6 +444,12 @@
     Collect from <a href="http://www.cssmoban.com/" title="网站模板">模板之家</a>
     <a href="https://www.chazidian.com/" title="查字典">查字典</a>
 </div>
-</body>
 
+            <script src="../static/scripts/jquery-1.8.2.min.js"></script>
+			<script src="../static/scripts/jquery.js"></script>
+            <script src="../static/scripts/jquery.ui.custom.js"></script>
+            <script src="../static/scripts/bootstrap.min.js"></script>
+            <script src="../static/scripts/unicorn.js"></script>
+            <script src="../static/scripts/unicorn.chat.js"></script>
+	</body>
 </html>

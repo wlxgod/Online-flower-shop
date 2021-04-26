@@ -561,6 +561,16 @@ def ChatRoom():
     return render_template('ChatRoom.html', title='ChatRoom', news=new, img=img)
 
 
+@app.route('/CustomerChat', methods=['GET', 'POST'])
+def CustomerChat():
+    staff = User.query.filter(User.username == session['USERNAME']).first().id  # 自己的id
+    profile=Profile.query.filter(Profile.user_id == staff).first()
+    img = profile.portrait     # 头像
+    # 获取历史聊天用户和新消息数量
+    new = News.query.filter(News.staff_id == staff).order_by(News.number.desc())
+    return render_template('CustomerChat.html', title='ChatRoom', news=new, img=img)
+
+
 @app.route('/shownews', methods=['GET', 'POST'])
 def shownews():
     id1 = User.query.filter(User.username == session['USERNAME']).first().id  # 自己的id
