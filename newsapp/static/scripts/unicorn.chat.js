@@ -42,6 +42,7 @@ $(document).ready(function(){
         $(this).find('span').eq(1).css('display', 'none')
 		console.log('Post start');
 		current_id = $(this).attr("id");
+		console.log('click_id: '+current_id);
 		$('#chat-messages-inner').html(''); // 先清空
 		var id = $(this).attr("id");
 		var name = $(this).find('span').first().text(); // find()向下寻找所有子元素
@@ -69,6 +70,21 @@ $(document).ready(function(){
 		});
 		console.log('finish');
 	})
+
+    
+	/* 消息自动刷新，未实现
+	setInterval(function(){
+		var list = $('.online')
+		for (l in list){
+			var refresh_id = l.attr("id")
+			$.post('/refreshnew',{
+				'refresh_id': refresh_id
+			}).done(function(result){
+				var number = result['number']
+				l.children('span').first().html(number)
+			})
+		}
+	}, '1000'); */
 
 
 

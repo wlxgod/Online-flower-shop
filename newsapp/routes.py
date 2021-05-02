@@ -478,10 +478,19 @@ def ChatRoom():
     return render_template('ChatRoom.html', title='ChatRoom', news=new, img=img)
 
 
+@app.route('/onlinechat', methods=['GET','POST'])
+def onlinechat():
+    user = User.query.filter(User.username == session['USERNAME']).first().id  # 自己的id
+    img = Profile.query.filter(Profile.user_id == user).first().portrait  # 头像
+    # 获取历史聊天用户和新消息数量
+    new = News.query.filter(News.receiver_id == user).order_by(News.number.desc())
+    return render_template('onlinechat.html', title='ChatRoom', news=new, img=img)
+
+
 @app.route('/shownews', methods=['GET', 'POST'])
 def shownews():
     id1 = User.query.filter(User.username == session['USERNAME']).first().id  # 自己的id
-    id2 = request.form['user_id']  # 顾客的id
+    id2 = request.form['user_id']  # 对方的id
     print(id1)
     print(id2)
     user_news = News.query.filter(and_(News.sender_id == id2, News.receiver_id == id1)).first()
