@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zxx">
+<head>
+    {% if title %}
+        <title>{{ title }}</title>
+    % else %}
+        <title>Lazy boy</title>
+    {% endif %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="meta description">
+    <title>Home</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/topBar.css') }}">
+    <script src="{{ url_for('static',filename='scripts/jquery.js') }}"></script>
+    <script src="{{ url_for('static',filename='scripts/detail.js') }}"></script>
+    <!--=== Favicon ===-->
+    <link rel="shortcut icon" href="{{ url_for('static',filename='images/img/favicon.ico') }}" type="image/x-icon" />
+
+    <!-- Google fonts include -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,900%7CYesteryear" rel="stylesheet">
+
+    <!-- All Vendor & plugins CSS include -->
+    <link href="{{ url_for('static',filename='css/vendor.css') }}" rel="stylesheet">
+    <!-- Main Style CSS -->
+    <link href="{{ url_for('static',filename='css/style.css') }}" rel="stylesheet">
+
+    <!--[if lt IE 9]>
+<script src="/oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="/oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+</head>
+    <body>
+    <div class="topBar">
+            <div class="container">
+                 <div class="topBar_blocks">
+                     <a href="">Welcome to Blizzard Online Flower Store</a>
+                </div>
+
+                <div class="topBar_mine">
+                    <a id='profile' href="{{ url_for('profile') }}">My Account</a>
+                </div>
+
+                <div class="topBar_user">
+                    <a href="{{ url_for('index') }}">Home</a>
+                    <span>|</span>
+                    <a href="{{ url_for('logout') }}">Logout</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="background">
+            <div class="container">
+                {% block content %}{% endblock %}
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="footerContact">Contact Me Using Wechat: h2240073347</div>
+            <div class="footerSign">Copyright &copy; 2020.Blizzard All rights reserved.</div>
+        </div>
+    </body>
+</html>
+

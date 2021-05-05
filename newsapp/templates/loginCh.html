@@ -1,0 +1,58 @@
+{% extends "baseCh.html" %}
+{% block content %}
+    <div class="loginForm">
+        <link rel="stylesheet" href="{{ url_for('static',filename='css/login.css') }}">
+        <img src="../static/images/loginP.jpg" alt="">
+		<h1>在这里完成登录!</h1>
+		<form action="" method="post" novalidate>
+			{{ form.hidden_tag() }}
+			<p>
+				用户名
+                {% for error in form.username.errors %}
+				    <span style="color: red;">{{ error }}</span>
+				{% endfor %}
+                <br>
+				{{ form.username(size=32,placeholder="填入您的用户名") }}
+				
+
+			</p>
+			<p>
+				密码
+                {% for error in form.password.errors %}
+				    <span style="color: red;">{{ error }}</span>
+				{% endfor %}
+                <br>
+				{{ form.password(size=32,placeholder="输入您的密码") }}
+
+            </p>
+            <p id="space">
+				{% for choice in form.type %}
+                    {% if loop.index == 1 %}
+                        <span>顾客</span>
+                        <span style="margin-right: 10%">{{ choice }}</span>
+                        {% set x = 1 %}
+
+                    {% elif loop.index == 2 %}
+                        <span>员工</span>
+                        <span style="margin-right: 10%">{{ choice }}</span>
+                    {% endif %}
+                {% endfor %}
+                {% for error in form.type.errors %}
+				    <span style="color: red;">{{ error }}</span>
+				{% endfor %}
+            </p>
+            <p>
+                <span class="flush">
+                    {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                            {% for message in messages %}
+                                {{ message }}
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+                </span>
+            </p>
+			<p>{{ form.submit(value="登录") }}</p>
+		</form>
+    </div>
+{% endblock %}

@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <script src="{{ url_for('static',filename='scripts/signup.js') }}"></script>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/signup.css') }}">
+
+    <div class="hasAcount">
+        <img src="../static/images/signup2.jfif" alt="">
+        <div class="hasAcountTitle">
+            <h2>Already has an account?</h2>
+            <h5>Then login with that, long time no see!</h5>
+        </div>
+        <a id='logina'class="hasAcountA" href="{{ url_for('login') }}">Login</a>
+    </div>
+    <div class="signupForm">
+
+        <h1>Welcome to Blizzard Flower Shop!</h1>
+        <p>Enter your details and register here</p>
+        <form action="" method="post" novalidate>
+            {{ form.hidden_tag() }}
+            <p>
+                {{ form.username.label }}
+                <span id="checkuser"></span>
+                {% for error in form.username.errors %}
+                    <span style="font-size: 15px;color: red;">{{ error }}</span>
+                {% endfor %}
+                <br>
+                {{ form.username(size=32,id="username") }}
+
+
+
+
+
+            </p>
+            <p>
+                {{ form.email.label }}
+                <span id="checkemail"></span>
+                {% for error in form.email.errors %}
+                    <span style="font-size: 15px;color: red;">{{ error }}</span>
+                {% endfor %}
+                <br>
+                {{ form.email(size=32, id="email") }}
+
+
+
+            </p>
+            <p>
+                {{ form.password.label }}
+                {% for error in form.password.errors %}
+                    <span style="font-size: 15px;color: red;">{{ error }}</span>
+                {% endfor %}
+                <br>
+                {{ form.password(size=35,id="password") }}
+
+
+
+            </p>
+            <p>
+                {{ form.password2.label }}
+                {% for error in form.password2.errors %}
+                    <span style="font-size: 15px;color: #ff0000;">{{ error }}</span>
+                {% endfor %}
+                <br>
+                {{ form.password2(size=35) }}
+            <br>
+                <span class="flush">
+                    {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                            {% for message in messages %}
+                                <span style="color: red">{{ message }}</span>
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+                </span>
+                <br>
+            </p>
+            <p id="submitP">{{ form.submit() }}</p>
+        </form>
+    </div>
+{% endblock %}

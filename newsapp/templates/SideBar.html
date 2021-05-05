@@ -1,0 +1,43 @@
+
+<div id="sidebar">
+    <ul>
+        <li>
+            <a href="{{ url_for('addflower') }}"><i class="icon icon-plus-sign"></i> <span>添加花束</span></a>
+        </li>
+
+        <li id="ODSide">
+            <a href="{{ url_for('OrderDisplay') }}"><i class="icon icon-th"></i> <span>订单列表</span></a>
+        </li>
+        <li>
+            <a href="{{ url_for('OrderDetail', order_id=1) }}"><i class="icon icon-file"></i> <span>订单详情</span></a>
+        </li>
+        <li>
+            <a href="{{ url_for('OrderDisplay') }}"
+               onclick="{if(confirm('Please choose one order from the table first, then go to modify it')){}}"><i class="icon icon-refresh"></i>
+                <span>修改订单</span></a>
+        </li>
+
+        <li>
+            <a href="{{ url_for('ChatRoom') }}"><i class="icon icon-comment"></i> <span>聊天页面</span></a>
+        </li>
+
+        <li>
+            <a href="{{ url_for('Flowers') }}"><i class="icon icon-folder-open"></i> <span>商品管理</span></a>
+        </li>
+        <li>
+            <a href="{{ url_for('ModFlower', flower_id=1) }}"><i class="icon icon-repeat"></i> <span>修改花朵</span></a>
+        </li>
+
+        <li id="ChartSide">
+            <a href="{{ url_for('Charts') }}"><i class="icon icon-signal"></i> <span>图表统计</span></a>
+
+
+        </li>
+
+
+    </ul>
+
+</div>
+
+
+{% block after %}{% endblock %}

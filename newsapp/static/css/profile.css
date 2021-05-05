@@ -1,0 +1,68 @@
+#mainDiv1{
+    height: 300px;
+    width: 100%;
+    background-color: mintcream;
+}
+
+#mainDiv1>h1{
+    font-size: 45px;
+    text-transform: uppercase;
+    line-height: 300px;
+    text-align: center;
+    font-family: 'Josefin Sans', sans-serif;
+    color: #252525;
+}
+#wrapper{
+    height: 500px;
+    width: 100%;
+    position: relative;
+}
+#wrapper>ul{
+    width: 25%;
+    margin-left: 10%;
+    margin-top: 10%;
+    height: 50%;
+    background: #f7f7f7;
+}
+#wrapper>ul li{
+    width: 100%;
+    height: 25%;
+    line-height: 62px;
+    font-size: 1.3em;
+    padding-left: 10%;
+    color: #007bff;
+    cursor: pointer;
+}
+#wrapper>ul img{
+    margin-right: 10%;
+}
+#dashboardLi:hover,#orderLi:hover,#changePLi:hover,#logoutLi:hover{
+    background: #ca7101;
+    color: white;
+    transition: 2s;
+    transition-timing-function: ease-in;
+}
+
+
+#right{
+    position: absolute;
+    left: 40%;
+    top: 0;
+    width: 50%;
+}
+
+#dashboard>p{
+    margin-top: 20px;
+    font-size: 1.2em;
+}
+#dashboard>p>span{
+    color: red;
+}
+#order{
+    width: 100%;
+}
+#order>table{
+    margin-top: 30px;
+    width: 90%;
+    font-size: 1.1em;
+}
