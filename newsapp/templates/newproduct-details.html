@@ -26,7 +26,6 @@
 </head>
 
 <body>
-
     <!-- Start Header Area -->
     <header class="header-area">
         <!-- main header start -->
@@ -88,7 +87,7 @@
                                         <ul>
                                             <li><a href="{{ url_for('index') }}">Home</a></li>
                                             <li><a href="{{ url_for('shop') }}">Shop</a></li>
-                                            <li><a href="{{ url_for('detail') }}">Product Details</a></li>
+                                            <li><a href="{{ url_for('onlinechat') }}">Contact_Us</a></li>
                                             <li><a href="{{ url_for('about_us') }}">About_Us</a></li>
                                         </ul>
                                     </nav>
@@ -203,7 +202,7 @@
                         <ul class="mobile-menu">
                             <li><a href="{{ url_for('index') }}">Home</a></li>
                             <li><a href="{{ url_for('shop') }}">Shop</a></li>
-                            <li><a href="product-details.html">Product Details</a></li>
+                            <li><a href="{{ url_for('onlinechat') }}">Contact_Us</a></li>
                             <li><a href="{{ url_for('about_us') }}">About_Us</a></li>
                         </ul>
                     </nav>
@@ -302,11 +301,11 @@
                             <div class="row">
                                 <div class="col-lg-5">
                                     <div class="product-large-slider">
-                                        <div class="pro-large-img img-zoom">
-                                            <img src="{{ url_for('static',filename='images/img/product/product-details-img1.jpg') }}" alt="product-details" />
+                                        <div class="pro-large-img">
+                                            <img src="../static/images/{{ flower.img }}" alt="{{flower.img}}" />
                                         </div>
-                                        <div class="pro-large-img img-zoom">
-                                            <img src="{{ url_for('static',filename='images/img/product/product-details-img2.jpg') }}" alt="product-details" />
+                                        <div class="pro-large-img">
+                                            <img src="../static/images/{{ flower.img1 }}" alt="{{flower.img1}}" />
                                         </div>
                                         <div class="pro-large-img img-zoom">
                                             <img src="{{ url_for('static',filename='images/img/product/product-details-img3.jpg') }}" alt="product-details" />
@@ -320,10 +319,10 @@
                                     </div>
                                     <div class="pro-nav slick-row-10 slick-arrow-style">
                                         <div class="pro-nav-thumb">
-                                            <img src="{{ url_for('static',filename='images/img/product/product-details-img1.jpg') }}" alt="product-details" />
+                                            <img src="../static/images/{{ flower.img }}" alt="product-details" />
                                         </div>
                                         <div class="pro-nav-thumb">
-                                            <img src="{{ url_for('static',filename='images/img/product/product-details-img2.jpg') }}" alt="product-details" />
+                                            <img src="../static/images/{{ flower.img1 }}" alt="product-details" />
                                         </div>
                                         <div class="pro-nav-thumb">
                                             <img src="{{ url_for('static',filename='images/img/product/product-details-img3.jpg') }}" alt="product-details" />
@@ -338,7 +337,7 @@
                                 </div>
                                 <div class="col-lg-7">
                                     <div class="product-details-des">
-                                        <h3 class="product-name">Flowers daisy pink stick</h3>
+                                        <h3 class="product-name">{{flower.name}}</h3>
                                         <div class="ratings d-flex">
                                             <span><i class="lnr lnr-star"></i></span>
                                             <span><i class="lnr lnr-star"></i></span>
@@ -346,23 +345,20 @@
                                             <span><i class="lnr lnr-star"></i></span>
                                             <span><i class="lnr lnr-star"></i></span>
                                             <div class="pro-review">
-                                                <span>1 Reviews</span>
+                                                <span>736 Reviews</span>
                                             </div>
                                         </div>
                                         <div class="price-box">
-                                            <span class="price-regular">$70.00</span>
-                                            <span class="price-old"><del>$90.00</del></span>
+                                            <span class="price-regular">¥ {{flower.price}}</span>
+                                            <span class="price-old"><del>¥ {{flower.price+10}}</del></span>
                                         </div>
                                         <h5 class="offer-text"><strong>Hurry up</strong>! offer ends in:</h5>
-                                        <div class="product-countdown" data-countdown="2019/07/25"></div>
+                                        <div class="product-countdown" data-countdown="2021/06/29"></div>
                                         <div class="availability">
                                             <i class="fa fa-check-circle"></i>
-                                            <span>200 in stock</span>
+                                            <span>{{flower.number}} in stock</span>
                                         </div>
-                                        <p class="pro-desc">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-                                            eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
-                                            voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac
-                                            habitasse platea dictumst.</p>
+                                        <p class="pro-desc">{{flower.intro}}</p>
                                         <div class="quantity-cart-box d-flex align-items-center">
                                             <h5>qty:</h5>
                                             <div class="quantity">
@@ -435,16 +431,7 @@
                                         <div class="tab-content reviews-tab">
                                             <div class="tab-pane fade show active" id="tab_one">
                                                 <div class="tab-one">
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
-                                                        fringilla augue nec est tristique auctor. Ipsum metus feugiat
-                                                        sem, quis fermentum turpis eros eget velit. Donec ac tempus
-                                                        ante. Fusce ultricies massa massa. Fusce aliquam, purus eget
-                                                        sagittis vulputate, sapien libero hendrerit est, sed commodo
-                                                        augue nisi non neque.Cras neque metus, consequat et blandit et,
-                                                        luctus a nunc. Etiam gravida vehicula tellus, in imperdiet
-                                                        ligula euismod eget. Pellentesque habitant morbi tristique
-                                                        senectus et netus et malesuada fames ac turpis egestas. Nam
-                                                        erat mi, rutrum at sollicitudin rhoncus</p>
+                                                    <p>{{flower.intro}}</p>
                                                 </div>
                                             </div>
                                             <div class="tab-pane fade" id="tab_two">
@@ -463,7 +450,7 @@
                                             </div>
                                             <div class="tab-pane fade" id="tab_three">
                                                 <form action="#" class="review-form">
-                                                    <h5>1 review for <span>Chaz Kangeroo</span></h5>
+                                                    <h5>1 review for <span>this product</span></h5>
                                                     <div class="total-reviews">
                                                         <div class="rev-avatar">
                                                             <img src="{{ url_for('static',filename='images/img/about/avatar.jpg') }}" alt="">
@@ -477,27 +464,9 @@
                                                                 <span><i class="fa fa-star"></i></span>
                                                             </div>
                                                             <div class="post-author">
-                                                                <p><span>admin -</span> 30 Mar, 2019</p>
+                                                                <p><span>admin -</span> 30 Mar, 2021</p>
                                                             </div>
-                                                            <p>Aliquam fringilla euismod risus ac bibendum. Sed sit
-                                                                amet sem varius ante feugiat lacinia. Nunc ipsum nulla,
-                                                                vulputate ut venenatis vitae, malesuada ut mi. Quisque
-                                                                iaculis, dui congue placerat pretium, augue erat
-                                                                accumsan lacus</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group row">
-                                                        <div class="col">
-                                                            <label class="col-form-label"><span class="text-danger">*</span>
-                                                                Your Name</label>
-                                                            <input type="text" class="form-control" required>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group row">
-                                                        <div class="col">
-                                                            <label class="col-form-label"><span class="text-danger">*</span>
-                                                                Your Email</label>
-                                                            <input type="email" class="form-control" required>
+                                                            <p>My wife said "this is the best present I have ever recerived!". Thanks for that!</p>
                                                         </div>
                                                     </div>
                                                     <div class="form-group row">
@@ -553,19 +522,20 @@
                     <div class="col-12">
                         <div class="section-title text-center">
                             <h2>Related Products</h2>
-                            <p>Accumsan vitae pede lacus ut ullamcorper sollicitudin quisque libero</p>
+                            <p>You Might Like Them As Well!</p>
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="product-carousel--4 slick-row-15 slick-sm-row-10 slick-arrow-style">
+                            {% for post in posts %}
                             <!-- product single item start -->
                             <div class="product-item">
                                 <figure class="product-thumb">
                                     <a href="product-details.html">
-                                        <img class="pri-img" src="{{ url_for('static',filename='images/img/product/product-5.jpg') }}" alt="product">
-                                        <img class="sec-img" src="{{ url_for('static',filename='images/img/product/product-6.jpg') }}" alt="product">
+                                        <img class="pri-img" src="../static/images/{{ post.img }}" alt="product">
+                                        <img class="sec-img" src="../static/images/{{ post.img1 }}" alt="product">
                                     </a>
                                     <div class="product-badge">
                                         <div class="product-label new">
@@ -580,177 +550,16 @@
                                 </figure>
                                 <div class="product-caption">
                                     <p class="product-name">
-                                        <a href="product-details.html">Blossom bouquet flower</a>
+                                        <a href="product-details.html">{{ post.name }}</a>
                                     </p>
                                     <div class="price-box">
-                                        <span class="price-regular">$50.00</span>
-                                        <span class="price-old"><del>$80.00</del></span>
+                                        <span class="price-regular">¥ {{ post.price }}</span>
+                                        <span class="price-old"><del>¥ {{ post.price+10 }}</del></span>
                                     </div>
                                 </div>
                             </div>
                             <!-- product single item end -->
-
-                            <!-- product single item start -->
-                            <div class="product-item">
-                                <figure class="product-thumb">
-                                    <a href="product-details.html">
-                                        <img class="pri-img" src="{{ url_for('static',filename='images/img/product/product-2.jpg') }}" alt="product">
-                                        <img class="sec-img" src="{{ url_for('static',filename='images/img/product/product-1.jpg') }}" alt="product">
-                                    </a>
-                                    <div class="product-badge">
-                                        <div class="product-label new">
-                                            <span>new</span>
-                                        </div>
-                                        <div class="product-label discount">
-                                            <span>10%</span>
-                                        </div>
-                                    </div>
-                                    <div class="button-group">
-                                        <a href="#" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="lnr lnr-heart"></i></a>
-                                        <a href="#" data-toggle="modal" data-target="#quick_view"><span data-toggle="tooltip" data-placement="left" title="Quick View"><i class="lnr lnr-magnifier"></i></span></a>
-                                        <a href="#" data-toggle="tooltip" data-placement="left" title="Add to Cart"><i class="lnr lnr-cart"></i></a>
-                                    </div>
-                                </figure>
-                                <div class="product-caption">
-                                    <p class="product-name">
-                                        <a href="product-details.html">Rose bouquet white</a>
-                                    </p>
-                                    <div class="price-box">
-                                        <span class="price-regular">$55.00</span>
-                                        <span class="price-old"><del>$80.00</del></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- product single item end -->
-
-                            <!-- product single item start -->
-                            <div class="product-item">
-                                <figure class="product-thumb">
-                                    <a href="product-details.html">
-                                        <img class="pri-img" src="{{ url_for('static',filename='images/img/product/product-7.jpg') }}" alt="product">
-                                        <img class="sec-img" src="{{ url_for('static',filename='images/img/product/product-8.jpg') }}" alt="product">
-                                    </a>
-                                    <div class="product-badge">
-                                        <div class="product-label new">
-                                            <span>new</span>
-                                        </div>
-                                        <div class="product-label discount">
-                                            <span>15%</span>
-                                        </div>
-                                    </div>
-                                    <div class="button-group">
-                                        <a href="#" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="lnr lnr-heart"></i></a>
-                                        <a href="#" data-toggle="modal" data-target="#quick_view"><span data-toggle="tooltip" data-placement="left" title="Quick View"><i class="lnr lnr-magnifier"></i></span></a>
-                                        <a href="#" data-toggle="tooltip" data-placement="left" title="Add to Cart"><i class="lnr lnr-cart"></i></a>
-                                    </div>
-                                </figure>
-                                <div class="product-caption">
-                                    <p class="product-name">
-                                        <a href="product-details.html">Hyacinth white stick</a>
-                                    </p>
-                                    <div class="price-box">
-                                        <span class="price-regular">$30.00</span>
-                                        <span class="price-old"><del>$55.00</del></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- product single item end -->
-
-                            <!-- product single item start -->
-                            <div class="product-item">
-                                <figure class="product-thumb">
-                                    <a href="product-details.html">
-                                        <img class="pri-img" src="{{ url_for('static',filename='images/img/product/product-1.jpg') }}" alt="product">
-                                        <img class="sec-img" src="{{ url_for('static',filename='images/img/product/product-2.jpg') }}" alt="product">
-                                    </a>
-                                    <div class="product-badge">
-                                        <div class="product-label new">
-                                            <span>new</span>
-                                        </div>
-                                        <div class="product-label discount">
-                                            <span>10%</span>
-                                        </div>
-                                    </div>
-                                    <div class="button-group">
-                                        <a href="#" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="lnr lnr-heart"></i></a>
-                                        <a href="#" data-toggle="modal" data-target="#quick_view"><span data-toggle="tooltip" data-placement="left" title="Quick View"><i class="lnr lnr-magnifier"></i></span></a>
-                                        <a href="#" data-toggle="tooltip" data-placement="left" title="Add to Cart"><i class="lnr lnr-cart"></i></a>
-                                    </div>
-                                </figure>
-                                <div class="product-caption">
-                                    <p class="product-name">
-                                        <a href="product-details.html">Flowers bouquet pink</a>
-                                    </p>
-                                    <div class="price-box">
-                                        <span class="price-regular">$60.00</span>
-                                        <span class="price-old"><del>$70.00</del></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- product single item end -->
-
-                            <!-- product single item start -->
-                            <div class="product-item">
-                                <figure class="product-thumb">
-                                    <a href="product-details.html">
-                                        <img class="pri-img" src="{{ url_for('static',filename='images/img/product/product-4.jpg') }}" alt="product">
-                                        <img class="sec-img" src="{{ url_for('static',filename='images/img/product/product-3.jpg') }}" alt="product">
-                                    </a>
-                                    <div class="product-badge">
-                                        <div class="product-label discount">
-                                            <span>10%</span>
-                                        </div>
-                                    </div>
-                                    <div class="button-group">
-                                        <a href="#" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="lnr lnr-heart"></i></a>
-                                        <a href="#" data-toggle="modal" data-target="#quick_view"><span data-toggle="tooltip" data-placement="left" title="Quick View"><i class="lnr lnr-magnifier"></i></span></a>
-                                        <a href="#" data-toggle="tooltip" data-placement="left" title="Add to Cart"><i class="lnr lnr-cart"></i></a>
-                                    </div>
-                                </figure>
-                                <div class="product-caption">
-                                    <p class="product-name">
-                                        <a href="product-details.html">Bouquet flowers pink</a>
-                                    </p>
-                                    <div class="price-box">
-                                        <span class="price-regular">$60.00</span>
-                                        <span class="price-old"><del>$70.00</del></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- product single item end -->
-
-                            <!-- product single item start -->
-                            <div class="product-item">
-                                <figure class="product-thumb">
-                                    <a href="product-details.html">
-                                        <img class="pri-img" src="{{ url_for('static',filename='images/img/product/product-9.jpg') }}" alt="product">
-                                        <img class="sec-img" src="{{ url_for('static',filename='images/img/product/product-10.jpg') }}" alt="product">
-                                    </a>
-                                    <div class="product-badge">
-                                        <div class="product-label new">
-                                            <span>new</span>
-                                        </div>
-                                        <div class="product-label discount">
-                                            <span>30%</span>
-                                        </div>
-                                    </div>
-                                    <div class="button-group">
-                                        <a href="#" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="lnr lnr-heart"></i></a>
-                                        <a href="#" data-toggle="modal" data-target="#quick_view"><span data-toggle="tooltip" data-placement="left" title="Quick View"><i class="lnr lnr-magnifier"></i></span></a>
-                                        <a href="#" data-toggle="tooltip" data-placement="left" title="Add to Cart"><i class="lnr lnr-cart"></i></a>
-                                    </div>
-                                </figure>
-                                <div class="product-caption">
-                                    <p class="product-name">
-                                        <a href="product-details.html">Orchid flower red stick</a>
-                                    </p>
-                                    <div class="price-box">
-                                        <span class="price-regular">$80.00</span>
-                                        <span class="price-old"><del>$90.00</del></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- product single item end -->
+                            {% endfor %}
                         </div>
                     </div>
                 </div>
@@ -874,10 +683,10 @@
                             <div class="col-lg-5 col-md-5">
                                 <div class="product-large-slider">
                                     <div class="pro-large-img">
-                                        <img src="{{ url_for('static',filename='images/img/product/product-details-img1.jpg') }}" alt="product-details" />
+                                        <img src="../static/images/{{ flower.img }}" alt="product-details" />
                                     </div>
                                     <div class="pro-large-img">
-                                        <img src="{{ url_for('static',filename='images/img/product/product-details-img2.jpg') }}" alt="product-details" />
+                                        <img src="../static/images/{{ flower.img1 }}" alt="product-details" />
                                     </div>
                                     <div class="pro-large-img">
                                         <img src="{{ url_for('static',filename='images/img/product/product-details-img3.jpg') }}" alt="product-details" />
@@ -888,10 +697,10 @@
                                 </div>
                                 <div class="pro-nav slick-row-10 slick-arrow-style">
                                     <div class="pro-nav-thumb">
-                                        <img src="{{ url_for('static',filename='images/img/product/product-details-img1.jpg') }}" alt="product-details" />
+                                        <img src="../static/images/{{ flower.img }}" alt="product-details" />
                                     </div>
                                     <div class="pro-nav-thumb">
-                                        <img src="{{ url_for('static',filename='images/img/product/product-details-img2.jpg') }}" alt="product-details" />
+                                        <img src="../static/images/{{ flower.img1 }}" alt="product-details" />
                                     </div>
                                     <div class="pro-nav-thumb">
                                         <img src="{{ url_for('static',filename='images/img/product/product-details-img3.jpg') }}" alt="product-details" />
