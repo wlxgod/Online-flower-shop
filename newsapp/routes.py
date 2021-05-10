@@ -1,12 +1,12 @@
 import os
 import string
-import pandas as pd
+# import pandas as pd
 
 from flask import render_template, flash, redirect, url_for, session, request, jsonify
 from sqlalchemy import and_,or_
 from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.utils import secure_filename
-from matplotlib import pyplot as plt
+# from matplotlib import pyplot as plt
 from datetime import datetime
 
 
@@ -153,45 +153,6 @@ def index():
     return render_template('newindex.html', posts=posts, baskets=basket_in_db_list, length=basket_length, total=total,
                            order=order_in_db, posts2=posts2,basketslike=basketlike_in_db_list, lengthlike=basketlike_length)
 
-
-# new index page!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-@app.route('/indexch', methods=['GET', 'POST'])
-def indexch():
-    """flower = Flower(name="rose", intro="DO the test", price=100,
-                    number=50, img="signup.jfif" ,address="CHINESE FOREVER ROAD")
-    db.session.add(flower)
-    db.session.commit()"""
-    """form=SearchForm()"""
-    posts_query = Flower.query
-    posts = posts_query.filter().all()
-    posts2 = posts
-    username = session.get("USERNAME")
-    user = User.query.filter(User.username == username).first()
-    user_id = user.id
-    order_in_db = Orders.query.filter(and_(Orders.state == "unpayment", Orders.user_id == user_id)).first()
-    if order_in_db is None:
-        order = Orders(price=0, name=user.username, destination="Beijing university of technology",
-                      state="unpayment", number=100, way="deliver", user_id=user.id)
-        db.session.add(order)
-        db.session.commit()
-    order_in_db = Orders.query.filter(and_(Orders.state == "unpayment", Orders.user_id == user_id)).first()
-    basket_in_db_list = Basket.query.filter(and_(Basket.order_id == order_in_db.id, Basket.user_id == user_id)).all()
-    basket_length = len(basket_in_db_list)
-    '''print(posts)'''
-    total = 0
-    for basket in basket_in_db_list:
-        total = total + basket.total
-    content = None
-    content = request.form.get('content')
-    print(content)
-    if content is not None and content != "搜索" and content!="":
-        posts2 = Flower.query.filter(Flower.name == content).all()
-        content = ""
-    print(posts2)
-    print(posts)
-    return render_template('newindexCh.html', posts=posts, baskets=basket_in_db_list, length=basket_length, total=total,
-                           order=order_in_db, posts2=posts2)
 
 
 # 原来的category页面
@@ -388,40 +349,16 @@ def SortByP():
                            total=total, order=order_in_db, p=p)
 
 
-@app.route('/shopch', methods=['GET', 'POST'])
-def shopch():
-    """flower = Flower(name="rose", intro="DO the test", price=100,
-                    number=50, img="signup.jfif" ,address="CHINESE FOREVER ROAD")
-    db.session.add(flower)
-    db.session.commit()"""
-    posts_query = Flower.query
-    posts = posts_query.filter().all()
-    username = session.get("USERNAME")
-    user = User.query.filter(User.username == username).first()
-    user_id = user.id
-    order_in_db = Orders.query.filter(and_(Orders.state == "unpayment", Orders.user_id == user_id)).first()
-    if order_in_db is None:
-        order = Orders(price=0, name=user.username, destination="Beijing university of technology",
-                      state="unpayment", number=100, way="deliver", user_id=user.id)
-        db.session.add(order)
-        db.session.commit()
-    order_in_db = Orders.query.filter(and_(Orders.state == "unpayment", Orders.user_id == user_id)).first()
-    basket_in_db_list = Basket.query.filter(and_(Basket.order_id == order_in_db.id, Basket.user_id == user_id)).all()
-    basket_length = len(basket_in_db_list)
-    '''print(posts)'''
-    total = 0
-    for basket in basket_in_db_list:
-        total = total + basket.total*basket.quantity
-    return render_template('newshopCh.html', posts=posts, baskets=basket_in_db_list, length=basket_length, total=total,
-                           order=order_in_db)
 
 
 
 
-
-@app.route('/detail', methods=['GET', 'POST'])
-def detail():
-    return render_template('newproduct-details.html')
+@app.route('/detail/<id>', methods=['GET', 'POST'])
+def detail(id):
+    posts = Flower.query.filter().all()
+    flower = Flower.query.filter(Flower.id == id).first()
+    print(flower.id)
+    return render_template('newproduct-details.html',flower=flower,posts=posts)
 
 
 

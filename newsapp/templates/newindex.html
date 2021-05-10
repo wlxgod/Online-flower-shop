@@ -94,7 +94,7 @@
                                     <ul>
                                         <li><a href="{{ url_for('index') }}">Home</a></li>
                                         <li><a href="{{ url_for('shop') }}">Shop</a></li>
-                                        <li><a href="{{ url_for('detail') }}">Product Details</a></li>
+                                        <li><a href="{{ url_for('onlinechat') }}">Contact_Us</a></li>
                                         <li><a href="{{ url_for('about_us') }}">About_Us</a></li>
                                     </ul>
                                 </nav>
@@ -209,7 +209,7 @@
                     <ul class="mobile-menu">
                         <li><a href="{{ url_for('index') }}">Home</a></li>
                         <li><a href="{{ url_for('shop') }}">Shop</a></li>
-                        <li><a href="{{ url_for('detail') }}">Product Details</a></li>
+                        <li><a href="{{ url_for('onlinechat') }}">Contact_Us</a></li>
                         <li><a href="{{ url_for('about_us') }}">About_Us</a></li>
                     </ul>
                 </nav>
@@ -471,7 +471,7 @@
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="product-item mt-40">
                         <figure class="product-thumb">
-                            <a href="{{ url_for('detail') }}">
+                            <a href="detail/{{post.id}}">
                                 <!--                                    这里注意一下要放两张图片-->
                                 <img class="pri-img" src="static/images/{{ post.img }}" alt="product">
                                 <img class="sec-img" src="static/images/{{ post.img1 }}" alt="product">
@@ -501,7 +501,7 @@
                         </figure>
                         <div class="product-caption">
                             <p class="product-name">
-                                <a href="{{ url_for('detail') }}">{{ post.name }}</a>
+                                <a href="#">{{ post.name }}</a>
                                 <span hidden>{{ post.intro}}</span><span hidden>{{ post.number}}</span>
                             </p>
                             <div class="price-box">
@@ -586,7 +586,7 @@
                         {% for post in posts %}
                         <div class="product-item">
                             <figure class="product-thumb">
-                                <a href="{{ url_for('detail') }}">
+                                <a href="#">
                                     <img class="pri-img" src="static/images/{{ post.img }}" alt="product">
                                     <img class="sec-img" src="static/images/{{ post.img1 }}" alt="product">
                                 </a>
@@ -609,7 +609,7 @@
                             </figure>
                             <div class="product-caption">
                                 <p class="product-name">
-                                    <a  href="{{ url_for('detail') }}">{{ post.name }}</a>
+                                    <a  href="#">{{ post.name }}</a>
                                 </p>
                                 <div class="price-box">
                                     <span class="price-regular">¥ {{ post.price }}</span>
@@ -883,14 +883,14 @@
                     <ul id="{{'fuck1'+basket.id|string}}">
                         <li class="minicart-item">
                             <div class="minicart-thumb">
-                                <a href="{{ url_for('detail') }}">
+                                    <a href="#">
                                     <img src="static/images/{{ item.img }}"
                                          alt="product">
                                 </a>
                             </div>
                             <div class="minicart-content">
                                 <h3 class="product-name">
-                                    <a href="{{ url_for('detail') }}">{{item.name}}</a>
+                                    <a href="#">{{item.name}}</a>
                                 </h3>
                             </div>
                             <a class="minicart-remove" onclick="RemoveBasketlike({{ basket.id }})" href="#"><i
@@ -926,14 +926,14 @@
                     <ul id="{{'fuck'+basket.id|string}}">
                         <li class="minicart-item">
                             <div class="minicart-thumb">
-                                <a href="{{ url_for('detail') }}">
+                                <a href="#">
                                     <img src="static/images/{{ item.img }}"
                                          alt="product">
                                 </a>
                             </div>
                             <div class="minicart-content">
                                 <h3 class="product-name">
-                                    <a href="{{ url_for('detail') }}">{{item.name}}</a>
+                                    <a href="#">{{item.name}}</a>
                                 </h3>
                                 <p>
                                     <span class="cart-quantity">{{ basket.quantity }}<strong>&times;</strong></span>
