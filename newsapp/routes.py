@@ -46,6 +46,11 @@ def signup():
         profile=Profile(id=id,name=form.username.data,dob="2020-06-30",gender=0,description="No description",portrait=img_filename,user_id=id)
         db.session.add(profile)
         db.session.commit()
+        staff = User.query.filter(User.identity=='staff')
+        for s in staff:
+            news=News(number=0,sender_id=s.id,receiver_id=id,profile_id=s.id)
+            db.session.add(news)
+            db.session.commit()
         return redirect('login')
     return render_template('signup.html', title='Register a new user', form=form)
 
