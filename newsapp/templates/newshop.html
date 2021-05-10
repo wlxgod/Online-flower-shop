@@ -390,37 +390,40 @@
                         <!-- single sidebar end -->
 
                         <!-- single sidebar start -->
+                        <form action="{{ url_for('Filter_N') }}" name="Ncheck" id="Ncheck" novalidate="novalidate" enctype="multipart/form-data">
                         <div class="sidebar-single">
                             <h3 class="sidebar-title">Number</h3>
                             <div class="sidebar-body">
                                 <ul class="checkbox-container categories-list">
                                     <li>
                                         <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="customCheck111">
+                                            <input type="checkbox" class="custom-control-input" id="customCheck111" name="customCheck" value="0">
                                             <label class="custom-control-label" for="customCheck111">0-10</label>
                                         </div>
                                     </li>
                                     <li>
                                         <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="customCheck222">
+                                            <input type="checkbox" class="custom-control-input" id="customCheck222" name="customCheck" value="10">
                                             <label class="custom-control-label" for="customCheck222">10-20</label>
                                         </div>
                                     </li>
                                     <li>
                                         <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="customCheck333">
+                                            <input type="checkbox" class="custom-control-input" id="customCheck333" name="customCheck" value="20">
                                             <label class="custom-control-label" for="customCheck333">20-30</label>
                                         </div>
                                     </li>
                                     <li>
                                         <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="customCheck444">
+                                            <input type="checkbox" class="custom-control-input" id="customCheck444" name="customCheck" value="30">
                                             <label class="custom-control-label" for="customCheck444">30+</label>
                                         </div>
                                     </li>
                                 </ul>
                             </div>
                         </div>
+                            <button id="number" name="number">filter</button>
+                        </form>
                         <!-- single sidebar end -->
 
                         <!-- single sidebar start -->
@@ -462,43 +465,53 @@
                                             <p>Sort By : </p>
                                             {% if p == 'default' %}
                                                 <select class="nice-select" name="sortby" id="sortby" onchange="chan()">
-                                                    <option value="trending">Relevance</option>
-                                                    <option value="salesA">Name (A - Z)</option>
-                                                    <option value="salesB">Name (Z - A)</option>
-                                                    <option value="rating">Price (Low &gt; High)</option>
-                                                    <option value="date">Rating (Lowest)</option>
-                                                    <option value="price-ascA">Model (A - Z)</option>
-                                                    <option value="price-ascB">Model (Z - A)</option>
+                                                <option value="trending">Relevance</option>
+                                                <option value="salesA">Name (A - Z)</option>
+                                                <option value="salesB">Name (Z - A)</option>
+                                                <option value="rating">Price (Low &gt; High)</option>
+                                                <option value="sales">Sales (High &gt; Low)</option>
+                                                <option value="price-ascA">Model (A - Z)</option>
+                                                <option value="price-ascB">Model (Z - A)</option>
                                                 </select>
                                             {% elif p == 'AZ' %}
                                                 <select class="nice-select" name="sortby" id="sortby" onchange="chan()">
-                                                    <option value="trending">Relevance</option>
-                                                    <option value="salesA" selected>Name (A - Z)</option>
-                                                    <option value="salesB">Name (Z - A)</option>
-                                                    <option value="rating">Price (Low &gt; High)</option>
-                                                    <option value="date">Rating (Lowest)</option>
-                                                    <option value="price-ascA">Model (A - Z)</option>
-                                                    <option value="price-ascB">Model (Z - A)</option>
+                                                <option value="trending">Relevance</option>
+                                                <option value="salesA" selected>Name (A - Z)</option>
+                                                <option value="salesB">Name (Z - A)</option>
+                                                <option value="rating">Price (Low &gt; High)</option>
+                                                <option value="sales">Sales (High &gt; Low)</option>
+                                                <option value="price-ascA">Model (A - Z)</option>
+                                                <option value="price-ascB">Model (Z - A)</option>
                                                 </select>
                                             {% elif p == 'ZA' %}
                                                 <select class="nice-select" name="sortby" id="sortby" onchange="chan()">
-                                                    <option value="trending">Relevance</option>
-                                                    <option value="salesA">Name (A - Z)</option>
-                                                    <option value="salesB" selected>Name (Z - A)</option>
-                                                    <option value="rating">Price (Low &gt; High)</option>
-                                                    <option value="date">Rating (Lowest)</option>
-                                                    <option value="price-ascA">Model (A - Z)</option>
-                                                    <option value="price-ascB">Model (Z - A)</option>
+                                                <option value="trending">Relevance</option>
+                                                <option value="salesA">Name (A - Z)</option>
+                                                <option value="salesB" selected>Name (Z - A)</option>
+                                                <option value="rating">Price (Low &gt; High)</option>
+                                                <option value="sales">Sales (High &gt; Low)</option>
+                                                <option value="price-ascA">Model (A - Z)</option>
+                                                <option value="price-ascB">Model (Z - A)</option>
                                                 </select>
                                             {% elif p == 'price' %}
                                                 <select class="nice-select" name="sortby" id="sortby" onchange="chan()">
-                                                    <option value="trending">Relevance</option>
-                                                    <option value="salesA">Name (A - Z)</option>
-                                                    <option value="salesB">Name (Z - A)</option>
-                                                    <option value="rating" selected>Price (Low &gt; High)</option>
-                                                    <option value="date">Rating (Lowest)</option>
-                                                    <option value="price-ascA">Model (A - Z)</option>
-                                                    <option value="price-ascB">Model (Z - A)</option>
+                                                <option value="trending">Relevance</option>
+                                                <option value="salesA">Name (A - Z)</option>
+                                                <option value="salesB">Name (Z - A)</option>
+                                                <option value="rating" selected>Price (Low &gt; High)</option>
+                                                <option value="sales">Sales (High &gt; Low)</option>
+                                                <option value="price-ascA">Model (A - Z)</option>
+                                                <option value="price-ascB">Model (Z - A)</option>
+                                                </select>
+                                            {% elif p == 'sales' %}
+                                                <select class="nice-select" name="sortby" id="sortby" onchange="chan()">
+                                                <option value="trending">Relevance</option>
+                                                <option value="salesA">Name (A - Z)</option>
+                                                <option value="salesB">Name (Z - A)</option>
+                                                <option value="rating">Price (Low &gt; High)</option>
+                                                <option value="sales" selected>Sales (High &gt; Low)</option>
+                                                <option value="price-ascA">Model (A - Z)</option>
+                                                <option value="price-ascB">Model (Z - A)</option>
                                                 </select>
                                             {% endif %}
                                         </div>
@@ -519,7 +532,7 @@
                                     <!-- product grid start -->
                                     <div class="product-item">
                                         <figure class="product-thumb">
-                                            <a href="{{ url_for('detail') }}">
+                                            <a href="{{ url_for('detail', id=post.id) }}">
                                                 <img class="pri-img" src="static/images/{{ post.img }}" alt="product">
                                                 <img class="sec-img" src="static/images/{{ post.img1 }}" alt="product">
                                             </a>
@@ -550,7 +563,7 @@
                                         </figure>
                                         <div class="product-caption">
                                             <p class="product-name">
-                                                <a href="{{ url_for('detail') }}">{{ post.name }}</a>
+                                                <a href="{{ url_for('detail',id=post.id) }}">{{ post.name }}</a>
                                             </p>
                                             <div class="price-box">
                                                 <span class="price-regular">¥ {{ post.price }}</span>
@@ -563,7 +576,7 @@
                                     <!-- product list item end -->
                                     <div class="product-list-item">
                                         <figure class="product-thumb">
-                                            <a href="{{ url_for('detail') }}">
+                                            <a href="{{ url_for('detail',id=post.id) }}">
                                                 <img class="pri-img" src="static/images/{{ post.img }}" alt="product">
                                                 <img class="sec-img" src="static/images/{{ post.img }}" alt="product">
                                             </a>
@@ -578,7 +591,7 @@
                                         </figure>
                                         <div class="product-content-list">
                                             <h5 class="product-name"><a
-                                                    href="{{ url_for('detail') }}">{{ post.name }}</a>
+                                                    href="{{ url_for('detail',id=post.id) }}">{{ post.name }}</a>
                                             </h5>
                                             <div class="price-box">
                                                 <span class="price-regular">¥ {{ post.price }}</span>
@@ -873,14 +886,14 @@
                                 <ul id="{{ 'fuck1'+basket.id|string }}">
                                     <li class="minicart-item">
                                         <div class="minicart-thumb">
-                                            <a href="{{ url_for('detail') }}">
+                                            <a href="{{ url_for('detail',id=item.id) }}">
                                                 <img src="static/images/{{ item.img }}"
                                                      alt="product">
                                             </a>
                                         </div>
                                         <div class="minicart-content">
                                             <h3 class="product-name">
-                                                <a href="{{ url_for('detail') }}">{{ item.name }}</a>
+                                                <a href="{{ url_for('detail',id=item.id) }}">{{ item.name }}</a>
                                             </h3>
                                         </div>
                                         <a class="minicart-remove" onclick="RemoveBasketlike({{ basket.id }})" href="#"><i
@@ -916,14 +929,14 @@
                                 <ul id="{{ 'fuck'+basket.id|string }}">
                                     <li class="minicart-item">
                                         <div class="minicart-thumb">
-                                            <a href="{{ url_for('detail') }}">
+                                            <a href="{{ url_for('detail',id=item.id) }}">
                                                 <img src="static/images/{{ item.img }}"
                                                      alt="product">
                                             </a>
                                         </div>
                                         <div class="minicart-content">
                                             <h3 class="product-name">
-                                                <a href="{{ url_for('detail') }}">{{ item.name }}</a>
+                                                <a href="{{ url_for('detail',id=item.id) }}">{{ item.name }}</a>
                                             </h3>
                                             <p>
                                                 <span class="cart-quantity">{{ basket.quantity }}<strong>&times;</strong></span>
@@ -975,9 +988,11 @@
             window.location.href = '{{ url_for('SortByZA') }}'
         } else if (value == 'rating') {
             window.location.href = '{{ url_for('SortByP') }}'
-        } else if (value = 'trending') {
+        } else if (value == 'trending') {
             window.location.href = '{{ url_for('shop') }}'
-        }
+        }else if(value=='sales'){
+        window.location.href='{{ url_for('SortByS') }}'
+    }
     }
 
 </script>

@@ -1,12 +1,12 @@
 import os
 import string
-# import pandas as pd
+import pandas as pd
 
 from flask import render_template, flash, redirect, url_for, session, request, jsonify
 from sqlalchemy import and_,or_
 from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.utils import secure_filename
-# from matplotlib import pyplot as plt
+from matplotlib import pyplot as plt
 from datetime import datetime
 
 
@@ -348,6 +348,147 @@ def SortByP():
     return render_template('newshop.html', posts=posts, posts2=posts2, baskets=basket_in_db_list, length=basket_length,
                            total=total, order=order_in_db, p=p)
 
+@app.route('/SortByS', methods=['GET', 'POST'])
+def SortByS():
+    """flower = Flower(name="rose", intro="DO the test", price=100,
+                    number=50, img="signup.jfif" ,address="CHINESE FOREVER ROAD")
+    db.session.add(flower)
+    db.session.commit()"""
+    posts_query = Flower.query
+    posts = posts_query.all()
+    orders = Orders.query.filter(Orders.state != 'unpayment').all()
+    baskets = []
+    Nbaskets = []
+    sort = {}
+    so = []
+    posts2 = []
+    for p in posts:
+        sort[p] = 0
+    for o in orders:
+        if Basket.query.filter(Basket.order_id == o.id).first() is not None:
+            baskets.append(Basket.query.filter(Basket.order_id == o.id).all())
+    for b in baskets:
+        for c in b:
+            Nbaskets.append(c)
+    for p in posts:
+        for n in Nbaskets:
+            if p.id == n.flower_id:
+                sort[p] = sort.get(p)+n.quantity
+    for s in sort:
+        so.append(sort.get(s))
+    so.sort(reverse=True)
+    for s in so:
+        if so.count(s) > 1:
+            so.remove(s)
+    print(so)
+    for s in so:
+        for i in sort:
+            if s == sort.get(i):
+                posts2.append(i)
+    print(sort)
+    print(posts2)
+    username = session.get("USERNAME")
+    user = User.query.filter(User.username == username).first()
+    user_id = user.id
+    order_in_db = Orders.query.filter(and_(Orders.state == "unpayment", Orders.user_id == user_id)).first()
+    if order_in_db is None:
+        order = Orders(price=0, name=user.username, destination="Beijing university of technology",
+                      state="unpayment", number=100, way="deliver", user_id=user.id)
+        db.session.add(order)
+        db.session.commit()
+    order_in_db = Orders.query.filter(and_(Orders.state == "unpayment", Orders.user_id == user_id)).first()
+    basket_in_db_list = Basket.query.filter(and_(Basket.order_id == order_in_db.id, Basket.user_id == user_id)).all()
+    basket_length = len(basket_in_db_list)
+    '''print(posts)'''
+    total = 0
+    for basket in basket_in_db_list:
+        total = total + basket.total*basket.quantity
+    content = None
+    content = request.form.get('amount')
+    if content!=None:
+        content1=content.split(' ')
+        print(content.split(' '))
+        num=[]
+        for i in content1:
+            if i!='' and i!='-':
+                num.append(i.split('$')[1])
+        low=int(num[0])
+        hign=int(num[1])
+        posts2 = Flower.query.filter(and_(Flower.price>=low,Flower.price<=hign)).all()
+        print(posts)
+        print(posts2)
+    print(posts2)
+    p = 'sales'
+    return render_template('newshop.html', posts=posts, posts2=posts2, baskets=basket_in_db_list, length=basket_length,
+                           total=total, order=order_in_db, p=p)
+
+@app.route('/Filter_N', methods=['GET', 'POST'])
+def Filter_N():
+    """flower = Flower(name="rose", intro="DO the test", price=100,
+                    number=50, img="signup.jfif" ,address="CHINESE FOREVER ROAD")
+    db.session.add(flower)
+    db.session.commit()"""
+    posts_query = Flower.query
+    print('yes')
+    print(request.values.getlist('customCheck'))
+    option = request.values.getlist('customCheck')
+    min = option[0]
+    max = 0
+    for s in option:
+        if int(s) > int(max):
+            max = int(s)
+        if int(s) < int(min):
+            min = int(s)
+    max = max + 10
+    if int(option[len(option) - 1]) != 30:
+        posts = posts_query.filter(and_(Flower.number >= min, Flower.number <= max)).all()
+    if int(option[len(option)-1]) == 30:
+        posts = posts_query.filter(Flower.name >= min).all()
+    print(max, min)
+    if int(option[0]) == 0 and int(option[1]) == 20 and len(option) == 2:
+        posts = Flower.query.filter(or_(and_(Flower.number >= 20, Flower.number <= 30), and_(Flower.number >= 0, Flower.number <= 10))).all()
+    if int(option[0]) == 0 and int(option[1]) == 30 and len(option) == 2:
+        posts = Flower.query.filter(or_(Flower.number >= 30, and_(Flower.number >= 0, Flower.number <= 10))).all()
+    if int(option[0]) == 10 and int(option[1]) == 30 and len(option) == 2:
+        posts = Flower.query.filter(or_(Flower.number >= 30, and_(Flower.number >= 10, Flower.number <= 20))).all()
+    if int(option[0]) == 0 and int(option[1]) == 10 and len(option) == 3 and int(option[2] == 30):
+        posts = Flower.query.filter(or_(Flower.number >= 30, and_(Flower.number >= 0, Flower.number <= 20))).all()
+    posts2 = posts
+    print(posts2)
+    username = session.get("USERNAME")
+    user = User.query.filter(User.username == username).first()
+    user_id = user.id
+    order_in_db = Orders.query.filter(and_(Orders.state == "unpayment", Orders.user_id == user_id)).first()
+    if order_in_db is None:
+        order = Orders(price=0, name=user.username, destination="Beijing university of technology",
+                      state="unpayment", number=100, way="deliver", user_id=user.id)
+        db.session.add(order)
+        db.session.commit()
+    order_in_db = Orders.query.filter(and_(Orders.state == "unpayment", Orders.user_id == user_id)).first()
+    basket_in_db_list = Basket.query.filter(and_(Basket.order_id == order_in_db.id, Basket.user_id == user_id)).all()
+    basket_length = len(basket_in_db_list)
+    '''print(posts)'''
+    total = 0
+    for basket in basket_in_db_list:
+        total = total + basket.total*basket.quantity
+    content = None
+    content = request.form.get('amount')
+    if content!=None:
+        content1=content.split(' ')
+        print(content.split(' '))
+        num=[]
+        for i in content1:
+            if i!='' and i!='-':
+                num.append(i.split('$')[1])
+        low=int(num[0])
+        hign=int(num[1])
+        posts2 = Flower.query.filter(and_(Flower.price>=low,Flower.price<=hign)).all()
+        print(posts)
+        print(posts2)
+    p = 'default'
+    print(posts2)
+    return render_template('newshop.html', posts=posts, posts2=posts2, baskets=basket_in_db_list, length=basket_length,
+                           total=total, order=order_in_db, p=p)
 
 
 
