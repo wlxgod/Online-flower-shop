@@ -1,0 +1,18 @@
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ProjectRootManager\" version=\"2\" project-jdk-name=\"Python 3.10 (Online-flower-shop)\" project-jdk-type=\"Python SDK\" />\r\n  <component name=\"PyCharmProfessionalAdvertiser\">\r\n    <option name=\"shown\" value=\"true\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	
++++ b/.idea/misc.xml	
+@@ -1,6 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+-  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.10 (Online-flower-shop)" project-jdk-type="Python SDK" />
++  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.8 (flasktest)" project-jdk-type="Python SDK" />
+   <component name="PyCharmProfessionalAdvertiser">
+     <option name="shown" value="true" />
+   </component>

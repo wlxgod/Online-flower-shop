@@ -10,13 +10,13 @@
             <h2>Already has an account?</h2>
             <h5>Then login with that, long time no see!</h5>
         </div>
-        <a id='logina'class="hasAcountA" href="{{ url_for('login') }}">Login</a>
+        <a id='logina' class="hasAcountA" href="{{ url_for('login') }}">Login</a>
     </div>
     <div class="signupForm">
 
         <h1>Welcome to Blizzard Flower Shop!</h1>
         <p>Enter your details and register here</p>
-        <form action="" method="post" novalidate>
+        <form action="" method="post"  enctype="multipart/form-data" novalidate>
             {{ form.hidden_tag() }}
             <p>
                 {{ form.username.label }}
@@ -26,9 +26,6 @@
                 {% endfor %}
                 <br>
                 {{ form.username(size=32,id="username") }}
-
-
-
 
 
             </p>
@@ -42,7 +39,6 @@
                 {{ form.email(size=32, id="email") }}
 
 
-
             </p>
             <p>
                 {{ form.password.label }}
@@ -53,7 +49,6 @@
                 {{ form.password(size=35,id="password") }}
 
 
-
             </p>
             <p>
                 {{ form.password2.label }}
@@ -62,7 +57,7 @@
                 {% endfor %}
                 <br>
                 {{ form.password2(size=35) }}
-            <br>
+                <br>
                 <span class="flush">
                     {% with messages = get_flashed_messages() %}
                         {% if messages %}
@@ -73,6 +68,16 @@
                     {% endwith %}
                 </span>
                 <br>
+            </p>
+            <p>
+                {{ form.image.label }}
+                {% for error in form.image.errors %}
+                    <span style="font-size: 15px;color: red;">{{ error }}</span>
+                {% endfor %}
+                <br>
+                {{ form.image() }}
+
+
             </p>
             <p id="submitP">{{ form.submit() }}</p>
         </form>

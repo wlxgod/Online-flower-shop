@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileAllowed
 from wtforms import StringField, PasswordField, RadioField, SubmitField, IntegerField, \
-    TextAreaField, FloatField, MultipleFileField
+    TextAreaField, FloatField, MultipleFileField,FileField
 from wtforms.validators import DataRequired, Length, Regexp
 
 
@@ -46,6 +46,8 @@ class SignupForm(FlaskForm):
         label='Repeat Password',
         validators=[DataRequired("Double check your password")]
     )
+    image = FileField('The image of the User avatar',
+                              validators=[FileAllowed(['jpg', 'png', 'gif', 'jpeg', 'jfif'])])  # 头像
     submit = SubmitField('Register')
 
 

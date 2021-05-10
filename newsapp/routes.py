@@ -35,6 +35,17 @@ def signup():
         db.session.add(user)
         db.session.commit()
         session["USERNAME"] = user.username
+        user = User.query.filter(User.username == form.username.data).first()
+        id=user.id
+        name = form.username.data
+        img_dir = config.Config.PC_UPLOAD_DIR
+        print(img_dir)
+        img_obj = form.image.data
+        img_filename = session.get("USERNAME") + name + str(0) + '_img.jpg'
+        img_obj.save(os.path.join(img_dir, img_filename))
+        profile=Profile(id=id,name=form.username.data,dob="2020-06-30",gender=0,description="No description",portrait=img_filename,user_id=id)
+        db.session.add(profile)
+        db.session.commit()
         return redirect('login')
     return render_template('signup.html', title='Register a new user', form=form)
 
@@ -191,21 +202,34 @@ def shop():
     db.session.add(flower)
     db.session.commit()"""
     posts_query = Flower.query
-    # posts = posts_query.order_by('price').all()
     posts = posts_query.filter().all()
     posts2 = posts
     username = session.get("USERNAME")
-    user = User.query.filter(User.username == username).first()
+    users = User.query.filter(User.username == username)
+    user = users.first()
     user_id = user.id
     order_in_db = Orders.query.filter(and_(Orders.state == "unpayment", Orders.user_id == user_id)).first()
+    order_in_dbs = Orders.query.filter().all()
+    print(order_in_dbs)
+    print("---------------------------------")
+    """order_in_db=order_in_dbs.first()"""
+    want_in_db = Want.query.filter(Want.user_id == user_id).first()
+    if want_in_db is None:
+        want = Want(user_id=user.id)
+        db.session.add(want)
+        db.session.commit()
     if order_in_db is None:
         order = Orders(price=0, name=user.username, destination="Beijing university of technology",
-                      state="unpayment", number=100, way="deliver", user_id=user.id)
+                       state="unpayment", number=100, way="deliver", user_id=user.id)
         db.session.add(order)
         db.session.commit()
-    order_in_db = Orders.query.filter(and_(Orders.state == "unpayment", Orders.user_id == user_id)).first()
+        order_in_db = Orders.query.filter(and_(Orders.state == "unpayment", Orders.user_id == user_id)).first()
+    want_in_db = Want.query.filter(Want.user_id == user_id).first()
     basket_in_db_list = Basket.query.filter(and_(Basket.order_id == order_in_db.id, Basket.user_id == user_id)).all()
+    basketlike_in_db_list = Basketlike.query.filter(Basketlike.want_id == want_in_db.id,
+                                                    Basketlike.user_id == user_id).all()
     basket_length = len(basket_in_db_list)
+    basketlike_length = len(basketlike_in_db_list)
     '''print(posts)'''
     total = 0
     for basket in basket_in_db_list:
@@ -226,7 +250,7 @@ def shop():
         print(posts2)
     p = 'default'
     return render_template('newshop.html', posts=posts, posts2=posts2, baskets=basket_in_db_list, length=basket_length, total=total,
-                           order=order_in_db, p=p)
+                           order=order_in_db, p=p,basketslike=basketlike_in_db_list, lengthlike=basketlike_length)
 
 
 @app.route('/SortByAZ', methods=['GET', 'POST'])
