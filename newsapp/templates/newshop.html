@@ -390,38 +390,43 @@
                         <!-- single sidebar end -->
 
                         <!-- single sidebar start -->
-                        <form action="{{ url_for('Filter_N') }}" name="Ncheck" id="Ncheck" novalidate="novalidate" enctype="multipart/form-data">
-                        <div class="sidebar-single">
-                            <h3 class="sidebar-title">Number</h3>
-                            <div class="sidebar-body">
-                                <ul class="checkbox-container categories-list">
-                                    <li>
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="customCheck111" name="customCheck" value="0">
-                                            <label class="custom-control-label" for="customCheck111">0-10</label>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="customCheck222" name="customCheck" value="10">
-                                            <label class="custom-control-label" for="customCheck222">10-20</label>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="customCheck333" name="customCheck" value="20">
-                                            <label class="custom-control-label" for="customCheck333">20-30</label>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="customCheck444" name="customCheck" value="30">
-                                            <label class="custom-control-label" for="customCheck444">30+</label>
-                                        </div>
-                                    </li>
-                                </ul>
+                        <form action="{{ url_for('Filter_N') }}" name="Ncheck" id="Ncheck" novalidate="novalidate"
+                              enctype="multipart/form-data">
+                            <div class="sidebar-single">
+                                <h3 class="sidebar-title">Number</h3>
+                                <div class="sidebar-body">
+                                    <ul class="checkbox-container categories-list">
+                                        <li>
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="customCheck111"
+                                                       name="customCheck" value="0">
+                                                <label class="custom-control-label" for="customCheck111">0-10</label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="customCheck222"
+                                                       name="customCheck" value="10">
+                                                <label class="custom-control-label" for="customCheck222">10-20</label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="customCheck333"
+                                                       name="customCheck" value="20">
+                                                <label class="custom-control-label" for="customCheck333">20-30</label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="customCheck444"
+                                                       name="customCheck" value="30">
+                                                <label class="custom-control-label" for="customCheck444">30+</label>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
-                        </div>
                             <button id="number" name="number">filter</button>
                         </form>
                         <!-- single sidebar end -->
@@ -465,53 +470,53 @@
                                             <p>Sort By : </p>
                                             {% if p == 'default' %}
                                                 <select class="nice-select" name="sortby" id="sortby" onchange="chan()">
-                                                <option value="trending">Relevance</option>
-                                                <option value="salesA">Name (A - Z)</option>
-                                                <option value="salesB">Name (Z - A)</option>
-                                                <option value="rating">Price (Low &gt; High)</option>
-                                                <option value="sales">Sales (High &gt; Low)</option>
-                                                <option value="price-ascA">Model (A - Z)</option>
-                                                <option value="price-ascB">Model (Z - A)</option>
+                                                    <option value="trending">Relevance</option>
+                                                    <option value="salesA">Name (A - Z)</option>
+                                                    <option value="salesB">Name (Z - A)</option>
+                                                    <option value="rating">Price (Low &gt; High)</option>
+                                                    <option value="sales">Sales (High &gt; Low)</option>
+                                                    <option value="price-ascA">Model (A - Z)</option>
+                                                    <option value="price-ascB">Model (Z - A)</option>
                                                 </select>
                                             {% elif p == 'AZ' %}
                                                 <select class="nice-select" name="sortby" id="sortby" onchange="chan()">
-                                                <option value="trending">Relevance</option>
-                                                <option value="salesA" selected>Name (A - Z)</option>
-                                                <option value="salesB">Name (Z - A)</option>
-                                                <option value="rating">Price (Low &gt; High)</option>
-                                                <option value="sales">Sales (High &gt; Low)</option>
-                                                <option value="price-ascA">Model (A - Z)</option>
-                                                <option value="price-ascB">Model (Z - A)</option>
+                                                    <option value="trending">Relevance</option>
+                                                    <option value="salesA" selected>Name (A - Z)</option>
+                                                    <option value="salesB">Name (Z - A)</option>
+                                                    <option value="rating">Price (Low &gt; High)</option>
+                                                    <option value="sales">Sales (High &gt; Low)</option>
+                                                    <option value="price-ascA">Model (A - Z)</option>
+                                                    <option value="price-ascB">Model (Z - A)</option>
                                                 </select>
                                             {% elif p == 'ZA' %}
                                                 <select class="nice-select" name="sortby" id="sortby" onchange="chan()">
-                                                <option value="trending">Relevance</option>
-                                                <option value="salesA">Name (A - Z)</option>
-                                                <option value="salesB" selected>Name (Z - A)</option>
-                                                <option value="rating">Price (Low &gt; High)</option>
-                                                <option value="sales">Sales (High &gt; Low)</option>
-                                                <option value="price-ascA">Model (A - Z)</option>
-                                                <option value="price-ascB">Model (Z - A)</option>
+                                                    <option value="trending">Relevance</option>
+                                                    <option value="salesA">Name (A - Z)</option>
+                                                    <option value="salesB" selected>Name (Z - A)</option>
+                                                    <option value="rating">Price (Low &gt; High)</option>
+                                                    <option value="sales">Sales (High &gt; Low)</option>
+                                                    <option value="price-ascA">Model (A - Z)</option>
+                                                    <option value="price-ascB">Model (Z - A)</option>
                                                 </select>
                                             {% elif p == 'price' %}
                                                 <select class="nice-select" name="sortby" id="sortby" onchange="chan()">
-                                                <option value="trending">Relevance</option>
-                                                <option value="salesA">Name (A - Z)</option>
-                                                <option value="salesB">Name (Z - A)</option>
-                                                <option value="rating" selected>Price (Low &gt; High)</option>
-                                                <option value="sales">Sales (High &gt; Low)</option>
-                                                <option value="price-ascA">Model (A - Z)</option>
-                                                <option value="price-ascB">Model (Z - A)</option>
+                                                    <option value="trending">Relevance</option>
+                                                    <option value="salesA">Name (A - Z)</option>
+                                                    <option value="salesB">Name (Z - A)</option>
+                                                    <option value="rating" selected>Price (Low &gt; High)</option>
+                                                    <option value="sales">Sales (High &gt; Low)</option>
+                                                    <option value="price-ascA">Model (A - Z)</option>
+                                                    <option value="price-ascB">Model (Z - A)</option>
                                                 </select>
                                             {% elif p == 'sales' %}
                                                 <select class="nice-select" name="sortby" id="sortby" onchange="chan()">
-                                                <option value="trending">Relevance</option>
-                                                <option value="salesA">Name (A - Z)</option>
-                                                <option value="salesB">Name (Z - A)</option>
-                                                <option value="rating">Price (Low &gt; High)</option>
-                                                <option value="sales" selected>Sales (High &gt; Low)</option>
-                                                <option value="price-ascA">Model (A - Z)</option>
-                                                <option value="price-ascB">Model (Z - A)</option>
+                                                    <option value="trending">Relevance</option>
+                                                    <option value="salesA">Name (A - Z)</option>
+                                                    <option value="salesB">Name (Z - A)</option>
+                                                    <option value="rating">Price (Low &gt; High)</option>
+                                                    <option value="sales" selected>Sales (High &gt; Low)</option>
+                                                    <option value="price-ascA">Model (A - Z)</option>
+                                                    <option value="price-ascB">Model (Z - A)</option>
                                                 </select>
                                             {% endif %}
                                         </div>
@@ -527,99 +532,204 @@
                             {% if posts2 == [] %}
                                 Filter as empty
                             {% endif %}
-                            {% for post in posts2 %}
-                                <div class="col-md-4 col-sm-6">
-                                    <!-- product grid start -->
-                                    <div class="product-item">
-                                        <figure class="product-thumb">
-                                            <a href="{{ url_for('detail', id=post.id) }}">
-                                                <img class="pri-img" src="static/images/{{ post.img }}" alt="product">
-                                                <img class="sec-img" src="static/images/{{ post.img1 }}" alt="product">
-                                            </a>
-                                            <div class="product-badge">
-                                                <div class="product-label new">
-                                                    <span>new</span>
+                        {% if posts3==posts %}
+                                {% for post in posts2 %}
+                                    <div class="col-md-4 col-sm-6">
+                                        <!-- product grid start -->
+                                        <div class="product-item">
+                                            <figure class="product-thumb">
+                                                <a href="{{ url_for('detail', id=post.id) }}">
+                                                    <img class="pri-img" src="static/images/{{ post.img }}"
+                                                         alt="product">
+                                                    <img class="sec-img" src="static/images/{{ post.img1 }}"
+                                                         alt="product">
+                                                </a>
+                                                <div class="product-badge">
+                                                    <div class="product-label new">
+                                                        <span>new</span>
+                                                    </div>
+                                                    <div class="product-label discount">
+                                                        <span>10%</span>
+                                                    </div>
                                                 </div>
-                                                <div class="product-label discount">
-                                                    <span>10%</span>
+                                                <div class="button-group">
+                                                    <a href="{{ url_for('shop') }}"
+                                                       onclick='addLike({{ post.id }}, 1 ,"{{ post.name }}" )'
+                                                       data-toggle="tooltip" data-placement="left"
+                                                       title="Add to wishlist"><i
+                                                            class="lnr lnr-heart"></i></a>
+                                                    <a href="#" data-toggle="modal" data-target="#quick_view"><span
+                                                            class="quick_view_button" data-toggle="tooltip"
+                                                            data-placement="left"
+                                                            title="Quick View"><i
+                                                            class="lnr lnr-magnifier"></i></span></a>
+                                                    <a href="{{ url_for('shop') }}"
+                                                       onclick='addTrolley({{ post.id }}, 1 ,"{{ post.name }}" )'
+                                                       data-toggle="tooltip" data-placement="left"
+                                                       title="Add to Cart"><i class="lnr lnr-cart"></i></a>
                                                 </div>
-                                            </div>
-                                            <div class="button-group">
-                                                 <a href="{{ url_for('shop') }}"
-                                                   onclick='addLike({{ post.id }}, 1 ,"{{ post.name }}" )'
-                                                   data-toggle="tooltip" data-placement="left"
-                                                   title="Add to wishlist"><i
-                                                        class="lnr lnr-heart"></i></a>
-                                                <a href="#" data-toggle="modal" data-target="#quick_view"><span
-                                                        class="quick_view_button" data-toggle="tooltip"
-                                                        data-placement="left"
-                                                        title="Quick View"><i
-                                                        class="lnr lnr-magnifier"></i></span></a>
-                                                <a href="{{ url_for('shop') }}"
-                                                   onclick='addTrolley({{ post.id }}, 1 ,"{{ post.name }}" )'
-                                                   data-toggle="tooltip" data-placement="left"
-                                                   title="Add to Cart"><i class="lnr lnr-cart"></i></a>
-                                            </div>
-                                        </figure>
-                                        <div class="product-caption">
-                                            <p class="product-name">
-                                                <a href="{{ url_for('detail',id=post.id) }}">{{ post.name }}</a>
-                                            </p>
-                                            <div class="price-box">
-                                                <span class="price-regular">¥ {{ post.price }}</span>
-                                                <span class="price-old"><del>¥ {{ post.price }}</del></span>
+                                            </figure>
+                                            <div class="product-caption">
+                                                <p class="product-name">
+                                                    <a href="{{ url_for('detail',id=post.id) }}">{{ post.name }}</a>
+                                                </p>
+                                                <div class="price-box">
+                                                    <span class="price-regular">¥ {{ post.price }}</span>
+                                                    <span class="price-old"><del>¥ {{ post.price }}</del></span>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <!-- product grid end -->
+                                        <!-- product grid end -->
 
-                                    <!-- product list item end -->
-                                    <div class="product-list-item">
-                                        <figure class="product-thumb">
-                                            <a href="{{ url_for('detail',id=post.id) }}">
-                                                <img class="pri-img" src="static/images/{{ post.img }}" alt="product">
-                                                <img class="sec-img" src="static/images/{{ post.img }}" alt="product">
-                                            </a>
-                                            <div class="product-badge">
-                                                <div class="product-label new">
-                                                    <span>new</span>
+                                        <!-- product list item end -->
+                                        <div class="product-list-item">
+                                            <figure class="product-thumb">
+                                                <a href="{{ url_for('detail',id=post.id) }}">
+                                                    <img class="pri-img" src="static/images/{{ post.img }}"
+                                                         alt="product">
+                                                    <img class="sec-img" src="static/images/{{ post.img }}"
+                                                         alt="product">
+                                                </a>
+                                                <div class="product-badge">
+                                                    <div class="product-label new">
+                                                        <span>new</span>
+                                                    </div>
+                                                    <div class="product-label discount">
+                                                        <span>10%</span>
+                                                    </div>
                                                 </div>
-                                                <div class="product-label discount">
-                                                    <span>10%</span>
+                                            </figure>
+                                            <div class="product-content-list">
+                                                <h5 class="product-name"><a
+                                                        href="{{ url_for('detail',id=post.id) }}">{{ post.name }}</a>
+                                                </h5>
+                                                <div class="price-box">
+                                                    <span class="price-regular">¥ {{ post.price }}</span>
+                                                    <span class="price-old"><del>¥ {{ post.price }}</del></span>
                                                 </div>
-                                            </div>
-                                        </figure>
-                                        <div class="product-content-list">
-                                            <h5 class="product-name"><a
-                                                    href="{{ url_for('detail',id=post.id) }}">{{ post.name }}</a>
-                                            </h5>
-                                            <div class="price-box">
-                                                <span class="price-regular">¥ {{ post.price }}</span>
-                                                <span class="price-old"><del>¥ {{ post.price }}</del></span>
-                                            </div>
-                                            <p>{{ post.intro }}
-                                            </p>
-                                            <div class="button-group-list">
-                                                <a href="{{ url_for('shop') }}"
-                                                   onclick='addLike({{ post.id }}, 1 ,"{{ post.name }}" )'
-                                                   data-toggle="tooltip" data-placement="left"
-                                                   title="Add to wishlist"><i
-                                                        class="lnr lnr-heart"></i></a>
-                                                <a href="#" data-toggle="modal" data-target="#quick_view"><span
-                                                        class="quick_view_button" data-toggle="tooltip"
-                                                        data-placement="left"
-                                                        title="Quick View"><i
-                                                        class="lnr lnr-magnifier"></i></span></a>
-                                                <a href="{{ url_for('shop') }}"
-                                                   onclick='addTrolley({{ post.id }}, 1 ,"{{ post.name }}" )'
-                                                   data-toggle="tooltip" data-placement="left"
-                                                   title="Add to Cart"><i class="lnr lnr-cart"></i></a>
+                                                <p>{{ post.intro }}
+                                                </p>
+                                                <div class="button-group-list">
+                                                    <a href="{{ url_for('shop') }}"
+                                                       onclick='addLike({{ post.id }}, 1 ,"{{ post.name }}" )'
+                                                       data-toggle="tooltip" data-placement="left"
+                                                       title="Add to wishlist"><i
+                                                            class="lnr lnr-heart"></i></a>
+                                                    <a href="#" data-toggle="modal" data-target="#quick_view"><span
+                                                            class="quick_view_button" data-toggle="tooltip"
+                                                            data-placement="left"
+                                                            title="Quick View"><i
+                                                            class="lnr lnr-magnifier"></i></span></a>
+                                                    <a href="{{ url_for('shop') }}"
+                                                       onclick='addTrolley({{ post.id }}, 1 ,"{{ post.name }}" )'
+                                                       data-toggle="tooltip" data-placement="left"
+                                                       title="Add to Cart"><i class="lnr lnr-cart"></i></a>
+                                                </div>
                                             </div>
                                         </div>
+                                        <!-- product list item end -->
                                     </div>
-                                    <!-- product list item end -->
-                                </div>
-                            {% endfor %}
+                                {% endfor %}
+                        {% endif %}
+                        {% if posts3!=posts %}
+                                {% for post in posts3 %}
+                                    <div class="col-md-4 col-sm-6">
+                                        <!-- product grid start -->
+                                        <div class="product-item">
+                                            <figure class="product-thumb">
+                                                <a href="{{ url_for('detail', id=post.id) }}">
+                                                    <img class="pri-img" src="static/images/{{ post.img }}"
+                                                         alt="product">
+                                                    <img class="sec-img" src="static/images/{{ post.img1 }}"
+                                                         alt="product">
+                                                </a>
+                                                <div class="product-badge">
+                                                    <div class="product-label new">
+                                                        <span>new</span>
+                                                    </div>
+                                                    <div class="product-label discount">
+                                                        <span>10%</span>
+                                                    </div>
+                                                </div>
+                                                <div class="button-group">
+                                                    <a href="{{ url_for('shop') }}"
+                                                       onclick='addLike({{ post.id }}, 1 ,"{{ post.name }}" )'
+                                                       data-toggle="tooltip" data-placement="left"
+                                                       title="Add to wishlist"><i
+                                                            class="lnr lnr-heart"></i></a>
+                                                    <a href="#" data-toggle="modal" data-target="#quick_view"><span
+                                                            class="quick_view_button" data-toggle="tooltip"
+                                                            data-placement="left"
+                                                            title="Quick View"><i
+                                                            class="lnr lnr-magnifier"></i></span></a>
+                                                    <a href="{{ url_for('shop') }}"
+                                                       onclick='addTrolley({{ post.id }}, 1 ,"{{ post.name }}" )'
+                                                       data-toggle="tooltip" data-placement="left"
+                                                       title="Add to Cart"><i class="lnr lnr-cart"></i></a>
+                                                </div>
+                                            </figure>
+                                            <div class="product-caption">
+                                                <p class="product-name">
+                                                    <a href="{{ url_for('detail',id=post.id) }}">{{ post.name }}</a>
+                                                </p>
+                                                <div class="price-box">
+                                                    <span class="price-regular">¥ {{ post.price }}</span>
+                                                    <span class="price-old"><del>¥ {{ post.price }}</del></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- product grid end -->
+
+                                        <!-- product list item end -->
+                                        <div class="product-list-item">
+                                            <figure class="product-thumb">
+                                                <a href="{{ url_for('detail',id=post.id) }}">
+                                                    <img class="pri-img" src="static/images/{{ post.img }}"
+                                                         alt="product">
+                                                    <img class="sec-img" src="static/images/{{ post.img }}"
+                                                         alt="product">
+                                                </a>
+                                                <div class="product-badge">
+                                                    <div class="product-label new">
+                                                        <span>new</span>
+                                                    </div>
+                                                    <div class="product-label discount">
+                                                        <span>10%</span>
+                                                    </div>
+                                                </div>
+                                            </figure>
+                                            <div class="product-content-list">
+                                                <h5 class="product-name"><a
+                                                        href="{{ url_for('detail',id=post.id) }}">{{ post.name }}</a>
+                                                </h5>
+                                                <div class="price-box">
+                                                    <span class="price-regular">¥ {{ post.price }}</span>
+                                                    <span class="price-old"><del>¥ {{ post.price }}</del></span>
+                                                </div>
+                                                <p>{{ post.intro }}
+                                                </p>
+                                                <div class="button-group-list">
+                                                    <a href="{{ url_for('shop') }}"
+                                                       onclick='addLike({{ post.id }}, 1 ,"{{ post.name }}" )'
+                                                       data-toggle="tooltip" data-placement="left"
+                                                       title="Add to wishlist"><i
+                                                            class="lnr lnr-heart"></i></a>
+                                                    <a href="#" data-toggle="modal" data-target="#quick_view"><span
+                                                            class="quick_view_button" data-toggle="tooltip"
+                                                            data-placement="left"
+                                                            title="Quick View"><i
+                                                            class="lnr lnr-magnifier"></i></span></a>
+                                                    <a href="{{ url_for('shop') }}"
+                                                       onclick='addTrolley({{ post.id }}, 1 ,"{{ post.name }}" )'
+                                                       data-toggle="tooltip" data-placement="left"
+                                                       title="Add to Cart"><i class="lnr lnr-cart"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- product list item end -->
+                                    </div>
+                                {% endfor %}
+                        {% endif %}
                             <!-- product single item start -->
                         </div>
 
@@ -860,8 +970,8 @@
         </div>
         <div class="container">
             <div class="offcanvas-search-box">
-                <form class="d-flex bdr-bottom w-100">
-                    <input type="text" placeholder="Search entire storage here...">
+                <form class="d-flex bdr-bottom w-100" method="post" action="">
+                    <input type="text" placeholder="Search entire storage here..." id="content" name="content">
                     <button class="search-btn"><i class="lnr lnr-magnifier"></i>search</button>
                 </form>
             </div>
@@ -990,9 +1100,9 @@
             window.location.href = '{{ url_for('SortByP') }}'
         } else if (value == 'trending') {
             window.location.href = '{{ url_for('shop') }}'
-        }else if(value=='sales'){
-        window.location.href='{{ url_for('SortByS') }}'
-    }
+        } else if (value == 'sales') {
+            window.location.href = '{{ url_for('SortByS') }}'
+        }
     }
 
 </script>

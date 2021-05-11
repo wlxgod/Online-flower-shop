@@ -170,6 +170,7 @@ def shop():
     posts_query = Flower.query
     posts = posts_query.filter().all()
     posts2 = posts
+    posts3 = posts
     username = session.get("USERNAME")
     users = User.query.filter(User.username == username)
     user = users.first()
@@ -215,8 +216,17 @@ def shop():
         print(posts)
         print(posts2)
     p = 'default'
-    return render_template('newshop.html', posts=posts, posts2=posts2, baskets=basket_in_db_list, length=basket_length, total=total,
-                           order=order_in_db, p=p,basketslike=basketlike_in_db_list, lengthlike=basketlike_length)
+    content2 = None
+    content2 = request.form.get('content')
+    if content2 is not None and content2 != "搜索" and content2 != "":
+        posts3 = Flower.query.filter(Flower.name == content2).all()
+        content2 = ""
+    print(len(posts))
+    print(posts3)
+    print(posts2)
+    print(posts3==posts)
+    return render_template('newshop.html', posts=posts, posts2=posts2, posts3=posts3,baskets=basket_in_db_list, length=basket_length, total=total,
+                           order=order_in_db, p=p,basketslike=basketlike_in_db_list, lengthlike=basketlike_length,postslength=len(posts),posts3length=len(posts3))
 
 
 @app.route('/SortByAZ', methods=['GET', 'POST'])
@@ -998,6 +1008,20 @@ def profile():
             db.session.add(order)
             db.session.commit()
             orders_in_db = Orders.query.filter(Orders.user_id == user_id).all()
+        order_in_db = Orders.query.filter(and_(Orders.state == "unpayment", Orders.user_id == user_id)).first()
+        want_in_db = Want.query.filter(Want.user_id == user_id).first()
+        basket_in_db_list = Basket.query.filter(
+            and_(Basket.order_id == order_in_db.id, Basket.user_id == user_id)).all()
+        basketlike_in_db_list = Basketlike.query.filter(Basketlike.want_id == want_in_db.id,
+                                                        Basketlike.user_id == user_id).all()
+        basket_length = len(basket_in_db_list)
+        basketlike_length = len(basketlike_in_db_list)
+        posts_query = Flower.query
+        posts = posts_query.filter().all()
+        '''print(posts)'''
+        total = 0
+        for basket in basket_in_db_list:
+            total = total + basket.total * basket.quantity
         form = ChangePasswordForm()
         if form.validate_on_submit():
             user = User.query.filter(User.username == username).first()
@@ -1014,7 +1038,8 @@ def profile():
             print("change password successfully")
             return redirect('index')
 
-    return render_template('profile.html',username=username,orders=orders_in_db,form=form)
+    return render_template('profile.html',username=username,orders=orders_in_db,form=form, baskets=basket_in_db_list, length=basket_length, total=total,
+                           order=order_in_db, basketslike=basketlike_in_db_list, lengthlike=basketlike_length,posts=posts)
 
 @app.route('/ModifyOrder/<order_id>', methods=['GET', 'POST'])
 def ModifyOrder(order_id):

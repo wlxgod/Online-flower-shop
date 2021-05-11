@@ -95,7 +95,6 @@
                                     <ul>
                                         <li><a href="{{ url_for('index') }}">Home</a></li>
                                         <li><a href="{{ url_for('shop') }}">Shop</a></li>
-                                        <li><a href="{{ url_for('detail') }}">Product Details</a></li>
                                     </ul>
                                 </nav>
                                 <!-- main menu navbar end -->
@@ -125,9 +124,9 @@
                                         </ul>
                                     </li>
                                     <li>
-                                        <a href="#">
+                                        <a href="#" class="minicart-btn1">
                                             <i class="lnr lnr-heart"></i>
-                                            <div class="notification">0</div>
+                                            <div class="notification">{{ lengthlike }}</div>
                                         </a>
                                     </li>
                                     <li>
@@ -209,7 +208,6 @@
                     <ul class="mobile-menu">
                         <li><a href="{{ url_for('index') }}">Home</a></li>
                         <li><a href="{{ url_for('shop') }}">Shop</a></li>
-                        <li><a href="{{ url_for('detail') }}">Product Details</a></li>
                     </ul>
                 </nav>
                 <!-- mobile menu navigation end -->
@@ -273,6 +271,107 @@
     </div>
 </aside>
 <!-- off-canvas menu end -->
+
+<!-- offcanvas mini like start -->
+<div class="offcanvas-minicart-wrapper">
+    <div class="minicart-inner" id="like">
+        <div class="offcanvas-overlay"></div>
+        <div class="minicart-inner-content">
+            <div class="minicart-close">
+                <i class="lnr lnr-cross"></i>
+            </div>
+            <div class="minicart-content-box">
+                <div class="minicart-item-wrapper">
+                    {% for basket in basketslike %}
+                    {% for item in posts %}
+                    {% if item.id==basket.flower_id %}
+                    <ul id="{{'fuck1'+basket.id|string}}">
+                        <li class="minicart-item">
+                            <div class="minicart-thumb">
+                                    <a href="#">
+                                    <img src="static/images/{{ item.img }}"
+                                         alt="product">
+                                </a>
+                            </div>
+                            <div class="minicart-content">
+                                <h3 class="product-name">
+                                    <a href="#">{{item.name}}</a>
+                                </h3>
+                            </div>
+                            <a class="minicart-remove" onclick="RemoveBasketlike({{ basket.id }})" href="#"><i
+                                    class="lnr lnr-cross"></i></a>
+                        </li>
+                    </ul>
+                    {% endif %}
+                    {% endfor %}
+                    {% endfor %}
+                </div>
+
+                <div class="minicart-pricing-box">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- offcanvas mini like end -->
+
+<!-- offcanvas mini cart start -->
+<div class="offcanvas-minicart-wrapper">
+    <div class="minicart-inner">
+        <div class="offcanvas-overlay"></div>
+        <div class="minicart-inner-content">
+            <div class="minicart-close">
+                <i class="lnr lnr-cross"></i>
+            </div>
+            <div class="minicart-content-box">
+                <div class="minicart-item-wrapper">
+                    {% for basket in baskets %}
+                    {% for item in posts %}
+                    {% if item.id==basket.flower_id %}
+                    <ul id="{{'fuck'+basket.id|string}}">
+                        <li class="minicart-item">
+                            <div class="minicart-thumb">
+                                <a href="#">
+                                    <img src="static/images/{{ item.img }}"
+                                         alt="product">
+                                </a>
+                            </div>
+                            <div class="minicart-content">
+                                <h3 class="product-name">
+                                    <a href="#">{{item.name}}</a>
+                                </h3>
+                                <p>
+                                    <span class="cart-quantity">{{ basket.quantity }}<strong>&times;</strong></span>
+                                    <span class="cart-price">{{ basket.total }}</span>
+                                </p>
+                            </div>
+                            <a class="minicart-remove" onclick="RemoveBasket({{ basket.id }})" href="#"><i
+                                    class="lnr lnr-cross"></i></a>
+                        </li>
+                    </ul>
+                    {% endif %}
+                    {% endfor %}
+                    {% endfor %}
+                </div>
+
+                <div class="minicart-pricing-box">
+                    <ul>
+                        <li class="total">
+                            <span>total</span>
+                            <span id="total"><strong>${{ total }}</strong></span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="minicart-button">
+                    <a href="#"><i class="fa fa-shopping-cart"></i> view cart</a>
+                    <a href="{{ url_for('checkout') }}"><i class="fa fa-share"></i> checkout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- offcanvas mini cart end -->
 
 <!--!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
 
@@ -485,6 +584,14 @@
 <!-- Active Js -->
 <script src="{{ url_for('static',filename='scripts/active.js') }}"></script>
 <script src="{{ url_for('static',filename='scripts/profile.js') }}"></script>
+<!-- Active Js -->
+<script src="{{ url_for('static',filename='scripts/index.js') }}"></script>
+<script src="{{ url_for('static',filename='scripts/index1.js') }}"></script>
+<script src="{{ url_for('static',filename='scripts/index2.js') }}"></script>
+<script src="{{ url_for('static',filename='scripts/jquery.js') }}"></script>
+<script src="{{ url_for('static',filename='scripts/indexadd.js') }}"></script>
+<script src="{{ url_for('static',filename='scripts/indexlike.js') }}"></script>
+<script src="{{ url_for('static',filename='scripts/indexremovelike.js') }}"></script>
 <style>
     .copyrights {
         text-indent: -9999px;
