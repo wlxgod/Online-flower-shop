@@ -926,7 +926,21 @@ def onlinechat():
     img = Profile.query.filter(Profile.user_id == user).first().portrait  # 头像
     # 获取历史聊天用户和新消息数量
     new = News.query.filter(News.receiver_id == user).order_by(News.number.desc())
-    return render_template('onlinechat.html', title='ChatRoom', news=new, img=img)
+    posts_query = Flower.query
+    user_id = user
+    order_in_db = Orders.query.filter(and_(Orders.state == "unpayment", Orders.user_id == user_id)).first()
+    posts = posts_query.filter().all()
+    want_in_db = Want.query.filter(Want.user_id == user_id).first()
+    basket_in_db_list = Basket.query.filter(and_(Basket.order_id == order_in_db.id, Basket.user_id == user_id)).all()
+    basketlike_in_db_list = Basketlike.query.filter(Basketlike.want_id == want_in_db.id,
+                                                    Basketlike.user_id == user_id).all()
+    basket_length = len(basket_in_db_list)
+    basketlike_length = len(basketlike_in_db_list)
+    '''print(posts)'''
+    total = 0
+    for basket in basket_in_db_list:
+        total = total + basket.total * basket.quantity
+    return render_template('onlinechat.html', title='ChatRoom', news=new, img=img,posts=posts, baskets=basket_in_db_list, length=basket_length, total=total,order=order_in_db,basketslike=basketlike_in_db_list, lengthlike=basketlike_length)
 
 
 @app.route('/shownews', methods=['GET', 'POST'])

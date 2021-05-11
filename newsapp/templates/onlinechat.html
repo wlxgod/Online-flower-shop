@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
-	<head>
-		<title>ChatRoom</title>
-		<meta charset="UTF-8" />
-        <meta name="author" content="18206122 Yan Geng"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="/static/css/bootstrap.min.css" />
-		<link rel="stylesheet" href="/static/css/bootstrap-responsive.min.css" />
-		<link rel="stylesheet" href="/static/css/unicorn.main.css" />
-		<link rel="stylesheet" href="/static/css/unicorn.grey.css" class="skin-color" />
-        <link rel="shortcut icon" href="{{ url_for('static',filename='images/img/favicon.ico') }}" type="image/x-icon"/>
+<html lang="zxx" class="no-js">
+<head>
+    <title>ChatRoom</title>
+    <meta charset="UTF-8"/>
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="18206122 Yan Geng"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="meta description">
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/static/css/bootstrap-responsive.min.css"/>
+    <link rel="stylesheet" href="/static/css/unicorn.main.css"/>
+    <link rel="stylesheet" href="/static/css/unicorn.grey.css" class="skin-color"/>
+    <link rel="shortcut icon" href="{{ url_for('static',filename='images/img/favicon.ico') }}" type="image/x-icon"/>
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,900%7CYesteryear"
           rel="stylesheet">
 
@@ -18,7 +20,8 @@
     <!-- Main Style CSS -->
     <link href="{{ url_for('static',filename='css/style.css') }}" rel="stylesheet">
 
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+</head>
 <body>
 
 <!-- Start Header Area -->
@@ -118,9 +121,9 @@
                                         </ul>
                                     </li>
                                     <li>
-                                        <a href="#">
+                                        <a href="#" class="minicart-btn1">
                                             <i class="lnr lnr-heart"></i>
-                                            <div class="notification">0</div>
+                                            <div class="notification">{{ lengthlike }}</div>
                                         </a>
                                     </li>
                                     <li>
@@ -268,54 +271,167 @@
 </aside>
 <!-- off-canvas menu end -->
 
-			<div class="container-fluid">
-				<div class="row-fluid">
-					<div class="span12">
-						<div class="alert alert-success">This is an example of support chat. Feel free to write something.<a href="#" class="close" data-dismiss="alert">×</a></div>
-						<div class="widget-box widget-chat">
-							<div class="widget-title">
+<!-- offcanvas mini like start -->
+<div class="offcanvas-minicart-wrapper">
+    <div class="minicart-inner" id="like">
+        <div class="offcanvas-overlay"></div>
+        <div class="minicart-inner-content">
+            <div class="minicart-close">
+                <i class="lnr lnr-cross"></i>
+            </div>
+            <div class="minicart-content-box">
+                <div class="minicart-item-wrapper">
+                    {% for basket in basketslike %}
+                        {% for item in posts %}
+                            {% if item.id==basket.flower_id %}
+                                <ul id="{{ 'fuck1'+basket.id|string }}">
+                                    <li class="minicart-item">
+                                        <div class="minicart-thumb">
+                                            <a href="#">
+                                                <img src="static/images/{{ item.img }}"
+                                                     alt="product">
+                                            </a>
+                                        </div>
+                                        <div class="minicart-content">
+                                            <h3 class="product-name">
+                                                <a href="#">{{ item.name }}</a>
+                                            </h3>
+                                        </div>
+                                        <a class="minicart-remove" onclick="RemoveBasketlike({{ basket.id }})" href="#"><i
+                                                class="lnr lnr-cross"></i></a>
+                                    </li>
+                                </ul>
+                            {% endif %}
+                        {% endfor %}
+                    {% endfor %}
+                </div>
+
+                <div class="minicart-pricing-box">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- offcanvas mini like end -->
+
+<!-- offcanvas mini cart start -->
+<div class="offcanvas-minicart-wrapper">
+    <div class="minicart-inner">
+        <div class="offcanvas-overlay"></div>
+        <div class="minicart-inner-content">
+            <div class="minicart-close">
+                <i class="lnr lnr-cross"></i>
+            </div>
+            <div class="minicart-content-box">
+                <div class="minicart-item-wrapper">
+                    {% for basket in baskets %}
+                        {% for item in posts %}
+                            {% if item.id==basket.flower_id %}
+                                <ul id="{{ 'fuck'+basket.id|string }}">
+                                    <li class="minicart-item">
+                                        <div class="minicart-thumb">
+                                            <a href="#">
+                                                <img src="static/images/{{ item.img }}"
+                                                     alt="product">
+                                            </a>
+                                        </div>
+                                        <div class="minicart-content">
+                                            <h3 class="product-name">
+                                                <a href="#">{{ item.name }}</a>
+                                            </h3>
+                                            <p>
+                                                <span class="cart-quantity">{{ basket.quantity }}<strong>&times;</strong></span>
+                                                <span class="cart-price">{{ basket.total }}</span>
+                                            </p>
+                                        </div>
+                                        <a class="minicart-remove" onclick="RemoveBasket({{ basket.id }})" href="#"><i
+                                                class="lnr lnr-cross"></i></a>
+                                    </li>
+                                </ul>
+                            {% endif %}
+                        {% endfor %}
+                    {% endfor %}
+                </div>
+
+                <div class="minicart-pricing-box">
+                    <ul>
+                        <li class="total">
+                            <span>total</span>
+                            <span id="total"><strong>${{ total }}</strong></span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="minicart-button">
+                    <a href="#"><i class="fa fa-shopping-cart"></i> view cart</a>
+                    <a href="{{ url_for('checkout') }}"><i class="fa fa-share"></i> checkout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- offcanvas mini cart end -->
+
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span12">
+            <div class="alert alert-success">This is an example of support chat. Feel free to write something.<a
+                    href="#" class="close" data-dismiss="alert">×</a></div>
+            <div class="widget-box widget-chat">
+                <div class="widget-title">
 								<span class="icon">
 									<i class="icon-comment"></i>
 								</span>
-								<h5>Support chat</h5>
-							</div>
-							<div class="widget-content nopadding">
-								<div class="chat-content panel-left">
-								   <div class="chat-messages" id="chat-messages">
-										<div id="chat-messages-inner"></div>
-								   </div>
-								   <div class="chat-message well">
-										<button class="btn btn-success">Send</button>
-										<span class="input-box">
-											<input type="text" name="msg-box" id="msg-box" />
+                    <h5>Support chat</h5>
+                </div>
+                <div class="widget-content nopadding">
+                    <div class="chat-content panel-left">
+                        <div class="chat-messages" id="chat-messages">
+                            <div id="chat-messages-inner"></div>
+                        </div>
+                        <div class="chat-message well">
+                            <button class="btn btn-success">Send</button>
+                            <span class="input-box">
+											<input type="text" name="msg-box" id="msg-box"/>
 										</span>
-								   </div>
-								</div>
-								<div class="chat-users panel-right">
-									<div class="panel-title"><h5>Staff</h5></div>
-									<div class="panel-content nopadding">
-										<ul class="contact-list">
-											{% for new in news  %}
-											{% if new.number == 0 %}
-											<li id="{{ new.sender_id }}" class="online"><a href="#"><img class="/static/images/{{ img }}" alt="/static/images/{{ new.profile.portrait }}" src="/static/images/{{ new.profile.portrait }}" /> <span>{{ new.profile.name }}</span></a></li>
-											{% else %}
-											<li id="{{ new.sender_id }}" class="online"><a href="#"><img class="/static/images/{{ img }}" alt="/static/images/{{ new.profile.portrait }}" src="/static/images/{{ new.profile.portrait }}" /> <span>{{ new.profile.name }}</span></a><span class="msg-count badge badge-info">{{ new.number }}</span></li>
-											{% endif %}
-											{% endfor %}
-											<li id="myicon" class="/static/images/{{ img }}" style="display: none"></li> <!-- 隐藏元素用于存自己的头像 -->
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+                        </div>
+                    </div>
+                    <div class="chat-users panel-right">
+                        <div class="panel-title"><h5>Staff</h5></div>
+                        <div class="panel-content nopadding">
+                            <ul class="contact-list">
+                                {% for new in news %}
+                                    {% if new.number == 0 %}
+                                        <li id="{{ new.sender_id }}" class="online"><a href="#"><img
+                                                class="/static/images/{{ img }}"
+                                                alt="/static/images/{{ new.profile.portrait }}"
+                                                src="/static/images/{{ new.profile.portrait }}"/>
+                                            <span>{{ new.profile.name }}</span></a></li>
+                                    {% else %}
+                                        <li id="{{ new.sender_id }}" class="online"><a href="#"><img
+                                                class="/static/images/{{ img }}"
+                                                alt="/static/images/{{ new.profile.portrait }}"
+                                                src="/static/images/{{ new.profile.portrait }}"/>
+                                            <span>{{ new.profile.name }}</span></a><span
+                                                class="msg-count badge badge-info">{{ new.number }}</span></li>
+                                    {% endif %}
+                                {% endfor %}
+                                <li id="myicon" class="/static/images/{{ img }}" style="display: none"></li>
+                                <!-- 隐藏元素用于存自己的头像 -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-				<div class="row-fluid">
-					<div id="footer" class="span12">
-						2021 &copy; Blizzard.</div>
-				</div>
-			</div>
+    <div class="row-fluid">
+        <div id="footer" class="span12">
+            2021 &copy; Blizzard.
+        </div>
+    </div>
+</div>
 <!-- Start Footer Area Wrapper -->
 <footer class="footer-wrapper">
 
@@ -417,9 +533,6 @@
 <!-- End Footer Area Wrapper -->
 
 
-
-
-
 <!-- Scroll to top start -->
 <div class="scroll-top not-visible">
     <i class="fa fa-angle-up"></i>
@@ -431,6 +544,13 @@
 <script src="{{ url_for('static',filename='scripts/vendor.js') }}"></script>
 <!-- Active Js -->
 <script src="{{ url_for('static',filename='scripts/active.js') }}"></script>
+<script src="{{ url_for('static',filename='scripts/index.js') }}"></script>
+<script src="{{ url_for('static',filename='scripts/index1.js') }}"></script>
+<script src="{{ url_for('static',filename='scripts/index2.js') }}"></script>
+<script src="{{ url_for('static',filename='scripts/jquery.js') }}"></script>
+<script src="{{ url_for('static',filename='scripts/indexadd.js') }}"></script>
+<script src="{{ url_for('static',filename='scripts/indexlike.js') }}"></script>
+<script src="{{ url_for('static',filename='scripts/indexremovelike.js') }}"></script>
 <style>
     .copyrights {
         text-indent: -9999px;
@@ -445,11 +565,11 @@
     <a href="https://www.chazidian.com/" title="查字典">查字典</a>
 </div>
 
-            <script src="../static/scripts/jquery-1.8.2.min.js"></script>
-			<script src="../static/scripts/jquery.js"></script>
-            <script src="../static/scripts/jquery.ui.custom.js"></script>
-            <script src="../static/scripts/bootstrap.min.js"></script>
-            <script src="../static/scripts/unicorn.js"></script>
-            <script src="../static/scripts/unicorn.chat.js"></script>
-	</body>
+<script src="../static/scripts/jquery-1.8.2.min.js"></script>
+<script src="../static/scripts/jquery.js"></script>
+<script src="../static/scripts/jquery.ui.custom.js"></script>
+<script src="../static/scripts/bootstrap.min.js"></script>
+<script src="../static/scripts/unicorn.js"></script>
+<script src="../static/scripts/unicorn.chat.js"></script>
+</body>
 </html>
