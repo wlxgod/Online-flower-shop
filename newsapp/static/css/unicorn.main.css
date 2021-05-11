@@ -24,15 +24,18 @@ a:hover {
 }
 
 #header h1 {
-    background: url("/static/images/logo.jfif") no-repeat scroll 0 0 transparent;
-    height: 31px;
-    left: 15px;
+		/*background-size:10% 20%;*/
+
+    background: url("/static/images/logo.jfif")  no-repeat scroll 2px 0 transparent;
+    height: 70px;
+    left: 11px;
     line-height: 600px;
     overflow: hidden;
     position: relative;
-    top: 24px;
+    top: 14px;
     width: 191px;
-	background-size: cover;
+	/*background-size: contain;*/
+	background-size: 189px;
 }
 
 #header h1 a {
@@ -292,6 +295,16 @@ a:hover {
 .perFlower{
 
 
+}
+
+.gallery{
+
+	height: 159px;
+}
+
+.gaa{
+
+	height: 150px;
 }
 
 /* Style Switcher */
@@ -1302,12 +1315,24 @@ div.dataTables_wrapper .ui-widget-header {
 }
 .flowername{
 	color: #5bb75b;
+	position: absolute;
+	bottom: 2px;
 
 }
 .salesvolume{
 	color: #942a25;
 	position: absolute;
+	bottom: 2px;
 	right: 2px;
+
+}
+
+.gallery > a >.GalleryImg{
+	/*position: absolute;*/
+	/*top: 50%;*/
+	/*margin-top: -60px;*/
+
+
 
 }
 

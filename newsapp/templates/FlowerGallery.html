@@ -76,9 +76,9 @@
 							<div class="widget-content">
 								<ul class="thumbnails">
                                     {% for flower in flowers %}
-                                        <li class="span2">
-										    <a href="{{ url_for('ModFlower', flower_id=flower.id) }}" class="thumbnail">
-											    <img src="/static/images/{{ flower.img }}" alt="" />
+                                        <li class="span2 gallery">
+										    <a href="{{ url_for('ModFlower', flower_id=flower.id) }}" class="thumbnail gaa">
+											    <img src="/static/images/{{ flower.img }}" class="GalleryImg" alt="" />
 											    <span class="flowername">
 												    {{ flower.name }}
 											    </span>
@@ -88,84 +88,7 @@
 										    </a>
 									    </li>
                                     {% endfor %}
-									<li class="span2">
-										<a href="#" class="thumbnail">
-											<img src="/static/images/default_img.png" alt="" />
-											<span class="flowername">
-												Rose
-											</span>
-											<span class="salesvolume">
-												112
-											</span>
 
-										</a>
-										
-									</li>
-									<li class="span2">
-										<a href="#" class="thumbnail">
-											<img src="/static/images/default_img2.png" alt="" />
-
-										<span class="flowername">
-												Rose
-											</span>
-											<span class="salesvolume">
-												112
-											</span>
-										</a>
-
-									</li>
-									<li class="span2">
-										<a href="#" class="thumbnail">
-											<img src="/static/images/default_img3.png" alt="" />
-
-										<span class="flowername">
-												Rose
-											</span>
-											<span class="salesvolume">
-												112
-											</span></a>
-									</li>
-
-									<li class="span2">
-										<a href="#" class="thumbnail">
-											<img src="/static/images/default_img4.png" alt="" />
-										<span class="flowername">
-												Rose
-											</span>
-											<span class="salesvolume">
-												112
-											</span></a>
-									</li>
-									<li class="span2">
-										<a href="#" class="thumbnail">
-											<img src="/static/images/default_img5.png" alt="" />
-										<span class="flowername">
-												Rose
-											</span>
-											<span class="salesvolume">
-												112
-											</span></a>
-									</li>
-
-									<li class="span2">
-										<a href="#" class="thumbnail">
-											<img src="/static/images/default_img6.png" alt="" />
-										<span class="flowername">
-												Rose
-											</span>
-											<span class="salesvolume">
-												112
-											</span></a>
-									</li>
-									<li class="span2">
-										<a href="#" class="thumbnail">
-											<img src="/static/images/default_img7.png" alt="" />
-										<span class="flowername">
-												Rose
-											</span>
-											<span class="salesvolume">
-												112
-											</span></a>
 
 								</ul>
 							</div>
@@ -187,6 +110,11 @@
             <script src="/static/scripts/jquery.ui.custom.js"></script>
             <script src="/static/scripts/bootstrap.min.js"></script>
             <script src="/static/scripts/unicorn.js"></script>
+
+            <script>
+            var AddActive= document.querySelector('#Flowers');
+            AddActive.className = 'active';
+            </script>
 	</body>
 </html>
 

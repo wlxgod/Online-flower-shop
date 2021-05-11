@@ -40,35 +40,10 @@
     </ul>
 </div>
 
-<div id="sidebar">
-    <ul>
-        <li >
-            <a href="{{ url_for('addflower') }}"><i class="icon icon-plus-sign"></i> <span>添加花束</span></a>
-        </li>
 
-        <li>
-            <a href="{{ url_for('OrderDisplay') }}"><i class="icon icon-th"></i> <span>订单列表</span></a>
-        </li>
-        <li >
-            <a href="{{ url_for('OrderDetail', order_id=81) }}"><i class="icon icon-file"></i> <span>订单详情</span></a>
-        </li>
-        <li>
-                    <a href="{{ url_for('OrderDisplay') }}" onclick="{if(confirm('Please choose one order from the table first, then go to modify it')){}}"><i class="icon icon-refresh"></i> <span>修改订单</span></a>
-                </li>
-        <li>
-            <a href="{{ url_for('ChatRoom') }}"><i class="icon icon-comment"></i> <span>聊天页面</span></a>
-        </li>
+        {% extends "SideBar.html" %}
 
-         <li>
-            <a href="{{ url_for('Flowers') }}"><i class="icon icon-folder-open"></i> <span>商品管理</span></a>
-        </li>
-        <li class="active">
-            <a href="{{ url_for('ModFlower',flower_id=flower.id) }}"><i class="icon icon-refresh"></i> <span>修改订单</span></a>
-        </li>
-
-    </ul>
-
-</div>
+		{% block after %}
 
 <div id="style-switcher">
     <i class="icon-arrow-left icon-white"></i>
@@ -174,6 +149,11 @@
 </div>
 
 <script>
+
+    var AddActive= document.querySelector('#ModFlower');
+    AddActive.className = 'active';
+
+
     function confirm() {
         var form = new FormData(document.getElementById("just_validate"))
         form.append('t', 'confirm')
@@ -236,3 +216,6 @@
 <script src="/static/scripts/ModifyFlower.js"></script>
 </body>
 </html>
+
+
+{% endblock %}
