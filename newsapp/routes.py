@@ -31,7 +31,7 @@ def signup():
             flash('Passwords do not match!')
             return redirect(url_for('signup'))
         passw_hash = generate_password_hash(form.password.data)
-        user = User(username=form.username.data, email=form.email.data, password_hash=passw_hash)
+        user = User(username=form.username.data, email=form.email.data, identity="customer",password_hash=passw_hash)
         db.session.add(user)
         db.session.commit()
         session["USERNAME"] = user.username
@@ -83,9 +83,15 @@ def login():
         if not check_password_hash(user.password_hash, form.password.data):
             flash('Wrong Password')
             return redirect(url_for('login'))
+        if form.type.data=='1' and user.identity=='customer':
+            flash("As a customer,you can not come into the staff page.")
+            return redirect(url_for('login'))
         flash('Login Successfully')
         session['USERNAME'] = user.username
-        return redirect('index')
+        if form.type.data=='0':
+            return redirect('index')
+        if form.type.data=='1':
+            return redirect('addflower')
     return render_template('login.html', title='Log in', form=form)
 
 
@@ -751,8 +757,15 @@ def logout():
 def addflower():
     form = FlowerForm()
     if session.get("USERNAME") is None:
+        flash("Please login first")
         return redirect("login")
     else:
+        username = session.get("USERNAME")
+        users = User.query.filter(User.username == username)
+        user = users.first()
+        if user.identity=='customer':
+            flash("As a customer,you can not access this page.")
+            return redirect("login")
         if form.validate_on_submit():
             name = form.name.data
             img_dir = config.Config.PC_UPLOAD_DIR
@@ -805,6 +818,15 @@ def check_email():
 
 @app.route('/OrderDisplay', methods=['GET', 'POST'])
 def OrderDisplay():
+    if session.get("USERNAME") is None:
+        flash("Please login first")
+        return redirect("login")
+    username = session.get("USERNAME")
+    users = User.query.filter(User.username == username)
+    user = users.first()
+    if user.identity=='customer':
+        flash("As a customer,you can not access this page.")
+        return redirect("login")
     orders = Orders.query.all()
     order = Orders.query.filter(Orders.id == 1)
     return render_template('OrderDisplay.html', title='Order Display', orders=orders, order=order)
@@ -862,11 +884,29 @@ def ModFlower(flower_id):
 
 @app.route('/FlowerGallery', methods=['GET', 'POST'])
 def Flowers():
+    if session.get("USERNAME") is None:
+        flash("Please login first")
+        return redirect("login")
+    username = session.get("USERNAME")
+    users = User.query.filter(User.username == username)
+    user = users.first()
+    if user.identity=='customer':
+        flash("As a customer,you can not access this page.")
+        return redirect("login")
     flowers = Flower.query.all()
     return render_template('FlowerGallery.html', title='Flowers', flowers=flowers)
 
 @app.route('/Charts', methods=['GET', 'POST'])
 def Charts():
+    if session.get("USERNAME") is None:
+        flash("Please login first")
+        return redirect("login")
+    username = session.get("USERNAME")
+    users = User.query.filter(User.username == username)
+    user = users.first()
+    if user.identity=='customer':
+        flash("As a customer,you can not access this page.")
+        return redirect("login")
     dbEngine= db.get_engine();
     print(dbEngine)
     ts = pd.read_sql('select timestamp,price from orders',dbEngine)
