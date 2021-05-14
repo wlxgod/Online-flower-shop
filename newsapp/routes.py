@@ -256,7 +256,10 @@ def SortByAZ():
     order_in_db = Orders.query.filter(and_(Orders.state == "unpayment", Orders.user_id == user_id)).first()
     basket_in_db_list = Basket.query.filter(and_(Basket.order_id == order_in_db.id, Basket.user_id == user_id)).all()
     basket_length = len(basket_in_db_list)
-    '''print(posts)'''
+    want_in_db = Want.query.filter(Want.user_id == user_id).first()
+    basketlike_in_db_list = Basketlike.query.filter(Basketlike.want_id == want_in_db.id,
+                                                    Basketlike.user_id == user_id).all()
+    basketlike_length = len(basketlike_in_db_list)
     total = 0
     for basket in basket_in_db_list:
         total = total + basket.total*basket.quantity
@@ -276,8 +279,8 @@ def SortByAZ():
         print(posts2)
     print(posts2)
     p = 'AZ'
-    return render_template('newshop.html', posts=posts, posts2=posts2, baskets=basket_in_db_list, length=basket_length,
-                           total=total, order=order_in_db, p=p)
+    return render_template('newshop.html', posts=posts, posts2=posts2, posts3=posts,baskets=basket_in_db_list, length=basket_length,
+                           total=total, order=order_in_db, p=p,basketslike=basketlike_in_db_list, lengthlike=basketlike_length,postslength=len(posts),posts3length=len(posts2))
 
 
 @app.route('/SortByZA', methods=['GET', 'POST'])
@@ -303,6 +306,10 @@ def SortByZA():
     basket_length = len(basket_in_db_list)
     '''print(posts)'''
     total = 0
+    want_in_db = Want.query.filter(Want.user_id == user_id).first()
+    basketlike_in_db_list = Basketlike.query.filter(Basketlike.want_id == want_in_db.id,
+                                                    Basketlike.user_id == user_id).all()
+    basketlike_length = len(basketlike_in_db_list)
     for basket in basket_in_db_list:
         total = total + basket.total*basket.quantity
     content = None
@@ -321,8 +328,8 @@ def SortByZA():
         print(posts2)
     print(posts2)
     p = 'ZA'
-    return render_template('newshop.html', posts=posts, posts2=posts2, baskets=basket_in_db_list, length=basket_length,
-                           total=total, order=order_in_db, p=p)
+    return render_template('newshop.html', posts=posts, posts2=posts2,posts3=posts, baskets=basket_in_db_list, length=basket_length,
+                           total=total, order=order_in_db, p=p,basketslike=basketlike_in_db_list, lengthlike=basketlike_length,postslength=len(posts),posts3length=len(posts2))
 
 
 @app.route('/SortByP', methods=['GET', 'POST'])
@@ -348,6 +355,10 @@ def SortByP():
     basket_length = len(basket_in_db_list)
     '''print(posts)'''
     total = 0
+    want_in_db = Want.query.filter(Want.user_id == user_id).first()
+    basketlike_in_db_list = Basketlike.query.filter(Basketlike.want_id == want_in_db.id,
+                                                    Basketlike.user_id == user_id).all()
+    basketlike_length = len(basketlike_in_db_list)
     for basket in basket_in_db_list:
         total = total + basket.total*basket.quantity
     content = None
@@ -366,8 +377,8 @@ def SortByP():
         print(posts2)
     print(posts2)
     p = 'price'
-    return render_template('newshop.html', posts=posts, posts2=posts2, baskets=basket_in_db_list, length=basket_length,
-                           total=total, order=order_in_db, p=p)
+    return render_template('newshop.html', posts=posts, posts2=posts2, posts3=posts,baskets=basket_in_db_list, length=basket_length,
+                           total=total, order=order_in_db, p=p,basketslike=basketlike_in_db_list, lengthlike=basketlike_length,postslength=len(posts),posts3length=len(posts2))
 
 @app.route('/SortByS', methods=['GET', 'POST'])
 def SortByS():
@@ -422,6 +433,10 @@ def SortByS():
     basket_length = len(basket_in_db_list)
     '''print(posts)'''
     total = 0
+    want_in_db = Want.query.filter(Want.user_id == user_id).first()
+    basketlike_in_db_list = Basketlike.query.filter(Basketlike.want_id == want_in_db.id,
+                                                    Basketlike.user_id == user_id).all()
+    basketlike_length = len(basketlike_in_db_list)
     for basket in basket_in_db_list:
         total = total + basket.total*basket.quantity
     content = None
@@ -440,8 +455,8 @@ def SortByS():
         print(posts2)
     print(posts2)
     p = 'sales'
-    return render_template('newshop.html', posts=posts, posts2=posts2, baskets=basket_in_db_list, length=basket_length,
-                           total=total, order=order_in_db, p=p)
+    return render_template('newshop.html', posts=posts, posts2=posts2, posts3=posts,baskets=basket_in_db_list, length=basket_length,
+                           total=total, order=order_in_db, p=p,basketslike=basketlike_in_db_list, lengthlike=basketlike_length,postslength=len(posts),posts3length=len(posts2))
 
 @app.route('/Filter_N', methods=['GET', 'POST'])
 def Filter_N():
@@ -490,6 +505,10 @@ def Filter_N():
     basket_length = len(basket_in_db_list)
     '''print(posts)'''
     total = 0
+    want_in_db = Want.query.filter(Want.user_id == user_id).first()
+    basketlike_in_db_list = Basketlike.query.filter(Basketlike.want_id == want_in_db.id,
+                                                    Basketlike.user_id == user_id).all()
+    basketlike_length = len(basketlike_in_db_list)
     for basket in basket_in_db_list:
         total = total + basket.total*basket.quantity
     content = None
@@ -508,8 +527,8 @@ def Filter_N():
         print(posts2)
     p = 'default'
     print(posts2)
-    return render_template('newshop.html', posts=posts, posts2=posts2, baskets=basket_in_db_list, length=basket_length,
-                           total=total, order=order_in_db, p=p)
+    return render_template('newshop.html', posts=posts, posts2=posts2, posts3=posts,baskets=basket_in_db_list, length=basket_length,
+                           total=total, order=order_in_db, p=p,basketslike=basketlike_in_db_list, lengthlike=basketlike_length,postslength=len(posts),posts3length=len(posts2))
 
 
 
