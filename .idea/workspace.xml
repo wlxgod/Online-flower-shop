@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="15aa0908-b968-4035-aad5-43587f3cd46a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/start.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newsapp/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/newsapp/routes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/newsapp/static/images/Revenue.png" beforeDir="false" afterPath="$PROJECT_DIR$/newsapp/static/images/Revenue.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -195,6 +194,8 @@
       <workItem from="1620793134574" duration="6794000" />
       <workItem from="1620867746581" duration="5402000" />
       <workItem from="1621017348885" duration="1855000" />
+      <workItem from="1621075499807" duration="686000" />
+      <workItem from="1621143326634" duration="2516000" />
     </task>
     <servers />
   </component>
@@ -219,7 +220,7 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/newFlower$app.coverage" NAME="app Coverage Results" MODIFIED="1618492058809" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Online_flower_shop$Online_flower_shop.coverage" NAME="Online-flower-shop Coverage Results" MODIFIED="1620740272172" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Online_flower_shop$app.coverage" NAME="app Coverage Results" MODIFIED="1621019089475" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Online_flower_shop$app.coverage" NAME="app Coverage Results" MODIFIED="1621156403856" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/newFlower4_17$app.coverage" NAME="app Coverage Results" MODIFIED="1618708256048" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
