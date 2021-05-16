@@ -15,7 +15,7 @@
 
 
 <div id="header">
-    <h1><a href="./dashboard.html">UniAdmin</a></h1>
+    <h1><a href="./dashboard.html">{{ _('UniAdmin') }}</a></h1>
 </div>
 
 <div id="search">
@@ -25,22 +25,20 @@
 <div id="user-nav" class="navbar navbar-inverse">
     <ul class="nav btn-group">
         <li class="btn btn-inverse"><a title="" href="#"><i class="icon icon-user"></i> <span
-                class="text">个人资料</span></a></li>
+                class="text">{{ _('Personal datails') }}</span></a></li>
         <li class="btn btn-inverse dropdown" id="menu-messages"><a href="#" data-toggle="dropdown"
                                                                    data-target="#menu-messages" class="dropdown-toggle"><i
-                class="icon icon-envelope"></i> <span class="text">消息</span> <span
+                class="icon icon-envelope"></i> <span class="text">{{ _('Message') }}</span> <span
                 class="label label-important">5</span> <b class="caret"></b></a>
             <ul class="dropdown-menu">
-                <li><a class="sAdd" title="" href="#">新消息</a></li>
-                <li><a class="sInbox" title="" href="#">收件箱</a></li>
-                <li><a class="sOutbox" title="" href="#">发件箱</a></li>
-                <li><a class="sTrash" title="" href="#">发送</a></li>
+                <li><a class="sAdd" title="" href="#">{{ _('New Messages') }}</a></li>
+                <li><a class="sInbox" title="" href="#">{{ _('Inbox') }}</a></li>
+                <li><a class="sOutbox" title="" href="#">{{ _('Outbox') }}</a></li>
+                <li><a class="sTrash" title="" href="#">{{ _('Send') }}</a></li>
             </ul>
         </li>
-        <li class="btn btn-inverse"><a title="" href="#"><i class="icon icon-cog"></i> <span class="text">设置</span></a>
-        </li>
-        <li class="btn btn-inverse"><a title="" href="login.html"><i class="icon icon-share-alt"></i> <span
-                class="text">退出</span></a></li>
+        <li class="btn btn-inverse"><a title="" href="#"><i class="icon icon-cog"></i> <span class="text">{{ _('Settings') }}</span></a></li>
+        <li class="btn btn-inverse"><a title="" href="login.html"><i class="icon icon-share-alt"></i> <span class="text">{{ _('Logout') }}</span></a></li>
     </ul>
 </div>
 
@@ -52,7 +50,7 @@
 
 <div id="style-switcher">
     <i class="icon-arrow-left icon-white"></i>
-    <span>Style:</span>
+    <span>{{ _('Style') }}:</span>
     <a href="#grey" style="background-color: #555555;border-color: #aaaaaa;"></a>
     <a href="#blue" style="background-color: #2D2F57;"></a>
     <a href="#red" style="background-color: #673232;"></a>
@@ -60,7 +58,7 @@
 
 <div id="content">
     <div id="content-header">
-        <h1>Order Detail Display</h1>
+        <h1>{{ _('Order Detail Display') }}</h1>
         <div class="btn-group">
             <a class="btn btn-large tip-bottom" title="Manage Files"><i class="icon-file"></i></a>
             <a class="btn btn-large tip-bottom" title="Manage Users"><i class="icon-user"></i></a>
@@ -70,9 +68,9 @@
         </div>
     </div>
     <div id="breadcrumb">
-        <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a>
-        <a href="#">Sample Pages</a>
-        <a href="#" class="current">Invoice</a>
+        <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>{{ _('Home') }} </a>
+        <a href="#">{{ _('Order Table') }}</a>
+        <a href="#" class="current">{{ _('Details') }}</a>
     </div>
     <div class="container-fluid">
 
@@ -83,36 +81,36 @@
 								<span class="icon">
 									<i class="icon-th-list"></i>
 								</span>
-                        <h5>Order Detail</h5>
+                        <h5>{{ _('Order Detail') }}</h5>
                         <div class="buttons">
                             <a title="Icon Title" class="btn btn-mini" href="{{ url_for('OrderDisplay') }}"><i
-                                    class="icon-tasks"></i> All Orders</a>
+                                    class="icon-tasks"></i>{{ _('All Orders') }} </a>
                             <a title="Icon Title" class="btn btn-mini" href="{{ url_for('ChatRoom') }}"><i
-                                    class="icon-comment"></i> Chat</a>
+                                    class="icon-comment"></i>{{ _('Chat') }} </a>
                         </div>
                     </div>
                     <div class="widget-content">
                         <div class="invoice-content">
                             <div class="invoice-head">
                                 <div class="invoice-meta">
-                                    Order ID <span class="invoice-number"> #{{ order.id }} </span><span
-                                        class="invoice-date">Date: {{ order.timestamp }}</span>
+                                    {{ _('Order ID') }} <span class="invoice-number"> #{{ order.id }} </span><span
+                                        class="invoice-date">{{ _('Date') }}: {{ order.timestamp }}</span>
                                 </div>
-                                <h5 class="text-info">User:{{ order.name }}</h5>
+                                <h5 class="text-info">{{ _('User') }}:{{ order.name }}</h5>
                                 <div class="invoice-to text-info">
                                     <ul>
                                         <li>
-                                            <span><strong>From</strong></span>
-                                            <span>Blizzard flower shop</span>
-                                            <span>244, Soranda Street,</span>
-                                            <span>New Morleno.</span>
+                                            <span><strong>{{ _('From') }}</strong></span>
+                                            <span>{{ _('Blizzard flower shop') }}</span>
+                                            <span>{{ _('244, Soranda Street') }},</span>
+                                            <span>{{ _('New Morleno') }}.</span>
                                         </li>
                                     </ul>
                                 </div>
                                 <div class="invoice-from">
                                     <ul>
                                         <li>
-                                            <span><strong>To</strong></span>
+                                            <span><strong>{{ _('To') }}</strong></span>
                                             <span>{{ order.name }}</span>
                                             <span>{{ order.destination }}</span>
                                             <span>Treyan.</span>
@@ -125,23 +123,23 @@
                                     <thead>
                                     <tr>
                                         <th>
-                                            Flower ID
+                                            {{ _('Flower ID') }}
                                         </th>
                                         <th>
-                                            Flower Name
+                                            {{ _('Flower Name') }}
                                         </th>
                                         <th>
-                                            Number
+                                            {{ _('Number') }}
                                         </th>
                                         <th>
-                                            Amount
+                                            {{ _('Price') }}
                                         </th>
                                     </tr>
                                     </thead>
                                     <tfoot>
                                     <tr>
                                         <th class="total-label" colspan="3">
-                                            Total:
+                                            {{ _('Total') }}:
                                         </th>
                                         <th class="total-amount">
                                             ${{ total }}
@@ -174,26 +172,26 @@
                             </div>
                             <p class="status-word">
                                 {% if order.state == "Completed" %}
-                                Current Status: <span class="text-success">Completed</span>
+                                Current Status: <span class="text-success">{{ _('Completed') }}</span>
                                 {% elif order.state == "Transporting"%}
                                 <div class="alert alert-info CSDis" role="alert">
                                 Current Status:
-                                <span class="text-info strong">        Transporting</span>
+                                <span class="text-info strong">{{ _('Transporting') }}        </span>
                                 </div>
                                 {% elif order.state == "Lated" %}
-                                Current Status: <span class="text-error">Lated</span>
+                                Current Status: <span class="text-error">{{ _('Lated') }}</span>
                                 {% endif %}
                             </p>
 
 
                             <p class="help-block">
-                                <strong>Note:</strong> The flower is fresh. Please send it as soon as possible!
+                                <strong>{{ _('Note') }}:</strong>{{ _('The flower is fresh. Please send it as soon as possible!') }}
 
 
                             <div class="Odelete ">
                                 <a href="{{ url_for('ModifyOrder', order_id=order.id) }}">
 
-                                    <button type="button" class="btn btn-primary superBorder">Change</button>
+                                    <button type="button" class="btn btn-primary superBorder">{{ _('Change') }}</button>
                                 </a>
                             </div>
 
@@ -205,7 +203,7 @@
         </div>
         <div class="row-fluid">
             <div id="footer" class="span12">
-                2020 &copy; UniAdmin.
+                Copyright &copy; 2021.Group 15 Blizzard All rights reserved.
             </div>
         </div>
     </div>

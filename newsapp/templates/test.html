@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script>
+        $(document).on('click', '.locale', function () {
+            var val = $(this).attr('data-value');
+            $.ajax({
+                url: val,
+                type: 'GET',
+                success: function (ret) {
+                    console.log(ret);
+                    location.reload();
+                }
+            })
+        });
+    </script>
+</head>
+<body>
+    <p>{{ _('ni hao a') }}</p>
+<button type="button" class="locale " id="zh" data-value="{{ url_for('set_locale', locale='en') }}">{{ _('EN') }}</button>
+<button type="button" class="locale " id="en" data-value="{{ url_for('set_locale', locale='zh') }}">{{ _('CN') }}</button>
+</body>
+</html>
