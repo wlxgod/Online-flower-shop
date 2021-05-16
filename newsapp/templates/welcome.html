@@ -7,14 +7,21 @@
     <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
         <script>
             $(document).on('click', '.locale', function () {
+
                 var val = $(this).attr('data-value');
+                {#alert(val)#}
                 $.ajax({
                     url: val,
                     type: 'GET',
                     success: function (ret) {
                         console.log(ret);
                         location.reload();
-                        location.href="{{ url_for('login') }}"
+                        if (val == "/set_locale/zh"){
+                            location.href="{{ url_for('loginch') }}"
+                        }
+                        else if(val == "/set_locale/en"){
+                            location.href="{{ url_for('login') }}"
+                        }
                     }
                 })
 

@@ -497,7 +497,7 @@
                         <div class="shop-product-wrap grid-view row mbn-40" id="comdity" name="comdity">
                             <!-- product single item start -->
                             {% if posts2 == [] %}
-                                Filter as empty
+                               <span style="margin-left: 40%;font-size: 2em;color: red">{{ _('Filter as empty') }}</span>
                             {% endif %}
                         {% if posts3==posts %}
                                 {% for post in posts2 %}

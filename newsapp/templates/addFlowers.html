@@ -18,7 +18,7 @@
 
 
 <div id="header">
-    <h1><a href="./dashboard.html">UniAdmin</a></h1>
+    <h1><a href="./dashboard.html">{{ _('UniAdmin') }}</a></h1>
 </div>
 
 <div id="search">
@@ -26,17 +26,17 @@
 </div>
 <div id="user-nav" class="navbar navbar-inverse">
     <ul class="nav btn-group">
-        <li class="btn btn-inverse"><a title="" href="#"><i class="icon icon-user"></i> <span class="text">个人资料</span></a></li>
-        <li class="btn btn-inverse dropdown" id="menu-messages"><a href="#" data-toggle="dropdown" data-target="#menu-messages" class="dropdown-toggle"><i class="icon icon-envelope"></i> <span class="text">消息</span> <span class="label label-important">5</span> <b class="caret"></b></a>
+        <li class="btn btn-inverse"><a title="" href="#"><i class="icon icon-user"></i> <span class="text">{{ _('Personal datails') }}</span></a></li>
+        <li class="btn btn-inverse dropdown" id="menu-messages"><a href="#" data-toggle="dropdown" data-target="#menu-messages" class="dropdown-toggle"><i class="icon icon-envelope"></i> <span class="text">{{ _('Message') }}</span> <span class="label label-important">5</span> <b class="caret"></b></a>
             <ul class="dropdown-menu">
-                <li><a class="sAdd" title="" href="#">新消息</a></li>
-                <li><a class="sInbox" title="" href="#">收件箱</a></li>
-                <li><a class="sOutbox" title="" href="#">发件箱</a></li>
-                <li><a class="sTrash" title="" href="#">发送</a></li>
+                <li><a class="sAdd" title="" href="#">{{ _('New Messages') }}</a></li>
+                <li><a class="sInbox" title="" href="#">{{ _('Inbox') }}</a></li>
+                <li><a class="sOutbox" title="" href="#">{{ _('Outbox') }}</a></li>
+                <li><a class="sTrash" title="" href="#">{{ _('Send') }}</a></li>
             </ul>
         </li>
-        <li class="btn btn-inverse"><a title="" href="#"><i class="icon icon-cog"></i> <span class="text">设置</span></a></li>
-        <li class="btn btn-inverse"><a title="" href="login.html"><i class="icon icon-share-alt"></i> <span class="text">退出</span></a></li>
+        <li class="btn btn-inverse"><a title="" href="#"><i class="icon icon-cog"></i> <span class="text">{{ _('Settings') }}</span></a></li>
+        <li class="btn btn-inverse"><a title="" href="login.html"><i class="icon icon-share-alt"></i> <span class="text">{{ _('Logout') }}</span></a></li>
     </ul>
 </div>
 
@@ -47,7 +47,7 @@
 
 <div id="style-switcher">
     <i class="icon-arrow-left icon-white"></i>
-    <span>Style:</span>
+    <span>{{ _('Style') }}:</span>
     <a href="#grey" style="background-color: #555555;border-color: #aaaaaa;"></a>
     <a href="#blue" style="background-color: #2D2F57;"></a>
     <a href="#red" style="background-color: #673232;"></a>
@@ -55,7 +55,7 @@
 
 <div id="content">
     <div id="content-header">
-        <h1>Add Flower Form</h1>
+        <h1>{{ _('Add Flower Form') }}</h1>
         <div class="btn-group">
             <a class="btn btn-large tip-bottom" title="Manage Files"><i class="icon-file"></i></a>
             <a class="btn btn-large tip-bottom" title="Manage Users"><i class="icon-user"></i></a>
@@ -64,8 +64,8 @@
         </div>
     </div>
     <div id="breadcrumb">
-        <a href="index.html" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a>
-        <a href="#" class="current">Add Flowers</a>
+        <a href="index.html" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> {{ _('Home') }}</a>
+        <a href="#" class="current">{{ _('Add Flowers') }}</a>
     </div>
     <div class="container-fluid">
         <div class="row-fluid">
@@ -75,7 +75,7 @@
 								<span class="icon">
 									<i class="icon-info-sign"></i>
 								</span>
-                        <h5>Detailed information</h5>
+                        <h5>{{ _('Detailed information') }}</h5>
                     </div>
 
 <!--                              modify hereeeeeeeee<mo></mo>-->
@@ -88,7 +88,7 @@
                         <form action="" method="post" enctype="multipart/form-data" class="form-horizontal formA" id="just_validate" novalidate>
                         {{ form.hidden_tag() }}
                         <div class="control-group">
-                            <label class="control-label">Flowers name</label>
+                            <label class="control-label">{{ _('Flowers name') }}</label>
                             <div class="controls">
                                 {{ form.name(id='req', placeholder="entered the flowers name here") }}
                             </div>
@@ -96,21 +96,21 @@
 
 
                         <div class="control-group">
-                            <label class="control-label">Shop address</label>
+                            <label class="control-label">{{ _('Shop address') }}</label>
                             <div class="controls">
                                 {{ form.address(placeholder="show your shop's location") }}
                             </div>
                         </div>
                         <div class="control-group">
-                            <label class="control-label">Flower detail</label>
+                            <label class="control-label">{{ _('Flower detail') }}</label>
                             <div class="controls">
                                 {{ form.detail(placeholder="Maybe it is a bunch of flower") }}
-                                <span class="help-block">such as the color flavour or ingredient</span>
+                                <span class="help-block">{{ _('such as the color flavour or ingredient') }}</span>
                             </div>
                         </div>
 
                         <div class="control-group">
-                            <label class="control-label">Upload photo</label>
+                            <label class="control-label">{{ _('Upload photo') }}</label>
                             <div class="controls">
                                 {{ form.image() }}
                                 {{ form.image() }}
@@ -118,14 +118,14 @@
                         </div>
 
                         <div class="control-group">
-                            <label class="control-label">Flower Price</label>
+                            <label class="control-label">{{ _('Flower Price') }}</label>
                             <div class="controls">
                                 {{ form.price(placeholder="enter the price here") }}
                             </div>
                         </div>
 
                         <div class="control-group">
-                            <label class="control-label">Inventory number</label>
+                            <label class="control-label">{{ _('Inventory number') }}</label>
                             <div class="controls">
                                 {{ form.number(placeholder="the number of available flowers in the warehouse") }}
                                 <span class="help-block">0~999</span>
@@ -163,10 +163,25 @@
 <script src="/static/scripts/unicorn.form_common.js"></script>
 <script src="/static/scripts/jquery.validate.js"></script>
 <script src="/static/scripts/addflower.js"></script>
+            <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
 
         <script>
             var AddActive= document.querySelector('#addFlower');
             AddActive.className = 'active';
+
+
+        $(document).on('click', '.locale', function () {
+            var val = $(this).attr('data-value');
+            $.ajax({
+                url: val,
+                type: 'GET',
+                success: function (ret) {
+                    console.log(ret);
+                    location.reload();
+                }
+            })
+        });
+
         </script>
 
 

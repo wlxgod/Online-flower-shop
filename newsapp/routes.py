@@ -1139,7 +1139,9 @@ def profile():
 @app.route('/ModifyOrder/<order_id>', methods=['GET', 'POST'])
 def ModifyOrder(order_id):
     order = Orders.query.filter(Orders.id == order_id).first()
-    return render_template('ModifyOrders.html', title='ModifyOrder', order=order)
+    baskets = Basket.query.filter(Basket.order_id == order_id).all()
+    flowers = Flower.query.all()
+    return render_template('ModifyOrders.html', title='ModifyOrder', order=order, baskets=baskets,flowers=flowers)
 
 
 @app.route('/Order_state_C/<order_id>', methods=['GET', 'POST'])
