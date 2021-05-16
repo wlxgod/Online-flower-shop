@@ -25,6 +25,20 @@
     <script src="/oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script>
+            $(document).on('click', '.locale', function () {
+                var val = $(this).attr('data-value');
+                $.ajax({
+                    url: val,
+                    type: 'GET',
+                    success: function (ret) {
+                        console.log(ret);
+                        location.reload();
+                    }
+                })
+            });
+    </script>
 </head>
 
 <body>
@@ -39,28 +53,34 @@
                 <div class="row align-items-center">
                     <div class="col-lg-6">
                         <div class="welcome-message">
-                            <p>Welcome to Blizzard Online Flower Store</p>
+                            <p>{{ _('Welcome to Blizzard Online Flower Store') }}</p>
                         </div>
                     </div>
                     <div class="col-lg-6 text-right">
                         <div class="header-top-settings">
                             <ul class="nav align-items-center justify-content-end">
                                 <li class="language">
-                                    <span>Language:</span>
+                                    <span>{{ _('Language:') }}</span>
                                     <img src="{{ url_for('static',filename='images/img/icon/en.png') }}" alt="flag">
-                                    English
+                                    {{ _('English') }}
                                     <i class="fa fa-angle-down"></i>
                                     <ul class="dropdown-list">
-                                        <li><a href="#"><img
-                                                src="{{ url_for('static',filename='images/img/icon/en.png') }}"
-                                                alt="flag"> english</a></li>
-                                        <li><a href="#"><img
-                                                src="{{ url_for('static',filename='images/img/icon/ch.png') }}"
-                                                alt="flag"> Chinese</a></li>
+                                        <li>
+                                            <a class="locale " id="zh" data-value="{{ url_for('set_locale', locale='en') }}">
+                                                <img src="{{ url_for('static',filename='images/img/icon/en.png') }}" alt="flag">
+                                                {{ _('English') }}
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="locale " id="en" data-value="{{ url_for('set_locale', locale='zh') }}">
+                                                <img src="{{ url_for('static',filename='images/img/icon/ch.png') }}" alt="flag">
+                                                {{ _('Chinese') }}
+                                            </a>
+                                        </li>
                                     </ul>
                                 </li>
                                 <li class="curreny-wrap">
-                                    <span>Currency:</span>
+                                    <span>{{ _('Currency:') }}</span>
                                     ¥ CNY
                                 </li>
                             </ul>
@@ -93,10 +113,10 @@
                                 <!-- main menu navbar start -->
                                 <nav class="desktop-menu">
                                     <ul>
-                                        <li><a href="{{ url_for('index') }}">Home</a></li>
-                                        <li><a href="{{ url_for('shop') }}">Shop</a></li>
-                                        <li><a href="{{ url_for('onlinechat') }}">Contact_Us</a></li>
-                                        <li><a href="{{ url_for('about_us') }}">About_Us</a></li>
+                                        <li><a href="{{ url_for('index') }}">{{ _('Home') }}</a></li>
+                                        <li><a href="{{ url_for('shop') }}">{{ _('Shop') }}</a></li>
+                                        <li><a href="{{ url_for('onlinechat') }}">{{ _('Contact_Us') }}</a></li>
+                                        <li><a href="{{ url_for('about_us') }}">{{ _('About_Us') }}</a></li>
                                     </ul>
                                 </nav>
                                 <!-- main menu navbar end -->
@@ -120,21 +140,21 @@
                                             <i class="lnr lnr-user"></i>
                                         </a>
                                         <ul class="dropdown-list">
-                                            <li><a href="{{ url_for('login') }}">login</a></li>
-                                            <li><a href="{{ url_for('signup') }}">register</a></li>
-                                            <li><a href="{{ url_for('profile') }}">my account</a></li>
+                                            <li><a href="{{ url_for('login') }}">{{ _('login') }}</a></li>
+                                            <li><a href="{{ url_for('signup') }}">{{ _('register') }}</a></li>
+                                            <li><a href="{{ url_for('profile') }}">{{ _('my account') }}</a></li>
                                         </ul>
                                     </li>
                                     <li>
-                                        <a href="#">
+                                        <a href="#" class="minicart-btn1">
                                             <i class="lnr lnr-heart"></i>
-                                            <div class="notification">0</div>
+                                            <div class="notification" id="length1">{{ lengthlike }}</div>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#" class="minicart-btn">
                                             <i class="lnr lnr-cart"></i>
-                                            <div class="notification">{{ length }}</div>
+                                            <div class="notification" id="length">{{ length }}</div>
                                         </a>
                                     </li>
                                 </ul>
@@ -208,10 +228,10 @@
                 <!-- mobile menu navigation start -->
                 <nav>
                     <ul class="mobile-menu">
-                        <li><a href="{{ url_for('index') }}">Home</a></li>
-                        <li><a href="{{ url_for('shop') }}">Shop</a></li>
-                        <li><a href="{{ url_for('onlinechat') }}">Contact_Us</a></li>
-                        <li><a href="{{ url_for('about_us') }}">About_Us</a></li>
+                        <li><a href="{{ url_for('index') }}">{{ _('Home') }}</a></li>
+                        <li><a href="{{ url_for('shop') }}">{{ _('Shop') }}</a></li>
+                        <li><a href="{{ url_for('onlinechat') }}">{{ _('Contact_Us') }}</a></li>
+                        <li><a href="{{ url_for('about_us') }}">{{ _('About_Us') }}</a></li>
                     </ul>
                 </nav>
                 <!-- mobile menu navigation end -->
@@ -224,7 +244,7 @@
                         <div class="dropdown mobile-top-dropdown">
                             <a href="#" class="dropdown-toggle" id="currency" data-toggle="dropdown"
                                aria-haspopup="true" aria-expanded="false">
-                                Currency
+                                {{ _('Currency') }}
                                 <i class="fa fa-angle-down"></i>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="currency">
@@ -237,13 +257,13 @@
                         <div class="dropdown mobile-top-dropdown">
                             <a href="#" class="dropdown-toggle" id="myaccount" data-toggle="dropdown"
                                aria-haspopup="true" aria-expanded="false">
-                                My Account
+                                {{ _('My Account') }}
                                 <i class="fa fa-angle-down"></i>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="myaccount">
-                                <a class="dropdown-item" href="#">my account</a>
-                                <a class="dropdown-item" href="#"> login</a>
-                                <a class="dropdown-item" href="#">register</a>
+                                <a class="dropdown-item" href="#">{{ _('my account') }}</a>
+                                <a class="dropdown-item" href="#">{{ _('login') }}</a>
+                                <a class="dropdown-item" href="#">{{ _('register') }}</a>
                             </div>
                         </div>
                     </li>
@@ -280,10 +300,10 @@
 
 <div id="mainDiv1">
     <div>
-        <h1>COVID-19 Hurts Us <br>&nbsp;&nbsp;&nbsp;&nbsp;But It Can't Destroy Us!</h1>
-        <h5>Our offline flower shop get stroke badly due to COVID-19 <br>
-            &nbsp;&nbsp;&nbsp;&nbsp;But we never give up and come back online with the help of group 15 Blizzard!</h5>
-        <a>Get Started<img src="{{ url_for("static",filename="images/arrowWhite.png") }}" alt=""></a>
+        <h1>{{ _('COVID-19 Hurts Us ') }}<br>&nbsp;&nbsp;&nbsp;&nbsp;{{ _("But It Can't Destroy Us!") }}</h1>
+        <h5>{{ _('Our offline flower shop get stroke badly due to COVID-19 ') }}<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;{{ _('But we never give up and come back online with the help of group 15 Blizzard!') }}</h5>
+        <a>{{ _('Get Started') }}<img src="{{ url_for("static",filename="images/arrowWhite.png") }}" alt=""></a>
     </div>
 
     <img src="{{ url_for("static",filename="images/profile.jpg") }}" alt="">
@@ -291,31 +311,31 @@
 
 
 <div id="mainDiv2">
-    <h1>Let's see who's on the team</h1>
-    <h4>As a well-cooperated team, each one of us could fully utilize own strengths and complement each other!</h4>
+    <h1>{{ _("Let's see who's on the team") }}</h1>
+    <h4>{{ _('As a well-cooperated team, each one of us could fully utilize own strengths and complement each other!') }}</h4>
     <div>
         <div>
             <img src="{{ url_for("static",filename="images/img/avater/avater1.jfif") }}" alt="">
             <p>
-                <h3>Yiqun Hao</h3>
-                <h5>BJUT: 18372320</h5>
-                <p class="division">Front end engineer for customer portal</p>
+                <h3>{{ _('Yiqun Hao') }}</h3>
+                <h5>{{ _('BJUT: ') }}18372320</h5>
+                <p class="division">{{ _('Front end engineer for customer portal') }}</p>
             </p>
         </div>
         <div>
             <img src="{{ url_for("static",filename="images/img/avater/avater2.jfif") }}" alt="">
             <p>
-                <h3>Lingxiao Wang</h3>
-                <h5>BJUT: 18372225</h5>
-                <p class="division">Back end engineer for customer portal</p>
+                <h3>{{ _('Lingxiao Wang') }}</h3>
+                <h5>{{ _('BJUT: ') }}18372225</h5>
+                <p class="division">{{ _('Back end engineer for customer portal') }}</p>
             </p>
         </div>
         <div>
             <img src="{{ url_for("static",filename="images/img/avater/avater3.jfif") }}" alt="">
             <p>
-                <h3>Tianxiang Yang</h3>
-                <h5>BJUT: 17372321</h5>
-                <p class="division">Project documentation</p>
+                <h3>{{ _('Tianxiang Yang') }}</h3>
+                <h5>{{ _('BJUT: ') }}17372321</h5>
+                <p class="division">{{ _('Project Documentation') }}</p>
             </p>
         </div>
     </div>
@@ -323,25 +343,25 @@
         <div>
             <img src="{{ url_for("static",filename="images/img/avater/avater4.jfif") }}" alt="">
             <p>
-                <h3>Geng Yan</h3>
-                <h5>BJUT: 1818206122</h5>
-                <p class="division">Front end engineer for staff portal</p>
+                <h3>{{ _('Geng Yan') }}</h3>
+                <h5>{{ _('BJUT: ') }}1818206122</h5>
+                <p class="division">{{ _('Front end engineer for staff portal') }}</p>
             </p>
         </div>
         <div>
             <img src="{{ url_for("static",filename="images/img/avater/avater5.jfif") }}" alt="">
             <p>
-                <h3>Chuyuan Xu</h3>
-                <h5>BJUT: 18372115</h5>
-                <p class="division">Back end engineer for staff portal</p>
+                <h3>{{ _('Chuyuan Xu') }}</h3>
+                <h5>{{ _('BJUT: ') }}18372115</h5>
+                <p class="division">{{ _('Back end engineer for staff portal') }}</p>
             </p>
         </div>
         <div>
             <img src="{{ url_for("static",filename="images/img/avater/avater6.jfif") }}" alt="">
             <p>
-                <h3>Tianyi Yun</h3>
-                <h5>BJUT: 17372230</h5>
-                <p class="division">Integration and Testing</p>
+                <h3>{{ _('Tianyi Yun') }}</h3>
+                <h5>{{ _('BJUT: ') }}17372230</h5>
+                <p class="division">{{ _('Integration and Testing') }}</p>
             </p>
         </div>
     </div>
@@ -350,18 +370,18 @@
 </div>
 
 <div id="mainDiv3">
-    <h1>How Do We Make It?</h1>
+    <h1>{{ _('How Do We Make It?') }}</h1>
     <div>
         <img src="{{ url_for("static",filename="images/gant.webp") }}" alt="">
         <p>
-            <h2>Communication and Trust</h2>
+            <h2>{{ _('Communication and Trust') }}</h2>
             <p>
-               <i>Our collaboration has not always been smooth sailing. <br>
-                Early in the project, we found that if we didn't give everyone a clear task and deadline,
-                our teammates would be lazy until reaching the deadline.
-                So we began to set strict weekly tasks and believed that the quality of each other's achievement is satisfying.
-                In this way, our division of labor becomes very intuitive and easy, we can complete a lot of tasks in a short period,
-                while everyone is very chilled but not tired.</i>
+               <i>{{ _('Our collaboration has not always been smooth sailing. ') }}<br>
+                {{ _("Early in the project, we found that if we didn't give everyone a clear task and deadline,") }}
+                {{ _('our teammates would be lazy until reaching the deadline.') }}
+                {{ _("So we began to set strict weekly tasks and believed that the quality of each other's achievement is satisfying.") }}
+                {{ _('In this way, our division of labor becomes very intuitive and easy, we can complete a lot of tasks in a short period,') }}
+                {{ _('while everyone is very chilled but not tired.') }}</i>
             </p>
         </p>
     </div>
@@ -369,11 +389,12 @@
 
 
 <div id="mainDiv4">
-    <h1>Ready to enter the sea of flowers? Just do it!</h1>
-    <h3>Find any kinds you can imagine! Anytime! Anywhere!</h3>
-    <a href="{{url_for('index')}}">Begin Shopping <img src="{{ url_for("static",filename="images/arrow.png") }}" alt=""></a>
+    <h1>{{ _('Ready to enter the sea of flowers? Just do it!') }}</h1>
+    <h3>{{ _('Find any kinds you can imagine! Anytime! Anywhere!') }}</h3>
+    <a href="{{url_for('index')}}">{{ _('Begin Shopping') }} <img src="{{ url_for("static",filename="images/arrow.png") }}" alt=""></a>
 </div>
 <!--end!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
+
 <!-- Start Footer Area Wrapper -->
 <footer class="footer-wrapper">
 
@@ -386,19 +407,19 @@
                     <div class="col-lg-5 col-md-6 col-sm-8">
                         <div class="footer-widget-item mb-30">
                             <div class="footer-widget-title">
-                                <h5>Our account</h5>
+                                <h5>{{ _('Our account') }}</h5>
                             </div>
                             <ul class="footer-widget-body accout-widget">
                                 <li class="address">
                                     <em><i class="lnr lnr-map-marker"></i></em>
-                                    Beijing University of Technology
+                                    {{ _('Beijing University of Technology') }}
                                 </li>
                                 <li class="email">
-                                    <em><i class="lnr lnr-envelope"></i>Mail us: </em>
+                                    <em><i class="lnr lnr-envelope"></i>{{ _('Mail us') }}: </em>
                                     <a href="mailto:test@yourdomain.com">2240073347@qq.com</a>
                                 </li>
                                 <li class="phone">
-                                    <em><i class="lnr lnr-phone-handset"></i> Phones: </em>
+                                    <em><i class="lnr lnr-phone-handset"></i> {{ _('Phones') }}: </em>
                                     <a href="tel:(012)800456789-987">0472-2134483</a>
                                 </li>
                             </ul>
@@ -414,14 +435,12 @@
                     <div class="col-lg-2 col-md-6 col-sm-4">
                         <div class="footer-widget-item mb-30">
                             <div class="footer-widget-title">
-                                <h5>categories</h5>
+                                <h5>{{ _('More Aout Us') }}</h5>
                             </div>
                             <ul class="footer-widget-body">
-                                <li><a href="#">Ecommerce</a></li>
-                                <li><a href="#">shopify</a></li>
-                                <li><a href="#">Prestashop</a></li>
-                                <li><a href="#">Opencart</a></li>
-                                <li><a href="#">Magento</a></li>
+                                <li><a href="{{ url_for('onlinechat') }}">{{ _('Contact Us') }}</a></li>
+                                <li><a href="{{ url_for('about_us') }}">{{ _('About Us') }}</a></li>
+                                <li><a href="{{ url_for('shop') }}">{{ _('Shop') }}</a></li>
                             </ul>
                         </div>
                     </div>
@@ -432,12 +451,13 @@
                     <div class="col-lg-2 offset-lg-1 col-md-6 col-sm-6">
                         <div class="footer-widget-item mb-30">
                             <div class="footer-widget-title">
-                                <h5>Quick Links</h5>
+                                <h5>{{ _('Quick Links') }}</h5>
                             </div>
                             <ul class="footer-widget-body">
-                                <li><a href="{{ url_for('index') }}">Home</a></li>
-                                <li><a href="{{ url_for('login') }}">Login</a></li>
-                                <li><a href="{{ url_for('signup') }}">Register</a></li>
+                                <li><a href="{{ url_for('index') }}">{{ _('Home') }}</a></li>
+                                <li><a href="{{ url_for('login') }}">{{ _('Login') }}</a></li>
+                                <li><a href="{{ url_for('signup') }}">{{ _('Register') }}</a></li>
+                                <li><a href="{{ url_for('profile') }}">{{ _('Account') }}</a></li>
                             </ul>
                         </div>
                     </div>
@@ -448,13 +468,13 @@
     </div>
     <!-- footer widget area end -->
 
-    <!-- footer bottom area start -->
+     <!-- footer bottom area start -->
     <div class="footer-bottom-area">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-6 order-2 order-md-1">
                     <div class="copyright-text">
-                        <p>Copyright &copy; 2021.Group 15 Blizzard All rights reserved.</p>
+                        <p>Copyright &copy; 2021.{{ _('Group 15 Blizzard All rights reserved.') }}</p>
                     </div>
                 </div>
                 <div class="col-md-6 order-1 order-md-2">
@@ -469,7 +489,6 @@
         </div>
     </div>
     <!-- footer bottom area end -->
-
 </footer>
 <!-- End Footer Area Wrapper -->
 
