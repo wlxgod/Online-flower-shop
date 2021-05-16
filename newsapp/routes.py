@@ -1,12 +1,12 @@
 import os
 import string
-# import pandas as pd
+import pandas as pd
 
 from flask import render_template, flash, redirect, url_for, session, request, jsonify, make_response
 from sqlalchemy import and_,or_
 from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.utils import secure_filename
-# from matplotlib import pyplot as plt
+from matplotlib import pyplot as plt
 from datetime import datetime
 
 
@@ -503,14 +503,15 @@ def Filter_N():
     if int(option[len(option)-1]) == 30:
         posts = posts_query.filter(Flower.name >= min).all()
     print(max, min)
-    if int(option[0]) == 0 and int(option[1]) == 20 and len(option) == 2:
-        posts = Flower.query.filter(or_(and_(Flower.number >= 20, Flower.number <= 30), and_(Flower.number >= 0, Flower.number <= 10))).all()
-    if int(option[0]) == 0 and int(option[1]) == 30 and len(option) == 2:
-        posts = Flower.query.filter(or_(Flower.number >= 30, and_(Flower.number >= 0, Flower.number <= 10))).all()
-    if int(option[0]) == 10 and int(option[1]) == 30 and len(option) == 2:
-        posts = Flower.query.filter(or_(Flower.number >= 30, and_(Flower.number >= 10, Flower.number <= 20))).all()
-    if int(option[0]) == 0 and int(option[1]) == 10 and len(option) == 3 and int(option[2] == 30):
-        posts = Flower.query.filter(or_(Flower.number >= 30, and_(Flower.number >= 0, Flower.number <= 20))).all()
+    if len(option)>1:
+        if int(option[0]) == 0 and int(option[1]) == 20 and len(option) == 2:
+            posts = Flower.query.filter(or_(and_(Flower.number >= 20, Flower.number <= 30), and_(Flower.number >= 0, Flower.number <= 10))).all()
+        if int(option[0]) == 0 and int(option[1]) == 30 and len(option) == 2:
+            posts = Flower.query.filter(or_(Flower.number >= 30, and_(Flower.number >= 0, Flower.number <= 10))).all()
+        if int(option[0]) == 10 and int(option[1]) == 30 and len(option) == 2:
+            posts = Flower.query.filter(or_(Flower.number >= 30, and_(Flower.number >= 10, Flower.number <= 20))).all()
+        if int(option[0]) == 0 and int(option[1]) == 10 and len(option) == 3 and int(option[2] == 30):
+            posts = Flower.query.filter(or_(Flower.number >= 30, and_(Flower.number >= 0, Flower.number <= 20))).all()
     posts2 = posts
     print(posts2)
     username = session.get("USERNAME")
@@ -783,7 +784,40 @@ def complete():
 
 @app.route('/about_us')
 def about_us():
-    return render_template('newabout_us.html')
+    posts_query = Flower.query
+    posts = posts_query.filter().all()
+    posts2 = posts
+    username = session.get("USERNAME")
+    users = User.query.filter(User.username == username)
+    user = users.first()
+    user_id = user.id
+    order_in_db = Orders.query.filter(and_(Orders.state == "unpayment", Orders.user_id == user_id)).first()
+    order_in_dbs = Orders.query.filter().all()
+    print(order_in_dbs)
+    print("---------------------------------")
+    """order_in_db=order_in_dbs.first()"""
+    want_in_db = Want.query.filter(Want.user_id == user_id).first()
+    if want_in_db is None:
+        want = Want(user_id=user.id)
+        db.session.add(want)
+        db.session.commit()
+    if order_in_db is None:
+        order = Orders(price=0, name=user.username, destination="Beijing university of technology",
+                       state="unpayment", number=100, way="deliver", user_id=user.id)
+        db.session.add(order)
+        db.session.commit()
+        order_in_db = Orders.query.filter(and_(Orders.state == "unpayment", Orders.user_id == user_id)).first()
+    want_in_db = Want.query.filter(Want.user_id == user_id).first()
+    basket_in_db_list = Basket.query.filter(and_(Basket.order_id == order_in_db.id, Basket.user_id == user_id)).all()
+    basketlike_in_db_list = Basketlike.query.filter(Basketlike.want_id == want_in_db.id,
+                                                    Basketlike.user_id == user_id).all()
+    basket_length = len(basket_in_db_list)
+    basketlike_length = len(basketlike_in_db_list)
+    total = 0
+    for basket in basket_in_db_list:
+        total = total + basket.total * basket.quantity
+    return render_template('newabout_us.html', posts=posts, baskets=basket_in_db_list, length=basket_length, total=total,
+                           order=order_in_db, posts2=posts2,basketslike=basketlike_in_db_list, lengthlike=basketlike_length)
 
 
 @app.route('/logout')

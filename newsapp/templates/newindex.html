@@ -976,7 +976,7 @@
 
                 <div class="minicart-button">
                     <a href="#"><i class="fa fa-shopping-cart"></i> {{ _('view cart') }}</a>
-                    <a href="/PaymentOrder?orderId={{ order.id }}"><i class="fa fa-share"></i>{{ _('checkout') }} </a>
+                    <a href="{{ url_for('checkout') }}"><i class="fa fa-share"></i>{{ _('checkout') }} </a>
                 </div>
             </div>
         </div>
