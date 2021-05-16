@@ -21,6 +21,20 @@
     <link href="{{ url_for('static',filename='css/style.css') }}" rel="stylesheet">
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script>
+            $(document).on('click', '.locale', function () {
+                var val = $(this).attr('data-value');
+                $.ajax({
+                    url: val,
+                    type: 'GET',
+                    success: function (ret) {
+                        console.log(ret);
+                        location.reload();
+                    }
+                })
+            });
+    </script>
 </head>
 <body class="chatroom">
 
@@ -34,28 +48,34 @@
                 <div class="row align-items-center">
                     <div class="col-lg-6">
                         <div class="welcome-message">
-                            <p>Welcome to Blizzard Online Flower Store</p>
+                            <p>{{ _('Welcome to Blizzard Online Flower Store') }}</p>
                         </div>
                     </div>
                     <div class="col-lg-6 text-right">
                         <div class="header-top-settings">
                             <ul class="nav align-items-center justify-content-end">
                                 <li class="language">
-                                    <span>Language:</span>
+                                    <span>{{ _('Language:') }}</span>
                                     <img src="{{ url_for('static',filename='images/img/icon/en.png') }}" alt="flag">
-                                    English
+                                    {{ _('English') }}
                                     <i class="fa fa-angle-down"></i>
                                     <ul class="dropdown-list">
-                                        <li><a href="#"><img
-                                                src="{{ url_for('static',filename='images/img/icon/en.png') }}"
-                                                alt="flag"> english</a></li>
-                                        <li><a href="#"><img
-                                                src="{{ url_for('static',filename='images/img/icon/ch.png') }}"
-                                                alt="flag"> Chinese</a></li>
+                                        <li>
+                                            <a class="locale " id="zh" data-value="{{ url_for('set_locale', locale='en') }}">
+                                                <img src="{{ url_for('static',filename='images/img/icon/en.png') }}" alt="flag">
+                                                {{ _('English') }}
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="locale " id="en" data-value="{{ url_for('set_locale', locale='zh') }}">
+                                                <img src="{{ url_for('static',filename='images/img/icon/ch.png') }}" alt="flag">
+                                                {{ _('Chinese') }}
+                                            </a>
+                                        </li>
                                     </ul>
                                 </li>
                                 <li class="curreny-wrap">
-                                    <span>Currency:</span>
+                                    <span>{{ _('Currency:') }}</span>
                                     ¥ CNY
                                 </li>
                             </ul>
@@ -66,7 +86,7 @@
         </div>
         <!-- header top end -->
 
-        <!-- header middle area start -->
+               <!-- header middle area start -->
         <div class="header-main-area sticky">
             <div class="container">
                 <div class="row align-items-center position-relative">
@@ -88,10 +108,10 @@
                                 <!-- main menu navbar start -->
                                 <nav class="desktop-menu">
                                     <ul>
-                                        <li><a href="{{ url_for('index') }}">Home</a></li>
-                                        <li><a href="{{ url_for('shop') }}">Shop</a></li>
-                                        <li><a href="{{ url_for('onlinechat') }}">Contact_Us</a></li>
-                                        <li><a href="{{ url_for('about_us') }}">About_Us</a></li>
+                                        <li><a href="{{ url_for('index') }}">{{ _('Home') }}</a></li>
+                                        <li><a href="{{ url_for('shop') }}">{{ _('Shop') }}</a></li>
+                                        <li><a href="{{ url_for('onlinechat') }}">{{ _('Contact_Us') }}</a></li>
+                                        <li><a href="{{ url_for('about_us') }}">{{ _('About_Us') }}</a></li>
                                     </ul>
                                 </nav>
                                 <!-- main menu navbar end -->
@@ -115,21 +135,21 @@
                                             <i class="lnr lnr-user"></i>
                                         </a>
                                         <ul class="dropdown-list">
-                                            <li><a href="{{ url_for('login') }}">login</a></li>
-                                            <li><a href="{{ url_for('signup') }}">register</a></li>
-                                            <li><a href="{{ url_for('profile') }}">my account</a></li>
+                                            <li><a href="{{ url_for('login') }}">{{ _('login') }}</a></li>
+                                            <li><a href="{{ url_for('signup') }}">{{ _('register') }}</a></li>
+                                            <li><a href="{{ url_for('profile') }}">{{ _('my account') }}</a></li>
                                         </ul>
                                     </li>
                                     <li>
                                         <a href="#" class="minicart-btn1">
                                             <i class="lnr lnr-heart"></i>
-                                            <div class="notification">{{ lengthlike }}</div>
+                                            <div class="notification" id="length1">{{ lengthlike }}</div>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#" class="minicart-btn">
                                             <i class="lnr lnr-cart"></i>
-                                            <div class="notification">{{ length }}</div>
+                                            <div class="notification" id="length">{{ length }}</div>
                                         </a>
                                     </li>
                                 </ul>
@@ -203,10 +223,10 @@
                 <!-- mobile menu navigation start -->
                 <nav>
                     <ul class="mobile-menu">
-                        <li><a href="{{ url_for('index') }}">Home</a></li>
-                        <li><a href="{{ url_for('shop') }}">Shop</a></li>
-                        <li><a href="{{ url_for('onlinechat') }}">Contact_Us</a></li>
-                        <li><a href="{{ url_for('about_us') }}">About_Us</a></li>
+                        <li><a href="{{ url_for('index') }}">{{ _('Home') }}</a></li>
+                        <li><a href="{{ url_for('shop') }}">{{ _('Shop') }}</a></li>
+                        <li><a href="{{ url_for('onlinechat') }}">{{ _('Contact_Us') }}</a></li>
+                        <li><a href="{{ url_for('about_us') }}">{{ _('About_Us') }}</a></li>
                     </ul>
                 </nav>
                 <!-- mobile menu navigation end -->
@@ -219,7 +239,7 @@
                         <div class="dropdown mobile-top-dropdown">
                             <a href="#" class="dropdown-toggle" id="currency" data-toggle="dropdown"
                                aria-haspopup="true" aria-expanded="false">
-                                Currency
+                                {{ _('Currency') }}
                                 <i class="fa fa-angle-down"></i>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="currency">
@@ -232,13 +252,13 @@
                         <div class="dropdown mobile-top-dropdown">
                             <a href="#" class="dropdown-toggle" id="myaccount" data-toggle="dropdown"
                                aria-haspopup="true" aria-expanded="false">
-                                My Account
+                                {{ _('My Account') }}
                                 <i class="fa fa-angle-down"></i>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="myaccount">
-                                <a class="dropdown-item" href="#">my account</a>
-                                <a class="dropdown-item" href="#"> login</a>
-                                <a class="dropdown-item" href="#">register</a>
+                                <a class="dropdown-item" href="#">{{ _('my account') }}</a>
+                                <a class="dropdown-item" href="#">{{ _('login') }}</a>
+                                <a class="dropdown-item" href="#">{{ _('register') }}</a>
                             </div>
                         </div>
                     </li>
@@ -356,15 +376,15 @@
                 <div class="minicart-pricing-box">
                     <ul>
                         <li class="total">
-                            <span>total</span>
+                            <span>{{ _('Total') }}</span>
                             <span id="total"><strong>${{ total }}</strong></span>
                         </li>
                     </ul>
                 </div>
 
                 <div class="minicart-button">
-                    <a href="#"><i class="fa fa-shopping-cart"></i> view cart</a>
-                    <a href="{{ url_for('checkout') }}"><i class="fa fa-share"></i> checkout</a>
+                    <a href="#"><i class="fa fa-shopping-cart"></i> {{ _('view cart') }}</a>
+                    <a href="/PaymentOrder?orderId={{ order.id }}"><i class="fa fa-share"></i>{{ _('checkout') }} </a>
                 </div>
             </div>
         </div>
@@ -375,14 +395,14 @@
 <div class="container-fluid">
     <div class="row-fluid">
         <div class="span12">
-            <div class="alert alert-success">This is an example of support chat. Feel free to write something.<a
+            <div class="alert alert-success">{{ _('This is an example of support chat. Feel free to write something.') }}<a
                     href="#" class="close" data-dismiss="alert">×</a></div>
             <div class="widget-box widget-chat">
                 <div class="widget-title">
 								<span class="icon">
 									<i class="icon-comment"></i>
 								</span>
-                    <h5>Support chat</h5>
+                    <h5>{{ _('Support chat') }}</h5>
                 </div>
                 <div class="widget-content nopadding">
                     <div class="chat-content panel-left">
@@ -390,14 +410,14 @@
                             <div id="chat-messages-inner"></div>
                         </div>
                         <div class="chat-message well">
-                            <button class="btn btn-success">Send</button>
+                            <button class="btn btn-success">{{ _('Send') }}</button>
                             <span class="input-box">
 											<input type="text" name="msg-box" id="msg-box"/>
 										</span>
                         </div>
                     </div>
                     <div class="chat-users panel-right">
-                        <div class="panel-title"><h5>Staff</h5></div>
+                        <div class="panel-title"><h5>{{ _('Staff') }}</h5></div>
                         <div class="panel-content nopadding">
                             <ul class="contact-list">
                                 {% for new in news %}
@@ -444,19 +464,19 @@
                     <div class="col-lg-5 col-md-6 col-sm-8">
                         <div class="footer-widget-item mb-30">
                             <div class="footer-widget-title">
-                                <h5>Our account</h5>
+                                <h5>{{ _('Our account') }}</h5>
                             </div>
                             <ul class="footer-widget-body accout-widget">
                                 <li class="address">
                                     <em><i class="lnr lnr-map-marker"></i></em>
-                                    Beijing University of Technology
+                                    {{ _('Beijing University of Technology') }}
                                 </li>
                                 <li class="email">
-                                    <em><i class="lnr lnr-envelope"></i>Mail us: </em>
+                                    <em><i class="lnr lnr-envelope"></i>{{ _('Mail us') }}: </em>
                                     <a href="mailto:test@yourdomain.com">2240073347@qq.com</a>
                                 </li>
                                 <li class="phone">
-                                    <em><i class="lnr lnr-phone-handset"></i> Phones: </em>
+                                    <em><i class="lnr lnr-phone-handset"></i> {{ _('Phones') }}: </em>
                                     <a href="tel:(012)800456789-987">0472-2134483</a>
                                 </li>
                             </ul>
@@ -472,14 +492,12 @@
                     <div class="col-lg-2 col-md-6 col-sm-4">
                         <div class="footer-widget-item mb-30">
                             <div class="footer-widget-title">
-                                <h5>categories</h5>
+                                <h5>{{ _('More Aout Us') }}</h5>
                             </div>
                             <ul class="footer-widget-body">
-                                <li><a href="#">Ecommerce</a></li>
-                                <li><a href="#">shopify</a></li>
-                                <li><a href="#">Prestashop</a></li>
-                                <li><a href="#">Opencart</a></li>
-                                <li><a href="#">Magento</a></li>
+                                <li><a href="{{ url_for('onlinechat') }}">{{ _('Contact Us') }}</a></li>
+                                <li><a href="{{ url_for('about_us') }}">{{ _('About Us') }}</a></li>
+                                <li><a href="{{ url_for('shop') }}">{{ _('Shop') }}</a></li>
                             </ul>
                         </div>
                     </div>
@@ -490,13 +508,13 @@
                     <div class="col-lg-2 offset-lg-1 col-md-6 col-sm-6">
                         <div class="footer-widget-item mb-30">
                             <div class="footer-widget-title">
-                                <h5>Quick Links</h5>
+                                <h5>{{ _('Quick Links') }}</h5>
                             </div>
                             <ul class="footer-widget-body">
-                                <li><a href="{{ url_for('index') }}">Home</a></li>
-                                <li><a href="{{ url_for('about_us') }}">About Us</a></li>
-                                <li><a href="{{ url_for('login') }}">Login</a></li>
-                                <li><a href="{{ url_for('signup') }}">Register</a></li>
+                                <li><a href="{{ url_for('index') }}">{{ _('Home') }}</a></li>
+                                <li><a href="{{ url_for('login') }}">{{ _('Login') }}</a></li>
+                                <li><a href="{{ url_for('signup') }}">{{ _('Register') }}</a></li>
+                                <li><a href="{{ url_for('profile') }}">{{ _('Account') }}</a></li>
                             </ul>
                         </div>
                     </div>
@@ -507,13 +525,14 @@
     </div>
     <!-- footer widget area end -->
 
+
     <!-- footer bottom area start -->
     <div class="footer-bottom-area">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-6 order-2 order-md-1">
                     <div class="copyright-text">
-                        <p>Copyright &copy; 2021.Group 15 Blizzard All rights reserved.</p>
+                        <p>Copyright &copy; 2021.{{ _('Group 15 Blizzard All rights reserved.') }}</p>
                     </div>
                 </div>
                 <div class="col-md-6 order-1 order-md-2">

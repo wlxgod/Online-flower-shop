@@ -1,0 +1,612 @@
+# Chinese translations for PROJECT.
+# Copyright (C) 2021 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2021-05-16 14:39+0800\n"
+"PO-Revision-Date: 2021-05-16 10:49+0800\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh\n"
+"Language-Team: zh <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: newsapp/templates/newabout_us.html:42 newsapp/templates/newindex.html:54
+#: newsapp/templates/newshop.html:59 newsapp/templates/onlinechat.html:51
+msgid "Welcome to Blizzard Online Flower Store"
+msgstr "欢迎来到暴雪网上花店~"
+
+#: newsapp/templates/newabout_us.html:49 newsapp/templates/newindex.html:61
+#: newsapp/templates/newshop.html:66 newsapp/templates/onlinechat.html:58
+msgid "Language:"
+msgstr "切换语言"
+
+#: newsapp/templates/newabout_us.html:51 newsapp/templates/newabout_us.html:57
+#: newsapp/templates/newindex.html:63 newsapp/templates/newindex.html:69
+#: newsapp/templates/newshop.html:68 newsapp/templates/newshop.html:74
+#: newsapp/templates/onlinechat.html:60 newsapp/templates/onlinechat.html:66
+msgid "English"
+msgstr "英文"
+
+#: newsapp/templates/newabout_us.html:63 newsapp/templates/newindex.html:75
+#: newsapp/templates/newshop.html:80 newsapp/templates/onlinechat.html:72
+msgid "Chinese"
+msgstr "中文"
+
+#: newsapp/templates/newabout_us.html:69 newsapp/templates/newindex.html:81
+#: newsapp/templates/newshop.html:86 newsapp/templates/onlinechat.html:78
+msgid "Currency:"
+msgstr "当前货币"
+
+#: newsapp/templates/newabout_us.html:102
+#: newsapp/templates/newabout_us.html:217
+#: newsapp/templates/newabout_us.html:443 newsapp/templates/newindex.html:114
+#: newsapp/templates/newindex.html:229 newsapp/templates/newindex.html:722
+#: newsapp/templates/newshop.html:119 newsapp/templates/newshop.html:234
+#: newsapp/templates/newshop.html:784 newsapp/templates/onlinechat.html:111
+#: newsapp/templates/onlinechat.html:226 newsapp/templates/onlinechat.html:514
+msgid "Home"
+msgstr "主页"
+
+#: newsapp/templates/newabout_us.html:103
+#: newsapp/templates/newabout_us.html:218
+#: newsapp/templates/newabout_us.html:429 newsapp/templates/newindex.html:115
+#: newsapp/templates/newindex.html:230 newsapp/templates/newindex.html:708
+#: newsapp/templates/newshop.html:120 newsapp/templates/newshop.html:235
+#: newsapp/templates/newshop.html:770 newsapp/templates/onlinechat.html:112
+#: newsapp/templates/onlinechat.html:227 newsapp/templates/onlinechat.html:500
+msgid "Shop"
+msgstr "购物"
+
+#: newsapp/templates/newabout_us.html:104
+#: newsapp/templates/newabout_us.html:219 newsapp/templates/newindex.html:116
+#: newsapp/templates/newindex.html:231 newsapp/templates/newshop.html:121
+#: newsapp/templates/newshop.html:236 newsapp/templates/onlinechat.html:113
+#: newsapp/templates/onlinechat.html:228
+msgid "Contact_Us"
+msgstr "联系我们"
+
+#: newsapp/templates/newabout_us.html:105
+#: newsapp/templates/newabout_us.html:220 newsapp/templates/newindex.html:117
+#: newsapp/templates/newindex.html:232 newsapp/templates/newshop.html:122
+#: newsapp/templates/newshop.html:237 newsapp/templates/onlinechat.html:114
+#: newsapp/templates/onlinechat.html:229
+msgid "About_Us"
+msgstr "关于我们"
+
+#: newsapp/templates/newabout_us.html:129
+#: newsapp/templates/newabout_us.html:251 newsapp/templates/newindex.html:141
+#: newsapp/templates/newindex.html:263 newsapp/templates/newshop.html:146
+#: newsapp/templates/newshop.html:268 newsapp/templates/onlinechat.html:138
+#: newsapp/templates/onlinechat.html:260
+msgid "login"
+msgstr "登录"
+
+#: newsapp/templates/newabout_us.html:130
+#: newsapp/templates/newabout_us.html:252 newsapp/templates/newindex.html:142
+#: newsapp/templates/newindex.html:264 newsapp/templates/newshop.html:147
+#: newsapp/templates/newshop.html:269 newsapp/templates/onlinechat.html:139
+#: newsapp/templates/onlinechat.html:261
+msgid "register"
+msgstr "注册"
+
+#: newsapp/templates/newabout_us.html:131
+#: newsapp/templates/newabout_us.html:250 newsapp/templates/newindex.html:143
+#: newsapp/templates/newindex.html:262 newsapp/templates/newshop.html:148
+#: newsapp/templates/newshop.html:267 newsapp/templates/onlinechat.html:140
+#: newsapp/templates/onlinechat.html:259
+msgid "my account"
+msgstr "账户"
+
+#: newsapp/templates/newabout_us.html:233 newsapp/templates/newindex.html:245
+#: newsapp/templates/newshop.html:250 newsapp/templates/onlinechat.html:242
+msgid "Currency"
+msgstr "当前货币"
+
+#: newsapp/templates/newabout_us.html:246 newsapp/templates/newindex.html:258
+#: newsapp/templates/newshop.html:263 newsapp/templates/onlinechat.html:255
+msgid "My Account"
+msgstr "我的账户"
+
+#: newsapp/templates/newabout_us.html:289
+msgid "COVID-19 Hurts Us "
+msgstr "新冠病毒让我们损失惨重"
+
+#: newsapp/templates/newabout_us.html:289
+msgid "But It Can't Destroy Us!"
+msgstr "但它击不垮我们"
+
+#: newsapp/templates/newabout_us.html:290
+msgid "Our offline flower shop get stroke badly due to COVID-19 "
+msgstr "我们的线下花店因为疫情缘故备受打击"
+
+#: newsapp/templates/newabout_us.html:291
+msgid ""
+"But we never give up and come back online with the help of group 15 "
+"Blizzard!"
+msgstr "但我们并不想放弃，并与暴雪小组一起转战线上"
+
+#: newsapp/templates/newabout_us.html:292
+msgid "Get Started"
+msgstr "开购！"
+
+#: newsapp/templates/newabout_us.html:300
+msgid "Let's see who's on the team"
+msgstr "一起来看看他们的小组有谁吧~"
+
+#: newsapp/templates/newabout_us.html:301
+msgid ""
+"As a well-cooperated team, each one of us could fully utilize own "
+"strengths and complement each other!"
+msgstr "作为一个合作完美的小组，每个人都可以发挥自己的优势并与他人互补"
+
+#: newsapp/templates/newabout_us.html:306
+msgid "Yiqun Hao"
+msgstr "郝逸群"
+
+#: newsapp/templates/newabout_us.html:307
+#: newsapp/templates/newabout_us.html:315
+#: newsapp/templates/newabout_us.html:323
+#: newsapp/templates/newabout_us.html:333
+#: newsapp/templates/newabout_us.html:341
+#: newsapp/templates/newabout_us.html:349
+msgid "BJUT: "
+msgstr "北工大学号: "
+
+#: newsapp/templates/newabout_us.html:308
+msgid "Front end engineer for customer portal"
+msgstr "顾客端的前端工程师"
+
+#: newsapp/templates/newabout_us.html:314
+msgid "Lingxiao Wang"
+msgstr "王凌霄"
+
+#: newsapp/templates/newabout_us.html:316
+msgid "Back end engineer for customer portal"
+msgstr "顾客端后端工程师"
+
+#: newsapp/templates/newabout_us.html:322
+msgid "Tianxiang Yang"
+msgstr "杨天翔"
+
+#: newsapp/templates/newabout_us.html:324
+msgid "Project Documentation"
+msgstr "产品文档负责人"
+
+#: newsapp/templates/newabout_us.html:332
+msgid "Geng Yan"
+msgstr "阎耕"
+
+#: newsapp/templates/newabout_us.html:334
+msgid "Front end engineer for staff portal"
+msgstr "员工端前端工程师"
+
+#: newsapp/templates/newabout_us.html:340
+msgid "Chuyuan Xu"
+msgstr "许储源"
+
+#: newsapp/templates/newabout_us.html:342
+msgid "Back end engineer for staff portal"
+msgstr "员工端后端工程师"
+
+#: newsapp/templates/newabout_us.html:348
+msgid "Tianyi Yun"
+msgstr "云天艺"
+
+#: newsapp/templates/newabout_us.html:350
+msgid "Integration and Testing"
+msgstr "系统集成和测试"
+
+#: newsapp/templates/newabout_us.html:359
+msgid "How Do We Make It?"
+msgstr "我们的诀窍"
+
+#: newsapp/templates/newabout_us.html:363
+msgid "Communication and Trust"
+msgstr "沟通和信任"
+
+#: newsapp/templates/newabout_us.html:365
+msgid "Our collaboration has not always been smooth sailing. "
+msgstr "合作从来不可能是一帆风顺的。"
+
+#: newsapp/templates/newabout_us.html:366
+msgid ""
+"Early in the project, we found that if we didn't give everyone a clear "
+"task and deadline,"
+msgstr "在项目早期，由于缺乏经验，分配的任务都是含糊且口头的。"
+
+#: newsapp/templates/newabout_us.html:367
+msgid "our teammates would be lazy until reaching the deadline."
+msgstr "然后，由于含糊的分配，大家都会偷懒完成较少的任务。"
+
+#: newsapp/templates/newabout_us.html:368
+msgid ""
+"So we began to set strict weekly tasks and believed that the quality of "
+"each other's achievement is satisfying."
+msgstr "所以后期我们决定对每周的任务和分配进行精确的记录并给予组员充足的信任。"
+
+#: newsapp/templates/newabout_us.html:369
+msgid ""
+"In this way, our division of labor becomes very intuitive and easy, we "
+"can complete a lot of tasks in a short period,"
+msgstr "令人惊喜的是，我们的效率大大提升并超额完成了很多任务，"
+
+#: newsapp/templates/newabout_us.html:370
+msgid "while everyone is very chilled but not tired."
+msgstr "与此同时每个人都不会感到很累。"
+
+#: newsapp/templates/newabout_us.html:378
+msgid "Ready to enter the sea of flowers? Just do it!"
+msgstr "准备好进入我们花的海洋了？现在就开始吧！"
+
+#: newsapp/templates/newabout_us.html:379
+msgid "Find any kinds you can imagine! Anytime! Anywhere!"
+msgstr "你可以在这里找到任何你想要的品种！"
+
+#: newsapp/templates/newabout_us.html:380
+msgid "Begin Shopping"
+msgstr "开始购物！"
+
+#: newsapp/templates/newabout_us.html:396 newsapp/templates/newindex.html:675
+#: newsapp/templates/newshop.html:737 newsapp/templates/onlinechat.html:467
+msgid "Our account"
+msgstr "关于我们"
+
+#: newsapp/templates/newabout_us.html:401 newsapp/templates/newindex.html:680
+#: newsapp/templates/newshop.html:742 newsapp/templates/onlinechat.html:472
+msgid "Beijing University of Technology"
+msgstr "北京工业大学"
+
+#: newsapp/templates/newabout_us.html:404 newsapp/templates/newindex.html:683
+#: newsapp/templates/newshop.html:745 newsapp/templates/onlinechat.html:475
+msgid "Mail us"
+msgstr "邮箱"
+
+#: newsapp/templates/newabout_us.html:408 newsapp/templates/newindex.html:687
+#: newsapp/templates/newshop.html:749 newsapp/templates/onlinechat.html:479
+msgid "Phones"
+msgstr "电话"
+
+#: newsapp/templates/newabout_us.html:424 newsapp/templates/newindex.html:703
+#: newsapp/templates/newshop.html:765 newsapp/templates/onlinechat.html:495
+msgid "More Aout Us"
+msgstr "了解更多"
+
+#: newsapp/templates/newabout_us.html:427 newsapp/templates/newindex.html:706
+#: newsapp/templates/newshop.html:768 newsapp/templates/onlinechat.html:498
+msgid "Contact Us"
+msgstr "联系我们"
+
+#: newsapp/templates/newabout_us.html:428 newsapp/templates/newindex.html:707
+#: newsapp/templates/newshop.html:769 newsapp/templates/onlinechat.html:499
+msgid "About Us"
+msgstr "关于我们"
+
+#: newsapp/templates/newabout_us.html:440 newsapp/templates/newindex.html:719
+#: newsapp/templates/newshop.html:781 newsapp/templates/onlinechat.html:511
+msgid "Quick Links"
+msgstr "快速跳转"
+
+#: newsapp/templates/newabout_us.html:444 newsapp/templates/newindex.html:723
+#: newsapp/templates/newshop.html:785 newsapp/templates/onlinechat.html:515
+msgid "Login"
+msgstr "登录"
+
+#: newsapp/templates/newabout_us.html:445 newsapp/templates/newindex.html:724
+#: newsapp/templates/newshop.html:786 newsapp/templates/onlinechat.html:516
+msgid "Register"
+msgstr "注册"
+
+#: newsapp/templates/newabout_us.html:446 newsapp/templates/newindex.html:725
+#: newsapp/templates/newshop.html:787 newsapp/templates/onlinechat.html:517
+msgid "Account"
+msgstr "账户信息"
+
+#: newsapp/templates/newabout_us.html:463 newsapp/templates/newindex.html:742
+#: newsapp/templates/newshop.html:804 newsapp/templates/onlinechat.html:535
+msgid "Group 15 Blizzard All rights reserved."
+msgstr "解释权归第十五组所有"
+
+#: newsapp/templates/newindex.html:311 newsapp/templates/newindex.html:331
+msgid "Presented by Group 15"
+msgstr "由第十五组呈现"
+
+#: newsapp/templates/newindex.html:312
+msgid "Fresh Your Mind"
+msgstr "放空杂念"
+
+#: newsapp/templates/newindex.html:313
+msgid "Feeling the World"
+msgstr "重新感受世界"
+
+#: newsapp/templates/newindex.html:314 newsapp/templates/newindex.html:334
+msgid "Go Shop Now"
+msgstr "立刻选购"
+
+#: newsapp/templates/newindex.html:332
+msgid "Cherish Now"
+msgstr "珍惜当下"
+
+#: newsapp/templates/newindex.html:333
+msgid "Fall in Love"
+msgstr "坠入爱河"
+
+#: newsapp/templates/newindex.html:359
+msgid "Top friday"
+msgstr "周五特价"
+
+#: newsapp/templates/newindex.html:360
+msgid "Yellow Gold"
+msgstr "粉色浪漫"
+
+#: newsapp/templates/newindex.html:361 newsapp/templates/newindex.html:379
+#: newsapp/templates/newindex.html:397
+msgid "buy it now"
+msgstr "立刻购买"
+
+#: newsapp/templates/newindex.html:377
+msgid "Black friday"
+msgstr "黑色星期五"
+
+#: newsapp/templates/newindex.html:378
+msgid "Orchid stick"
+msgstr "开启美好"
+
+#: newsapp/templates/newindex.html:395
+msgid "off"
+msgstr "折扣"
+
+#: newsapp/templates/newindex.html:396
+msgid "tulip flower"
+msgstr "精致生活"
+
+#: newsapp/templates/newindex.html:419
+msgid "free shipping"
+msgstr "免运费"
+
+#: newsapp/templates/newindex.html:420
+msgid "Free shipping all order"
+msgstr "所以订单免费运输"
+
+#: newsapp/templates/newindex.html:432
+msgid "SUPPORT 24/7"
+msgstr "支持 24/7"
+
+#: newsapp/templates/newindex.html:433
+msgid "Support 24 hours a day"
+msgstr "每日不打烊"
+
+#: newsapp/templates/newindex.html:445
+msgid "Money Return"
+msgstr "支持退货"
+
+#: newsapp/templates/newindex.html:446
+msgid "30 days for free return"
+msgstr "30天无理由退货"
+
+#: newsapp/templates/newindex.html:458
+msgid "ORDER DISCOUNT"
+msgstr "天天打折"
+
+#: newsapp/templates/newindex.html:459
+msgid "On every order over $15"
+msgstr "每单都有劲爆折扣"
+
+#: newsapp/templates/newindex.html:476
+msgid "Search results"
+msgstr "搜索结果"
+
+#: newsapp/templates/newindex.html:478
+msgid "Top Eight New Products"
+msgstr "八大最新产品"
+
+#: newsapp/templates/newindex.html:480
+msgid "Find all fresh and fashionable flowers here"
+msgstr "找到全场最新，最时尚的花"
+
+#: newsapp/templates/newindex.html:503 newsapp/templates/newindex.html:614
+#: newsapp/templates/newshop.html:516 newsapp/templates/newshop.html:562
+#: newsapp/templates/newshop.html:615 newsapp/templates/newshop.html:661
+msgid "new"
+msgstr "新品"
+
+#: newsapp/templates/newindex.html:539
+msgid "view more products"
+msgstr "查看更多"
+
+#: newsapp/templates/newindex.html:559 newsapp/templates/newindex.html:576
+msgid "for you"
+msgstr "为你而来"
+
+#: newsapp/templates/newindex.html:560
+msgid "Tulip Flower"
+msgstr "清新绿色"
+
+#: newsapp/templates/newindex.html:561 newsapp/templates/newindex.html:578
+msgid "shop now"
+msgstr "立刻抢购"
+
+#: newsapp/templates/newindex.html:577
+msgid "Flower & Box"
+msgstr "自带精美礼盒"
+
+#: newsapp/templates/newindex.html:595
+msgid "top seller"
+msgstr "最火爆"
+
+#: newsapp/templates/newindex.html:596
+msgid "Find our best of the best products"
+msgstr "找到全场最畅销，最受欢迎的花"
+
+#: newsapp/templates/newindex.html:820 newsapp/templates/newshop.html:881
+msgid "Reviews"
+msgstr "浏览"
+
+#: newsapp/templates/newindex.html:827 newsapp/templates/newshop.html:888
+msgid "Hurry up"
+msgstr "加快脚步！"
+
+#: newsapp/templates/newindex.html:827 newsapp/templates/newshop.html:888
+msgid "offer ends in:"
+msgstr "该折扣仅剩"
+
+#: newsapp/templates/newindex.html:843 newsapp/templates/newshop.html:904
+msgid "Add to cart"
+msgstr "加入购物车"
+
+#: newsapp/templates/newindex.html:848 newsapp/templates/newshop.html:909
+msgid "compare"
+msgstr "比较"
+
+#: newsapp/templates/newindex.html:850 newsapp/templates/newshop.html:911
+msgid "wishlist"
+msgstr "愿望单"
+
+#: newsapp/templates/newindex.html:853 newsapp/templates/newshop.html:914
+msgid "like"
+msgstr "收藏"
+
+#: newsapp/templates/newindex.html:854 newsapp/templates/newshop.html:915
+msgid "tweet"
+msgstr "推特"
+
+#: newsapp/templates/newindex.html:855 newsapp/templates/newshop.html:916
+msgid "save"
+msgstr "保存"
+
+#: newsapp/templates/newindex.html:856 newsapp/templates/newshop.html:917
+msgid "share"
+msgstr "分享"
+
+#: newsapp/templates/newindex.html:878
+msgid "search"
+msgstr "搜索"
+
+#: newsapp/templates/newindex.html:971 newsapp/templates/newshop.html:1032
+#: newsapp/templates/onlinechat.html:379
+msgid "Total"
+msgstr "总计"
+
+#: newsapp/templates/newindex.html:978 newsapp/templates/newshop.html:1039
+#: newsapp/templates/onlinechat.html:386
+msgid "view cart"
+msgstr "查看购物车"
+
+#: newsapp/templates/newindex.html:979 newsapp/templates/newshop.html:1040
+#: newsapp/templates/onlinechat.html:387
+msgid "checkout"
+msgstr "账户信息"
+
+#: newsapp/templates/newshop.html:312 newsapp/templates/newshop.html:316
+msgid "shop"
+msgstr "购物"
+
+#: newsapp/templates/newshop.html:337
+msgid "price"
+msgstr "价格"
+
+#: newsapp/templates/newshop.html:345
+msgid "Price Range"
+msgstr "价格范围"
+
+#: newsapp/templates/newshop.html:348
+msgid "filter"
+msgstr "筛选"
+
+#: newsapp/templates/newshop.html:363
+msgid "Number"
+msgstr "库存数量"
+
+#: newsapp/templates/newshop.html:397
+msgid "Filter"
+msgstr "筛选"
+
+#: newsapp/templates/newshop.html:430
+msgid "Showing 1–7 of 7 results"
+msgstr "正在展示共 7 个产品中的 1-7"
+
+#: newsapp/templates/newshop.html:437
+msgid "Sort By"
+msgstr "由"
+
+#: newsapp/templates/newshop.html:440 newsapp/templates/newshop.html:450
+#: newsapp/templates/newshop.html:460 newsapp/templates/newshop.html:470
+#: newsapp/templates/newshop.html:480
+msgid "Relevance"
+msgstr "相关性排序"
+
+#: newsapp/templates/newshop.html:441 newsapp/templates/newshop.html:451
+#: newsapp/templates/newshop.html:461 newsapp/templates/newshop.html:471
+#: newsapp/templates/newshop.html:481
+msgid "Name (A - Z)"
+msgstr "按字母顺序排序"
+
+#: newsapp/templates/newshop.html:442 newsapp/templates/newshop.html:452
+#: newsapp/templates/newshop.html:462 newsapp/templates/newshop.html:472
+#: newsapp/templates/newshop.html:482
+msgid "Name (Z - A)"
+msgstr "按字母倒序排序"
+
+#: newsapp/templates/newshop.html:443 newsapp/templates/newshop.html:453
+#: newsapp/templates/newshop.html:463 newsapp/templates/newshop.html:473
+#: newsapp/templates/newshop.html:483
+msgid "Price (Low &gt; High)"
+msgstr "由销量从低到高排序"
+
+#: newsapp/templates/newshop.html:444 newsapp/templates/newshop.html:454
+#: newsapp/templates/newshop.html:464 newsapp/templates/newshop.html:474
+#: newsapp/templates/newshop.html:484
+msgid "Sales (High &gt; Low)"
+msgstr "由销量从高到低排序"
+
+#: newsapp/templates/newshop.html:445 newsapp/templates/newshop.html:455
+#: newsapp/templates/newshop.html:465 newsapp/templates/newshop.html:475
+#: newsapp/templates/newshop.html:485
+msgid "Model (A - Z)"
+msgstr ""
+
+#: newsapp/templates/newshop.html:446 newsapp/templates/newshop.html:456
+#: newsapp/templates/newshop.html:466 newsapp/templates/newshop.html:476
+#: newsapp/templates/newshop.html:486
+msgid "Model (Z - A)"
+msgstr ""
+
+#: newsapp/templates/newshop.html:939
+msgid "Search"
+msgstr "搜索"
+
+#: newsapp/templates/onlinechat.html:398
+msgid "This is an example of support chat. Feel free to write something."
+msgstr "在这里畅所欲言吧！"
+
+#: newsapp/templates/onlinechat.html:405
+msgid "Support chat"
+msgstr "一对一答疑"
+
+#: newsapp/templates/onlinechat.html:413
+msgid "Send"
+msgstr "发送"
+
+#: newsapp/templates/onlinechat.html:420
+msgid "Staff"
+msgstr "员工"
+
+#: newsapp/templates/test.html:22
+msgid "ni hao a"
+msgstr "你好啊"
+
+#: newsapp/templates/test.html:23
+msgid "EN"
+msgstr "英文"
+
+#: newsapp/templates/test.html:24
+msgid "CN"
+msgstr "中文"
+

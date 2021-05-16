@@ -1,12 +1,12 @@
 import os
 import string
-import pandas as pd
+# import pandas as pd
 
-from flask import render_template, flash, redirect, url_for, session, request, jsonify
+from flask import render_template, flash, redirect, url_for, session, request, jsonify, make_response
 from sqlalchemy import and_,or_
 from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.utils import secure_filename
-from matplotlib import pyplot as plt
+# from matplotlib import pyplot as plt
 from datetime import datetime
 
 
@@ -16,6 +16,28 @@ from newsapp.forms import LoginForm, SignupForm, FlowerForm, ChangePasswordForm,
 from newsapp.models import Flower, Orders, Basket, Message, Profile, News, Want, Basketlike
 from newsapp.models import User
 
+from flask_babel import Babel, gettext as _
+# from flask_babel import Babel
+app.config['BABEL_DEFAULT_LOCALE'] = 'en'
+babel = Babel(app)
+
+@babel.localeselector
+def get_locale(): # 核心，当网站含有locale的cookie，且符合['zh', 'en']
+    cookie = request.cookies.get('locale')
+    if cookie in ['zh', 'en']:
+        return cookie
+    return request.accept_languages.best_match(app.config.get('BABEL_DEFAULT_LOCALE')) # 没有cookie时，默认为 en
+
+@app.route('/set_locale/<locale>') # 用ajax请求来设置cookie
+def set_locale(locale):
+    response = make_response(jsonify(message='update success'))
+    if locale:
+        response.set_cookie('locale', locale, 60 * 60)
+        return response
+
+@app.route('/test')
+def test():
+    return render_template('test.html')
 
 @app.route('/')
 @app.route('/welcome')

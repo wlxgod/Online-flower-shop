@@ -1,0 +1,611 @@
+# Translations template for PROJECT.
+# Copyright (C) 2021 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2021-05-16 14:39+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: newsapp/templates/newabout_us.html:42 newsapp/templates/newindex.html:54
+#: newsapp/templates/newshop.html:59 newsapp/templates/onlinechat.html:51
+msgid "Welcome to Blizzard Online Flower Store"
+msgstr ""
+
+#: newsapp/templates/newabout_us.html:49 newsapp/templates/newindex.html:61
+#: newsapp/templates/newshop.html:66 newsapp/templates/onlinechat.html:58
+msgid "Language:"
+msgstr ""
+
+#: newsapp/templates/newabout_us.html:51 newsapp/templates/newabout_us.html:57
+#: newsapp/templates/newindex.html:63 newsapp/templates/newindex.html:69
+#: newsapp/templates/newshop.html:68 newsapp/templates/newshop.html:74
+#: newsapp/templates/onlinechat.html:60 newsapp/templates/onlinechat.html:66
+msgid "English"
+msgstr ""
+
+#: newsapp/templates/newabout_us.html:63 newsapp/templates/newindex.html:75
+#: newsapp/templates/newshop.html:80 newsapp/templates/onlinechat.html:72
+msgid "Chinese"
+msgstr ""
+
+#: newsapp/templates/newabout_us.html:69 newsapp/templates/newindex.html:81
+#: newsapp/templates/newshop.html:86 newsapp/templates/onlinechat.html:78
+msgid "Currency:"
+msgstr ""
+
+#: newsapp/templates/newabout_us.html:102
+#: newsapp/templates/newabout_us.html:217
+#: newsapp/templates/newabout_us.html:443 newsapp/templates/newindex.html:114
+#: newsapp/templates/newindex.html:229 newsapp/templates/newindex.html:722
+#: newsapp/templates/newshop.html:119 newsapp/templates/newshop.html:234
+#: newsapp/templates/newshop.html:784 newsapp/templates/onlinechat.html:111
+#: newsapp/templates/onlinechat.html:226 newsapp/templates/onlinechat.html:514
+msgid "Home"
+msgstr ""
+
+#: newsapp/templates/newabout_us.html:103
+#: newsapp/templates/newabout_us.html:218
+#: newsapp/templates/newabout_us.html:429 newsapp/templates/newindex.html:115
+#: newsapp/templates/newindex.html:230 newsapp/templates/newindex.html:708
+#: newsapp/templates/newshop.html:120 newsapp/templates/newshop.html:235
+#: newsapp/templates/newshop.html:770 newsapp/templates/onlinechat.html:112
+#: newsapp/templates/onlinechat.html:227 newsapp/templates/onlinechat.html:500
+msgid "Shop"
+msgstr ""
+
+#: newsapp/templates/newabout_us.html:104
+#: newsapp/templates/newabout_us.html:219 newsapp/templates/newindex.html:116
+#: newsapp/templates/newindex.html:231 newsapp/templates/newshop.html:121
+#: newsapp/templates/newshop.html:236 newsapp/templates/onlinechat.html:113
+#: newsapp/templates/onlinechat.html:228
+msgid "Contact_Us"
+msgstr ""
+
+#: newsapp/templates/newabout_us.html:105
+#: newsapp/templates/newabout_us.html:220 newsapp/templates/newindex.html:117
+#: newsapp/templates/newindex.html:232 newsapp/templates/newshop.html:122
+#: newsapp/templates/newshop.html:237 newsapp/templates/onlinechat.html:114
+#: newsapp/templates/onlinechat.html:229
+msgid "About_Us"
+msgstr ""
+
+#: newsapp/templates/newabout_us.html:129
+#: newsapp/templates/newabout_us.html:251 newsapp/templates/newindex.html:141
+#: newsapp/templates/newindex.html:263 newsapp/templates/newshop.html:146
+#: newsapp/templates/newshop.html:268 newsapp/templates/onlinechat.html:138
+#: newsapp/templates/onlinechat.html:260
+msgid "login"
+msgstr ""
+
+#: newsapp/templates/newabout_us.html:130
+#: newsapp/templates/newabout_us.html:252 newsapp/templates/newindex.html:142
+#: newsapp/templates/newindex.html:264 newsapp/templates/newshop.html:147
+#: newsapp/templates/newshop.html:269 newsapp/templates/onlinechat.html:139
+#: newsapp/templates/onlinechat.html:261
+msgid "register"
+msgstr ""
+
+#: newsapp/templates/newabout_us.html:131
+#: newsapp/templates/newabout_us.html:250 newsapp/templates/newindex.html:143
+#: newsapp/templates/newindex.html:262 newsapp/templates/newshop.html:148
+#: newsapp/templates/newshop.html:267 newsapp/templates/onlinechat.html:140
+#: newsapp/templates/onlinechat.html:259
+msgid "my account"
+msgstr ""
+
+#: newsapp/templates/newabout_us.html:233 newsapp/templates/newindex.html:245
+#: newsapp/templates/newshop.html:250 newsapp/templates/onlinechat.html:242
+msgid "Currency"
+msgstr ""
+
+#: newsapp/templates/newabout_us.html:246 newsapp/templates/newindex.html:258
+#: newsapp/templates/newshop.html:263 newsapp/templates/onlinechat.html:255
+msgid "My Account"
+msgstr ""
+
+#: newsapp/templates/newabout_us.html:289
+msgid "COVID-19 Hurts Us "
+msgstr ""
+
+#: newsapp/templates/newabout_us.html:289
+msgid "But It Can't Destroy Us!"
+msgstr ""
+
+#: newsapp/templates/newabout_us.html:290
+msgid "Our offline flower shop get stroke badly due to COVID-19 "
+msgstr ""
+
+#: newsapp/templates/newabout_us.html:291
+msgid ""
+"But we never give up and come back online with the help of group 15 "
+"Blizzard!"
+msgstr ""
+
+#: newsapp/templates/newabout_us.html:292
+msgid "Get Started"
+msgstr ""
+
+#: newsapp/templates/newabout_us.html:300
+msgid "Let's see who's on the team"
+msgstr ""
+
+#: newsapp/templates/newabout_us.html:301
+msgid ""
+"As a well-cooperated team, each one of us could fully utilize own "
+"strengths and complement each other!"
+msgstr ""
+
+#: newsapp/templates/newabout_us.html:306
+msgid "Yiqun Hao"
+msgstr ""
+
+#: newsapp/templates/newabout_us.html:307
+#: newsapp/templates/newabout_us.html:315
+#: newsapp/templates/newabout_us.html:323
+#: newsapp/templates/newabout_us.html:333
+#: newsapp/templates/newabout_us.html:341
+#: newsapp/templates/newabout_us.html:349
+msgid "BJUT: "
+msgstr ""
+
+#: newsapp/templates/newabout_us.html:308
+msgid "Front end engineer for customer portal"
+msgstr ""
+
+#: newsapp/templates/newabout_us.html:314
+msgid "Lingxiao Wang"
+msgstr ""
+
+#: newsapp/templates/newabout_us.html:316
+msgid "Back end engineer for customer portal"
+msgstr ""
+
+#: newsapp/templates/newabout_us.html:322
+msgid "Tianxiang Yang"
+msgstr ""
+
+#: newsapp/templates/newabout_us.html:324
+msgid "Project Documentation"
+msgstr ""
+
+#: newsapp/templates/newabout_us.html:332
+msgid "Geng Yan"
+msgstr ""
+
+#: newsapp/templates/newabout_us.html:334
+msgid "Front end engineer for staff portal"
+msgstr ""
+
+#: newsapp/templates/newabout_us.html:340
+msgid "Chuyuan Xu"
+msgstr ""
+
+#: newsapp/templates/newabout_us.html:342
+msgid "Back end engineer for staff portal"
+msgstr ""
+
+#: newsapp/templates/newabout_us.html:348
+msgid "Tianyi Yun"
+msgstr ""
+
+#: newsapp/templates/newabout_us.html:350
+msgid "Integration and Testing"
+msgstr ""
+
+#: newsapp/templates/newabout_us.html:359
+msgid "How Do We Make It?"
+msgstr ""
+
+#: newsapp/templates/newabout_us.html:363
+msgid "Communication and Trust"
+msgstr ""
+
+#: newsapp/templates/newabout_us.html:365
+msgid "Our collaboration has not always been smooth sailing. "
+msgstr ""
+
+#: newsapp/templates/newabout_us.html:366
+msgid ""
+"Early in the project, we found that if we didn't give everyone a clear "
+"task and deadline,"
+msgstr ""
+
+#: newsapp/templates/newabout_us.html:367
+msgid "our teammates would be lazy until reaching the deadline."
+msgstr ""
+
+#: newsapp/templates/newabout_us.html:368
+msgid ""
+"So we began to set strict weekly tasks and believed that the quality of "
+"each other's achievement is satisfying."
+msgstr ""
+
+#: newsapp/templates/newabout_us.html:369
+msgid ""
+"In this way, our division of labor becomes very intuitive and easy, we "
+"can complete a lot of tasks in a short period,"
+msgstr ""
+
+#: newsapp/templates/newabout_us.html:370
+msgid "while everyone is very chilled but not tired."
+msgstr ""
+
+#: newsapp/templates/newabout_us.html:378
+msgid "Ready to enter the sea of flowers? Just do it!"
+msgstr ""
+
+#: newsapp/templates/newabout_us.html:379
+msgid "Find any kinds you can imagine! Anytime! Anywhere!"
+msgstr ""
+
+#: newsapp/templates/newabout_us.html:380
+msgid "Begin Shopping"
+msgstr ""
+
+#: newsapp/templates/newabout_us.html:396 newsapp/templates/newindex.html:675
+#: newsapp/templates/newshop.html:737 newsapp/templates/onlinechat.html:467
+msgid "Our account"
+msgstr ""
+
+#: newsapp/templates/newabout_us.html:401 newsapp/templates/newindex.html:680
+#: newsapp/templates/newshop.html:742 newsapp/templates/onlinechat.html:472
+msgid "Beijing University of Technology"
+msgstr ""
+
+#: newsapp/templates/newabout_us.html:404 newsapp/templates/newindex.html:683
+#: newsapp/templates/newshop.html:745 newsapp/templates/onlinechat.html:475
+msgid "Mail us"
+msgstr ""
+
+#: newsapp/templates/newabout_us.html:408 newsapp/templates/newindex.html:687
+#: newsapp/templates/newshop.html:749 newsapp/templates/onlinechat.html:479
+msgid "Phones"
+msgstr ""
+
+#: newsapp/templates/newabout_us.html:424 newsapp/templates/newindex.html:703
+#: newsapp/templates/newshop.html:765 newsapp/templates/onlinechat.html:495
+msgid "More Aout Us"
+msgstr ""
+
+#: newsapp/templates/newabout_us.html:427 newsapp/templates/newindex.html:706
+#: newsapp/templates/newshop.html:768 newsapp/templates/onlinechat.html:498
+msgid "Contact Us"
+msgstr ""
+
+#: newsapp/templates/newabout_us.html:428 newsapp/templates/newindex.html:707
+#: newsapp/templates/newshop.html:769 newsapp/templates/onlinechat.html:499
+msgid "About Us"
+msgstr ""
+
+#: newsapp/templates/newabout_us.html:440 newsapp/templates/newindex.html:719
+#: newsapp/templates/newshop.html:781 newsapp/templates/onlinechat.html:511
+msgid "Quick Links"
+msgstr ""
+
+#: newsapp/templates/newabout_us.html:444 newsapp/templates/newindex.html:723
+#: newsapp/templates/newshop.html:785 newsapp/templates/onlinechat.html:515
+msgid "Login"
+msgstr ""
+
+#: newsapp/templates/newabout_us.html:445 newsapp/templates/newindex.html:724
+#: newsapp/templates/newshop.html:786 newsapp/templates/onlinechat.html:516
+msgid "Register"
+msgstr ""
+
+#: newsapp/templates/newabout_us.html:446 newsapp/templates/newindex.html:725
+#: newsapp/templates/newshop.html:787 newsapp/templates/onlinechat.html:517
+msgid "Account"
+msgstr ""
+
+#: newsapp/templates/newabout_us.html:463 newsapp/templates/newindex.html:742
+#: newsapp/templates/newshop.html:804 newsapp/templates/onlinechat.html:535
+msgid "Group 15 Blizzard All rights reserved."
+msgstr ""
+
+#: newsapp/templates/newindex.html:311 newsapp/templates/newindex.html:331
+msgid "Presented by Group 15"
+msgstr ""
+
+#: newsapp/templates/newindex.html:312
+msgid "Fresh Your Mind"
+msgstr ""
+
+#: newsapp/templates/newindex.html:313
+msgid "Feeling the World"
+msgstr ""
+
+#: newsapp/templates/newindex.html:314 newsapp/templates/newindex.html:334
+msgid "Go Shop Now"
+msgstr ""
+
+#: newsapp/templates/newindex.html:332
+msgid "Cherish Now"
+msgstr ""
+
+#: newsapp/templates/newindex.html:333
+msgid "Fall in Love"
+msgstr ""
+
+#: newsapp/templates/newindex.html:359
+msgid "Top friday"
+msgstr ""
+
+#: newsapp/templates/newindex.html:360
+msgid "Yellow Gold"
+msgstr ""
+
+#: newsapp/templates/newindex.html:361 newsapp/templates/newindex.html:379
+#: newsapp/templates/newindex.html:397
+msgid "buy it now"
+msgstr ""
+
+#: newsapp/templates/newindex.html:377
+msgid "Black friday"
+msgstr ""
+
+#: newsapp/templates/newindex.html:378
+msgid "Orchid stick"
+msgstr ""
+
+#: newsapp/templates/newindex.html:395
+msgid "off"
+msgstr ""
+
+#: newsapp/templates/newindex.html:396
+msgid "tulip flower"
+msgstr ""
+
+#: newsapp/templates/newindex.html:419
+msgid "free shipping"
+msgstr ""
+
+#: newsapp/templates/newindex.html:420
+msgid "Free shipping all order"
+msgstr ""
+
+#: newsapp/templates/newindex.html:432
+msgid "SUPPORT 24/7"
+msgstr ""
+
+#: newsapp/templates/newindex.html:433
+msgid "Support 24 hours a day"
+msgstr ""
+
+#: newsapp/templates/newindex.html:445
+msgid "Money Return"
+msgstr ""
+
+#: newsapp/templates/newindex.html:446
+msgid "30 days for free return"
+msgstr ""
+
+#: newsapp/templates/newindex.html:458
+msgid "ORDER DISCOUNT"
+msgstr ""
+
+#: newsapp/templates/newindex.html:459
+msgid "On every order over $15"
+msgstr ""
+
+#: newsapp/templates/newindex.html:476
+msgid "Search results"
+msgstr ""
+
+#: newsapp/templates/newindex.html:478
+msgid "Top Eight New Products"
+msgstr ""
+
+#: newsapp/templates/newindex.html:480
+msgid "Find all fresh and fashionable flowers here"
+msgstr ""
+
+#: newsapp/templates/newindex.html:503 newsapp/templates/newindex.html:614
+#: newsapp/templates/newshop.html:516 newsapp/templates/newshop.html:562
+#: newsapp/templates/newshop.html:615 newsapp/templates/newshop.html:661
+msgid "new"
+msgstr ""
+
+#: newsapp/templates/newindex.html:539
+msgid "view more products"
+msgstr ""
+
+#: newsapp/templates/newindex.html:559 newsapp/templates/newindex.html:576
+msgid "for you"
+msgstr ""
+
+#: newsapp/templates/newindex.html:560
+msgid "Tulip Flower"
+msgstr ""
+
+#: newsapp/templates/newindex.html:561 newsapp/templates/newindex.html:578
+msgid "shop now"
+msgstr ""
+
+#: newsapp/templates/newindex.html:577
+msgid "Flower & Box"
+msgstr ""
+
+#: newsapp/templates/newindex.html:595
+msgid "top seller"
+msgstr ""
+
+#: newsapp/templates/newindex.html:596
+msgid "Find our best of the best products"
+msgstr ""
+
+#: newsapp/templates/newindex.html:820 newsapp/templates/newshop.html:881
+msgid "Reviews"
+msgstr ""
+
+#: newsapp/templates/newindex.html:827 newsapp/templates/newshop.html:888
+msgid "Hurry up"
+msgstr ""
+
+#: newsapp/templates/newindex.html:827 newsapp/templates/newshop.html:888
+msgid "offer ends in:"
+msgstr ""
+
+#: newsapp/templates/newindex.html:843 newsapp/templates/newshop.html:904
+msgid "Add to cart"
+msgstr ""
+
+#: newsapp/templates/newindex.html:848 newsapp/templates/newshop.html:909
+msgid "compare"
+msgstr ""
+
+#: newsapp/templates/newindex.html:850 newsapp/templates/newshop.html:911
+msgid "wishlist"
+msgstr ""
+
+#: newsapp/templates/newindex.html:853 newsapp/templates/newshop.html:914
+msgid "like"
+msgstr ""
+
+#: newsapp/templates/newindex.html:854 newsapp/templates/newshop.html:915
+msgid "tweet"
+msgstr ""
+
+#: newsapp/templates/newindex.html:855 newsapp/templates/newshop.html:916
+msgid "save"
+msgstr ""
+
+#: newsapp/templates/newindex.html:856 newsapp/templates/newshop.html:917
+msgid "share"
+msgstr ""
+
+#: newsapp/templates/newindex.html:878
+msgid "search"
+msgstr ""
+
+#: newsapp/templates/newindex.html:971 newsapp/templates/newshop.html:1032
+#: newsapp/templates/onlinechat.html:379
+msgid "Total"
+msgstr ""
+
+#: newsapp/templates/newindex.html:978 newsapp/templates/newshop.html:1039
+#: newsapp/templates/onlinechat.html:386
+msgid "view cart"
+msgstr ""
+
+#: newsapp/templates/newindex.html:979 newsapp/templates/newshop.html:1040
+#: newsapp/templates/onlinechat.html:387
+msgid "checkout"
+msgstr ""
+
+#: newsapp/templates/newshop.html:312 newsapp/templates/newshop.html:316
+msgid "shop"
+msgstr ""
+
+#: newsapp/templates/newshop.html:337
+msgid "price"
+msgstr ""
+
+#: newsapp/templates/newshop.html:345
+msgid "Price Range"
+msgstr ""
+
+#: newsapp/templates/newshop.html:348
+msgid "filter"
+msgstr ""
+
+#: newsapp/templates/newshop.html:363
+msgid "Number"
+msgstr ""
+
+#: newsapp/templates/newshop.html:397
+msgid "Filter"
+msgstr ""
+
+#: newsapp/templates/newshop.html:430
+msgid "Showing 1–7 of 7 results"
+msgstr ""
+
+#: newsapp/templates/newshop.html:437
+msgid "Sort By"
+msgstr ""
+
+#: newsapp/templates/newshop.html:440 newsapp/templates/newshop.html:450
+#: newsapp/templates/newshop.html:460 newsapp/templates/newshop.html:470
+#: newsapp/templates/newshop.html:480
+msgid "Relevance"
+msgstr ""
+
+#: newsapp/templates/newshop.html:441 newsapp/templates/newshop.html:451
+#: newsapp/templates/newshop.html:461 newsapp/templates/newshop.html:471
+#: newsapp/templates/newshop.html:481
+msgid "Name (A - Z)"
+msgstr ""
+
+#: newsapp/templates/newshop.html:442 newsapp/templates/newshop.html:452
+#: newsapp/templates/newshop.html:462 newsapp/templates/newshop.html:472
+#: newsapp/templates/newshop.html:482
+msgid "Name (Z - A)"
+msgstr ""
+
+#: newsapp/templates/newshop.html:443 newsapp/templates/newshop.html:453
+#: newsapp/templates/newshop.html:463 newsapp/templates/newshop.html:473
+#: newsapp/templates/newshop.html:483
+msgid "Price (Low &gt; High)"
+msgstr ""
+
+#: newsapp/templates/newshop.html:444 newsapp/templates/newshop.html:454
+#: newsapp/templates/newshop.html:464 newsapp/templates/newshop.html:474
+#: newsapp/templates/newshop.html:484
+msgid "Sales (High &gt; Low)"
+msgstr ""
+
+#: newsapp/templates/newshop.html:445 newsapp/templates/newshop.html:455
+#: newsapp/templates/newshop.html:465 newsapp/templates/newshop.html:475
+#: newsapp/templates/newshop.html:485
+msgid "Model (A - Z)"
+msgstr ""
+
+#: newsapp/templates/newshop.html:446 newsapp/templates/newshop.html:456
+#: newsapp/templates/newshop.html:466 newsapp/templates/newshop.html:476
+#: newsapp/templates/newshop.html:486
+msgid "Model (Z - A)"
+msgstr ""
+
+#: newsapp/templates/newshop.html:939
+msgid "Search"
+msgstr ""
+
+#: newsapp/templates/onlinechat.html:398
+msgid "This is an example of support chat. Feel free to write something."
+msgstr ""
+
+#: newsapp/templates/onlinechat.html:405
+msgid "Support chat"
+msgstr ""
+
+#: newsapp/templates/onlinechat.html:413
+msgid "Send"
+msgstr ""
+
+#: newsapp/templates/onlinechat.html:420
+msgid "Staff"
+msgstr ""
+
+#: newsapp/templates/test.html:22
+msgid "ni hao a"
+msgstr ""
+
+#: newsapp/templates/test.html:23
+msgid "EN"
+msgstr ""
+
+#: newsapp/templates/test.html:24
+msgid "CN"
+msgstr ""
+

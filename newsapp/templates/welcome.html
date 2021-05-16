@@ -4,16 +4,34 @@
   <meta charset="UTF-8">
   <title>Welcome!</title>
   <link rel="stylesheet" href="{{ url_for('static',filename='css/welcome.css') }}">
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+        <script>
+            $(document).on('click', '.locale', function () {
+                var val = $(this).attr('data-value');
+                $.ajax({
+                    url: val,
+                    type: 'GET',
+                    success: function (ret) {
+                        console.log(ret);
+                        location.reload();
+                        location.href="{{ url_for('login') }}"
+                    }
+                })
 
+
+
+            });
+        </script>
   <script src="{{ url_for('static',filename='scripts/jquery.js') }}"></script>
   <script src="{{ url_for('static',filename='scripts/welcome.js') }}"></script>
 </head>
 <body>
     <div id="enDiv">
-        <div id="enBlock"><a href="{{ url_for('login') }}">In English</a></div>
+        <div id="enBlock" ><a class="locale " id="zh" data-value="{{ url_for('set_locale', locale='en') }}" href="">In English</a></div>
+
     </div>
     <div id="chDiv">
-        <div id="chBlock"><a href="{{ url_for('loginch') }}">使用中文</a></div>
+        <div id="chBlock" ><a class="locale " id="en" data-value="{{ url_for('set_locale', locale='zh') }}" href="">使用中文</a></div>
     </div>
 </body>
 </html>
