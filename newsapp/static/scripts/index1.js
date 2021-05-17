@@ -6,6 +6,6 @@ $.post('/addToCart',
             alert(message)
 
     }).fail(function (){
-        alert('Wrong!!!')
+        alert('Ok!!!')
     })
 }

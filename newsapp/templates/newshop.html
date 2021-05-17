@@ -188,6 +188,11 @@
                         <div class="mobile-menu-toggler">
                             <div class="mini-cart-wrap">
                                 <a href="#">
+                                    <i class="lnr lnr-heart"></i>
+                                </a>
+                            </div>
+                            <div class="mini-cart-wrap">
+                                <a href="#">
                                     <i class="lnr lnr-cart"></i>
                                 </a>
                             </div>
@@ -264,9 +269,9 @@
                                 <i class="fa fa-angle-down"></i>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="myaccount">
-                                <a class="dropdown-item" href="#">{{ _('my account') }}</a>
-                                <a class="dropdown-item" href="#">{{ _('login') }}</a>
-                                <a class="dropdown-item" href="#">{{ _('register') }}</a>
+                                <a class="dropdown-item" href="{{ url_for('profile') }}">{{ _('my account') }}</a>
+                                <a class="dropdown-item" href="{{ url_for('login') }}">{{ _('login') }}</a>
+                                <a class="dropdown-item" href="{{ url_for('signup') }}">{{ _('register') }}</a>
                             </div>
                         </div>
                     </li>
@@ -1082,6 +1087,8 @@
 <script src="{{ url_for('static',filename='scripts/indexadd.js') }}"></script>
 <script src="{{ url_for('static',filename='scripts/indexlike.js') }}"></script>
 <script src="{{ url_for('static',filename='scripts/indexremovelike.js') }}"></script>
+<script src="{{ url_for('static',filename='scripts/megapix-image.js') }}"></script>
+<script src="{{ url_for('static',filename='scripts/megapix-image.test.js') }}"></script>
 </body>
 
 </html>

@@ -155,6 +155,16 @@
 		$("#like").addClass('show')
 	})
 
+	$(".mini-cart-wrap").on('click', function(){
+		$("body").addClass('fix');
+		$(".minicart-inner").addClass('show')
+	})
+
+	$(".mini-cart-wrap1").on('click', function(){
+		$("body").addClass('fix');
+		$("#like").addClass('show')
+	})
+
 	$(".offcanvas-close, .minicart-close,.offcanvas-overlay").on('click', function(){
 		$("body").removeClass('fix');
 		$(".offcanvas-search-inner, .minicart-inner").removeClass('show')
