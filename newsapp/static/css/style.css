@@ -1447,6 +1447,37 @@ fieldset legend {
     background-color: #CC2121;
 }
 
+.mobile-main-header .mobile-menu-toggler .mini-cart-wrap1 {
+    display: inline-block;
+    font-size: 24px;
+    line-height: 1;
+    position: relative;
+    margin-left: 30px;
+}
+
+.mobile-main-header .mobile-menu-toggler .mini-cart-wrap1 a {
+    color: #111;
+}
+
+.mobile-main-header .mobile-menu-toggler .mini-cart-wrap1 a:hover {
+    color: #CC2121;
+}
+
+.mobile-main-header .mobile-menu-toggler .mini-cart-wrap1 .notification {
+    font-size: 13px;
+    color: #fff;
+    width: 16px;
+    height: 16px;
+    line-height: 16px;
+    border-radius: 50%;
+    text-align: center;
+    font-weight: 600;
+    right: -8px;
+    top: 0;
+    position: absolute;
+    background-color: #CC2121;
+}
+
 .mobile-main-header .mobile-menu-toggler .mobile-menu-btn {
     margin-left: 15px;
 }
