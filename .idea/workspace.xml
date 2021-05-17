@@ -6,7 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="a1e85ceb-f8b8-4f7a-a03d-aeda75464efe" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newsapp/templates/newshop.html" beforeDir="false" afterPath="$PROJECT_DIR$/newsapp/templates/newshop.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/newsapp/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/newsapp/routes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/newsapp/templates/welcome.html" beforeDir="false" afterPath="$PROJECT_DIR$/newsapp/templates/welcome.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +81,7 @@
       <recent name="C:\Users\EZRA\Desktop\newFlower\newFlower\newsapp\static\images" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.app">
+  <component name="RunManager" selected="Deploy to Host.Deploy to Host">
     <configuration name="Deploy to Host" type="DEPLOY_HOST_RUN_CONFIGURATION" factoryName="Deploy to Host">
       <option name="accountModel" />
       <option name="accountModels" />
@@ -238,7 +239,7 @@
       <workItem from="1621132283762" duration="12525000" />
       <workItem from="1621148686769" duration="5882000" />
       <workItem from="1621222579957" duration="8501000" />
-      <workItem from="1621244384443" duration="9407000" />
+      <workItem from="1621244384443" duration="13894000" />
     </task>
     <servers />
   </component>
@@ -265,12 +266,12 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/newsapp/routes.py</url>
-          <line>492</line>
+          <line>498</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/newsapp/routes.py</url>
-          <line>645</line>
+          <line>651</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
@@ -284,7 +285,7 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/newFlower$app.coverage" NAME="app Coverage Results" MODIFIED="1618492058809" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Online_flower_shop$Online_flower_shop.coverage" NAME="Online-flower-shop Coverage Results" MODIFIED="1620740272172" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Online_flower_shop$app.coverage" NAME="app Coverage Results" MODIFIED="1621256777907" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Online_flower_shop$app.coverage" NAME="app Coverage Results" MODIFIED="1621261561831" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/newFlower4_17$app.coverage" NAME="app Coverage Results" MODIFIED="1618708256048" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

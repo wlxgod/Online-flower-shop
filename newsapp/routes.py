@@ -123,14 +123,20 @@ def loginch():
     if form.validate_on_submit():
         user = User.query.filter(User.username == form.username.data).first()
         if user is None:
-            flash("Please Register or Retry With a Valid Username")
-            return redirect(url_for('login'))
+            flash("请用有效的用户名注册或重试")
+            return redirect(url_for('loginch'))
         if not check_password_hash(user.password_hash, form.password.data):
-            flash('Wrong Password')
-            return redirect(url_for('login'))
-        flash('Login Successfully')
+            flash('错误的密码')
+            return redirect(url_for('loginch'))
+        if form.type.data == '1' and user.identity == 'customer':
+            flash("作为一个顾客，你不能进入员工端")
+            return redirect(url_for('loginch'))
+        flash('登陆成功')
         session['USERNAME'] = user.username
-        return redirect('index')
+        if form.type.data == '0':
+            return redirect('index')
+        if form.type.data == '1':
+            return redirect('addflower')
     return render_template('loginCh.html', title='登录', form=form)
 
 

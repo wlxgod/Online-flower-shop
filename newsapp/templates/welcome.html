@@ -17,10 +17,10 @@
                         console.log(ret);
                         location.reload();
                         if (val == "/set_locale/zh"){
-                            location.href="{{ url_for('loginch') }}"
+                            window.open("{{ url_for('loginch') }}",'_self');
                         }
                         else if(val == "/set_locale/en"){
-                            location.href="{{ url_for('login') }}"
+                            window.open("{{ url_for('login') }}",'_self');
                         }
                     }
                 })
