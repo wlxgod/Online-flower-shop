@@ -24,7 +24,6 @@
     <script src="/oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    {#    <script src="{{ url_for('static',filename='scripts/jquery.js') }}"></script>#}
     <script src="/static/scripts/jquery.js"></script>
     <script src="/static/scripts/jquery.min.js"></script>
 
@@ -530,11 +529,14 @@
                                                        data-toggle="tooltip" data-placement="left"
                                                        title="Add to wishlist"><i
                                                             class="lnr lnr-heart"></i></a>
-                                                    <a href="#" data-toggle="modal" data-target="#quick_view"><span
+                                                    <a href="#" data-toggle="modal" data-target="#quick_view">
+                                                        <span
                                                             class="quick_view_button" data-toggle="tooltip"
                                                             data-placement="left"
                                                             title="Quick View"><i
-                                                            class="lnr lnr-magnifier"></i></span></a>
+                                                            class="lnr lnr-magnifier"></i>
+                                                        </span>
+                                                    </a>
                                                     <a href="{{ url_for('shop') }}"
                                                        onclick='addTrolley({{ post.id }}, 1 ,"{{ post.name }}" )'
                                                        data-toggle="tooltip" data-placement="left"
@@ -547,7 +549,9 @@
                                                 </p>
                                                 <div class="price-box">
                                                     <span class="price-regular">¥ {{ post.price }}</span>
-                                                    <span class="price-old"><del>¥ {{ post.price }}</del></span>
+                                                    <span class="price-old"><del>¥ {{ post.price + 10 }}</del></span>
+                                                    <span hidden>{{ post.number }}</span>
+                                                    <span hidden>{{ post.intro }}</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -577,10 +581,11 @@
                                                 </h5>
                                                 <div class="price-box">
                                                     <span class="price-regular">¥ {{ post.price }}</span>
-                                                    <span class="price-old"><del>¥ {{ post.price }}</del></span>
+                                                    <span class="price-old"><del>¥ {{ post.price + 10 }}</del></span>
+
                                                 </div>
-                                                <p>{{ post.intro }}
-                                                </p>
+                                                <p>{{ post.intro }}</p>
+
                                                 <div class="button-group-list">
                                                     <a href="{{ url_for('shop') }}"
                                                        onclick='addLike({{ post.id }}, 1 ,"{{ post.name }}" )'
@@ -598,6 +603,7 @@
                                                        title="Add to Cart"><i class="lnr lnr-cart"></i></a>
                                                 </div>
                                             </div>
+                                            <p hidden>{{ post.number }}</p>
                                         </div>
                                         <!-- product list item end -->
                                     </div>
@@ -671,15 +677,15 @@
                                                 </div>
                                             </figure>
                                             <div class="product-content-list">
-                                                <h5 class="product-name"><a
-                                                        href="{{ url_for('detail',id=post.id) }}">{{ post.name }}</a>
+                                                <h5 class="product-name">
+                                                    <a href="{{ url_for('detail',id=post.id) }}">{{ post.name }}</a>
                                                 </h5>
                                                 <div class="price-box">
                                                     <span class="price-regular">¥ {{ post.price }}</span>
                                                     <span class="price-old"><del>¥ {{ post.price }}</del></span>
                                                 </div>
-                                                <p>{{ post.intro }}
-                                                </p>
+                                                <p>{{ post.intro }}</p>
+                                                <p hidden>{{ post.number }}</p>
                                                 <div class="button-group-list">
                                                     <a href="{{ url_for('shop') }}"
                                                        onclick='addLike({{ post.id }}, 1 ,"{{ post.name }}" )'
@@ -838,11 +844,11 @@
                         <div class="col-lg-5 col-md-5">
                             <div class="product-large-slider">
                                 <div class="pro-large-img">
-                                    <img src="{{ url_for('static',filename='images/img/product/product-details-img1.jpg') }}"
+                                    <img id="target_image1" src="{{ url_for('static',filename='images/img/product/product-details-img1.jpg') }}"
                                          alt="product-details"/>
                                 </div>
                                 <div class="pro-large-img">
-                                    <img src="{{ url_for('static',filename='images/img/product/product-details-img2.jpg') }}"
+                                    <img id="target_image2" src="{{ url_for('static',filename='images/img/product/product-details-img2.jpg') }}"
                                          alt="product-details"/>
                                 </div>
                                 <div class="pro-large-img">
@@ -856,11 +862,11 @@
                             </div>
                             <div class="pro-nav slick-row-10 slick-arrow-style">
                                 <div class="pro-nav-thumb">
-                                    <img src="{{ url_for('static',filename='images/img/product/product-details-img1.jpg') }}"
+                                    <img id="target_image_bottom1" src="{{ url_for('static',filename='images/img/product/product-details-img1.jpg') }}"
                                          alt="product-details"/>
                                 </div>
                                 <div class="pro-nav-thumb">
-                                    <img src="{{ url_for('static',filename='images/img/product/product-details-img2.jpg') }}"
+                                    <img id="target_image_bottom2" src="{{ url_for('static',filename='images/img/product/product-details-img2.jpg') }}"
                                          alt="product-details"/>
                                 </div>
                                 <div class="pro-nav-thumb">
@@ -1080,7 +1086,7 @@
 <script src="{{ url_for('static',filename='scripts/vendor.js') }}"></script>
 <!-- Active Js -->
 <script src="{{ url_for('static',filename='scripts/active.js') }}"></script>
-<script src="{{ url_for('static',filename='scripts/index.js') }}"></script>
+<script src="{{ url_for('static',filename='scripts/shop.js') }}"></script>
 <script src="{{ url_for('static',filename='scripts/index1.js') }}"></script>
 <script src="{{ url_for('static',filename='scripts/index2.js') }}"></script>
 <script src="{{ url_for('static',filename='scripts/jquery.js') }}"></script>
