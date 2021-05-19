@@ -1,12 +1,12 @@
 import os
 import string
-# import pandas as pd
+import pandas as pd
 
 from flask import render_template, flash, redirect, url_for, session, request, jsonify, make_response
 from sqlalchemy import and_,or_
 from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.utils import secure_filename
-# from matplotlib import pyplot as plt
+from matplotlib import pyplot as plt
 from datetime import datetime
 
 
@@ -568,7 +568,42 @@ def detail(id):
     posts = Flower.query.filter().all()
     flower = Flower.query.filter(Flower.id == id).first()
     print(flower.id)
-    return render_template('newproduct-details.html',flower=flower,posts=posts)
+    posts_query = Flower.query
+    posts = posts_query.filter().all()
+    posts2 = posts
+    posts3 = posts
+    username = session.get("USERNAME")
+    users = User.query.filter(User.username == username)
+    user = users.first()
+    user_id = user.id
+    order_in_db = Orders.query.filter(and_(Orders.state == "unpayment", Orders.user_id == user_id)).first()
+    order_in_dbs = Orders.query.filter().all()
+    print(order_in_dbs)
+    print("---------------------------------")
+    """order_in_db=order_in_dbs.first()"""
+    want_in_db = Want.query.filter(Want.user_id == user_id).first()
+    if want_in_db is None:
+        want = Want(user_id=user.id)
+        db.session.add(want)
+        db.session.commit()
+    if order_in_db is None:
+        order = Orders(price=0, name=user.username, destination="Beijing university of technology",
+                       state="unpayment", number=100, way="deliver", user_id=user.id)
+        db.session.add(order)
+        db.session.commit()
+        order_in_db = Orders.query.filter(and_(Orders.state == "unpayment", Orders.user_id == user_id)).first()
+    want_in_db = Want.query.filter(Want.user_id == user_id).first()
+    basket_in_db_list = Basket.query.filter(and_(Basket.order_id == order_in_db.id, Basket.user_id == user_id)).all()
+    basketlike_in_db_list = Basketlike.query.filter(Basketlike.want_id == want_in_db.id,
+                                                    Basketlike.user_id == user_id).all()
+    basket_length = len(basket_in_db_list)
+    basketlike_length = len(basketlike_in_db_list)
+    '''print(posts)'''
+    total = 0
+    for basket in basket_in_db_list:
+        total = total + basket.total * basket.quantity
+    return render_template('newproduct-details.html',flower=flower,posts=posts,posts2=posts2, posts3=posts3,baskets=basket_in_db_list, length=basket_length, total=total,
+                           order=order_in_db,basketslike=basketlike_in_db_list, lengthlike=basketlike_length,postslength=len(posts),posts3length=len(posts3))
 
 
 

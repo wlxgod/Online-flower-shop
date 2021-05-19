@@ -23,7 +23,6 @@ $(document).ready(function (){
         $("#flowerName").html(root2.childNodes[3].childNodes[1].childNodes[0].innerHTML);
         $("#currentPrice").html(root2.childNodes[3].childNodes[3].childNodes[1].innerHTML);
         $("#originalPrice").html(root2.childNodes[3].childNodes[3].childNodes[3].childNodes[0].innerHTML);
-        alert(root2.childNodes[3].childNodes[5].innerHTML)
         $("#flowerNum").html(root2.childNodes[5].innerHTML+" in stock now")
         $("#flowerIntro").html(root2.childNodes[3].childNodes[5].innerHTML)
 
