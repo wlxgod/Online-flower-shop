@@ -5020,10 +5020,10 @@ only screen and (max-width: 767.98px) {
 }
 
 .total-reviews {
-    display: -webkit-box;
+    /*display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
-    display: flex;
+    display: flex;*/
     padding-bottom: 50px;
 }
 
@@ -6216,3 +6216,8 @@ only screen and (max-width: 767.98px) {
 }
 
 /*-------- footer bottom area end --------*/
+
+.reviewlist {
+    display: flex;
+    margin: 10px;
+}

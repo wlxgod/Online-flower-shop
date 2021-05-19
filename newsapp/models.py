@@ -16,6 +16,7 @@ class User(db.Model):
     sender = db.relationship('Message', backref='sender', lazy='dynamic')
     news = db.relationship('News', backref='user', lazy='dynamic')
     profile = db.relationship('Profile', backref='profile', lazy='dynamic')
+    review = db.relationship('Review', backref='user', lazy='dynamic')
 
     def __repr__(self):
         return '<User {}>'.format(self.username)
@@ -91,13 +92,14 @@ class Profile(db.Model):
     portrait = db.Column(db.String(50))
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     news_id = db.relationship('News', backref='profile', lazy='dynamic')
+    review_id = db.relationship('Review', backref='profile', lazy='dynamic')
 
 
 # 留言消息
 class Message(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     text = db.Column(db.String(500))  # 消息
-    timestamp = db.Column(db.DateTime, default=datetime.datetime.now())  # 时间
+    timestamp = db.Column(db.DateTime, default=datetime.datetime.now)  # 时间
     state = db.Column(db.String(10))  # 状态，未读或已读
     sender_id = db.Column(db.Integer, db.ForeignKey('user.id'))  # 发送
     receiver_id = db.Column(db.Integer)  # 接收
@@ -117,4 +119,14 @@ class News(db.Model):
     sender_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     receiver_id = db.Column(db.Integer)
     profile_id = db.Column(db.Integer, db.ForeignKey('profile.id'))
+
+# 商品评论
+class Review(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    rate = db.Column(db.Integer, default=0)    # 等级
+    text = db.Column(db.String(250))    # 评论
+    timestamp = db.Column(db.DateTime, default=datetime.datetime.now)  # 创建时间
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    profile_id = db.Column(db.Integer, db.ForeignKey('profile.id'))
+    flower_id = db.Column(db.Integer)
 
