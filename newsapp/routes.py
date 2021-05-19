@@ -1,12 +1,12 @@
 import os
 import string
-# import pandas as pd
+import pandas as pd
 
 from flask import render_template, flash, redirect, url_for, session, request, jsonify, make_response
 from sqlalchemy import and_,or_
 from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.utils import secure_filename
-# from matplotlib import pyplot as plt
+from matplotlib import pyplot as plt
 from datetime import datetime
 
 
@@ -989,7 +989,7 @@ def Charts():
         flash("As a customer,you can not access this page.")
         return redirect("login")
     dbEngine= db.get_engine();
-    print(dbEngine)
+    # print(dbEngine)
     ts = pd.read_sql('select timestamp,price from orders',dbEngine)
 
     ts=ts.set_index('timestamp')
@@ -1004,6 +1004,9 @@ def Charts():
     obj = pd.Series(price, index=index)
     obj = obj.resample('D').sum()
     obj = obj[-30:]
+
+    revenue = obj.sum()
+    print(revenue)
 
     index = list(obj.index)
     price = list(obj.values)
@@ -1026,9 +1029,13 @@ def Charts():
     fig.savefig(r'./newsapp/static/images/Revenue.png')
     # print('save le')
 
+    OrderF=1
+    OrderT=2
+    Regis=3
 
 
-    return render_template('Charts.html')
+
+    return render_template('Charts.html',revenue=revenue,OrderF=OrderF,OrderT=OrderT,Regis=Regis)
 
 
 

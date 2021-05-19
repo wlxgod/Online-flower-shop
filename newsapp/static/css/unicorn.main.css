@@ -220,7 +220,7 @@ a:hover {
 	background-image: linear-gradient(top, #FFFFFF 0%, #EEEEEE 100%);
     border-top-left-radius: 8px;
     height: 80px;
-    position: abslute;
+    position: absolute;
     width: 100%;
     margin-top: -38px;
     z-index: 20;
@@ -1356,6 +1356,12 @@ div.dataTables_wrapper .ui-widget-header {
 	text-shadow: 0 1px 0 #ffffff;
 }
 
+.divTable{
+	max-width: 100%;
+	overflow: scroll;
+
+}
+
 
 .tAMiddle td:nth-child(5){
 	text-align: left;
@@ -1514,100 +1520,105 @@ div > div > div .CurrLoca{
 
 
 /* Responsive design */
-@media (max-width: 480px) {
-	#header h1 {
-		top: auto;
-		left: auto;
-		margin: 3px auto;
-	}
-	#user-nav {
-		position: relative;
-		left: auto;
-		right: auto;
-		width: 100%;
-		margin-top: -43px;
-		margin-bottom: 43px;
-	}
-	.navbar > .nav {
-		float: none;
-	}
-	#user-nav > ul {
-		left: 50%;
-		position: absolute;
-	}
-	#content {
-		margin-left: 0 !important;
-		border-top-left-radius: 0;
-	}
-	#content-header {
-		margin-top: 0;
-		height: 140px;
-		text-align: center;
-	}
-	#content-header h1, #content-header .btn-group {
-		float: none;
-	}
-	#content-header h1 {
-		display: block;
-		text-align: center;
-		margin-left: auto;
-		margin-top: 0;
-		padding-top: 15px;
-		width: 100%;
-	}
-	#content-header .btn-group {
-		margin-top: 70px;
-		margin-bottom: 0;
-		margin-right: 0;
-		left: 30%;
-	}
-	#sidebar {
-		float: none;
-		width: 100% !important;
-	}
-	#sidebar > a {
-		padding: 7px 20px 7px 15px;
-		box-shadow: 0 1px 0 #666666;
-		margin-bottom: 1px;
-		display: block !important;
-		text-transform: uppercase;
-		color: #eeeeee;
-		font-size: 10px;
-	}
-	#sidebar > a > i {
-		margin-right: 10px;
-		background-image: url('/static/images/glyphicons-halflings-white.png');
-	}
-	#sidebar > ul {
-		display: none;
-		margin: -2px 0 0 !important;
-		width: 100% !important;
-		box-shadow: 0 6px 6px rgba(0,0,0,0.4);
-	}
-	#sidebar > ul > li.active > a {
-		background: none !important;
-	}
-	#sidebar > ul > li > a > span {
-		display: inline !important;
-	}
-	.widget-title .buttons > .btn {
-		width: 11px;
-		white-space: nowrap;
-		overflow: hidden;
-	}
-    .form-horizontal .control-label {
-        padding-left: 30px;
-    }
-    .form-horizontal .controls {
-        margin-left: 0;
-        padding: 10px 30px;
-    }
-    .form-actions {
-        text-align: center;
-    }
-}
 
-@media (min-width: 481px) and (max-width: 767px) {
+ /*try to merge some responsive condition*/
+
+
+/*@media (max-width: 480px) {*/
+/*	#header h1 {*/
+/*		top: auto;*/
+/*		left: auto;*/
+/*		margin: 3px auto;*/
+/*	}*/
+/*	#user-nav {*/
+/*		position: relative;*/
+/*		left: auto;*/
+/*		right: auto;*/
+/*		width: 100%;*/
+/*		margin-top: -43px;*/
+/*		margin-bottom: 43px;*/
+/*	}*/
+/*	.navbar > .nav {*/
+/*		float: none;*/
+/*	}*/
+/*	#user-nav > ul {*/
+/*		left: 50%;*/
+/*		position: absolute;*/
+/*	}*/
+/*	#content {*/
+/*		margin-left: 0 !important;*/
+/*		border-top-left-radius: 0;*/
+/*	}*/
+/*	#content-header {*/
+/*		margin-top: 0;*/
+/*		height: 140px;*/
+/*		text-align: center;*/
+/*	}*/
+/*	#content-header h1, #content-header .btn-group {*/
+/*		float: none;*/
+/*	}*/
+/*	#content-header h1 {*/
+/*		display: block;*/
+/*		text-align: center;*/
+/*		margin-left: auto;*/
+/*		margin-top: 0;*/
+/*		padding-top: 15px;*/
+/*		width: 100%;*/
+/*	}*/
+/*	#content-header .btn-group {*/
+/*		margin-top: 70px;*/
+/*		margin-bottom: 0;*/
+/*		margin-right: 0;*/
+/*		left: 30%;*/
+/*	}*/
+
+/*	#sidebar > a {*/
+/*		padding: 7px 20px 7px 15px;*/
+/*		box-shadow: 0 1px 0 #666666;*/
+/*		margin-bottom: 1px;*/
+/*		display: block !important;*/
+/*		text-transform: uppercase;*/
+/*		color: #eeeeee;*/
+/*		font-size: 10px;*/
+/*	}*/
+/*	#sidebar > a > i {*/
+/*		margin-right: 10px;*/
+/*		background-image: url('/static/images/glyphicons-halflings-white.png');*/
+/*	}*/
+/*	#sidebar {*/
+/*		width: 43px;*/
+/*	}*/
+/*	#sidebar > ul {*/
+/*		display: block;*/
+/*		margin: -2px 0 0 !important;*/
+/*		width: 43px !important;*/
+/*		box-shadow: 0 6px 6px rgba(0,0,0,0.4);*/
+
+/*	}*/
+/*	#sidebar > ul > li.active > a {*/
+/*		background: none !important;*/
+/*	}*/
+/*	#sidebar > ul > li > a > span {*/
+/*		display: inline !important;*/
+/*	}*/
+/*	.widget-title .buttons > .btn {*/
+/*		width: 11px;*/
+/*		white-space: nowrap;*/
+/*		overflow: hidden;*/
+/*	}*/
+/*    .form-horizontal .control-label {*/
+/*        padding-left: 30px;*/
+/*    }*/
+/*    .form-horizontal .controls {*/
+/*        margin-left: 0;*/
+/*        padding: 10px 30px;*/
+/*    }*/
+/*    .form-actions {*/
+/*        text-align: center;*/
+/*    }*/
+/*}*/
+
+@media /* (min-width: 481px) and */(max-width: 767px) {
 	#header h1 {
 		top: 3px;
 	}
