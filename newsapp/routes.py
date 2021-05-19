@@ -13,7 +13,7 @@ from datetime import datetime
 
 from newsapp import app, db, config
 from newsapp.forms import LoginForm, SignupForm, FlowerForm, ChangePasswordForm, CheckoutForm
-from newsapp.models import Flower, Orders, Basket, Message, Profile, News, Want, Basketlike
+from newsapp.models import Flower, Orders, Basket, Message, Profile, News, Review, Want, Basketlike
 from newsapp.models import User
 
 from flask_babel import Babel, gettext as _
@@ -578,8 +578,8 @@ def detail(id):
     user_id = user.id
     order_in_db = Orders.query.filter(and_(Orders.state == "unpayment", Orders.user_id == user_id)).first()
     order_in_dbs = Orders.query.filter().all()
-    print(order_in_dbs)
-    print("---------------------------------")
+    '''print(order_in_dbs)
+    print("---------------------------------")'''
     """order_in_db=order_in_dbs.first()"""
     want_in_db = Want.query.filter(Want.user_id == user_id).first()
     if want_in_db is None:
@@ -602,15 +602,22 @@ def detail(id):
     total = 0
     for basket in basket_in_db_list:
         total = total + basket.total * basket.quantity
+    review = Review.query.filter(Review.flower_id == flower.id).order_by(Review.timestamp.desc())
+    count = review.count()
     return render_template('newproduct-details.html',flower=flower,posts=posts,posts2=posts2, posts3=posts3,baskets=basket_in_db_list, length=basket_length, total=total,
-                           order=order_in_db,basketslike=basketlike_in_db_list, lengthlike=basketlike_length,postslength=len(posts),posts3length=len(posts3))
+                           order=order_in_db,basketslike=basketlike_in_db_list, lengthlike=basketlike_length,postslength=len(posts),posts3length=len(posts3), review=review, count=count)
 
-
-
-
-
-
-
+@app.route('/sendreview', methods=['GET','POST'])
+def sendreview():
+    print('makereview')
+    user_id = User.query.filter(User.username == session['USERNAME']).first().id
+    text = request.form['text']
+    rate = request.form['rate']
+    flower_id = request.form['flower_id']
+    review = Review(rate=rate, text=text, user_id=user_id, flower_id=flower_id, profile_id=user_id)
+    db.session.add(review)
+    db.session.commit()
+    return jsonify({'state': 'success'})
 
 
 
