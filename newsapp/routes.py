@@ -1024,7 +1024,7 @@ def Charts():
         flash("As a customer,you can not access this page.")
         return redirect("login")
     dbEngine= db.get_engine();
-    print(dbEngine)
+    # print(dbEngine)
     ts = pd.read_sql('select timestamp,price from orders',dbEngine)
 
     ts=ts.set_index('timestamp')
@@ -1039,6 +1039,9 @@ def Charts():
     obj = pd.Series(price, index=index)
     obj = obj.resample('D').sum()
     obj = obj[-30:]
+
+    revenue = obj.sum()
+    print(revenue)
 
     index = list(obj.index)
     price = list(obj.values)
@@ -1061,9 +1064,13 @@ def Charts():
     fig.savefig(r'./newsapp/static/images/Revenue.png')
     # print('save le')
 
+    OrderF=1
+    OrderT=2
+    Regis=3
 
 
-    return render_template('Charts.html')
+
+    return render_template('Charts.html',revenue=revenue,OrderF=OrderF,OrderT=OrderT,Regis=Regis)
 
 
 

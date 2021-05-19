@@ -134,8 +134,8 @@ msgid "graphs"
 msgstr "图表"
 
 #: newsapp/templates/Charts.html:76
-msgid "Total Visits"
-msgstr "总浏览数"
+msgid "Total Revenue"
+msgstr "总营业收入"
 
 #: newsapp/templates/Charts.html:80
 msgid "Users Registered"

@@ -59,26 +59,57 @@ $(document).ready(function(){
 	{
 		if($(window).width() > 479)
 		{
-			ul.css({'display':'block'});	
+			ul.css({'display':'block'});
 			$('#content-header .btn-group').css({width:'auto'});		
 		}
-		if($(window).width() < 479)
-		{
-			ul.css({'display':'none'});
-			fix_position();
+		// if($(window).width() < 479)
+		// {
+		// 	ul.css({'display':'none'});
+		// 	fix_position();
+		// }
+
+		//Ranger leads the way, all the way sir!!!
+		if($(window).width() < 767) {
+		   $('#user-nav .btn-group').css({'display':'none'});
+		   $('.btn-group').css({'display':'none'});
+		   $('#content-header').css({marginTop:'30px'});
+
 		}
+
+
+
 		if($(window).width() > 768)
 		{
 			$('#user-nav > ul').css({width:'auto',margin:'0'});
             $('#content-header .btn-group').css({width:'auto'});
+            $('#content-header').css({marginTop:'-28px'});
+
+
+            $('#user-nav .btn-group').css({'display':'block'});
+	   		$('.btn-group').css({'display':'block'});
+		}
+
+		if($(window).width() > 768){
+			$('#content-header').css({marginTop:'-28px'});
 		}
 	});
 	
-	if($(window).width() < 468)
+	// if($(window).width() < 468)
+	// {
+	// 	ul.css({'display':'none'});
+	// 	fix_position();
+	// }
+	if($(window).width() < 767)
 	{
-		ul.css({'display':'none'});
-		fix_position();
+	   $('#user-nav .btn-group').css({'display':'none'});
+	   $('.btn-group').css({'display':'none'});
+	   $('#content-header .btn-group').css({marginTop:'30px'});
+	   $('#Blizzard').css({marginLeft:'50px'});
+
+
 	}
+
+
 	if($(window).width() > 479)
 	{
 	   $('#content-header .btn-group').css({width:'auto'});
