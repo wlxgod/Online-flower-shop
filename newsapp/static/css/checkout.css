@@ -27,16 +27,16 @@
     top: 5%;
     width: 30%;
     background-color: #e2e6ea;
-    height: 90%;
+    height: 70%;
 }
 #cart>h2{
     font-size: 30px;
     text-transform: uppercase;
     font-family: 'Josefin Sans', sans-serif;
     margin-bottom: 20px;
+    color: black;
 }
 #cart>table{
-    min-height: 50%;
     width: 90%;
 }
 #cart>table td,#cart>table th{
@@ -70,4 +70,50 @@
 }
 #name>div{
     width: 40%;
+}
+
+.contain{
+    margin: 1em 0 2em 2em;
+}
+.contain>div{
+    margin-left: 4em;
+}
+input[type="text"]{
+    border: none;
+    border-bottom: 1px solid #000;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    font-size: 18px;
+}
+#cart>table th{
+    height: 3em;
+}
+#cart>table tr{
+    height: 2em;
+}
+#wechat{
+    margin-top: 1.5em;
+}
+@media screen and (max-width: 700px){
+    #cart{
+        padding: 20px;
+        position: static;
+        background-color: #e2e6ea;
+        width: 100%;
+        height: 100%;
+    }
+    #bill{
+        position: static;
+        margin: 0;
+        width: 100%;
+        height: 100%;
+    }
+    #two{
+        height: 100%;
+        width: 100%;
+    }
+    #cart>button{
+    position: static;
+}
 }
