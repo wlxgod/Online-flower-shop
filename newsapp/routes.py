@@ -678,6 +678,7 @@ def PaymentOrder():
         order_in_db = Orders.query.filter(
             and_(Orders.state == "unpayment", Orders.user_id == user_id, Orders.id == orderId)).first()
         order_in_db.state = "Transporting"
+        order_in_db.way = "Delivery"
         db.session.commit()
         order = Orders(price=0, name=user.username, destination="Beijing university of technology",
                       state="unpayment", number=100, way="deliver", user_id=user.id)
@@ -820,6 +821,8 @@ def checkout():
         total = total + basket.total * basket.quantity
     form = CheckoutForm()
     if form.validate_on_submit():
+        order_in_db = Orders.query.filter(and_(Orders.state == "unpayment", Orders.user_id == user_id)).first()
+        order_in_db.way=form.delivery.value
         return 0
     return render_template('checkout.html', posts=posts, baskets=basket_in_db_list, length=basket_length, total=total,
                            order=order_in_db, posts2=posts2,basketslike=basketlike_in_db_list, lengthlike=basketlike_length,form=form)

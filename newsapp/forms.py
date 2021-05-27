@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileAllowed
 from wtforms import StringField, PasswordField, RadioField, SubmitField, IntegerField, \
-    TextAreaField, FloatField, MultipleFileField,FileField
+    TextAreaField, FloatField, MultipleFileField,FileField,SelectField
 from wtforms.validators import DataRequired, Length, Regexp
 
 
@@ -94,3 +94,4 @@ class CheckoutForm(FlaskForm):
     phone = StringField('Contact phone', validators=[DataRequired()])
     notes = StringField('notes', validators=[DataRequired()])
     submit = SubmitField('Proceed to checkout')
+    delivery = SelectField('Delivery', choices=[('Self-pickup', 'Self-pickup'), ('Delivery', 'Delivery')])
