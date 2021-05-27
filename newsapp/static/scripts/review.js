@@ -15,4 +15,31 @@ $(document).ready(function () {
             console.log(state['state']);
         });
     });
+
+    $('.btn-reply').click(function(){
+        var review_id = $(this).attr("id")
+        $.post('/checkidentity').done(function (result) {
+            console.log('review_id: '+review_id)
+            console.log('identity: '+result['identity'])
+            if(result['identity']=='staff'){
+                var reply = prompt('please enter your reply: ','')
+                if (reply !=null && reply !=''){
+                    console.log('start send reply')
+                    $.post('/sendreply', {
+                        'review_id': review_id,
+                        'text': reply
+                    }).done(function (state){
+                        console.log(state['state']);
+                        if(state['state']=='fail'){
+                            alert('Can only reply once!')
+                        }else{
+                            location.reload()
+                        }
+                    });
+                }
+            }else{
+                alert('Only staff can reply!')
+            }
+        })
+    });
 })

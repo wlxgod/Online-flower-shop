@@ -487,7 +487,13 @@
                                                                     <p><span>{{ r.profile.name }} -</span>
                                                                         {{ r.timestamp.strftime("%Y-%m-%d %H:%M:%S")}}</p>
                                                                 </div>
-                                                                <p>{{ r.text }}</p>
+                                                                <div>{{ r.text }}</div>
+                                                                {% for e in reply %}
+                                                                {% if r.id == e.review_id %}
+                                                                <div class="reply"> Shop reply : {{ e.text }}</div>
+                                                                {% endif %}
+                                                                {% endfor %}
+                                                                <div id="{{ r.id }}" class='btn-reply'>reply</div>
                                                             </div>
                                                         </div>
                                                         {% endfor %}
