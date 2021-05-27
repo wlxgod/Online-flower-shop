@@ -13,7 +13,7 @@ from datetime import datetime
 
 from newsapp import app, db, config
 from newsapp.forms import LoginForm, SignupForm, FlowerForm, ChangePasswordForm, CheckoutForm
-from newsapp.models import Flower, Orders, Basket, Message, Profile, News, Review, Want, Basketlike
+from newsapp.models import Flower, Orders, Basket, Message, Profile, News, Review, Want, Basketlike, Replyr
 from newsapp.models import User
 
 from flask_babel import Babel, gettext as _
@@ -604,8 +604,12 @@ def detail(id):
         total = total + basket.total * basket.quantity
     review = Review.query.filter(Review.flower_id == flower.id).order_by(Review.timestamp.desc())
     count = review.count()
+    reply = []
+    for r in review:
+        rr = Replyr.query.filter(Replyr.review_id == r.id).first()
+        reply.append(rr)
     return render_template('newproduct-details.html',flower=flower,posts=posts,posts2=posts2, posts3=posts3,baskets=basket_in_db_list, length=basket_length, total=total,
-                           order=order_in_db,basketslike=basketlike_in_db_list, lengthlike=basketlike_length,postslength=len(posts),posts3length=len(posts3), review=review, count=count)
+                           order=order_in_db,basketslike=basketlike_in_db_list, lengthlike=basketlike_length,postslength=len(posts),posts3length=len(posts3), review=review, count=count, reply=reply)
 
 @app.route('/sendreview', methods=['GET','POST'])
 def sendreview():
@@ -618,6 +622,27 @@ def sendreview():
     db.session.add(review)
     db.session.commit()
     return jsonify({'state': 'success'})
+
+@app.route('/checkidentity', methods=['GET','POST'])
+def checkidentity():
+    username = session.get("USERNAME")
+    user = User.query.filter(User.username == username).first()
+    return jsonify({'identity':user.identity})
+
+@app.route('/sendreply', methods=['GET','POST'])
+def sendreply():
+    username = session.get("USERNAME")
+    user = User.query.filter(User.username == username).first()
+    text = request.form['text']
+    review_id = request.form['review_id']
+    result = Replyr.query.filter(Replyr.review_id == review_id).first()
+    if result is None:
+        reply = Replyr(text=text, user_id = user.id, review_id=review_id)
+        db.session.add(reply)
+        db.session.commit()
+        return jsonify({'state': 'success'})
+    else:
+        return jsonify({'state': 'fail'})
 
 
 

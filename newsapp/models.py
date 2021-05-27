@@ -1,5 +1,7 @@
 import datetime
 
+from sqlalchemy.orm import backref
+
 from newsapp import db
 
 
@@ -129,4 +131,11 @@ class Review(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     profile_id = db.Column(db.Integer, db.ForeignKey('profile.id'))
     flower_id = db.Column(db.Integer)
+
+# 评论回复
+class Replyr(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer)
+    text = db.Column(db.String(250))
+    review_id = db.Column(db.Integer)
 
