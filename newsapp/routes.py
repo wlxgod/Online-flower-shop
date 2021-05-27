@@ -110,6 +110,7 @@ def login():
             return redirect(url_for('login'))
         flash('Login Successfully')
         session['USERNAME'] = user.username
+        session['COVID'] = 'False'
         if form.type.data=='0':
             return redirect('index')
         if form.type.data=='1':
@@ -133,6 +134,7 @@ def loginch():
             return redirect(url_for('loginch'))
         flash('登陆成功')
         session['USERNAME'] = user.username
+        session['COVID'] = 'False'
         if form.type.data == '0':
             return redirect('index')
         if form.type.data == '1':
@@ -155,6 +157,8 @@ def index():
     posts = posts_query.filter().all()
     posts2 = posts
     username = session.get("USERNAME")
+    sessionstatue=session.get("COVID")
+    print(sessionstatue)
     users = User.query.filter(User.username == username)
     user=users.first()
     user_id = user.id
@@ -190,7 +194,7 @@ def index():
         posts2 = Flower.query.filter(Flower.name == content).all()
         content = ""
     return render_template('newindex.html', posts=posts, baskets=basket_in_db_list, length=basket_length, total=total,
-                           order=order_in_db, posts2=posts2,basketslike=basketlike_in_db_list, lengthlike=basketlike_length)
+                           order=order_in_db, posts2=posts2,basketslike=basketlike_in_db_list, lengthlike=basketlike_length,sessionstatue=sessionstatue)
 
 
 
@@ -787,6 +791,7 @@ def addToLike():
 
 @app.route('/checkout',methods=['GET', 'POST'])
 def checkout():
+    sessionstatue=session.get("COVID")
     posts_query = Flower.query
     posts = posts_query.filter().all()
     posts2 = posts
@@ -825,7 +830,7 @@ def checkout():
         order_in_db.way=form.delivery.value
         return 0
     return render_template('checkout.html', posts=posts, baskets=basket_in_db_list, length=basket_length, total=total,
-                           order=order_in_db, posts2=posts2,basketslike=basketlike_in_db_list, lengthlike=basketlike_length,form=form)
+                           order=order_in_db, posts2=posts2,basketslike=basketlike_in_db_list, lengthlike=basketlike_length,form=form,sessionstatue=sessionstatue)
 
 
 @app.route('/complete')
@@ -1287,3 +1292,21 @@ def Change_Address(order_id):
         print(request.method)
         return redirect(url_for('ModifyOrder', order_id=order.id))
 
+
+@app.route('/COVID/', methods=['GET', 'POST'])
+def COVID():
+    c = 0
+    if session['COVID'] == 'True':
+        c = 1
+        return render_template('COVID.html', title='COVID-19 Model', c=c)
+    elif session['COVID'] == 'False':
+        return render_template('COVID.html', title='COVID-19 Model', c=c)
+
+
+@app.route('/COVID_Change/', methods=['GET', 'POST'])
+def COVID_Change():
+    if session['COVID'] == 'False':
+        session['COVID'] = 'True'
+    elif session['COVID'] == 'True':
+        session['COVID'] = 'False'
+    return redirect(url_for('COVID'))

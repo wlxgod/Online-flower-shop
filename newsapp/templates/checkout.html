@@ -352,6 +352,9 @@
             <div>
                 <h5>{{ form.delivery.label }}</h5>
                 {{ form.delivery(size=64,id="delivery") }}
+                {% if sessionstatue== 'True' %}
+                    <h6><font color="red">tip:No self-pickup during the epidemic</font></h6>
+                {% endif %}
             </div>
 
         </div>

@@ -307,8 +307,14 @@
         <div class="hero-slider-active slick-arrow-style slick-arrow-style_hero slick-dot-style">
             <!-- single slider item start -->
             <div class="hero-single-slide ">
+                {% if sessionstatue== 'True' %}
+                <div class="hero-slider-item bg-img"
+                     data-bg="{{ url_for('static',filename='images/img/slider/home1-slide4.jpg') }}">
+                    {% endif %}
+            {% if sessionstatue== 'False' %}
                 <div class="hero-slider-item bg-img"
                      data-bg="{{ url_for('static',filename='images/img/slider/home1-slide1.jpg') }}">
+                    {% endif %}
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12">
@@ -316,7 +322,9 @@
                                     <span>{{ _('Presented by Group 15') }}</span>
                                     <h1>{{ _('Fresh Your Mind') }}</h1>
                                     <h2>& {{ _('Feeling the World') }}</h2>
+                                    {% if sessionstatue== 'True' %}
                                     <h3><font color="red">(Epidemic Special Edition)</font></h3>
+                                    {% endif %}
                                     <a href="{{ url_for('shop') }}" class="btn-hero">{{ _('Go Shop Now') }}</a>
                                 </div>
                             </div>
@@ -337,7 +345,9 @@
                                     <span>{{ _('Presented by Group 15') }}</span>
                                     <h1>{{ _('Cherish Now') }}</h1>
                                     <h2>& {{ _('Fall in Love') }}</h2>
+                                    {% if sessionstatue== 'True' %}
                                     <h3><font color="red">(Epidemic Special Edition)</font></h3>
+                                    {% endif %}
                                     <a href="{{ url_for('shop') }}" class="btn-hero">{{ _('Go Shop Now') }}</a>
                                 </div>
                             </div>
@@ -973,9 +983,11 @@
                 </div>
 
                 <div class="minicart-pricing-box">
+                    {% if sessionstatue== 'True' %}
                     <ul>
                         <h6><font color="red">tip:No self-pickup during the epidemic</font></h6>
                     </ul>
+                    {% endif %}
                     <ul>
                         <li class="total">
                             <span>{{ _('Total') }}</span>

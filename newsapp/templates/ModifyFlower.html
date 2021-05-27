@@ -26,17 +26,10 @@
 </div>
 <div id="user-nav" class="navbar navbar-inverse">
     <ul class="nav btn-group">
-        <li class="btn btn-inverse"><a title="" href="#"><i class="icon icon-user"></i> <span class="text">{{ _('Personal datails') }}</span></a></li>
-        <li class="btn btn-inverse dropdown" id="menu-messages"><a href="#" data-toggle="dropdown" data-target="#menu-messages" class="dropdown-toggle"><i class="icon icon-envelope"></i> <span class="text">{{ _('Message') }}</span> <span class="label label-important">5</span> <b class="caret"></b></a>
-            <ul class="dropdown-menu">
-                <li><a class="sAdd" title="" href="#">{{ _('New Messages') }}</a></li>
-                <li><a class="sInbox" title="" href="#">{{ _('Inbox') }}</a></li>
-                <li><a class="sOutbox" title="" href="#">{{ _('Outbox') }}</a></li>
-                <li><a class="sTrash" title="" href="#">{{ _('Send') }}</a></li>
-            </ul>
-        </li>
-        <li class="btn btn-inverse"><a title="" href="#"><i class="icon icon-cog"></i> <span class="text">{{ _('Settings') }}</span></a></li>
-        <li class="btn btn-inverse"><a title="" href="login.html"><i class="icon icon-share-alt"></i> <span class="text">{{ _('Logout') }}</span></a></li>
+        <li class="btn btn-inverse"><a title="" href="{{ url_for('OrderDisplay') }}"><i class="icon icon-user"></i> <span class="text">{{ _('Order Table') }}</span></a></li>
+                 <li class="btn btn-inverse" id="menu-messages"><a href="{{ url_for('ChatRoom') }}" ><i class="icon icon-envelope"></i> <span class="text">{{ _('Message') }}</span>  <b class="caret"></b></a></li>
+                <li class="btn btn-inverse"><a title="" href="{{ url_for('Flowers') }}"><i class="icon icon-cog"></i> <span class="text">{{ _('Flowers') }}</span></a></li>
+                <li class="btn btn-inverse"><a title="" href="login"><i class="icon icon-share-alt"></i> <span class="text">{{ _('Logout') }}</span></a></li>
     </ul>
 </div>
 
@@ -51,10 +44,10 @@
     <div id="content-header">
         <h1>{{ _('Modify Flower form') }}</h1>
         <div class="btn-group">
-            <a class="btn btn-large tip-bottom" title="Manage Files"><i class="icon-file"></i></a>
-            <a class="btn btn-large tip-bottom" title="Manage Users"><i class="icon-user"></i></a>
-            <a class="btn btn-large tip-bottom" title="Manage Comments"><i class="icon-comment"></i><span class="label label-important">5</span></a>
-            <a class="btn btn-large tip-bottom" title="Manage Orders"><i class="icon-shopping-cart"></i></a>
+            <a class="btn btn-large tip-bottom" title="Add Flower" href="{{ url_for('addflower') }}"><i class="icon-file"></i></a>
+					<a class="btn btn-large tip-bottom" title="Charts" href="{{ url_for('Charts') }}"><i class="icon-user"></i></a>
+					<a class="btn btn-large tip-bottom" title="Chatroom" href="{{ url_for('ChatRoom') }}"><i class="icon-comment"></i></a>
+					<a class="btn btn-large tip-bottom" title="COVID-19 Model" href="{{ url_for('COVID') }}"><i class="icon-shopping-cart"></i></a>
         </div>
     </div>
     <div id="breadcrumb">
