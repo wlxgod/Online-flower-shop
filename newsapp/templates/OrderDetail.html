@@ -151,19 +151,28 @@
                             </div>
                             <p class="status-word">
                                 {% if order.state == "Completed" %}
-                                Current Status: <span class="text-success">{{ _('Completed') }}</span>
+                                    <div class="alert alert-success CSDis" role="alert">
+                                        Current Status:
+                                        <span class="text-success strong">{{ _('Lated') }}        </span>
                                 {% elif order.state == "Transporting"%}
                                 <div class="alert alert-info CSDis" role="alert">
                                 Current Status:
                                 <span class="text-info strong">{{ _('Transporting') }}        </span>
                                 </div>
                                 {% elif order.state == "Lated" %}
-                                Current Status: <span class="text-error">{{ _('Lated') }}</span>
+                                    <div class="alert alert-error CSDis" role="alert">
+                                        Current Status:
+                                        <span class="text-error strong">{{ _('Lated') }}        </span>
+
+                                {% elif order.state == "Urgent" %}
+                                    <div class="alert alert-warning CSDis" role="alert">
+                                        Current Status:
+                                        <span class="text-warning strong">{{ _('Urgent') }}        </span>
                                 {% endif %}
                             </p>
 
 
-                            <p class="help-block">
+                            <p class="help-block Hmargin">
                                 <strong>{{ _('Note') }}:</strong>{{ _('The flower is fresh. Please send it as soon as possible!') }}
 
 
@@ -193,6 +202,7 @@
 <script src="/static/scripts/jquery.ui.custom.js"></script>
 <script src="/static/scripts/bootstrap.min.js"></script>
 <script src="/static/scripts/unicorn.js"></script>
+
 
 
             <script>

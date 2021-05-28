@@ -1427,6 +1427,7 @@ form {
 }
 .help-block, .help-inline {
     color: #999999;
+	margin-top: 26px;
 }
 .backgroundB{
 	z-index: 2;

@@ -133,9 +133,11 @@ msgstr "主页"
 msgid "graphs"
 msgstr "图表"
 
-#: newsapp/templates/Charts.html:76
+#: newsapp/templates/Charts.html:70
 msgid "Total Revenue"
 msgstr "总营业收入"
+
+
 
 #: newsapp/templates/Charts.html:80
 msgid "Users Registered"
@@ -165,6 +167,10 @@ msgstr "在这里畅所欲言吧！"
 #: newsapp/templates/ChatRoom.html:90 newsapp/templates/OrderDisplay.html:92
 msgid "Customer"
 msgstr "用户名"
+
+#: newsapp/templates/ChatRoom.html:90 newsapp/templates/OrderDisplay.html:115
+msgid "Urgent"
+msgstr "紧急件"
 
 #: newsapp/templates/FlowerGallery.html:53
 #: newsapp/templates/FlowerGallery.html:73

@@ -1302,13 +1302,16 @@ input:focus:required:invalid:focus, textarea:focus:required:invalid:focus, selec
 }
 
 .help-block, .help-inline {
-    color: #595959
+    color: #595959;
+    margin-top: 10px;
 }
 
 .help-block {
     display: block;
-    margin-bottom: 10px
+    margin-bottom: 10px;
+    margin-top: 10px;
 }
+
 
 .help-inline {
     display: inline-block;
