@@ -252,6 +252,22 @@
                                     </li>
                                 </ul>
                             </div>
+
+                            {% elif order.state == "Urgent"%}
+                        <div class="alert alert-warning CSMod superBorder" role="alert">
+                            {{ _('Current Status') }}:
+                            <span class="text-warning strong">{{ _('Urgent') }}        </span>
+
+                            <div class="btn-group btn-CS">
+                                <button type="button" class="btn btn-warning dropdown-toggle CS superBorder" data-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false">
+                                    {{ _('Modify Status') }} <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a href="{{ url_for('Order_state_C', order_id=order.id) }}">{{ _('Completed') }}</a></li>
+                                    <li><a href="{{ url_for('Order_state_L', order_id=order.id) }}">{{ _('Lated') }}</a></li>
+                                </ul>
+                            </div>
                             {% endif %}
 
                             </p>
