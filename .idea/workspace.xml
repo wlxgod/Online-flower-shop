@@ -5,13 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a1e85ceb-f8b8-4f7a-a03d-aeda75464efe" name="Default Changelist" comment="Merge remote-tracking branch 'origin/y5.27' into main&#10;&#10;# Conflicts:&#10;#&#9;newsapp/__pycache__/forms.cpython-38.pyc&#10;#&#9;newsapp/__pycache__/routes.cpython-38.pyc&#10;#&#9;newsapp/newsdb.db">
+      <change afterPath="$PROJECT_DIR$/newsapp/static/images/1234i_love_you1_img.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newsapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/newsapp/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/newsapp/newsdb.db" beforeDir="false" afterPath="$PROJECT_DIR$/newsapp/newsdb.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/newsapp/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/newsapp/routes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newsapp/templates/ModifyOrders.html" beforeDir="false" afterPath="$PROJECT_DIR$/newsapp/templates/ModifyOrders.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newsapp/templates/checkout.html" beforeDir="false" afterPath="$PROJECT_DIR$/newsapp/templates/checkout.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -254,7 +251,7 @@
       <workItem from="1622116939410" duration="3617000" />
       <workItem from="1622174064240" duration="3305000" />
       <workItem from="1622187233963" duration="31000" />
-      <workItem from="1622428186091" duration="964000" />
+      <workItem from="1622428186091" duration="3856000" />
     </task>
     <servers />
   </component>
@@ -294,6 +291,16 @@
           <line>650</line>
           <option name="timeStamp" value="12" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/newsapp/routes.py</url>
+          <line>1021</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/newsapp/routes.py</url>
+          <line>1037</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/newsapp/static/scripts/index1.js</url>
           <line>1</line>
@@ -310,7 +317,7 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/newFlower$app.coverage" NAME="app Coverage Results" MODIFIED="1618492058809" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Online_flower_shop$Online_flower_shop.coverage" NAME="Online-flower-shop Coverage Results" MODIFIED="1620740272172" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Online_flower_shop$app.coverage" NAME="app Coverage Results" MODIFIED="1622428555178" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Online_flower_shop$app.coverage" NAME="app Coverage Results" MODIFIED="1622444960488" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/newFlower4_17$app.coverage" NAME="app Coverage Results" MODIFIED="1618708256048" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

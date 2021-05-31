@@ -1032,7 +1032,10 @@ def Modify(flower_id):
             flower.name = request.values.get('name')
             flower.intro = request.values.get('detail')
             flower.price = request.values.get('price')
-            if request.files.get("photos") != 'null':
+            print("__________________________________fuck___________________________")
+            CAONIMA=request.files.get("photos").filename
+            print(len(request.files.get("photos").filename))
+            if len(request.files.get("photos").filename)!=0:
                 file_obj = request.files.get('photos')
                 file_name = secure_filename(file_obj.filename)
                 file_obj.save(os.path.join(img_dir, file_name))
