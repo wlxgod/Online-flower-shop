@@ -1064,11 +1064,13 @@ def Charts():
     fig = plt.figure(figsize=(20, 6))
     plt.style.use('ggplot')
     ax = fig.add_subplot(1, 1, 1)
-    """lab = ax.set_xticklabels(labels=xaxis, rotation=40, fontsize='xx-large')"""
-    """ax.set_title('Revenue In Last Month')
+    # ax.set_xticklabels(labels=xaxis, rotation=40, fontsize='xx-large')
+    ax.tick_params(axis='x', direction='in', labelrotation=40, labelsize=19, pad=2,labelcolor= "#f40")
+    ax.tick_params(axis='y', direction='in', labelsize=20, pad=4,labelcolor= "#7B68EE")
+    ax.set_title('Revenue In Last Month',fontsize=30,color= 'brown')
     plt.plot(xaxis, price, 'go--')
     # plt.show()
-    fig.savefig(r'./newsapp/static/images/Revenue.png')"""
+    fig.savefig(r'./newsapp/static/images/Revenue.png')
     # print('save le')
 
     OrderF=1
