@@ -14,7 +14,7 @@ from datetime import datetime
 from newsapp import app, db, config
 from newsapp.forms import LoginForm, SignupForm, FlowerForm, ChangePasswordForm, CheckoutForm
 from newsapp.models import Flower, Orders, Basket, Message, Profile, News, Review, Want, Basketlike, Replyr
-from newsapp.models import User
+from newsapp.models import User, COVID19
 
 from flask_babel import Babel, gettext as _
 # from flask_babel import Babel
@@ -99,6 +99,11 @@ def login():
     form = LoginForm()
     if form.validate_on_submit():
         user = User.query.filter(User.username == form.username.data).first()
+        covid = COVID19.query.filter(COVID19.id == 1).first()
+        if covid is None:
+            new_covid = COVID19(stage='False')
+            db.session.add(new_covid)
+            db.session.commit()
         if user is None:
             flash("Please Register or Retry With a Valid Username")
             return redirect(url_for('login'))
@@ -123,6 +128,11 @@ def loginch():
     form = LoginForm()
     if form.validate_on_submit():
         user = User.query.filter(User.username == form.username.data).first()
+        covid = COVID19.query.filter(COVID19.id == 1).first()
+        if covid is None:
+            new_covid = COVID19(stage='False')
+            db.session.add(new_covid)
+            db.session.commit()
         if user is None:
             flash("请用有效的用户名注册或重试")
             return redirect(url_for('loginch'))
@@ -157,7 +167,8 @@ def index():
     posts = posts_query.filter().all()
     posts2 = posts
     username = session.get("USERNAME")
-    sessionstatue=session.get("COVID")
+    covid = COVID19.query.filter(COVID19.id == 1).first()
+    sessionstatue=covid.stage
     print(sessionstatue)
     users = User.query.filter(User.username == username)
     user=users.first()
@@ -618,7 +629,7 @@ def detail(id):
 @app.route('/sendreview', methods=['GET','POST'])
 def sendreview():
     print('makereview')
-    user_id = User.query.filter(User.username == session['USERNAME']).first().id
+    user_id = User.query.filter(User.username == session['USERNAME']).first().idf
     text = request.form['text']
     rate = request.form['rate']
     flower_id = request.form['flower_id']
@@ -816,7 +827,8 @@ def addToLike():
 
 @app.route('/checkout',methods=['GET', 'POST'])
 def checkout():
-    sessionstatue=session.get("COVID")
+    covid = COVID19.query.filter(COVID19.id == 1).first()
+    sessionstatue = covid.stage
     posts_query = Flower.query
     posts = posts_query.filter().all()
     posts2 = posts
@@ -997,7 +1009,7 @@ def OrderDetail(order_id):
     baskets = Basket.query.filter(Basket.order_id == order_id)
     total = 0
     for basket in baskets:
-        total = total + basket.total
+        total = total + basket.total* basket.quantity
     return render_template('OrderDetail.html', title='Order Display', order=order, flowers=flowers, orders=orders,
                            total=total, baskets=baskets)
 
@@ -1289,6 +1301,13 @@ def Order_state_L(order_id):
     db.session.commit()
     return redirect(url_for('ModifyOrder', order_id=order.id))
 
+@app.route('/Order_state_U/<order_id>', methods=['GET', 'POST'])
+def Order_state_U(order_id):
+    order = Orders.query.filter(Orders.id == order_id).first()
+    order.state = 'Urgent'
+    db.session.commit()
+    return redirect(url_for('ModifyOrder', order_id=order.id))
+
 
 @app.route('/Order_Delete/<order_id>', methods=['GET', 'POST'])
 def Order_Delete(order_id):
@@ -1321,17 +1340,21 @@ def Change_Address(order_id):
 @app.route('/COVID/', methods=['GET', 'POST'])
 def COVID():
     c = 0
-    if session['COVID'] == 'True':
+    covid = COVID19.query.filter(COVID19.id == 1).first()
+    if covid.stage == 'True':
         c = 1
         return render_template('COVID.html', title='COVID-19 Model', c=c)
-    elif session['COVID'] == 'False':
+    elif covid.stage == 'False':
         return render_template('COVID.html', title='COVID-19 Model', c=c)
 
 
 @app.route('/COVID_Change/', methods=['GET', 'POST'])
 def COVID_Change():
-    if session['COVID'] == 'False':
-        session['COVID'] = 'True'
-    elif session['COVID'] == 'True':
-        session['COVID'] = 'False'
+    covid = COVID19.query.filter(COVID19.id == 1).first()
+    if covid.stage == 'False':
+        covid.stage = 'True'
+        db.session.commit()
+    elif covid.stage == 'True':
+        covid.stage = 'False'
+        db.session.commit()
     return redirect(url_for('COVID'))

@@ -206,6 +206,7 @@
                             <ul class="dropdown-menu">
                                 <li><a href="{{ url_for('Order_state_L', order_id=order.id) }}">{{ _('Lated') }}</a></li>
                                 <li><a href="{{ url_for('Order_state_T', order_id=order.id) }}">{{ _('Transporting') }}</a></li>
+                                <li><a href="{{ url_for('Order_state_U', order_id=order.id) }}">{{ _('Urgent') }}</a></li>
                             </ul>
                         </div>
 
@@ -223,6 +224,7 @@
                                 <ul class="dropdown-menu">
                                     <li><a href="{{ url_for('Order_state_C', order_id=order.id) }}">{{ _('Completed') }}</a></li>
                                     <li><a href="{{ url_for('Order_state_L', order_id=order.id) }}">{{ _('Lated') }}</a></li>
+                                    <li><a href="{{ url_for('Order_state_U', order_id=order.id) }}">{{ _('Urgent') }}</a></li>
                                 </ul>
                             </div>
 
@@ -238,6 +240,7 @@
                                     <li><a href="{{ url_for('Order_state_C', order_id=order.id) }}">{{ _('Completed') }}</a></li>
                                     <li><a href="{{ url_for('Order_state_T', order_id=order.id) }}">{{ _('Transporting') }}</a>
                                     </li>
+                                    <li><a href="{{ url_for('Order_state_U', order_id=order.id) }}">{{ _('Urgent') }}</a></li>
                                 </ul>
                             </div>
 
@@ -254,6 +257,7 @@
                                 <ul class="dropdown-menu">
                                     <li><a href="{{ url_for('Order_state_C', order_id=order.id) }}">{{ _('Completed') }}</a></li>
                                     <li><a href="{{ url_for('Order_state_L', order_id=order.id) }}">{{ _('Lated') }}</a></li>
+                                    <li><a href="{{ url_for('Order_state_T', order_id=order.id) }}">{{ _('Transporting') }}</a></li>
                                 </ul>
                             </div>
                             {% endif %}

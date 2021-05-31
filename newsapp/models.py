@@ -139,3 +139,7 @@ class Replyr(db.Model):
     text = db.Column(db.String(250))
     review_id = db.Column(db.Integer)
 
+
+class COVID19(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    stage = db.Column(db.String(50))

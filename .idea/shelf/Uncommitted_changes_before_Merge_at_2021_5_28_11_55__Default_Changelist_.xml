@@ -1,0 +1,9 @@
+<changelist name="Uncommitted_changes_before_Merge_at_2021_5_28_11_55_[Default_Changelist]" date="1622174141977" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_2021_5_28_11_55_[Default_Changelist]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Merge at 2021/5/28 11:55 [Default Changelist]" />
+  <binary>
+    <option name="BEFORE_PATH" value="newsapp/newsdb.db" />
+    <option name="AFTER_PATH" value="newsapp/newsdb.db" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_2021_5_28_11_55_[Default_Changelist]/newsdb.db" />
+  </binary>
+</changelist>
